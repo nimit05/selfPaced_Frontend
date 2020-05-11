@@ -3,8 +3,11 @@
     flex-direction: row;
     justify-content: space-between;
     // background-image: linear-gradient($primary, $secondary);
-    background-color: $dark;
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
     padding: 10px;
+    top: 50px;
 }
 
 .cat_btn {
