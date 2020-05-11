@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+
 
 export default class SignIN extends React.Component {
 	constructor(props) {
@@ -9,7 +9,6 @@ export default class SignIN extends React.Component {
 	render() {
 		return (
 			<div className="SignIn">
-				<Button>hllo</Button>
 				<form>
 					<label for="username">
 						<b>Username</b>

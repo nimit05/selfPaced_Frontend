@@ -1,18 +1,8 @@
 import React from 'react';
 import homePage from './HomePage';
-import pblogo from './';
+// import pblogo from './';
 
 const Header = () => {
-<<<<<<< HEAD
-	return (
-		<div className="header_cont">
-			<img src={pblogo} alt=" " />
-			<span>PuraniBooks</span>
-			<span>.com</span>
-		</div>
-	);
-};
-=======
    return (
        <div>
        <div className = "titlebtn">
@@ -24,6 +14,5 @@ const Header = () => {
        </div>
    )
 }
->>>>>>> 91b06242c000cac3995403a857d076e1c8f4dbd2
 
 export default Header;
