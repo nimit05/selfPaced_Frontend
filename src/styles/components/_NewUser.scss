@@ -2,15 +2,20 @@
     margin: auto;
     text-align: center;
     padding: 1rem;
+    border: black;  
 }
 
 .SignUp{
-    background-color: white;
-    color:palevioletred;
-    font-size: 1rem;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  background-color: #393737;
+  border-radius: 0.5rem;
 }
 
-.SignUp:hover {
-  color: black;
-  background-color: palevioletred;
-}
+// .SignUp:hover {
+//   color: black;
+//   background-color: palevioletred;
+// }

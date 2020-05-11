@@ -19,7 +19,9 @@ export default class SignIN extends React.Component{
             
             <input type = "password" name = "password" />
             <div class="psw">Forgot <a href="#">password?</a></div>
-           <input type = "submit" className = "loginbtn" />
+            <div className = "divbtn">
+           <button className = "lgnbtn">Continue</button>
+           </div>
             </form>
             </div>
         )
