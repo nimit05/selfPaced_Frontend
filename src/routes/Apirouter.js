@@ -2,7 +2,7 @@ import React from 'react'
 // import ReactDOM from 'react-dom'
 import LoginPage from '../components/LoginPage'
 import homePage from '../components/HomePage'
-import Container from '../components/container'
+import productbox from '../components/container'
 import { BrowserRouter , Route , Switch , NavLink } from 'react-router-dom'
 
 const Header = () => (
@@ -19,7 +19,7 @@ const Apiroute = () => (
     <Header />  
     <Switch>
     <Route path = "/login" component = {LoginPage}  />
-    <Route path = "/container" component = {Container}  />
+    <Route path = "/container" component = {productbox}  />
     <Route path = "/" component = {homePage} exact = {true} />
     </Switch>
     </div>
