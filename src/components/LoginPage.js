@@ -7,7 +7,7 @@ export default class LoginPage extends React.Component{
     render(){
         return (
             <div className = "loginPage">
-            <div className = "container">
+            <div className = "cont">
             <div className= "container2">
             <div className = "subcont">
             <Header />
