@@ -6,7 +6,7 @@ const Header = () => {
    return (
        <div>
        <div className = "titlebtn">
-       <button className = "title" onClick = {homePage}>PuraniBooks<b className = "com">.com</b></button>
+       <button className = "titl" onClick = {homePage}>PuraniBooks<b className = "com">.com</b></button>
        </div>
        <h2 className = "subtitle">
        Login 
