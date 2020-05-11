@@ -1,18 +1,14 @@
-import React from 'react'
-import homePage from '../components/HomePage'
-
+import React from 'react';
+import homePage from './HomePage';
 
 const Header = () => {
-   return (
-       <div>
-       <div className = "titlebtn">
-       <button className = "title" onClick = {homePage}>PuraniBooks<b className = "com">.com</b></button>
-       </div>
-       <h2 className = "subtitle">
-       Login 
-       </h2>
-       </div>
-   )
-}
+	return (
+		<div className="header_cont">
+			<img src={pblogo} alt=" " />
+			<span>PuraniBooks</span>
+			<span>.com</span>
+		</div>
+	);
+};
 
-export default Header
+export default Header;
