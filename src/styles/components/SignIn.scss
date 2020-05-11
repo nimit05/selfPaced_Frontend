@@ -20,14 +20,18 @@ input[type=text], input[type=password]{
     }
 
 .lgnbtn{
-    color: white;
+    color: #ee6535;
   padding: 14px 20px;
-  border: none;
+  border: #ee6535;
   cursor: pointer;  
   width: 100%;
-  background-color: #ee6535;
+  background-color: white;
   border-radius: 0.5rem;
 
+}
+.lgnbtn:hover{
+    background-color:#ee6535 ;
+    color: white;
 }
 
 
