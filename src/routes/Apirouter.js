@@ -1,7 +1,7 @@
 import React from 'react';
 // import ReactDOM from 'react-dom'
 import LoginPage from '../components/LoginPage';
-import homePage from '../components/HomePage';
+import HomePage from '../components/HomePage';
 import productbox from '../components/container';
 import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
 
@@ -16,12 +16,12 @@ const Header = () => (
 const Apiroute = () => (
 	<BrowserRouter>
 		<div>
-			 <Header /> 
 			<Switch>
 				<Route path="/login" component={LoginPage} />
 				<Route path="/container" component={productbox} />
-				<Route path="/" component={homePage} exact={true} />
+				<Route path="/" component={HomePage} exact={true} />
 			</Switch>
+			<Header />
 		</div>
 	</BrowserRouter>
 );

@@ -1,0 +1,82 @@
+.MainHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // background-image: linear-gradient($primary, $secondary);
+    background-color: $dark;
+    padding: 10px;
+}
+
+.cat_btn {
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+.user_btn_con {
+    width: 30%;
+    button {
+        background-color: transparent;
+        color: $light;
+        font-size: 16px;
+        padding: 5px 25px;
+        font-weight: 300;
+    }
+
+    img {
+        height: 30px;
+        cursor: pointer;
+    }
+}
+
+#reg_btn {
+    background-color: $secondary;
+    color: white;
+    border-radius: 20px;
+}
+#reg_btn:hover {
+    background-color: $primary;
+    color: white;
+    border-radius: 20px;
+}
+
+.cat_btn_con {
+    width: 65%;
+    button {
+        background-color: transparent;
+        color: $light;
+        font-size: 17px;
+        padding: 5px 25px;
+    }
+
+    img {
+        height: 30px;
+        cursor: pointer;
+    }
+}
+
+#cat_btn_drop {
+    width: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    // padding: 5px 0px;
+    padding: 5px;
+    background-color: $secondary;
+    border-radius: 20px;
+
+    span {
+        // margin-top: 5px;
+    }
+    img {
+        // margin-top: 5px;
+        height: 20px;
+    }
+}
