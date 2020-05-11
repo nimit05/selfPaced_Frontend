@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Header from './Header';
 
 const homePage = () => {
-    return(
-        <div>
-        <h1>This is PuranibOOk.com</h1>
-        </div>
-    )
-}
+	return (
+		<div>
+			<Header />
 
-export default homePage
+			<h1>This is PuranibOOk.com</h1>
+		</div>
+	);
+};
+
+export default homePage;
