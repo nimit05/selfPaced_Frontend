@@ -1,6 +1,7 @@
 .SignIn{
     font-size: 1.2rem;
     padding: 0 1.1rem;
+    color: white;
 }
 
 input[type=text], input[type=password]{
@@ -10,17 +11,25 @@ input[type=text], input[type=password]{
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  border-radius: 0.5rem;
+
 }
 
-input[type=submit]{
+    .divbtn{
+        padding: 5% 25%;
+    }
+
+.lgnbtn{
     color: white;
   padding: 14px 20px;
-  margin: auto;
   border: none;
   cursor: pointer;
   width: 100%;
-  background-color: #FF94B1;
+  background-color: #ee6535;
+  border-radius: 0.5rem;
+
 }
+
 
 .psw{
     text-align: right;
@@ -45,7 +54,7 @@ input[type=submit]{
     text-align: center;
     margin: auto;
 }
-.loginbtn{
+.lgnbtn{
     text-align: center;
     font-size: 0.4rem;
      padding: 5px 8px;
@@ -53,7 +62,7 @@ input[type=submit]{
 }
 
 @media(max-width : 18rem){
-    .loginbtn{
+    .lgnbtn{
         padding : 8px 10px;
         font-size: 0.1rem;
         text-align: left;
