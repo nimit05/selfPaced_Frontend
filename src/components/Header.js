@@ -1,5 +1,6 @@
 import React from 'react';
 import homePage from './HomePage';
+import pblogo from './';
 
 const Header = () => {
 	return (
