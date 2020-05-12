@@ -1,8 +1,5 @@
 {
-	"workspaces": [
-		"workspace-a",
-		"workspace-b"
-	],
+	"workspaces": [ "workspace-a", "workspace-b" ],
 	"name": "puranibooks_frontend",
 	"proxy": "http://localhost:5123",
 	"version": "0.1.0",
@@ -22,6 +19,7 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
+		"postbuild": "rm -r -f ../puranibook/build && mv build ../puranibook/",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
@@ -29,15 +27,7 @@
 		"extends": "react-app"
 	},
 	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
+		"production": [ ">0.2%", "not dead", "not op_mini all" ],
+		"development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
 	}
 }
