@@ -19,15 +19,12 @@
 }
 .old{
   width: 95px;
-//   height: 15px;
-// font-size: 0px;
 line-height: 0%;
-//   background:$;
   border-top: 20px solid $primary;
   border-right: 20px solid transparent;
  border-left: 20px solid transparent;
  transform: rotate(-225deg);
-
+position: absolute;
 }
 .inclined{
   transform: translate(-28px , 30px);

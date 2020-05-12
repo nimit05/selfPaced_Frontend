@@ -15,7 +15,7 @@ export default class Productbox extends React.Component {
           <div className = "productcont">
           <div className = "strip"></div>
           <div className = "inclined">
-          <div className = "old"></div>
+          <div className = "old">old</div>
           </div>
           </div>
         )

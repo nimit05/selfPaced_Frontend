@@ -1,3 +1,43 @@
+
+.cont{
+    max-width: 40vh;
+    min-width: 18vh;
+    margin:  auto;
+    padding: 5rem;
+    height: 80rem   ;
+}
+
+.container2{
+    width: 100%;
+    background: linear-gradient(#8a8888 , #393737);
+box-shadow: 5px 5px 30px #FFFFFF;
+border: 1px solid #707070;
+border-radius: 24px;
+
+padding: 0.5rem;
+}
+
+.subcont{
+    padding: 1rem;
+}
+
+@media(max-width : 30rem){
+    .container2{
+        height: 25rem;
+
+    }
+}
+
+@media(max-width : 15rem){
+    .subcont{
+        padding: 0rem;
+    }
+  
+}
+
+
+
+
 .subtitle{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -6,7 +46,7 @@
 }
 
 .com{
-    color: #ee6535;
+    color: $primary;
 }
 
 .titlebtn{
@@ -42,6 +82,7 @@
        .titl{
            text-align: center;
            font-size: 0.8rem;
+           margin-bottom: 0px;
        }
        .subtitle{
            font-size: 0.6rem;
@@ -64,7 +105,7 @@
     color: white;
 }
 
-input[type=text], input[type=password]{
+input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
   margin: 8px 0;
@@ -80,9 +121,9 @@ input[type=text], input[type=password]{
     }
 
 .lgnbtn{
-    color: #ee6535;
+    color: $primary;
   padding: 14px 20px;
-  border: #ee6535;
+  border: $primary;
   cursor: pointer;  
   width: 100%;
   background-color: white;
@@ -90,7 +131,7 @@ input[type=text], input[type=password]{
 
 }
 .lgnbtn:hover{
-    background-color:#ee6535 ;
+    background-color:$primary ;
     color: white;
 }
 
@@ -174,42 +215,3 @@ input[type=text], input[type=password]{
 .SignUp:hover {
   background-color: #393737;
 }
-
-.cont{
-    max-width: 40vh;
-    min-width: 18vh;
-    margin:  auto;
-    padding: 5rem;
-    height: 80rem;
-}
-
-.container2{
-    width: 100%;
-    background: linear-gradient(#8a8888 , #393737);
-box-shadow: 5px 5px 30px #FFFFFF;
-border: 1px solid #707070;
-border-radius: 24px;
-
-padding: 0.5rem;
-}
-
-.subcont{
-    padding: 1rem;
-}
-
-@media(max-width : 30rem){
-    .container2{
-        height: 25rem;
-
-    }
-}
-
-@media(max-width : 15rem){
-    .subcont{
-        padding: 0rem;
-    }
-  
-}
-
-
-
