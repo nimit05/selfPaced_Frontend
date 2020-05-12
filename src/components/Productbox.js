@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import bookcover from '../img/bookcover.jpg';
 
 // <div className = "condition">Condition : <span className = "good">{this.state.isgood ?  "good" : "poor" } </span></div>
 

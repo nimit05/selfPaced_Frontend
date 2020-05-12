@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import MainHeader from './MainHeader';
 import MainSearch from './MainSearch';
+import CateCon from './CateCon';
 
 class HomePage extends React.Component {
 	componentDidMount() {
@@ -31,37 +32,9 @@ class HomePage extends React.Component {
 				<Header />
 				<MainHeader />
 				<MainSearch />
-
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
-				<h1>This is PuranibOOk.com</h1>
+				<CateCon />
+				<CateCon />
+				<CateCon />
 			</div>
 		);
 	}

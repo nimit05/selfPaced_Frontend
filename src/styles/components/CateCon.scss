@@ -1,0 +1,35 @@
+.CateCon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow-x: hidden;
+    margin: 50px auto;
+}
+
+.cate_head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    h1 {
+        margin-left: 30px;
+        color: $dark;
+    }
+
+    h3 {
+        color: gray;
+        cursor: pointer;
+    }
+}
+
+.cate_body {
+    overflow-x: scroll;
+
+    white-space: nowrap;
+
+    width: 100%;
+}
+
+.cate_body::-webkit-scrollbar {
+    display: none;
+}
