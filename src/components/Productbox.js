@@ -1,5 +1,5 @@
 import React from 'react';
-// import bookcover from '../img/bookcover.jpg';
+import bookcover from '../img/bookcover.jpg';
 
 // props to send are {1 title 2 tag 3 bookimg 4 stitle 5 short_des 6 price}
 
