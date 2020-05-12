@@ -52,7 +52,7 @@ const Header = () => {
 
 					<input type="password" name="password" />
 					<div class="psw">
-						Forgot <a href="#">password?</a>
+						Forgot <a  className ="pass" href="#">password?</a>
 					</div>
 					<div className="divbtn">
 						<button className="lgnbtn">Continue</button>
