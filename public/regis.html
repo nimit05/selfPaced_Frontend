@@ -14,8 +14,8 @@
   <div class="form">
 
     <ul class="tab-group">
-      <li class="tab active tabp"><a id="tab_left" href="#signup">Personal Details</a></li>
-      <li class="tab tabn"><a id="tab_right" href="#login">College Details</a></li>
+      <li class="tab active tabp"><a id="tab_left" href="#signup">Register</a></li>
+      <li class="tab tabn"><a id="tab_right" href="#login">Login</a></li>
     </ul>
 
     <div class="tab-content">
@@ -26,10 +26,10 @@
 
           <div class="top-row">
             <div class="field-wrap">
-              <label id="fname_lab">
+              <!-- <label id="fname_lab">
                Name<span class="req">*</span>
-              </label>
-              <input type="text" name="Name" required autocomplete="off" />
+              </label> -->
+              <input type="text" name="Name" required autocomplete="off" placeholder="Name"/>
             </div>
 
             <div class="field-wrap">
@@ -82,33 +82,28 @@
 
 
         <div class="field-wrap">
-          <label id="roll_lab">
-            Roll Number<span class="req">*</span>
+          <label  for = "username">
+            Username
           </label>
-          <input type="number" required autocomplete="off" />
+          <input type="text" required   name = "username" />
           <br>
           <br>
-          <label>
-            Course <span class="req">*</span>
+          <label for="password">
+           Password 
           </label>
-          <input type="text" required autocomplete="off" />
-
+          <input type="text" required  name="password" />
+          <div class="psw">
+            Forgot <a  className ="pass" href="#">password?</a>
+          </div>             
         </div>
-
-        <div class="field-wrap" id="yearofst">
-
-          <!-- <input type="number" placeholder="Year Of Studying*" required autocomplete="off" /> -->
-
-          <select name="year" id="yearin" select">
-            <option value="1st" default>Year of Studying</option>
-            <option value="1st">1st Year</option>
-            <option value="2st">2st Year</option>
-            <option value="3st">3st Year</option>
-            <option value="4st">4st Year</option>
-          </select>
+  
+        <!-- <div class="psw">
+          Forgot <a  className ="pass" href="#">password?</a>
         </div>
-
-        <button id="submit_btn" class="button button-block" />submit</button>
+         -->
+         <div class="divbtn">
+        <button id="submit_btn" class="button button-block" />Login</button>
+         </div>
 
         </form>
 
