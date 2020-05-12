@@ -1,7 +1,4 @@
 import React from 'react';
-import Header from './Header';
-import SignIN from './SignIn';
-import NewUser from './NewUser';
 
 export default class LoginPage extends React.Component {
 	render() {
@@ -20,3 +17,60 @@ export default class LoginPage extends React.Component {
 		);
 	}
 }
+
+const Header = () => {
+	return (
+		<div>
+		<div className = "titlebtn">
+		<button className = "titl" >PuraniBooks<b className = "com">.com</b></button>
+		</div>
+		<h2 className = "subtitle">
+		Login 
+		</h2>
+		</div>
+	)
+ }
+
+ class SignIN extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			<div className="SignIn">
+				<form>
+					<label for="username">
+						<b>Username</b>
+					</label>
+
+					<input type="text" name="username" />
+
+					<label for="password">
+						<b>Password</b>
+					</label>
+
+					<input type="password" name="password" />
+					<div class="psw">
+						Forgot <a  className ="pass" href="#">password?</a>
+					</div>
+					<div className="divbtn">
+						<button className="lgnbtn">Continue</button>
+					</div>
+				</form>
+			</div>
+		);
+	}
+}
+
+
+const NewUser = () => {
+    return (
+        <div>
+        <div className = "new"><b>New to Purani BOOk ?</b></div>
+        <button className = "SignUp"><b>Sign Up</b></button>
+        </div>
+    )
+} 
+
+
