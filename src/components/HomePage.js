@@ -4,6 +4,7 @@ import MainHeader from './MainHeader';
 import MainSearch from './MainSearch';
 import CateCon from './CateCon';
 
+
 class HomePage extends React.Component {
 	componentDidMount() {
 		window.addEventListener('scroll', this.Scroll);
