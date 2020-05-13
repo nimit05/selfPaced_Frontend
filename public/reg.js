@@ -25,36 +25,12 @@ $(() => {
 	});
 
 	let isActive = true;
-
-	$('.tab a').on('click', function(e) {
-		e.preventDefault();
-
-		$(this).parent().addClass('active');
-		$('.tabn a').parent().addClass('active');
-		
-
-		$(this).parent().siblings().removeClass('active');
-
-		if (isActive) {
-			$('.tabp').removeClass('active');
-			$('.tabn').removeClass('active');
-			isActive = false;
-		} else {
-			isActive = true;
-		}
-
-		target = $(this).attr('href');
-
-		$('.tab-content > div').not(target).hide();
-
-		$(target).fadeIn(500);
-	});
-   isActive = true;
 	$('.tabc').on('click' , function(e) {
 		e.preventDefault();
 
-		$('.tabp').parent().addClass('active');
-
+		
+			$('.tabn').removeClass('active');
+        
 		$(this).parent().addClass('active');
 
 
@@ -68,6 +44,32 @@ $(() => {
 
 		}
 	})
+
+	$('.tab a').on('click', function(e) {
+		e.preventDefault();
+
+		$(this).parent().addClass('active');
+		$('.tabn a').parent().addClass('active');
+		
+
+		$(this).parent().siblings().removeClass('active');
+
+		if (isActive) {
+			$('.tabp').removeClass('active');
+			// $('.tabn').removeClass('active');
+			isActive = false;
+		} else {
+			isActive = true;
+		}
+
+		target = $(this).attr('href');
+
+		$('.tab-content > div').not(target).hide();
+
+		$(target).fadeIn(500);
+	});
+//    isActive = true;
+	
 
 	$('#submit_btn')[0].onclick = () => {
 		if ($('#pass')[0].value == $('#conPass')[0].value) {
