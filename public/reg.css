@@ -40,9 +40,6 @@ a {
   transition: 0.5s ease;
 }
 
-a:hover {
-  /* color: #179b77; */
-}
 
 .form {
   background: #383935;
@@ -88,6 +85,11 @@ a:hover {
 #tab_right {
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
+}
+
+#tab_bottom{
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px; 
 }
 
 .tab-group li a:hover {
@@ -188,13 +190,6 @@ textarea {
   border-radius: 30px;
 }
 
-/* .button:hover,
-.button:focus {
-  background: #179b77;
-
-}
-
-*/
 .button-block {
   display: block;
   width: 50%;
@@ -221,6 +216,11 @@ textarea {
   margin-top: 10px;
   margin-bottom: 20px;
 }
+#otp_username {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
 .social_btn {
   margin-top: 30px;
   text-align: center;
@@ -231,4 +231,19 @@ textarea {
   align-items: center;
  
 }
+
+#email-verify{
+  display: none;
+ 
+}
+
+label{
+  color: #ffffff;
+  font-size: 2vh;
+}
+
+#otp_username{
+  margin-top: 20px;
+}
+
 

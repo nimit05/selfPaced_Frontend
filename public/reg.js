@@ -31,11 +31,13 @@ $(() => {
 
 		$(this).parent().addClass('active');
 		$('.tabn a').parent().addClass('active');
+		
 
 		$(this).parent().siblings().removeClass('active');
 
 		if (isActive) {
 			$('.tabp').removeClass('active');
+			$('.tabn').removeClass('active');
 			isActive = false;
 		} else {
 			isActive = true;
@@ -47,6 +49,25 @@ $(() => {
 
 		$(target).fadeIn(500);
 	});
+   isActive = true;
+	$('.tabc').on('click' , function(e) {
+		e.preventDefault();
+
+		$('.tabp').parent().addClass('active');
+
+		$(this).parent().addClass('active');
+
+
+		$(this).parent().siblings().removeClass('active');
+
+		if(isActive){
+			$('.tabn').removeClass('active');
+			isActive = false;
+		}else{
+			isActive = true;
+
+		}
+	})
 
 	$('#submit_btn')[0].onclick = () => {
 		if ($('#pass')[0].value == $('#conPass')[0].value) {
