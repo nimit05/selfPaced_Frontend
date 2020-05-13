@@ -19,7 +19,7 @@ class HomePage extends React.Component {
 		if (pos > 30) {
 			let h = document.getElementsByClassName('MainHeader')[0];
 
-			h.style.backgroundImage = 'linear-gradient(#ff6600,#ff115e)';
+			h.style.backgroundImage = 'linear-gradient(#fa255e , #fa255e)';
 		} else {
 			let h = document.getElementsByClassName('MainHeader')[0];
 

@@ -45,11 +45,11 @@ button:focus {
     color: white;
     border-radius: 20px;
 }
-#reg_btn:hover {
-    background-color: $primary;
-    color: white;
-    border-radius: 20px;
-}
+// #reg_btn:hover {
+//     background-color: $primary;
+//     color: white;
+//     border-radius: 20px;
+// }
 
 .cat_btn_con {
     width: 65%;
@@ -76,9 +76,7 @@ button:focus {
     background-color: $secondary;
     border-radius: 20px;
 
-    span {
-        // margin-top: 5px;
-    }
+    
     img {
         // margin-top: 5px;
         height: 20px;
