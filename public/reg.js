@@ -99,10 +99,6 @@ function renderButton() {
 
 var isthere = true
 function Validation(){
-	// var lowerCaseLetters = /[a-z]/g;
-	// var upperCaseLetters = /[A-Z]/g;
-	// var numbers = /[0-9]/g;
-
 var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
 
 	if( !$('#wrong_pass').val().match(decimal) ){
@@ -117,9 +113,55 @@ var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$
 		isthere = true
 		}
 	}
-
-	
 }
-	
+
+function Adder(){
+
+}
+
+function Pass_Validation(){
+	var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+	if($('#name').val().length == 0){
+		$('#below_name').append($('<p>')).text('Enter your name')
+	}else{
+		$('#below_name').empty()
+	}
+	if(!$('#email').val().match(mailformat) ){
+		$('#below_email').append($('<p>')).text('Enter correct email id')
+	}else{
+		$('#below_email').empty()
+	}
+	if($('#username').val().length == 0){
+		$('#below_username').append($('<p>')).text('Enter your username')
+	}else{
+		$('#below_username').empty()
+	}
+	if($('#phone_Number').val().length == 0 ){
+		$('#below_number').append($('<p>')).text('Enter your phone number')
+	}else{
+		$('#below_number').empty()
+	}
+
+	if( !$('#pass').val().match(decimal) ){
+		if(isthere){
+		$('#warning').append($('<p>').text('Password must be of minimum 8 letters and contains a small letter a Capital letter , a special character and numeric digit'))
+		isthere = false
+		}
+	}
+	else{
+		if(!isthere){
+		$('#warning').empty()
+		isthere = true
+		}
+	}
+}
+
+function Linker(){
+	if(isthere){
+	window.location.href = "/email-verify.html";
+	}
+}
 
 

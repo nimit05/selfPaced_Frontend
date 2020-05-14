@@ -12,7 +12,7 @@
   <title>PuraniBooks</title>
 </head>
 
-<body onload= >
+<body>
   <div class="form">
 
     <ul class="tab-group">
@@ -28,15 +28,15 @@
 
           <div class="top-row">
             <div class="field-wrap">
-              <!-- <label id="fname_lab">
-               Name<span class="req">*</span>
-              </label> -->
-              <input type="text" name="Name" required  placeholder="Name"/>
-            </div>
+    
+              <input type="text" name="Name" required  placeholder="Name" id="name"/>
+              <div id="below_name" class="p"></div>
 
+            </div>
             <div class="field-wrap">
              
-              <input type="text" name="lastn" placeholder="Username"  required />
+              <input type="text" name="lastn" placeholder="Username"  required id="username"/>
+              <div id="below_username" class="p"></div>
             </div>
           </div>
 
@@ -45,14 +45,18 @@
           <div class="field-wrap">
            
             <input type="email" name="email"placeholder="E-mail" required id="email" />
+            <div id="below_email" class="p"></div>
+
           </div>
 
           <div class="field-wrap">
          
            
             <input id="pass" type="password" required placeholder="Password" />
-         
+            <div id = "warning" class="p"></div>
           </div>
+          
+
           <div class="field-wrap">
             
             <input id="conPass" type="password" required placeholder="Confirm Password" />
@@ -60,30 +64,16 @@
           </div>
           <div class="field-wrap">
           
-            <input type="number" required placeholder="Phone Number" />
+            <input type="number" required placeholder="Phone Number" id="phone_Number" />
+            <div id="below_number" class="p"></div>
+
           </div>
           <br>
         
 
-          <!-- <button type="button" class="button button-block" />Next</button> -->
+          <button type="submit" class="button button-block" onclick="Pass_Validation(); Linker()" />Register</button>
          
-         <div class="tab tabc" ><a href="#email-verify" class="button button-block" id="tab_bottom"><button class="regBtn" onclick="Validation()">Register</button></a></div>
-       
-          
       
-
-      </div>
-
-      <div id="email-verify">
-       <div >
-        <div>
-          <label for="otp">Enter the OTP sent at your email id..</label>
-          <input type="text" required id="otp_username"  name = "opt" placeholder="OTP" />
-          <div class="divbtn">
-         <button id="submit_btn" class="button button-block" />Submit</button>
-       </div>
-      </div>
-      </div>
 
       </div>
 
@@ -100,11 +90,11 @@
           <div id = "warning"></div>
           <div class="psw">
             Forgot <a  className ="pass" href="#">password?</a>
-          </div>             
+          </div>            
         </div>
   
          <div class="divbtn">
-        <button id="submit_btn" class="button button-block" onclick="Validation()" />Login</button>
+        <button id="submit_btn" class="button button-block" onclick="Validation(); Adder()" />Login</button>
          </div>
 
       
