@@ -51,3 +51,27 @@ $(() => {
 		$(target).fadeIn(500);
 	})
 })
+$('#submit_btn')[0].onclick = () => {
+    if ($('#pass')[0].value == $('#conPass')[0].value) {
+    } else {
+        alert('Confirm Password should not be same as Password ');
+    }
+}
+
+function onSuccess(googleUser) {
+console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+}
+function onFailure(error) {
+console.log(error);
+}
+function renderButton() {
+gapi.signin2.render('my-signin2', {
+    scope: 'profile email',
+    width: 220,
+    height: 50,
+    longtitle: true,
+    theme: 'dark',
+    onsuccess: onSuccess,
+    onfailure: onFailure
+});
+}
