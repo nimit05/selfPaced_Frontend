@@ -17,7 +17,10 @@ class MainHeader extends React.Component {
 				</div>
 				<div className="user_btn_con frse">
 					<img src={cart} alt=" " />
-					<button id="login_btn">Login</button>
+					<button id="login_btn" onClick = {() => {
+						window.location.href = "/login.html";
+
+					}}>Login</button>
 					<button id="reg_btn" onClick = {() => {
                  window.location.href = "/regis.html";
 
