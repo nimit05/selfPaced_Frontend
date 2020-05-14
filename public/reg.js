@@ -31,7 +31,7 @@ $(() => {
 		
 			$('.tabn').removeClass('active');
         
-		$(this).parent().addClass('active');
+		$('.tabp a').parent().addClass('active');
 
 
 		$(this).parent().siblings().removeClass('active');
