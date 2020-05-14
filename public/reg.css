@@ -245,5 +245,12 @@ label{
 #otp_username{
   margin-top: 20px;
 }
+#warning{
+  color: #ffffff;
+  padding: 10px 10px;
+}
+p{
+  font-size: 0.75rem;
+}
 
 

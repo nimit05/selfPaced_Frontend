@@ -12,7 +12,7 @@
   <title>PuraniBooks</title>
 </head>
 
-<body>
+<body onload= >
   <div class="form">
 
     <ul class="tab-group">
@@ -44,7 +44,7 @@
 
           <div class="field-wrap">
            
-            <input type="email" name="email"placeholder="E-mail" required  />
+            <input type="email" name="email"placeholder="E-mail" required id="email" />
           </div>
 
           <div class="field-wrap">
@@ -91,24 +91,23 @@
 
         <div class="field-wrap">
        
-          <input type="text" required id="log_username"  name = "username" placeholder="Username" />
+          <input type="email" required id="log_username"  name = "username" placeholder="Username" />
+         
         </div>  
           <div class="field-wrap">
        
-          <input type="text" required  name="password" placeholder="Password"/>
-          
+          <input type="password" required  name="password" placeholder="Password" id="wrong_pass" />
+          <div id = "warning"></div>
           <div class="psw">
             Forgot <a  className ="pass" href="#">password?</a>
           </div>             
         </div>
   
-        <!-- <div class="psw">
-          Forgot <a  className ="pass" href="#">password?</a>
-        </div>
-         -->
          <div class="divbtn">
-        <button id="submit_btn" class="button button-block" />Login</button>
+        <button id="submit_btn" class="button button-block" onclick="Validation()" />Login</button>
          </div>
+
+      
 
         </form>
 

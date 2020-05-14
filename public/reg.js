@@ -96,3 +96,30 @@ function renderButton() {
 		onfailure: onFailure
 	});
 }
+
+var isthere = true
+function Validation(){
+	// var lowerCaseLetters = /[a-z]/g;
+	// var upperCaseLetters = /[A-Z]/g;
+	// var numbers = /[0-9]/g;
+
+var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+
+	if( !$('#wrong_pass').val().match(decimal) ){
+		if(isthere){
+		$('#warning').append($('<p>').text('Password must be of minimum 8 letters and contains a small letter a Capital letter , a special character and numeric digit'))
+		isthere = false
+		}
+	}
+	else{
+		if(!isthere){
+		$('#warning').empty()
+		isthere = true
+		}
+	}
+
+	
+}
+	
+
+
