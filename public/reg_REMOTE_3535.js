@@ -261,40 +261,14 @@ function phone_vali() {
 		$('#phone_Number').css({
 			border: 'red solid',
 			'border-width': 'thin'
-		})
-	
-		isthere = false
-		
-	}
-	else{
-
-		$('#warning').empty()
-		$('#pass').css({
-			'border': '1px solid #a0b3b0'
-					  
-				  })
-		isthere = true
-		
-	}
-	if($('#pass').val() != $('#conPass').val() || !$('#pass').val().match(decimal)  ){
-		if(isthere){
-		$('#below_conPass').append($('<p>')).text('Password did not match')
-		$('#conPass').css({
-			'border' : 'red solid' ,
-			'border-width': 'thin'
-		})
-
-		isthere = false
-	}
-	}else{
-		if(!isthere){
-		$('#below_conPass').empty()
-		$('#conPass').css({
-			'border': '1px solid #a0b3b0'
-					  
-				  })
-		isthere = true
-				}
+		});
+		nomistake = false;
+	} else {
+		$('#below_number').empty();
+		$('#phone_Number').css({
+			border: '1px solid #1eff00'
+		});
+		nomistake = true;
 	}
 }
 
