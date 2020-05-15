@@ -29,13 +29,13 @@
           <div class="top-row">
             <div class="field-wrap">
     
-              <input type="text" name="Name" required  placeholder="Name" id="name"/>
+              <input type="text" name="Name"   placeholder="Name" id="name" onclick="Remove_name()" class="corrected" />
               <div id="below_name" class="p"></div>
 
             </div>
             <div class="field-wrap">
              
-              <input type="text" name="lastn" placeholder="Username"  required id="username"/>
+              <input type="text" name="lastn" placeholder="Username"   id="username" onclick="Remove_username()" class="corrected" />
               <div id="below_username" class="p"></div>
             </div>
           </div>
@@ -44,7 +44,7 @@
 
           <div class="field-wrap">
            
-            <input type="email" name="email"placeholder="E-mail" required id="email" />
+            <input type="email" name="email"placeholder="E-mail"  id="email" onclick="Remove_email()" class="corrected" />
             <div id="below_email" class="p"></div>
 
           </div>
@@ -52,7 +52,7 @@
           <div class="field-wrap">
          
            
-            <input id="pass" type="password" required placeholder="Password" />
+            <input id="pass" type="password"  placeholder="Password" onclick="Remove_password()" class="corrected" />
             <div id = "warning" class="p"></div>
           </div>
           
@@ -64,7 +64,7 @@
           </div>
           <div class="field-wrap">
           
-            <input type="number" required placeholder="Phone Number" id="phone_Number" />
+            <input type="number" required placeholder="Phone Number" id="phone_Number" onclick="Remove_number()" class="corrected" />
             <div id="below_number" class="p"></div>
 
           </div>

@@ -161,4 +161,33 @@ function Linker(){
 	}
 }
 
+function Remove_name(){
+
+	$('#below_name').empty()
+	
+}
+function Remove_username(){
+
+	$('#below_username').empty()
+	
+}
+function Remove_email(){
+
+	$('#below_email').empty()
+	
+}
+function Remove_password(){
+
+	$('#warning').empty()
+	
+}
+function Remove_number(){
+
+	$('#below_number').empty()
+	
+}
+
+
+
+
 
