@@ -1,3 +1,21 @@
+async function postData(url = '', data = {}) {
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify(data) // body data type must match "Content-Type" header
+	});
+	return response.json(); // parses JSON response into native JavaScript objects
+}
+
 $(() => {
 	let isActive = true;
 	$('.tabc').on('click', function(e) {
@@ -242,7 +260,7 @@ function phone_vali() {
 		nomistake = true;
 	}
 }
-
+let email = null;
 function send_reg_data() {
 	re_pass_vali();
 	phone_vali();
@@ -252,11 +270,48 @@ function send_reg_data() {
 	username_vali();
 
 	if (nomistake) {
-		window.location.href = '/email-verify.html';
+		let data = {
+			user: {
+				name: $('#name').val(),
+				username: $('#username').val(),
+				email: $('#email').val(),
+				password: $('#pass').val(),
+				phone_Number: $('#phone_Number').val()
+			}
+		};
+
+		postData('/api/register', data).then((data) => {
+			if (data.email === $('#email').val()) {
+				email = data.email;
+				make_email();
+			}
+		});
 	}
 }
 
 function make_email() {
-	document.getElementById('login').style.display = 'none';
+	document.getElementById('login_tab').style.display = 'none';
+	document.getElementById('email_tab').style.display = 'block';
+	$('#reg_tab').removeClass('active');
+	$('#email_tab').addClass('active');
+	target = '#email_veri';
+
+	$('.tab-content > div').not(target).hide();
+
+	$(target).fadeIn(500);
 }
-make_email();
+
+function otp_confirm() {
+	let data1 = {
+		email: email,
+		email_otp: $('#otp').val()
+	};
+
+	postData('/api/email-verification/', data1).then((data) => {
+		if (data.otp) {
+			location.replace('/');
+		} else {
+			alert('otp is invalid , Try Resending');
+		}
+	});
+}

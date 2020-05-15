@@ -254,3 +254,11 @@ label {
 .ruk {
   display: none;
 }
+
+#email_tab,
+#email_veri {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
