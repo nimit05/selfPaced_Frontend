@@ -233,9 +233,8 @@ function Pass_Validation(){
 		isthere = true
 		
 	}
-	if($('#pass').val() != $('#conPass').val()){
-		console.log($('#pass').val())
-		console.log($('#conPass').val())
+	if($('#pass').val() != $('#conPass').val() || !$('#pass').val().match(decimal)  ){
+		if(isthere){
 		$('#below_conPass').append($('<p>')).text('Password did not match')
 		$('#conPass').css({
 			'border' : 'red solid' ,
@@ -243,14 +242,16 @@ function Pass_Validation(){
 		})
 
 		isthere = false
-
+	}
 	}else{
+		if(!isthere){
 		$('#below_conPass').empty()
 		$('#conPass').css({
 			'border': '1px solid #a0b3b0'
 					  
 				  })
 		isthere = true
+				}
 	}
 
 	
