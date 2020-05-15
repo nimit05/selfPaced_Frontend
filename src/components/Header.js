@@ -12,7 +12,7 @@ const Header = () => {
 			</div>
 
 			<div className="header_center">
-				<span>Get Upto 50% off </span>
+				<span />
 			</div>
 		</div>
 	);
