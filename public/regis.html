@@ -29,13 +29,13 @@
           <div class="top-row">
             <div class="field-wrap">
     
-              <input type="text" name="Name"   placeholder="Name" id="name" onclick="Remove_name()" class="corrected" />
+              <input type="text" name="Name"   placeholder="Name" id="name" onfocusout="name_vali()" class="corrected" />
               <div id="below_name" class="p"></div>
 
             </div>
             <div class="field-wrap">
              
-              <input type="text" name="lastn" placeholder="Username"   id="username" onclick="Remove_username()" class="corrected" />
+              <input type="text" name="lastn" placeholder="Username"   id="username" onfocusout="username_vali()" class="corrected" />
               <div id="below_username" class="p"></div>
             </div>
           </div>
@@ -44,7 +44,7 @@
 
           <div class="field-wrap">
            
-            <input type="email" name="email"placeholder="E-mail"  id="email" onclick="Remove_email()" class="corrected" />
+            <input type="email" name="email"placeholder="E-mail"  id="email" onfocusout="email_vali()" class="corrected" />
             <div id="below_email" class="p"></div>
 
           </div>
@@ -52,27 +52,27 @@
           <div class="field-wrap">
          
            
-            <input id="pass" type="password"  placeholder="Password" onclick="Remove_password()" class="corrected" />
-            <div id = "warning" class="p"></div>
+            <input id="pass" type="password"  placeholder="Password" onfocusout="pass_validation()" class="corrected" />
+            <ul id = "warning" class="p"></ul>
           </div>
           
 
           <div class="field-wrap">
             
-            <input id="conPass" type="password"  placeholder="Confirm Password"  onclick="Remove_conPass()" />
+            <input id="conPass" type="password"  placeholder="Confirm Password"  onfocusout="re_pass_vali()" />
             <div id="below_conPass" class="p"></div>
             
           </div>
           <div class="field-wrap">
           
-            <input type="number"  placeholder="Phone Number" id="phone_Number" onclick="Remove_number()" class="corrected" />
+            <input type="number"  placeholder="Phone Number" id="phone_Number" onfocusout="phone_vali()" class="corrected" />
             <div id="below_number" class="p"></div>
 
           </div>
           <br>
         
 
-          <button type="submit" class="button button-block" onclick="Pass_Validation(); Linker(); " />Register</button>
+          <button type="submit" class="button button-block" onclick="send_reg_data()" />Register</button>
          
       
 
