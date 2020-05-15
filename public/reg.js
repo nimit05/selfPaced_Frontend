@@ -130,6 +130,8 @@ function Pass_Validation(){
 			'border' : 'red solid' ,
 			'border-width': 'thin'
 		})
+		isthere = false
+
 	}else{
 		$('#below_name').empty()
 	
@@ -137,6 +139,8 @@ function Pass_Validation(){
   'border': '1px solid #a0b3b0'
 			
 		})
+		isthere = true
+
 	}
 	if(!$('#email').val().match(mailformat) ){
 		$('#below_email').append($('<p>')).text('Enter correct email id')
@@ -144,12 +148,16 @@ function Pass_Validation(){
 			'border' : 'red solid' ,
 			'border-width': 'thin'
 		})
+		isthere = false
+
 	}else{
 		$('#below_email').empty()
 		$('#email').css({
 			'border': '1px solid #a0b3b0'
 					  
 				  })
+		isthere = true
+
 	}
 	if($('#username').val().length == 0){
 		$('#below_username').append($('<p>')).text('Enter your username')
@@ -157,12 +165,16 @@ function Pass_Validation(){
 			'border' : 'red solid' ,
 			'border-width': 'thin'
 		})
+		isthere = false
+
 	}else{
 		$('#below_username').empty()
 		$('#username').css({
 			'border': '1px solid #a0b3b0'
 					  
 				  })
+		isthere = true
+
 	}
 	if($('#phone_Number').val().length == 0 ){
 		$('#below_number').append($('<p>')).text('Enter your phone number')
@@ -170,12 +182,16 @@ function Pass_Validation(){
 			'border' : 'red solid' ,
 			'border-width': 'thin'
 		})
+		isthere = false
+
 	}else{
 		$('#below_number').empty()
 		$('#phone_Number').css({
 			'border': '1px solid #a0b3b0'
 					  
 				  })
+		isthere = true
+
 	}
 	if($('#conPass').val().length == 0 ){
 		$('#below_conPass').append($('<p>')).text('Re-enter your password')
@@ -183,39 +199,61 @@ function Pass_Validation(){
 			'border' : 'red solid' ,
 			'border-width': 'thin'
 		})
+		isthere = false
+
 	}else{
 		$('#below_conPass').empty()
 		$('#conPass').css({
 			'border': '1px solid #a0b3b0'
 					  
 				  })
+		isthere = true
+
 	}
 
+
 	if( !$('#pass').val().match(decimal) ){
-		if(isthere){
+		
 		$('#warning').append($('<p>').text('Password must be of minimum 8 letters and contains a small letter a Capital letter , a special character and numeric digit'))
 		$('#pass').css({
 			'border' : 'red solid' ,
 			'border-width': 'thin'
 		})
-		$('#conPass').css({
-			'border' : 'red solid' ,
-			'border-width': 'thin'
-		})
+	
 		isthere = false
-		}
+		
 	}
 	else{
-		if(!isthere){
+
 		$('#warning').empty()
 		$('#pass').css({
 			'border': '1px solid #a0b3b0'
 					  
 				  })
 		isthere = true
-		}
+		
+	}
+	if($('#pass').val() != $('#conPass').val()){
+		console.log($('#pass').val())
+		console.log($('#conPass').val())
+		$('#below_conPass').append($('<p>')).text('Password did not match')
+		$('#conPass').css({
+			'border' : 'red solid' ,
+			'border-width': 'thin'
+		})
+
+		isthere = false
+
+	}else{
+		$('#below_conPass').empty()
+		$('#conPass').css({
+			'border': '1px solid #a0b3b0'
+					  
+				  })
+		isthere = true
 	}
 
+	
 }
 
 function Linker(){
@@ -278,6 +316,8 @@ function Remove_conPass(){
 			  })
 	
 }
+
+
 
 
 
