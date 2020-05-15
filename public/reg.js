@@ -1,29 +1,4 @@
 $(() => {
-	$('.form').find('input, textarea').on('keyup blur focus', function(e) {
-		var $this = $(this),
-			label = $this.prev('label');
-
-		if (e.type === 'keyup') {
-			if ($this.val() === '') {
-				label.removeClass('active highlight');
-			} else {
-				label.addClass('active highlight');
-			}
-		} else if (e.type === 'blur') {
-			if ($this.val() === '') {
-				label.removeClass('active highlight');
-			} else {
-				label.removeClass('highlight');
-			}
-		} else if (e.type === 'focus') {
-			if ($this.val() === '') {
-				label.removeClass('highlight');
-			} else if ($this.val() !== '') {
-				label.addClass('highlight');
-			}
-		}
-	});
-
 	let isActive = true;
 	$('.tabc').on('click', function(e) {
 		e.preventDefault();
@@ -65,17 +40,6 @@ $(() => {
 		$(target).fadeIn(500);
 	});
 	//    isActive = true;
-
-	$('#submit_btn')[0].onclick = () => {
-		if ($('#pass')[0].value == $('#conPass')[0].value) {
-		} else {
-			alert('Confirm Password should not be same as Password ');
-			$('#conPass').css({
-				border: 'red solid',
-				'border-width': 'thin'
-			});
-		}
-	};
 });
 
 function onSuccess(googleUser) {
@@ -221,6 +185,13 @@ function email_vali() {
 			'border-width': 'thin'
 		});
 		nomistake = false;
+	} else if ($('#email').val().length < 2) {
+		$('#below_email').append($('<p>')).text('Enter E-mail id');
+		$('#email').css({
+			border: 'red solid',
+			'border-width': 'thin'
+		});
+		nomistake = false;
 	} else {
 		$('#below_email').empty();
 		$('#email').css({
@@ -285,39 +256,7 @@ function send_reg_data() {
 	}
 }
 
-function Remove_name() {
-	$('#below_name').empty();
-	$('#name').css({
-		border: '1px solid #a0b3b0'
-	});
+function make_email() {
+	document.getElementById('login').style.display = 'none';
 }
-function Remove_username() {
-	$('#below_username').empty();
-	$('#username').css({
-		border: '1px solid #a0b3b0'
-	});
-}
-function Remove_email() {
-	$('#below_email').empty();
-	$('#email').css({
-		border: '1px solid #ff5390'
-	});
-}
-function Remove_password() {
-	$('#warning').empty();
-	$('#pass').css({
-		border: '1px solid #a0b3b0'
-	});
-}
-function Remove_number() {
-	$('#below_number').empty();
-	$('#phone_Number').css({
-		border: '1px solid #a0b3b0'
-	});
-}
-function Remove_conPass() {
-	$('#below_conPass').empty();
-	$('#conPass').css({
-		border: '1px solid #a0b3b0'
-	});
-}
+make_email();
