@@ -1,0 +1,37 @@
+.MainHeader_PP{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // background-image: linear-gradient($primary, $secondary);
+    background-color: $dark;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    // top: 50px;
+    z-index: 100;
+}
+
+.header_left_PP {
+    display: flex;
+    background-color: $dark;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    padding: 0 38%;
+    img {
+        margin-top: 5px;
+        margin-right: 5px;
+        height: 40px;
+    }
+    span,
+    b {
+        cursor: pointer;
+        color: white;
+        font-size: 30px;
+    }
+
+    span {
+        color: $secondary;
+    }
+}
