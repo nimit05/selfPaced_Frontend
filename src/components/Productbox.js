@@ -22,18 +22,6 @@ export default class Productbox extends React.Component {
 	}
 
 	render() {
-		let c;
-
-		if (this.state.addedToCart) {
-			c = {
-				backgroundColor: 'green'
-			};
-		} else {
-			c = {
-				backgroundColor: '#fa255e'
-			};
-		}
-
 		return (
 			<div className="productcont">
 				<div className="tag">
@@ -44,10 +32,9 @@ export default class Productbox extends React.Component {
 				</div>
 				<div className="product_body">
 					<h3>{this.props.title}</h3>
-					<h6>({this.props.stitle})</h6>
+					{/* <h6>({this.props.stitle})</h6> */}
 					<p>{this.props.short_des}</p>
 					<h1>{this.props.price}</h1>
-				
 				</div>
 			</div>
 		);

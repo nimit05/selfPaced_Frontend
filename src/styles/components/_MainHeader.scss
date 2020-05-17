@@ -76,9 +76,19 @@ button:focus {
     background-color: $secondary;
     border-radius: 20px;
 
-    
     img {
         // margin-top: 5px;
         height: 20px;
+    }
+}
+.frse {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+@media screen and (max-width: 730px) {
+    .user_btn_con {
+        display: none;
     }
 }

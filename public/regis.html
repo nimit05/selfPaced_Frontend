@@ -16,15 +16,39 @@
   <div class="form">
 
     <ul class="tab-group">
-      <li class="tab active tabp"><a id="tab_left" href="#signup">Register</a></li>
-      <li class="tab tabn"><a id="tab_right" href="#login">Login</a></li>
+      <li class="tab active tabp" id="reg_tab"><a id="tab_left" href="#signup">Register</a></li>
+      <li class="tab tabn" id="login_tab"><a id="tab_right" href="#login">Login</a></li>
+      <li class="tab tabn" id="email_tab"><a id="tab_right" href="#email_veri">Verification</a></li>
     </ul>
 
     <div class="tab-content">
+
+      <div id="email_veri">
+
+
+          <div >
+            <div>
+              <label for="otp">Enter the OTP sent at your email id..</label>
+              <input type="text" required id="otp"  name = "opt" placeholder="OTP" />
+              <div class="divbtn">
+             <button id="submit_btn" onclick="otp_confirm()" class="button button-block" />Submit</button>
+           </div>
+          </div>
+          </div>
+    
+
+
+      </div>
+
+    
+
+
+
+    
       <div id="signup">
 
 
-        <form action="/" method="GET">
+    
 
           <div class="top-row">
             <div class="field-wrap">
@@ -77,19 +101,21 @@
       
 
       </div>  
+    
 
       <div id="login">
 
         <div class="field-wrap">
        
-          <input type="email" required id="log_username"  name = "username" placeholder="Username" />
+          <input type="text" required id="log_username"  name = "username" placeholder="Username" />
+          <div id = "warning"></div>
          
         </div>  
           <div class="field-wrap">
        
           <input type="password" required  name="password" placeholder="Password" id="wrong_pass" />
-          <div id = "warning"></div>
-          <div class="psw">
+          
+          <div class="psw" id="psw">
             Forgot <a  className ="pass" href="#">password?</a>
           </div>            
         </div>
@@ -100,13 +126,16 @@
 
       
 
-        </form>
+      
 
-        <hr>
-        <div class="social_btn">
+       
+         <hr>
+        <div class="social_btn" >
         <div id="my-signin2" data-onsuccess="onSignIn"></div>
       </div>
       </div>
+
+     
 
     </div><!-- tab-content -->
 
