@@ -19,7 +19,7 @@ export default class CateCon extends React.Component {
 						bookimg={' '}
 						stitle={'4th edition'}
 						short_des={'lorem ispsnem lorem ispsem'}
-						price={'$50'}
+						price={'50'}
 					/>
 					<Productbox
 						title={'H.C. Verma'}
@@ -27,7 +27,7 @@ export default class CateCon extends React.Component {
 						bookimg={' '}
 						stitle={'4th edition'}
 						short_des={'lorem ispsnem lorem ispsem'}
-						price={'$50'}
+						price={'50'}
 					/>
 					<Productbox
 						title={'H.C. Verma'}
@@ -35,7 +35,7 @@ export default class CateCon extends React.Component {
 						bookimg={' '}
 						stitle={'4th edition'}
 						short_des={'lorem ispsnem lorem ispsem'}
-						price={'$50'}
+						price={'50'}
 					/>
 					<Productbox
 						title={'H.C. Verma'}

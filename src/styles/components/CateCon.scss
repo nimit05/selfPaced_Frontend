@@ -1,36 +1,39 @@
 .CateCon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    overflow-x: hidden;
-    margin: 50px auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	overflow-x: hidden;
+	margin: 20px auto;
+	padding-bottom: 30px;
 }
 
 .cate_head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 20px;
 
-    h1 {
-        margin-left: 30px;
-        color: $dark;
-    }
+	h1 {
+		margin-left: 30px;
+		color: $dark;
+	}
 
-    h3 {
-        margin-right: 30px;
-        color: gray;
-        cursor: pointer;
-    }
+	h3 {
+		margin-right: 30px;
+		color: gray;
+		cursor: pointer;
+	}
 }
 
 .cate_body {
-    overflow-x: scroll;
+	overflow-x: scroll;
 
-    white-space: nowrap;
+	white-space: nowrap;
+	padding-bottom: 30px;
 
-    width: 100%;
+	width: 100%;
 }
 
 .cate_body::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
