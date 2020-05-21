@@ -6,23 +6,12 @@ import down from '../img/down.svg';
 import pblogo from '../img/pblogo.png';
 
 export default class ProductPage extends React.Component{
-    constructor(props){
-        super(props)
-        this.ListItem = this.ListItem.bind(this)
-    }
-    ListItem(){
-        return(
-            <div>
-            <ul>
-            <li>Hello world</li>
-            </ul>
-            </div>
-        )
-    }
+ 
+    
     render(){
         return(
             <div>
-            <Header ListItem = {ListItem} />
+            <Header />
             <MainHeader />
             </div>
         )
