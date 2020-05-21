@@ -1,46 +1,227 @@
 .header_cont {
-    background-color: $dark;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-family: "Times New Roman", Times, serif;
-    position: fixed;
-    width: 100%;
-    top: 0px;
-    z-index: 100;
+	background-color: $secondary;
+	height: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-family: "Times New Roman", Times, serif;
+	position: fixed;
+	width: 100%;
+	top: 0px;
+	z-index: 100;
 }
 
 .header_left {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    img {
-        margin-top: 5px;
-        margin-right: 5px;
-        height: 40px;
-    }
-    span,
-    b {
-        cursor: pointer;
-        color: white;
-        font-size: 30px;
-    }
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	img {
+		margin-top: 5px;
+		margin-right: 5px;
+		height: 37px;
+	}
+	span,
+	b {
+		cursor: pointer;
+		color: white;
+		font-size: 28px;
+	}
 
-    span {
-        color: $secondary;
-    }
+	span {
+		color: white;
+	}
 }
 
 .header_center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 
-    span {
-        font-size: large;
-        color: white;
-    }
+	span {
+		font-size: large;
+		color: white;
+	}
+}
+
+#main_search_inp:focus {
+	outline: none;
+}
+
+#main_search_inp {
+	width: 180px;
+	min-width: 180px;
+	height: 25px;
+	border-radius: 20px;
+	background-color: #eeeeee;
+	font-size: 0.84rem;
+	color: rgb(54, 54, 54);
+	padding-left: 10px;
+	background-image: url("../../img/search.svg");
+	background-repeat: no-repeat;
+	background-size: 70% 70%;
+	background-position: 175%;
+	box-sizing: border-box;
+	border: none;
+}
+
+.cat_btn {
+	width: 100%;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+}
+
+button:focus {
+	outline: none;
+}
+
+.user_btn_con {
+	width: 45%;
+	padding-right: 30px;
+	button {
+		background-color: transparent;
+		color: $light;
+		font-size: 16px;
+		padding: 5px 25px;
+		font-weight: 300;
+		margin-left: 3vw;
+	}
+
+	img {
+		margin-left: 3vw;
+		height: 30px;
+		cursor: pointer;
+	}
+}
+
+#reg_btn {
+	background-color: $secondary;
+	color: white;
+	border-radius: 20px;
+}
+// #reg_btn:hover {
+//     background-color: $primary;
+//     color: white;
+//     border-radius: 20px;
+// }
+
+.cat_btn_con {
+	width: 65%;
+	button {
+		background-color: transparent;
+		color: $light;
+		font-size: 17px;
+		padding: 5px 25px;
+	}
+
+	img {
+		height: 30px;
+		cursor: pointer;
+	}
+}
+
+#cat_btn_drop {
+	width: 200px;
+	display: flex;
+	justify-content: space-evenly;
+	align-content: center;
+	// padding: 5px 0px;
+	padding: 5px;
+	background-color: $secondary;
+	border-radius: 20px;
+
+	img {
+		// margin-top: 5px;
+		height: 20px;
+	}
+}
+.frse {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+@media screen and (max-width: 730px) {
+	.user_btn_con {
+		display: none;
+	}
+}
+
+.profile {
+	// border: solid 1px white;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-left: 30px;
+	cursor: pointer;
+
+	h1 {
+		// color: $secondary;
+		color: white;
+		font-size: 1rem;
+		font-weight: 100;
+		margin: 0px;
+		display: inline;
+	}
+	img {
+		margin-left: 10px;
+	}
+}
+
+// tooltip css
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+
+	/* Position the tooltip */
+	z-index: 1;
+}
+.tooltiptext {
+	position: absolute;
+	width: 120px;
+
+	font-size: 1.1rem;
+	cursor: pointer;
+	top: 40px;
+	left: 0px;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+}
+
+.searchRe {
+	position: absolute;
+	top: 37px;
+	left: 64.4vw;
+	background-color: #eeeeee;
+	width: 170px;
+	z-index: 15000;
+
+	li {
+		border: solid 1px rgb(175, 175, 175);
+		border-bottom: none;
+		list-style: none;
+		padding: 5px;
+		cursor: pointer;
+		padding-left: 10px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
 }

@@ -1,9 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import MainHeader from './MainHeader';
-import MainSearch from './MainSearch';
+import Middle from './Middle';
 import CateCon from './CateCon';
-
 
 class HomePage extends React.Component {
 	componentDidMount() {
@@ -32,7 +31,7 @@ class HomePage extends React.Component {
 			<div className="HomePage">
 				<Header />
 				<MainHeader />
-				<MainSearch />
+				<Middle />
 				<CateCon />
 				<CateCon />
 				<CateCon />
