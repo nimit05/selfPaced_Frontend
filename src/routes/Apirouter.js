@@ -3,6 +3,7 @@ import React from 'react';
 import HomePage from '../components/HomePage';
 import Productbox from '../components/Productbox';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ProductPage from '../components/ProductPage'
 
 const Apiroute = () => (
 	<BrowserRouter>
@@ -10,6 +11,7 @@ const Apiroute = () => (
 			<Switch>
 				<Route path="/container" component={Productbox} />
 				<Route path="/" component={HomePage} exact={true} />
+				<Route path="/productpage" component={ProductPage} />
 			</Switch>
 		</div>
 	</BrowserRouter>
