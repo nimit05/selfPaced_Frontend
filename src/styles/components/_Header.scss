@@ -17,6 +17,7 @@
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
+	cursor: pointer;
 	img {
 		margin-top: 5px;
 		margin-right: 5px;
@@ -165,7 +166,7 @@ button:focus {
 		// color: $secondary;
 		color: white;
 		font-size: 1rem;
-		font-weight: 100;
+		font-weight: 600;
 		margin: 0px;
 		display: inline;
 	}
@@ -207,11 +208,12 @@ button:focus {
 
 .searchRe {
 	position: absolute;
-	top: 37px;
-	left: 64.4vw;
+	top: 25px;
+	left: 5px;
 	background-color: #eeeeee;
 	width: 170px;
 	z-index: 15000;
+	border-bottom: solid 1px rgb(175, 175, 175);
 
 	li {
 		border: solid 1px rgb(175, 175, 175);
@@ -224,4 +226,7 @@ button:focus {
 		white-space: nowrap;
 		overflow: hidden;
 	}
+}
+.parent {
+	position: relative;
 }

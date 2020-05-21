@@ -3,6 +3,7 @@ import React from 'react';
 import pblogo from '../img/pblogo.png';
 import cart from '../img/cart.svg';
 import lib from '../img/lib.svg';
+import plus from '../img/plus.svg';
 import propic from '../img/propic.svg';
 
 class Header extends React.Component {
@@ -60,7 +61,12 @@ class Header extends React.Component {
 	render() {
 		return (
 			<div className="header_cont">
-				<div className="header_left">
+				<div
+					className="header_left"
+					onClick={() => {
+						window.location.href = '/';
+					}}
+				>
 					<img src={pblogo} alt=" " />
 					<b>PuraniBooks</b>
 					<span>.com</span>
@@ -70,19 +76,26 @@ class Header extends React.Component {
 					<span />
 				</div>
 				<div className="user_btn_con frse">
-					<input onChange={this.findName} id="main_search_inp" placeholder="Search" type="text" />
-					<div className="searchRe">
-						{this.state.searchNames.map((e, i) => {
-							if (i > 5) {
-								return;
-							} else {
-								return <li key={i}>{e}</li>;
-							}
-						})}
+					<div className="parent">
+						<input onChange={this.findName} id="main_search_inp" placeholder="Search" type="text" />
+						<div className="searchRe">
+							{this.state.searchNames.map((e, i) => {
+								if (i > 5) {
+									return;
+								} else {
+									return <li key={i}>{e}</li>;
+								}
+							})}
+						</div>
 					</div>
 
 					{this.state.islogin ? (
 						<div className="frse logindet">
+							<div class="tooltip">
+								{' '}
+								<img src={plus} alt=" " />
+								<span class="tooltiptext">Sell Items</span>
+							</div>
 							<div class="tooltip">
 								{' '}
 								<img src={cart} alt=" " />

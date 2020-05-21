@@ -35,13 +35,16 @@ export default class Productbox extends React.Component {
 		}
 
 		return (
-			<div className="productcont" onClick = {() => {
-				window.location.href = '/productpage'
-			}}>
+			<div className="productcont">
 				<div className="tag">
 					<strong>{this.props.tag}</strong>
 				</div>
-				<div className="product_img">
+				<div
+					className="product_img"
+					onClick={() => {
+						window.location.href = '/productpage';
+					}}
+				>
 					<img className="bookcover" src={bookcover} alt=" " />
 				</div>
 				<div className="product_body">
