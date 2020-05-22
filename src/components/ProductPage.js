@@ -1,10 +1,10 @@
 import React from 'react';
 // import Header from './Header'
 import Header from './Header';
-import cart from '../img/cart.svg';
+// import cart from '../img/cart.svg';
 import bookcover from '../img/bookcover.jpg';
 
-import pblogo from '../img/pblogo.png';
+// import pblogo from '../img/pblogo.png';
 
 export default class ProductPage extends React.Component {
 	render() {

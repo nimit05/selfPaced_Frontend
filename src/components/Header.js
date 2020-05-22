@@ -10,6 +10,7 @@ class Header extends React.Component {
 	findName = () => {
 		let c = document.getElementById('main_search_inp').value;
 		if (c === '') {
+			// eslint-disable-next-line
 			this.state.searchNames = [];
 			this.setState(() => {
 				return {
@@ -25,7 +26,7 @@ class Header extends React.Component {
 				return false;
 			}
 		});
-
+		// eslint-disable-next-line
 		this.state.searchNames = arr;
 
 		this.setState(() => {
@@ -108,7 +109,7 @@ class Header extends React.Component {
 						<div className="searchRe">
 							{this.state.searchNames.map((e, i) => {
 								if (i > 5) {
-									return;
+									return false;
 								} else {
 									return <li key={i}>{e}</li>;
 								}
@@ -120,7 +121,13 @@ class Header extends React.Component {
 						<div className="frse logindet">
 							<div class="tooltip">
 								{' '}
-								<img src={plus} alt=" " />
+								<img
+									onClick={() => {
+										window.location.href = '/sell-your-product';
+									}}
+									src={plus}
+									alt=" "
+								/>
 								<span class="tooltiptext">Sell Items</span>
 							</div>
 							<div class="tooltip">
