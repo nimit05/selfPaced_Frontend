@@ -1,5 +1,5 @@
 import React from 'react';
-import down from '../img/down.svg';
+// import down from '../img/down.svg';
 
 class MainHeader extends React.Component {
 	render() {

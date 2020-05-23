@@ -1,0 +1,164 @@
+.MainHeader_PP{
+
+    background-color: $dark;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    // top: 50px;
+    z-index: 100;
+}
+
+.header_left_PP {
+    // margin-left: 100px;
+    display: flex;
+    background-color: $dark;
+    flex-direction: row;
+    justify-content: start;
+	align-items: center;
+
+    img {
+        margin-top: 5px;
+        margin-right: 5px;
+        height: 40px;
+    }
+    span,
+    b {
+        cursor: pointer;
+        color: white;
+        font-size: 30px;
+    }
+
+    span {
+        color: $secondary;
+    }
+}
+
+.pp_btn {
+    width: 65%;
+    padding: 0 3%;
+	button {
+		background-color: transparent;
+		color: $light;
+		font-size: 17px;
+		padding: 5px 25px;
+	}
+
+	img {
+		height: 30px;
+		cursor: pointer;
+	}
+}
+.gap{
+    display: flex;
+    flex-direction: row;
+     width: 100%;
+     padding: 0 10%;
+}
+.ext{
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+	align-items: center;
+    
+}
+.srch{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    float: left;
+    // padding: 0 10%;
+}
+#main_search_pp{
+    width: 100%;
+	min-width: 180px;
+	height: 37px;
+	// border-radius: 20px;
+	background-color: #eeeeee;
+	font-size: 0.84rem;
+	color: rgb(54, 54, 54);
+	padding-left: 10px;
+	background-image: url("../../img/search.svg");
+	background-repeat: no-repeat;
+	background-size: 63% 63%;
+	background-position: 175%;
+	box-sizing: border-box;
+	border: none;
+}
+#main_search_pp:focus {
+	outline: none;
+}
+.user_btn_pp {
+	width: 45%;
+	padding-right: 30px;
+	button {
+		background-color: transparent;
+		color: $light;
+		font-size: 16px;
+		padding: 5px 10px;
+		font-weight: 300;
+		margin-left: 2vw;
+	}
+
+	img {
+
+		height: 30px;
+		cursor: pointer;
+	}
+}
+.Main_BI{
+    padding: 10rem 5rem;
+    float: left;
+}
+.book_cont{
+    font-size: 5rem;
+
+    width : 800px;
+    height: 400px;
+    padding: 3rem;
+}
+
+.product_img_pp {
+	// margin-top: -14px;
+	height: calc(90% - 14px);
+	text-align: center;
+}
+
+.Main_CT{
+ font-size: 3rem ;
+ padding: 10rem 5rem;
+
+}
+.author{
+    // color:;
+    font-size: 1rem;
+    
+}
+.hr{
+    opacity: 0.5;
+}
+.price_pp{
+font-size: 1.4rem;    
+}
+.price_val{
+    color: $secondary;
+}
+.des_cont{
+    font-size: 1rem;
+}
+.des_pp{
+    font-size: 1.5rem;
+    
+}
+.buy_btn_pp{
+    height: 2rem;
+    width: 10rem;
+    background-color: $secondary;
+    color: $light;
+}
+.adc_btn_pp{
+    height: 2rem;
+    width: 10rem;
+    background-color: $secondary;
+    margin-left: 1rem;
+    color: $light;
+}

@@ -45,11 +45,11 @@ export default class Productbox extends React.Component {
 						window.location.href = '/productpage';
 					}}
 				>
-					<img className="bookcover" src={bookcover} alt=" " />
+					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />
 				</div>
 				<div className="product_body">
 					<h3>{this.props.title}</h3>
-					{/* <h6>({this.props.stitle})</h6> */}
+					<h6>({this.props.stitle})</h6>
 					<p>{this.props.short_des}</p>
 					<h1>
 						{this.props.price} <span>coins</span>

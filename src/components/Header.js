@@ -10,6 +10,7 @@ class Header extends React.Component {
 	findName = () => {
 		let c = document.getElementById('main_search_inp').value;
 		if (c === '') {
+			// eslint-disable-next-line
 			this.state.searchNames = [];
 			this.setState(() => {
 				return {
@@ -25,7 +26,7 @@ class Header extends React.Component {
 				return false;
 			}
 		});
-
+		// eslint-disable-next-line
 		this.state.searchNames = arr;
 
 		this.setState(() => {
@@ -38,8 +39,35 @@ class Header extends React.Component {
 	constructor(props) {
 		super(props);
 
+		fetch('/api/user', {
+			method: 'GET', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+			credentials: 'same-origin', // include, *same-origin, omit
+			headers: {
+				'Content-Type': 'application/json'
+				// 'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			redirect: 'follow', // manual, *follow, error
+			referrerPolicy: 'no-referrer' // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+			// body: JSON.stringify(data) // body data type must match "Content-Type" header
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				if (data) {
+					this.setState(() => {
+						return {
+							islogin: true,
+							username: data.username
+						};
+					});
+				}
+			});
+
 		this.state = {
-			islogin: true,
+			islogin: false,
+			username: null,
 			allItemsName: [
 				'tushar',
 				'tushar',
@@ -81,7 +109,7 @@ class Header extends React.Component {
 						<div className="searchRe">
 							{this.state.searchNames.map((e, i) => {
 								if (i > 5) {
-									return;
+									return false;
 								} else {
 									return <li key={i}>{e}</li>;
 								}
@@ -93,7 +121,13 @@ class Header extends React.Component {
 						<div className="frse logindet">
 							<div class="tooltip">
 								{' '}
-								<img src={plus} alt=" " />
+								<img
+									onClick={() => {
+										window.location.href = '/sell-your-product';
+									}}
+									src={plus}
+									alt=" "
+								/>
 								<span class="tooltiptext">Sell Items</span>
 							</div>
 							<div class="tooltip">
@@ -109,7 +143,7 @@ class Header extends React.Component {
 							<div class="tooltip">
 								{' '}
 								<div className="profile">
-									<h1>1231 coins</h1>
+									<h1>{this.state.username}</h1>
 									<img src={propic} alt=" " />
 								</div>
 								<span class="tooltiptext">My Profile</span>
