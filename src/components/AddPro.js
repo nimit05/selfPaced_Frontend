@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
 import Productbox from './Productbox';
 
+async function postData(url = '', data = {}) {
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify(data) // body data type must match "Content-Type" header
+	});
+	return response.json(); // parses JSON response into native JavaScript objects
+}
+
 class AddPro extends Component {
 	updateProductPre = () => {
 		let title = document.getElementById('pro_title').value;
@@ -24,6 +42,8 @@ class AddPro extends Component {
 			};
 		});
 	};
+
+	// code to check uploaded file size (file validation)
 
 	_onChange = () => {
 		// to check the file size
@@ -58,6 +78,45 @@ class AddPro extends Component {
 			}.bind(this);
 		}
 	};
+
+	addProBtn = () => {
+		let title = document.getElementById('pro_title').value;
+		let stitle = document.getElementById('pro_s_title').value;
+		let s_des = document.getElementById('pro_s_des').value;
+		let tag = document.getElementById('pro_type').value;
+		let price = document.getElementById('pro_price').value;
+		let proCat = document.getElementById('pro_cat').value;
+		let proDes = document.getElementById('pro_des').value;
+
+		let data1 = {
+			product: {
+				category: proCat,
+				BookName: title,
+				BookAuthor: stitle,
+				Edition: s_des,
+				Description: proDes,
+				tag: tag,
+				MRP: price
+			}
+		};
+
+		postData('/api/sell/', data1).then((data) => {
+			console.log(data);
+			if (data.refrenceId) {
+				// location.replace('/');
+				alert('product saved');
+			} else {
+				alert('error creating product , Try Again later');
+			}
+		});
+	};
+	// a.category,
+	// 	a.BookName,
+	// 	a.BookAuthor,
+	// 	a.Edition,
+	// 	a.Description,
+	// 	a.tag,
+	// 	a.MRP
 
 	constructor(props) {
 		super(props);
@@ -154,7 +213,9 @@ class AddPro extends Component {
 						</div>
 						<div className="row_pair" id="btnrow">
 							<button id="addpro_canbtn">Cancel</button>
-							<button id="addpro_addbtn">Add to Store</button>
+							<button id="addpro_addbtn" onClick={this.addProBtn}>
+								Add to Store
+							</button>
 						</div>
 					</div>
 				</div>

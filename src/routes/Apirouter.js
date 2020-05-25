@@ -10,10 +10,10 @@ const Apiroute = () => (
 	<BrowserRouter>
 		<div>
 			<Switch>
-				<Route path="/sell-your-product" component={AddProPage} />
-				<Route path="/container" component={Productbox} />
+				<Route path="/sell-your-product" component={AddProPage} exact={true} />
+				<Route path="/container" component={Productbox} exact={true} />
 				<Route path="/" component={HomePage} exact={true} />
-				<Route path="/productpage" component={ProductPage} />
+				<Route path="/productpage" component={ProductPage} exact={true} />
 			</Switch>
 		</div>
 	</BrowserRouter>

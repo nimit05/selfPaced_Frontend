@@ -368,6 +368,7 @@ function otp_confirm() {
 	};
 
 	postData('/api/email-verification/', data1).then((data) => {
+		console.log(data);
 		if (data.otp) {
 			location.replace('/');
 		} else {
