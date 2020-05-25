@@ -16,12 +16,12 @@
   <div class="form">
 
     <ul class="tab-group">
-      <li class="tab  tabn"><a id="tab_left" href="#login">Register</a></li>
-      <li class="tab tabp active"><a id="tab_right" href="#signup">Login</a></li>
+      <li class="tab  tabn"><a id="tab_left" href="#signup">Register</a></li>
+      <li class="tab tabp active"><a id="tab_right" href="#login">Login</a></li>
     </ul>
 
     <div class="tab-content">
-      <div id="signup">
+      <div id="login">
 
 
         <form action="/" method="GET">
@@ -43,11 +43,16 @@
               <button id="submit_btn" class="button button-block" onclick="Validation(); Adder()" />Login</button>
                </div>
 
+               <hr>
+               <div class="social_btn" >
+               <div id="my-signin2" data-onsuccess="onSignIn"></div>
+             </div>
+
       </div>
 
 
 
-      <div id="login">
+      <div id="signup">
 
         <div class="top-row">
             <div class="field-wrap">
