@@ -142,7 +142,9 @@ class Header extends React.Component {
 							</div>
 							<div class="tooltip">
 								{' '}
-								<div className="profile">
+								<div className="profile" onClick = {() => {
+									window.location.href = '/myprofile'
+								}}>
 									<h1>{this.state.username}</h1>
 									<img src={propic} alt=" " />
 								</div>

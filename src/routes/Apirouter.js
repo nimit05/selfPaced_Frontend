@@ -5,6 +5,7 @@ import Productbox from '../components/Productbox';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ProductPage from '../components/ProductPage';
 import AddProPage from '../containers/AddProPage';
+import profilePage from '../components/Profile'
 
 const Apiroute = () => (
 	<BrowserRouter>
@@ -14,6 +15,7 @@ const Apiroute = () => (
 				<Route path="/container" component={Productbox} exact={true} />
 				<Route path="/" component={HomePage} exact={true} />
 				<Route path="/productpage" component={ProductPage} exact={true} />
+				<Route path="/myprofile"   component={profilePage} />
 			</Switch>
 		</div>
 	</BrowserRouter>
