@@ -11,7 +11,7 @@ export default class CateCon_for_profile extends React.Component {
 			proArray: []
 		};
 
-		postData('/api/products').then((data) => {
+		postData('/api/products/myproducts').then((data) => {
 			console.log(data);
 			this.setState(() => {
 				return { proArray: data.products };
@@ -22,7 +22,7 @@ export default class CateCon_for_profile extends React.Component {
 		return (
 			<div className="CateCon">
 				<div className="cate_head">
-					<h1>BEST SELLER</h1>
+					<h1>My Products</h1>
 					<h3>See More -></h3>
 				</div>
 
@@ -95,7 +95,7 @@ class Productbox extends React.Component {
 
 		return (
 			<div className="productcont_for_profile">
-				<div className="tag">
+				<div className="tag_for_profile">
 					<strong>{this.props.tag}</strong>
 				</div>
 				<div

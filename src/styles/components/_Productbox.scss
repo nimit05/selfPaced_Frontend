@@ -58,6 +58,19 @@
 	z-index: 10;
 	box-shadow: 1px 1px 10px rgb(204, 204, 204);
 }
+.tag_for_profile {
+	position: relative;
+	margin: 0px;
+	height: 10px;
+	top: 10px;
+	left: -70px;
+	font-size: 8px;
+	background-color: $secondary;
+	text-align: center;
+	transform: rotateZ(-45deg);
+	z-index: 7;
+	box-shadow: 1px 1px 10px rgb(204, 204, 204);
+}
 .bookcover {
 	max-height: 100%;
 	max-width: 100%;
