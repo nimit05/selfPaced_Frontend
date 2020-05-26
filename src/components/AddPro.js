@@ -69,7 +69,7 @@ class AddPro extends Component {
 			var file = this.refs.file.files[0];
 			var reader = new FileReader();
 			var url = reader.readAsDataURL(file);
-			console.lor(url);
+			console.log(url);
 
 			reader.onloadend = function(e) {
 				this.setState(() => {
