@@ -1,4 +1,4 @@
-.ProfileCard{
+#ProfileCard{
     background-color: #e6e4e2;
 	border: 1px solid rgb(172, 172, 172);
     width: 22vw;
@@ -57,7 +57,7 @@
 .edit{
     color: $secondary;
     font-size: 0.8rem;
-    // float: left;
+    cursor: pointer;
 }
 .heading{
     color: #898887;
@@ -85,13 +85,19 @@
     font-size: 1rem;
     color: $dark;
     margin-top: 0.5vw;
+    background-color: #e6e4e2;
+    border: transparent;
 }
 
 .log_out{
     color: $secondary;
-    margin-bottom: 1.4vw;
-    margin-top: 2vw;
+    // margin-bottom: 1.4vw;
+    // margin-top: 2vw;
     padding: 0 8%;
     font-size: 1.2rem;
+    cursor: pointer;
+}
+.save:hover{
+    color: $secondary;
     cursor: pointer;
 }
