@@ -1,14 +1,13 @@
 .payment_tab{
-    background-color: $blur;
-	border: 1px solid rgb(172, 172, 172);
+    // background-color: $blur;
+	// border: 1px solid rgb(172, 172, 172);
     width: 30vw;
-    height: 32vw;
 	box-sizing: border-box;
     display: block;
     border-radius: 10px; 
     margin-left: 5vw;
     margin-right: 4vw;
-    margin-top: 8vw;
+    margin-top: 6vw;
     float: right;
 }
 
@@ -94,3 +93,23 @@ margin-left: 2vw;
     margin-left: 0;
 }
 
+.payment_tab_heading{
+    font-size: 2.5rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.payment_promo{
+    font-size: 1.1rem;
+    width: 90%;
+    height: 1.1vw;
+	border: 1px solid rgb(172, 172, 172);
+    padding: 5px 5%;
+}
+.title_div{
+    margin-top: 1vw;
+    font-size: 1.3rem;
+}
+
+
+.title_div_price{
+    float: right;
+}
