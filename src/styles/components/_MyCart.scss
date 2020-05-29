@@ -1,0 +1,96 @@
+.payment_tab{
+    background-color: $blur;
+	border: 1px solid rgb(172, 172, 172);
+    width: 30vw;
+    height: 32vw;
+	box-sizing: border-box;
+    display: block;
+    border-radius: 10px; 
+    margin-left: 5vw;
+    margin-right: 4vw;
+    margin-top: 8vw;
+    float: right;
+}
+
+.heading_cart{
+    background-color: $blur;
+	height: 50px;
+	font-family: "Times New Roman", Times, serif;
+	width: 100%;
+    margin-top: 3vw;
+    color:$dark;
+    margin-bottom: 1.4vw;
+    font-size: 1.2rem;
+}
+
+.heading_left_cart{
+//    float: left;
+margin-left: 2vw;
+}
+
+
+.product_cart{
+    display: flex;
+    flex-direction: row;
+	justify-content: start;
+	align-items: center;
+}
+
+.img_cart{
+	border: 1px solid rgb(172, 172, 172);
+    width: 10vw;
+    height: 10vw;
+	box-sizing: border-box;
+    display: block;
+    margin-left: 3vw;
+    // margin-right: 4vw;
+    margin-top: 4vw;
+}
+
+.details_cart{
+    width: 13vw;
+	// border: 1px solid rgb(172, 172, 172);
+    height: 10vw;
+	box-sizing: border-box;
+    display: block;
+    margin-left: 3vw;
+    margin-top: 4vw;
+    color: $dark;
+    font-size: 1.5rem;
+    font-weight: 1000;
+}
+
+.cart_product_price{
+    margin-top: 0.4vw;
+    font-size: 2rem;
+    color: $secondary ;
+}
+.cart_coins{
+    font-size: 1.5rem;
+}
+
+.type_product_cart{
+    margin-top: 0.4vw;
+    font-size: 1.2rem;
+}
+.type_value{
+    font-size: 1.1rem;
+    color: $secondary;
+}
+.cart_remove_button{
+    height: 1.8rem;
+	width: 6rem;
+	background-color: $secondary;
+	color: $light;
+}
+
+.btn_cart_div{
+    margin-top: 0.6vw;
+}
+.hr_cart{
+    color: $light;
+    width: 60vw;
+    // float: left;
+    margin-left: 0;
+}
+

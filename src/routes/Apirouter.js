@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ProductPage from '../components/ProductPage';
 import AddProPage from '../containers/AddProPage';
 import profilePage from '../components/Profile'
+import MyCart from '../components/MyCart';
 
 const Apiroute = () => (
 	<BrowserRouter>
@@ -16,6 +17,7 @@ const Apiroute = () => (
 				<Route path="/" component={HomePage} exact={true} />
 				<Route path="/productpage" component={ProductPage} exact={true} />
 				<Route path="/myprofile"   component={profilePage} />
+				<Route path="/myCart"   component={MyCart} />
 			</Switch>
 		</div>
 	</BrowserRouter>

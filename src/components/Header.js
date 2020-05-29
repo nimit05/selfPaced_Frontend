@@ -130,7 +130,9 @@ class Header extends React.Component {
 								/>
 								<span class="tooltiptext">Sell Items</span>
 							</div>
-							<div class="tooltip">
+							<div class="tooltip" onClick = {() => {
+								window.location.href = '/myCart'
+							}}>
 								{' '}
 								<img src={cart} alt=" " />
 								<span class="tooltiptext">Cart</span>
