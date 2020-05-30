@@ -93,10 +93,12 @@ class Payment_tab extends React.Component {
 					<input placeholder="HAVE A PROMOCODE?" type="text" className="payment_promo" />
 				</div>
 				<div>
-					{this.state.Cart_Product.map((product, i) => {
-						if (i !== 0) {
-							return <Title_div title={product.BookName} Value={product.Value} />;
-						}
+					{this.state.Cart_Product.map((product) => {
+
+                            return (
+                            <Title_div  title={product.BookName} Value={product.Value} />
+                            )
+						
 					})}
 				</div>
 				<br />
@@ -165,10 +167,11 @@ class Heading extends React.Component {
 			<div className="heading_cart">
 				<h1 className="heading_left_cart">Your Cart({this.state.count})</h1>
 				<div>
-					{this.state.Cart_Product.map((product, i) => {
-						if (i !== 0) {
+					{this.state.Cart_Product.map((product) => {
+						
 							return (
-								<Product_cart
+                                <Product_cart
+                                  key = {product.refrenceId}
 									BookName={product.BookName}
 									BookAuthor={product.BookAuthor}
 									Value={product.Value}
@@ -178,7 +181,7 @@ class Heading extends React.Component {
 								/>
 							);
 						}
-					})}
+					)}
 				</div>
 			</div>
 		);
