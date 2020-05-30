@@ -231,7 +231,8 @@ class Product_cart extends React.Component {
                     ${this.props.Value} <span className = "cart_coins">coins</span>
                 </div>
              </div>
-    
+        <br />
+        <hr className = "hr_cart" />
         </div>
     )
         }
