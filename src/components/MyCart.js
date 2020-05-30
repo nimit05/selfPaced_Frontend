@@ -91,8 +91,8 @@ export default class MyCart extends React.Component{
                     ORDER SUMMARY
                 </div>
                 <hr />
-                <div className = "payment_promo">
-                    HAVE A PROMO CODE?
+                <div >
+                    <input placeholder = "HAVE A PROMOCODE?" type = "text" className = "payment_promo" />
                 </div>
                 <div>
                     {this.state.Cart_Product.map((product) => {
