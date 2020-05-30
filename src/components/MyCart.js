@@ -15,7 +15,10 @@ export default class MyCart extends React.Component{
 
  class Payment_tab extends React.Component{
     constructor(props) {
-		super(props);
+        super(props);
+        
+        this.Total_Value = this.Total_Value.bind(this)
+        this.Total = this.Total.bind(this)
 
 		fetch('/api/user/Cart', {
 			method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -39,10 +42,48 @@ export default class MyCart extends React.Component{
 					});
 				}
             });
+
+            fetch('/api/user', {
+                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', 
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer' 
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    if (data) {
+                        this.setState(() => {
+                            return {
+                               coins : data.Coins
+                            };
+                        });
+                    }
+                });
+
             this.state = {
-                Cart_Product : []
-            }
+                Cart_Product : [],
+                coins : null
+                        }
         }
+        Total_Value(data){
+            let total = 0
+            for(let i=0;i<data.length;i++){
+              total = total + data[0].Value
+            }
+            return total
+         }
+
+         Total(coins){
+             let overall = this.Total_Value(this.state.Cart_Product) - coins
+             return overall;
+         }
+
     render(){
         return(
             <div className = "payment_tab">
@@ -64,12 +105,37 @@ export default class MyCart extends React.Component{
                      })}
                 </div>
                 <br />
+                <br />
                 <hr />
                 <div>
-                Total
-                <div className = "total_price">
-                  {this.state}
-                </div>
+                <div className = "title_tab_total">
+                            Total Value  
+                        <div className = "title_ab_total_value">
+                            ${this.Total_Value(this.state.Cart_Product)}
+                        </div>
+                    </div>
+                    <div className = "user_coins">
+                        Your Coins  
+                        <span className = "user_coins_value">
+                            - ${this.state.coins}
+                        </span>
+                    </div>
+                    <div className = "user_coins">
+                         Order Total  
+                        <div className = "user_coins_value">
+                            ${this.Total(this.state.coins)}
+                        </div>
+                    </div>
+                        <div className = "checkout_div">
+                            <button className = "checkout_btn">
+                                Proceed To Checkout
+                            </button>
+                        </div>
+                        <div className = "checkout_div">
+                        <button className = "checkout_btn_pay">
+                            Pay with PayTM
+                        </button>
+                    </div>
                 </div>
             </div>
         )
@@ -79,6 +145,7 @@ export default class MyCart extends React.Component{
 class Heading extends React.Component{
     constructor(props) {
 		super(props);
+
 
 		fetch('/api/user/Cart', {
 			method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -103,9 +170,11 @@ class Heading extends React.Component{
 				}
             });
             this.state = {
-                Cart_Product : []
-            }
+                Cart_Product : []            }
         }
+    
+      
+
     render(){
         return(
             <div className = "heading_cart" >
@@ -119,10 +188,12 @@ class Heading extends React.Component{
                     Value = {product.Value}
                     tag = {product.tag}
                     refrenceId = {product.refrenceId}
+                    total = {this.Total_Value}
                     />
                     )
                 })}
                 </div>
+
             </div>
         )
     }
@@ -168,7 +239,7 @@ const Title_div = (props) => {
             <div className = "title_div_name">
                 {props.title}  
                  <div className = "title_div_price">
-                {props.Value}
+                ${props.Value}
             </div>
             </div>
             </div>

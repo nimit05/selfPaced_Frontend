@@ -103,6 +103,7 @@ margin-left: 2vw;
     height: 1.1vw;
 	border: 1px solid rgb(172, 172, 172);
     padding: 5px 5%;
+    margin-top: 1vw;
 }
 .title_div{
     margin-top: 1vw;
@@ -112,4 +113,54 @@ margin-left: 2vw;
 
 .title_div_price{
     float: right;
+    color: $secondary;
+}
+.title_ab_total_value{
+    float: right;
+    color : $secondary;
+    font-size: 1.3rem;
+
+}
+.user_coins_value{
+    float: right;
+    font-size: 1.3rem;
+    color: $secondary;
+}
+.user_coins{
+    margin-top: 0.4vw;
+
+}
+.checkout_div{
+    margin-top: 1.5vw;
+}
+.checkout_btn{
+    width: 100%;
+    color: $secondary;
+    // background-color: white;
+    border: solid $secondary;
+    // color: white;
+    background-color: $light;
+
+    padding: 10px;
+    font-size: 1.4rem;
+}
+.checkout_btn:hover{
+    background-color: $secondary;
+    color: white;
+
+}
+.checkout_btn_pay{
+    width: 100%;
+    color: #00B9F1;
+    background-color: $light;
+    // background-color: white;
+    border: solid #00B9F1;
+    // color: white;
+    padding: 10px;
+    font-size: 1.4rem;
+}
+.checkout_btn_pay:hover{
+    background-color: #00B9F1;
+    color: white;
+    
 }
