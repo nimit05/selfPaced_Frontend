@@ -123,7 +123,7 @@ export default class MyCart extends React.Component{
                     </div>
                     <div className = "user_coins">
                          Order Total  
-                        <div className = "user_coins_value">
+                        <div className = "order_total">
                             ${this.Total(this.state.coins)}
                         </div>
                     </div>
@@ -207,33 +207,35 @@ class Product_cart extends React.Component {
     render(){
     return(
         <div className = "product_cart_cont">
-        <div className = "product_cart">
-        <div className = "img_cart">
-        <img className="product_img_cart" src={bookcover} alt=" " />
-         
-        </div>
-        <div className = "details_cart">
-            <span>{this.props.BookName} -</span>
-             <span>{this.props.BookAuthor}</span>
-             
-            <div className = "type_product_cart">
-          Type : <span className = "type_value">{this.props.tag}</span>
-        </div>
-        <div className = "cart_product_price">
-             ${this.props.Value} <span className = "cart_coins">coins</span>
-            </div>
-            <div className = "btn_cart_div">
-            <button className = "cart_remove_button" >
-             Remove
-            </button>
-            </div>
-            
+
+            <div className = "product_cart">
+                <div className = "img_cart">
+                <img className="product_img_cart" src={bookcover} alt=" " />
+                
+                </div>
+                <div className = "details_cart">
+                    <span>{this.props.BookName} -</span>
+                    <span>{this.props.BookAuthor}</span>
+                    
+                    <div className = "type_product_cart">
+                Type : <span className = "type_value">{this.props.tag}</span>
+                </div>
+                
+                    <div className = "btn_cart_div">
+                    <button className = "cart_remove_button" >
+                    Remove
+                    </button>
+                    </div>
+                    
+                </div> 
+                <div className = "cart_product_price">
+                    ${this.props.Value} <span className = "cart_coins">coins</span>
+                </div>
+             </div>
+             <br />    
+             <hr className = "hr_cart" />
+ 
         </div> 
-    </div>
-    <br />
-    <br />
-    <hr className = "hr_cart" />
-   </div>
     )
         }
 }

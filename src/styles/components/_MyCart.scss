@@ -60,9 +60,11 @@ margin-left: 2vw;
 }
 
 .cart_product_price{
-    margin-top: 0.4vw;
+    margin-bottom: 4.5vw;
     font-size: 2rem;
     color: $secondary ;
+    margin-left: 25vw;
+    float: right;
 }
 .cart_coins{
     font-size: 1.5rem;
@@ -171,4 +173,10 @@ margin-left: 2vw;
     margin: auto;
     padding: 5% 20%;
 
+}
+
+.order_total{
+    float: right;
+    font-size: 1.3rem;
+    color: green;
 }
