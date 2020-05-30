@@ -164,13 +164,16 @@ class Heading extends React.Component{
 				if (data) {
 					this.setState(() => {
 						return {
-                           Cart_Product : data
+                           Cart_Product : data,
+                           count : data.length
 						};
 					});
 				}
             });
             this.state = {
-                Cart_Product : []            }
+                Cart_Product : [],
+                count : 0
+            }
         }
     
       
@@ -178,7 +181,7 @@ class Heading extends React.Component{
     render(){
         return(
             <div className = "heading_cart" >
-                <h1 className = "heading_left_cart" >Your Cart</h1>
+                <h1 className = "heading_left_cart" >Your Cart({this.state.count})</h1>
                 <div >
                 {this.state.Cart_Product.map((product) => {
                     return (
