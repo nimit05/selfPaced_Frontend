@@ -35,6 +35,7 @@ export default class CateCon extends React.Component {
 								stitle={e.BookAuthor}
 								short_des={e.Edition}
 								price={e.Value}
+								refId={e.refrenceId}
 							/>
 						);
 					})}

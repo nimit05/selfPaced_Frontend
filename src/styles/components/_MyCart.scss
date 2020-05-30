@@ -1,141 +1,141 @@
-.payment_tab{
+.payment_tab {
     // background-color: $blur;
-	// border: 1px solid rgb(172, 172, 172);
+    // border: 1px solid rgb(172, 172, 172);
     width: 30vw;
-	box-sizing: border-box;
+    box-sizing: border-box;
     display: block;
-    border-radius: 10px; 
+    border-radius: 10px;
     margin-left: 5vw;
     margin-right: 4vw;
     margin-top: 6vw;
     float: right;
 }
 
-.heading_cart{
+.heading_cart {
     background-color: $blur;
-	height: 50px;
-	font-family: "Times New Roman", Times, serif;
-	width: 100%;
+    height: 50px;
+    font-family: "Times New Roman", Times, serif;
+    width: 100%;
     margin-top: 3vw;
-    color:$dark;
+    color: $dark;
     margin-bottom: 1.4vw;
     font-size: 1.2rem;
 }
 
-.heading_left_cart{
-//    float: left;
-margin-left: 2vw;
+.heading_left_cart {
+    //    float: left;
+    margin-left: 2vw;
 }
 
-
-.product_cart{
+.product_cart {
     display: flex;
     flex-direction: row;
-	justify-content: start;
-	align-items: center;
+    justify-content: start;
+    align-items: center;
 }
 
-.img_cart{
-	// border: 1px solid rgb(172, 172, 172);
+.img_cart {
+    // border: 1px solid rgb(172, 172, 172);
     width: 10vw;
     height: 10vw;
-	box-sizing: border-box;
+    box-sizing: border-box;
     display: block;
     margin-left: 3vw;
     // margin-right: 4vw;
     margin-top: 4vw;
 }
 
-.details_cart{
+.details_cart {
     width: 13vw;
-	// border: 1px solid rgb(172, 172, 172);
+    // border: 1px solid rgb(172, 172, 172);
     height: 10vw;
-	box-sizing: border-box;
+    box-sizing: border-box;
     display: block;
     margin-left: 1vw;
     margin-top: 4vw;
     color: $dark;
     font-size: 1.5rem;
     font-weight: 1000;
+    h3,
+    h6 {
+        margin: 5px;
+    }
 }
 
-.cart_product_price{
+.cart_product_price {
     margin-bottom: 4.5vw;
     font-size: 2rem;
-    color: $secondary ;
+    color: $secondary;
     margin-left: 25vw;
     float: right;
 }
-.cart_coins{
+.cart_coins {
     font-size: 1.5rem;
 }
 
-.type_product_cart{
+.type_product_cart {
     margin-top: 0.4vw;
     font-size: 1.2rem;
 }
-.type_value{
+.type_value {
     font-size: 1.1rem;
     color: $secondary;
 }
-.cart_remove_button{
+.cart_remove_button {
     height: 1.8rem;
-	width: 6rem;
-	background-color: $secondary;
-	color: $light;
+    width: 6rem;
+    background-color: $secondary;
+    color: $light;
 }
 
-.btn_cart_div{
+.btn_cart_div {
     margin-top: 0.6vw;
 }
-.hr_cart{
+.hr_cart {
     color: $light;
     width: 60vw;
     // float: left;
     margin-left: 0;
 }
 
-.payment_tab_heading{
+.payment_tab_heading {
     font-size: 2.5rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
-.payment_promo{
+.payment_promo {
     font-size: 1.1rem;
     width: 90%;
     height: 1.5vw;
-	border: 1px solid rgb(172, 172, 172);
+    border: 1px solid rgb(172, 172, 172);
     padding: 5px 5%;
     margin-top: 0.8vw;
 }
-.title_div{
+.title_div {
     margin-top: 1vw;
     font-size: 1.3rem;
 }
 
-
-.title_div_price{
+.title_div_price {
     float: right;
     color: $secondary;
 }
-.title_ab_total_value{
+.title_ab_total_value {
     float: right;
-    color : $secondary;
+    color: $secondary;
     font-size: 1.3rem;
-
 }
-.user_coins_value{
+.user_coins_value {
     float: right;
     font-size: 1.3rem;
     color: $secondary;
 }
-.user_coins{
+.user_coins {
     margin-top: 0.4vw;
-
 }
-.checkout_div{
+.checkout_div {
     margin-top: 1.5vw;
 }
-.checkout_btn{
+.checkout_btn {
     width: 100%;
     color: $secondary;
     // background-color: white;
@@ -146,65 +146,59 @@ margin-left: 2vw;
     padding: 10px;
     font-size: 1.4rem;
 }
-.checkout_btn:hover{
+.checkout_btn:hover {
     background-color: $secondary;
     color: white;
-
 }
-.checkout_btn_pay{
+.checkout_btn_pay {
     width: 100%;
-    color: #00B9F1;
+    color: #00b9f1;
     background-color: $light;
     // background-color: white;
-    border: solid #00B9F1;
+    border: solid #00b9f1;
     // color: white;
     padding: 10px;
     font-size: 1.4rem;
 }
-.checkout_btn_pay:hover{
-    background-color: #00B9F1;
+.checkout_btn_pay:hover {
+    background-color: #00b9f1;
     color: white;
-    
 }
 
 .product_img_cart {
-	height: calc(17vh - 14px);
+    height: calc(17vh - 14px);
     text-align: center;
     margin: auto;
     padding: 5% 20%;
-
 }
 
-.order_total{
+.order_total {
     float: right;
     font-size: 1.3rem;
     color: green;
 }
 
 @media screen and (max-width: 720px) {
-    .heading_cart{
+    .heading_cart {
         background-color: $blur;
         height: 50px;
         font-family: "Times New Roman", Times, serif;
         width: 100%;
         margin-top: 15vw;
-        color:$dark;
+        color: $dark;
         margin-bottom: 1.4vw;
         font-size: 1rem;
     }
-    .payment_tab{
+    .payment_tab {
         // background-color: $blur;
         // border: 1px solid rgb(172, 172, 172);
         width: 30vw;
         box-sizing: border-box;
         display: block;
-        border-radius: 10px; 
+        border-radius: 10px;
         margin-left: 5vw;
         margin-right: 4vw;
         margin-top: 6vw;
         // float: right;
     }
-    
-    
-
 }
