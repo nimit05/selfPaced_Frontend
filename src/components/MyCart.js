@@ -189,6 +189,15 @@ class Heading extends React.Component {
 }
 
 class Product_cart extends React.Component {
+
+    constructor(props) {
+		super(props);
+		this.RemoveFromcart = this.RemoveFromcart.bind(this)
+    }
+    RemoveFromcart(refId){
+		let data = { refrenceId: refId };
+		postData('/api/products/RemoveFromCart', data);
+    }
 	render() {
 		return (
 			<div className="product_cart_cont">
@@ -205,7 +214,10 @@ class Product_cart extends React.Component {
 							Type : <span className="type_value">{this.props.tag}</span>
 						</div>
 
-						<div className="btn_cart_div">
+						<div className="btn_cart_div" onClick = {() => {
+                            this.RemoveFromcart(this.props.refrenceId)
+                            
+                        }}>
 							<button className="cart_remove_button">Remove</button>
 						</div>
 					</div>
@@ -230,3 +242,22 @@ const Title_div = (props) => {
 		</div>
 	);
 };
+
+async function postData(url = '', data = {}) {
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    window.location.reload()
+	return response.json(); // parses JSON response into native JavaScript objects
+}
