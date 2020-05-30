@@ -22,8 +22,8 @@ export default class CateCon_for_profile extends React.Component {
 		return (
 			<div className="CateCon">
 				<div className="cate_head">
-					<h1>My Products</h1>
-					<h3>See More -></h3>
+					<h1 className = "heading_mob_pp">My Products</h1>
+					<h3 className = "see_mob_pp">See More -></h3>
 				</div>
 
 				<div className="cate_body">

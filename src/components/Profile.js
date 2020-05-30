@@ -68,21 +68,34 @@ class ProfileCard extends React.Component{
             </div>
             <div className ="user_name">
                 {this.state.name} 
-                 <div className = "edit" onClick = {() => {
-                     this.setState((prevState) => {
-                         return{
-                             edited : !prevState.edited
-                         } 
-                     })
-          
-                        document.getElementById('ProfileCard').style.height = '40vw'
-                        
-                        if(this.state.edited){
-                        document.getElementById('ProfileCard').style.height = '32vw'
-
+                 <div> {this.state.edited ? (<div className = "edit" onClick = {() => {
+                    this.setState(() => {
+                        return{
+                            edited : false
                         }
-                    
-                 }} > {this.state.edited ? 'Cancel':'Edit Profile'}
+                    })
+                    let data = {
+                        email :document.getElementById('input_email').value,
+                        phone_Number : document.getElementById('input_phone_Number').value,
+                        Address : document.getElementById('input_Address').value
+
+                    }
+                      
+                    postData('api/user/' , data).then((data) => {
+                        if(data.email){
+                            window.location.reload()
+                        }else{
+                            alert('we are having some problem')
+                        }
+                    })
+                }} >Save</div>): (<div className = "edit" onClick = {() => {
+                    this.setState((prevState) => {
+                        return{
+                            edited : !prevState.edited
+                        } 
+                    })
+                   
+                }} >Edit Profile</div>)}
                   
                  
                  </div>
@@ -140,30 +153,6 @@ class ProfileCard extends React.Component{
                      {this.state.coins} coins
                     
                         </div>
-                </div>
-                <div className = "heading save" onClick = {() => {
-                    this.setState(() => {
-                        return{
-                            edited : false
-                        }
-                    })
-                    document.getElementById('ProfileCard').style.height = '32vw'
-                    let data = {
-                        email :document.getElementById('input_email').value,
-                        phone_Number : document.getElementById('input_phone_Number').value,
-                        Address : document.getElementById('input_Address').value
-
-                    }
-                      
-                    postData('api/user/' , data).then((data) => {
-                        if(data.email){
-                            window.location.reload()
-                        }else{
-                            alert('we are having some problem')
-                        }
-                    })
-                }} >
-                 {this.state.edited ? 'Save' : ''}
                 </div>
                 <div className = "log_out">
                 Log Out

@@ -178,5 +178,27 @@
     color: green;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 720px) {
+    .heading_cart {
+        background-color: $blur;
+        height: 50px;
+        font-family: "Times New Roman", Times, serif;
+        width: 100%;
+        margin-top: 15vw;
+        color: $dark;
+        margin-bottom: 1.4vw;
+        font-size: 1rem;
+    }
+    .payment_tab {
+        // background-color: $blur;
+        // border: 1px solid rgb(172, 172, 172);
+        width: 30vw;
+        box-sizing: border-box;
+        display: block;
+        border-radius: 10px;
+        margin-left: 5vw;
+        margin-right: 4vw;
+        margin-top: 6vw;
+        // float: right;
+    }
 }
