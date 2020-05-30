@@ -101,3 +101,98 @@
     color: $secondary;
     cursor: pointer;
 }
+
+@media screen and (max-width: 720px) {
+
+    .main_profile_page{
+        // margin-top: 3.2vw;
+           display: flex;
+           flex-direction: column;
+           justify-content: start;
+           align-items: center;
+       }
+
+       #ProfileCard{
+        width: 75vw;
+        height: 110vw;
+        margin-top: 15vw;
+        margin-bottom: 10vw;
+        margin-left: 1vw;
+        margin-right: 1vw;
+    }
+
+    .info{
+        align-items: center;
+        padding: 5% 18%;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        
+    }
+    .items_cont{
+        background-color: #e6e4e2;
+        border: 1px solid rgb(172, 172, 172);
+        width: 80vw;
+        border-radius: 20px; 
+        // margin-bottom: 8vw;
+    }
+
+    .user_pro_pic{
+        width: 60px;
+        height: 60px;
+        border: solid $dark;
+        border-radius: 100px;
+       margin-right: 0.8vw;
+    }
+    .edit{
+        color: $secondary;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    .heading{
+        color: #898887;
+        margin-bottom: 3vw;
+        padding: 0 8%;
+        font-size: 1rem;
+        
+    }
+    
+    .details{
+        padding: 0.5vw;
+    }
+    
+    .user_name{
+        text-align: center;
+        font-size: 1.1rem;
+       margin-top: 0.8vw;
+    //    margin-right: 1vw;
+    }
+    .heading_value{
+        font-size: 1rem;
+        color: $dark;
+        margin-top: 1.5vw;
+        background-color: #e6e4e2;
+        border: transparent;
+    }
+    
+    .log_out{
+        color: $secondary;
+        // margin-bottom: 1.4vw;
+        // margin-top: 2vw;
+        padding: 0 8%;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    .save:hover{
+        color: $secondary;
+        cursor: pointer;
+    }
+    .heading_mob_pp{
+        font-size: 1rem;
+    }
+    .see_mob_pp{
+        font-size: 0.5rem;
+        margin-left: 8vw;
+    }
+}

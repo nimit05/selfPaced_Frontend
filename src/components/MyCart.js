@@ -207,7 +207,6 @@ class Product_cart extends React.Component {
     render(){
     return(
         <div className = "product_cart_cont">
-
             <div className = "product_cart">
                 <div className = "img_cart">
                 <img className="product_img_cart" src={bookcover} alt=" " />
@@ -232,10 +231,8 @@ class Product_cart extends React.Component {
                     ${this.props.Value} <span className = "cart_coins">coins</span>
                 </div>
              </div>
-             <br />    
-             <hr className = "hr_cart" />
- 
-        </div> 
+    
+        </div>
     )
         }
 }
