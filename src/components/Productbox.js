@@ -5,8 +5,8 @@ import bookcover from '../img/bookcover.jpg';
 
 export default class Productbox extends React.Component {
 	addToCart = (refId) => {
-		let data = { refId: refId };
-		postData('/api/user/Cart', data);
+		let data = { refrenceId: refId };
+		postData('/api/products/AddToCart', data);
 
 		this.setState((prev) => {
 			return {
