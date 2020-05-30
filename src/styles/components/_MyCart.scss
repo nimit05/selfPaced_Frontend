@@ -36,7 +36,7 @@ margin-left: 2vw;
 }
 
 .img_cart{
-	border: 1px solid rgb(172, 172, 172);
+	// border: 1px solid rgb(172, 172, 172);
     width: 10vw;
     height: 10vw;
 	box-sizing: border-box;
@@ -52,7 +52,7 @@ margin-left: 2vw;
     height: 10vw;
 	box-sizing: border-box;
     display: block;
-    margin-left: 3vw;
+    margin-left: 1vw;
     margin-top: 4vw;
     color: $dark;
     font-size: 1.5rem;
@@ -163,4 +163,12 @@ margin-left: 2vw;
     background-color: #00B9F1;
     color: white;
     
+}
+
+.product_img_cart {
+	height: calc(17vh - 14px);
+    text-align: center;
+    margin: auto;
+    padding: 5% 20%;
+
 }

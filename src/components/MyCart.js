@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header'
+import bookcover from '../img/bookcover.jpg';
 
 export default class MyCart extends React.Component{
     render(){
@@ -208,6 +209,7 @@ class Product_cart extends React.Component {
         <div className = "product_cart_cont">
         <div className = "product_cart">
         <div className = "img_cart">
+        <img className="product_img_cart" src={bookcover} alt=" " />
          
         </div>
         <div className = "details_cart">
