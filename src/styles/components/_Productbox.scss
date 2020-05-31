@@ -15,7 +15,7 @@
 	transition: 0.2s;
 }
 
-.productcont_for_profile{
+.productcont_for_profile {
 	width: 170px;
 	height: 240px;
 	box-shadow: 5px 5px 20px #cccccc;
@@ -49,8 +49,8 @@
 	position: relative;
 	margin: 0px;
 	height: 15px;
-	top: 18px;
-	left: -115px;
+	top: 28px;
+	left: -100px;
 	font-size: 12px;
 	background-color: $secondary;
 	text-align: center;
@@ -62,7 +62,7 @@
 	position: relative;
 	margin: 0px;
 	height: 10px;
-	top: 10px;
+	top: 12px;
 	left: -70px;
 	font-size: 8px;
 	background-color: $secondary;
@@ -104,7 +104,7 @@
 	h1 {
 		margin: 5px;
 		color: $secondary;
-		
+
 		span {
 			font-size: 1.5rem;
 		}

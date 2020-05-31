@@ -5,12 +5,13 @@ import bookcover from '../img/bookcover.jpg';
 
 export default class Productbox extends React.Component {
 	addToCart = (refId) => {
-		let data = { refrenceId: refId };
-		postData('/api/products/AddToCart', data);
-
+		if (this.state.addedToCart === false) {
+			let data = { refrenceId: refId };
+			postData('/api/products/AddToCart', data);
+		}
 		this.setState((prev) => {
 			return {
-				addedToCart: !prev.addedToCart
+				addedToCart: true
 			};
 		});
 	};
