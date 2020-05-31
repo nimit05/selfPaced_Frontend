@@ -17,8 +17,9 @@ export default class Productbox extends React.Component {
 
 	constructor(props) {
 		super(props);
+		console.log(this.props.isAdded);
 		this.state = {
-			addedToCart: false
+			addedToCart: this.props.isAdded
 		};
 	}
 

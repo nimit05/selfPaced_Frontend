@@ -8,15 +8,36 @@ export default class CateCon extends React.Component {
 		super(props);
 
 		this.state = {
-			proArray: []
+			proArray: [],
+			addedtocartArr: []
 		};
 
-		postData('/api/products').then((data) => {
-			console.log(data);
-			this.setState(() => {
-				return { proArray: data.products };
+		postData('/api/user/CartRefId')
+			.then((data) => {
+				console.log(data);
+
+				this.setState(() => {
+					return {
+						addedtocartArr: data
+					};
+				});
+				postData('/api/products').then((data) => {
+					console.log(data);
+
+					this.setState(() => {
+						return { proArray: data.products };
+					});
+				});
+			})
+			.catch(() => {
+				postData('/api/products').then((data) => {
+					console.log(data);
+
+					this.setState(() => {
+						return { proArray: data.products };
+					});
+				});
 			});
-		});
 	}
 	render() {
 		return (
@@ -28,6 +49,15 @@ export default class CateCon extends React.Component {
 
 				<div className="cate_body">
 					{this.state.proArray.map((e) => {
+						let a = this.state.addedtocartArr.indexOf(e.refrenceId);
+						console.log(a);
+						let isadded;
+						if (a == -1) {
+							isadded = false;
+						} else {
+							isadded = true;
+						}
+
 						return (
 							<Productbox
 								title={e.BookName}
@@ -36,6 +66,7 @@ export default class CateCon extends React.Component {
 								short_des={e.Edition}
 								price={e.Value}
 								refId={e.refrenceId}
+								isAdded={isadded}
 							/>
 						);
 					})}
