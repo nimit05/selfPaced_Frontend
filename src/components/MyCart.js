@@ -80,6 +80,9 @@ class Payment_tab extends React.Component {
 	}
 
 	Total(coins) {
+		if(this.Total_Value(this.state.Cart_Product) < coins){
+			return 0;
+		}
 		let overall = this.Total_Value(this.state.Cart_Product) - coins;
 		return overall;
 	}
