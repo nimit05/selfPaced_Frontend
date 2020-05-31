@@ -157,9 +157,9 @@ class AddPro extends Component {
 							<div className="lable_inp_pair">
 								<label htmlFor="Type">Type</label>
 								<select name="type" id="pro_type" onChange={this.updateProductPre}>
-									<option value="pdf">PDF</option>
-									<option value="old_book">Old Book</option>
-									<option value="audio_book">Audio Book</option>
+									<option value="PDF">PDF</option>
+									<option value="old">Old Book</option>
+									<option value="Audio">Audio Book</option>
 									<option value="new_book">New Book</option>
 								</select>
 							</div>
@@ -173,18 +173,40 @@ class AddPro extends Component {
 								</select>
 							</div>
 						</div>
-						<div className="lable_inp_pair">
-							<label htmlFor="Type">Image</label>
-							<input
-								id="pro_img"
-								ref="file"
-								type="file"
-								name="user[image]"
-								accept="image/png, image/jpeg"
-								multiple="true"
-								onChange={this._onChange}
-							/>
-							<span id="size" />
+						<div
+							className={
+								(this.state.productdet.tag === 'pdf' || this.state.productdet.tag === 'audio_book') &&
+								'row_pair'
+							}
+						>
+							<div className="lable_inp_pair">
+								<label htmlFor="Type">Image</label>
+								<input
+									id="pro_img"
+									ref="file"
+									type="file"
+									name="user[image]"
+									accept="image/png, image/jpeg"
+									multiple="true"
+									onChange={this._onChange}
+								/>
+								<span id="size" />
+							</div>
+							{(this.state.productdet.tag === 'pdf' || this.state.productdet.tag === 'audio_book') && (
+								<div className="lable_inp_pair">
+									<label htmlFor="Type">{this.state.productdet.tag} File</label>
+									<input
+										id="pro_img"
+										ref="file"
+										type="file"
+										name="user[image]"
+										accept="image/png, image/jpeg"
+										multiple="true"
+										onChange={this._onChange}
+									/>
+									<span id="size" />
+								</div>
+							)}
 						</div>
 						<div className="row_pair">
 							<div className="lable_inp_pair">
