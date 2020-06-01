@@ -2,7 +2,7 @@
     background-color: #e6e4e2;
 	border: 1px solid rgb(172, 172, 172);
     width: 22vw;
-    height: 32vw;
+    height: 34vw;
 	// padding: 0 2vw;
 	box-sizing: border-box;
     display: block;
@@ -82,7 +82,7 @@
 //    margin-right: 1vw;
 }
 .heading_value{
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: $dark;
     margin-top: 0.5vw;
     background-color: #e6e4e2;
@@ -91,8 +91,7 @@
 
 .log_out{
     color: $secondary;
-    // margin-bottom: 1.4vw;
-    // margin-top: 2vw;
+    margin-top: 2vw;
     padding: 0 8%;
     font-size: 1.2rem;
     cursor: pointer;
