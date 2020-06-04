@@ -5,6 +5,7 @@ import cart from '../img/cart.svg';
 import lib from '../img/lib.svg';
 import plus from '../img/plus.svg';
 import propic from '../img/propic.svg';
+import OutsideAlerter from '../Hooks/OutsideAlerter';
 
 class Header extends React.Component {
 	findName = () => {
@@ -188,19 +189,23 @@ const Navbar = (props) => {
 };
 
 const Navitem = (props) => {
-	const [ open, setOpen ] = useState(false);
+const {ref,open,setOpen} = OutsideAlerter(false)
 
-	return (
-		<li className="nav-item" onClick={() => setOpen(!open)}>
-			<a href="#" className="icon-button">
-				{props.icon}
-			</a>
-
-			{open && props.children}
-			<span className="name">{props.name}</span>
-		</li>
-	);
-};
+  return(
+      <li className = "nav-item" onClick = {() =>  setOpen(!open)}  >
+      
+        <a href ="#" className = "icon-button" >
+       
+            {props.icon}
+        </a>
+        
+		{open && <div ref = {ref} className = "ref">
+			{props.children}
+		</div>}
+        <span className= "name" >{props.name}</span>
+      </li>
+  )
+}
 
 const Dropdown = () => {
 	function Dropdownitem(props) {
@@ -212,6 +217,11 @@ const Dropdown = () => {
 			<div onClick={() => (window.location.href = '/myprofile')}>
 				<Dropdownitem>
 					<span className="span_dd">My Profile</span>
+				</Dropdownitem>
+			</div>
+			<div>
+				<Dropdownitem>
+					<span className = "span_dd">My Products</span>
 				</Dropdownitem>
 			</div>
 			<Dropdownitem>

@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import Modal from "react-modal"
 
 const App = () => {
     return (
@@ -60,4 +61,36 @@ const Dropdown = () => {
     )
 }
 
-export default App;
+class App_Modal extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            open : false
+        }
+    }
+    render(){
+    return(
+        <div>
+            <button onClick = {() => this.setState((prevState) => {
+                return{
+                    open : !prevState.open
+                }
+            })}>
+                open
+            </button>
+            <Modal isOpen = {this.state.open}
+            >
+                Hello there!
+                <button onClick = {() => this.setState((prevState) => {
+                    return{
+                        open : !prevState.open
+                    }
+                })}>
+                    close
+                </button>
+            </Modal>
+        </div>
+    )
+}
+}
+export default App_Modal;
