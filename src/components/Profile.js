@@ -154,9 +154,6 @@ class ProfileCard extends React.Component{
                     
                         </div>
                 </div>
-                <div className = "log_out">
-                Log Out
-                </div>
             </div>
          </div>
     )
