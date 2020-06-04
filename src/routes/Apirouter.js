@@ -7,6 +7,7 @@ import ProductPage from '../components/ProductPage';
 import AddProPage from '../containers/AddProPage';
 import profilePage from '../components/Profile'
 import MyCart from '../components/MyCart';
+import App_Modal from '../components/Navbar_Demo';
 
 const Apiroute = () => (
 	<BrowserRouter>
@@ -18,6 +19,7 @@ const Apiroute = () => (
 				<Route path="/productpage" component={ProductPage} exact={true} />
 				<Route path="/myprofile"   component={profilePage} />
 				<Route path="/myCart"   component={MyCart} />
+				<Route path = "/Navbar" component = {App_Modal} />
 			</Switch>
 		</div>
 	</BrowserRouter>

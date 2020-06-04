@@ -93,7 +93,9 @@ class ProfileCard extends React.Component{
                         return{
                             edited : !prevState.edited
                         } 
+
                     })
+                    
                    
                 }} >Edit Profile</div>)}
                   
