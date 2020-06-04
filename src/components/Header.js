@@ -195,11 +195,14 @@ const Navbar = (props) => {
 const Navitem = (props) => {
 const {ref,open,setOpen} = OutsideAlerter(false)
 
+
+const handleClick = () => {
+	setOpen((prevState) => !prevState)
+}
   return(
-      <li className = "nav-item" onClick = {() =>  setOpen(!open)}  >
+      <li className = "nav-item" onClick = {handleClick} id = "nav-item" >
       
         <a href ="#" className = "icon-button" >
-       
             {props.icon}
         </a>
         

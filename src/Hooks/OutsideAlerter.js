@@ -1,4 +1,4 @@
-import React,{useRef , useState, useEffect} from 'react'
+import {useRef , useState, useEffect} from 'react'
 
 const OutsideAlerter = () => {
     const ref = useRef(null)
@@ -8,10 +8,18 @@ const OutsideAlerter = () => {
       if(ref.current && !ref.current.contains(event.target)) setOpen(false)
   }
 
+  const handleKeyPress = (event ) => {
+    if(event.key == 'Escape') setOpen(false)
+}
+
+
+
  useEffect(() => {
     document.addEventListener("click",handleOutsideClick,true)
+    document.addEventListener("keydown",handleKeyPress,true)
     return () => {
         document.removeEventListener("click",handleOutsideClick,true)
+        document.removeEventListener("keydown",handleKeyPress,true)
     }
  },[ref])
 
