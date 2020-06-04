@@ -46,7 +46,6 @@ class ProfileCard extends React.Component {
 						};
 					});
 				}
-<<<<<<< HEAD
 			});
 		this.state = {
 			username: null,
@@ -58,120 +57,6 @@ class ProfileCard extends React.Component {
 			edited: false
 		};
 	}
-=======
-            });
-            this.state = {
-                username : null,
-                email : null,
-                phone_Number : null,
-                Address : null,
-                name : null,
-                coins : null ,
-                edited : false
-            }
-        }
-     
-         
-    render(){
-    return(
-        <div id = "ProfileCard">
-         <div className = "info">
-             <div className = "user_pro_pic">    
-            </div>
-            <div className ="user_name">
-                {this.state.name} 
-                 <div> {this.state.edited ? (<div className = "edit" onClick = {() => {
-                    this.setState(() => {
-                        return{
-                            edited : false
-                        }
-                    })
-                    let data = {
-                        email :document.getElementById('input_email').value,
-                        phone_Number : document.getElementById('input_phone_Number').value,
-                        Address : document.getElementById('input_Address').value
-
-                    }
-                      
-                    postData('api/user/' , data).then((data) => {
-                        if(data.email){
-                            window.location.reload()
-                        }else{
-                            alert('we are having some problem')
-                        }
-                    })
-                }} >Save</div>): (<div className = "edit" onClick = {() => {
-                    this.setState((prevState) => {
-                        return{
-                            edited : !prevState.edited
-                        } 
-                    })
-                   
-                }} >Edit Profile</div>)}
-                  
-                 
-                 </div>
-             </div>
-        </div>
-            <div className = "hr_pp">
-                <hr />
-            </div>
-            <div className="details">
-                <div className = "heading">
-                    Username
-                         {this.state.edited ? (<input type = "text" className = "heading_value " value = {this.state.username}  />)
-                          : (<div className = "heading_value">
-                         {this.state.username}
-                         </div>
-                         )}
-                        
-                 </div>
-                <div className = "heading">
-                    Email
-                  <div className = "heading_value">
-                  {this.state.edited ? (<input type = "text"  className = "heading_value input_email" id = "input_email" />)
-                   : (<div className = "heading_value">
-                  {this.state.email}
-                  </div>
-                  )}
-                         
-                </div>
-                </div>
-                <div className = "heading">
-                    Phone No.
-                    <div className = "heading_value">
-                    {this.state.edited ? (<input type = "text"  className = "heading_value "  id = "input_phone_Number" />) 
-                    : (<div className = "heading_value">
-                    {this.state.phone_Number}
-                    </div>
-                    )}
-                        
-                  </div>
-                </div>
-                <div className = "heading">
-                    Address
-                <div className = "heading_value">
-                {this.state.edited ? (<input type = "text"  className = "heading_value input_Address" id = "input_Address" />) 
-                : (<div className = "heading_value">
-                {this.state.Address}
-                </div>
-                )}
-                    
-                     </div>
-                </div>
-                <div className = "heading">
-                    Wallet
-                <div className = "heading_value">
-                     {this.state.coins} coins
-                    
-                        </div>
-                </div>
-            </div>
-         </div>
-    )
-    }
-}
->>>>>>> fc4a4e803d44c1bc61fc7ec87a5b7e75699c8c7d
 
 	render() {
 		return (
