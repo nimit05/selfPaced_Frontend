@@ -69,13 +69,33 @@ class AddPro extends Component {
 			var file = this.refs.file.files[0];
 			var reader = new FileReader();
 			var url = reader.readAsDataURL(file);
-			console.log(url);
+			// console.log(url);
 
 			reader.onloadend = function(e) {
 				this.setState(() => {
 					return { imgSrc: [ reader.result ] };
 				});
 			}.bind(this);
+		}
+	};
+	_onChangeFile = () => {
+		const fif = document.getElementById('pro_file');
+
+		if (fif.files.length > 0) {
+			for (let i = 0; i <= fif.files.length - 1; i++) {
+				const fsize = fif.files.item(i).size;
+				const file = Math.round(fsize / 1024);
+				// The size of the file.
+				if (file >= 50000) {
+					alert('File too Big, please select a file less than 50mb');
+					return;
+				} else if (file < 10) {
+					alert('File too small, please select a file greater than 10kb');
+					return;
+				} else {
+					document.getElementById('size').innerHTML = '<b>' + file + '</b> KB';
+				}
+			}
 		}
 	};
 
@@ -87,6 +107,8 @@ class AddPro extends Component {
 		let price = document.getElementById('pro_price').value;
 		let proCat = document.getElementById('pro_cat').value;
 		let proDes = document.getElementById('pro_des').value;
+		let proImg = document.getElementById('pro_img').value;
+		let proFile = document.getElementById('pro_file').value;
 
 		let data1 = {
 			product: {
@@ -97,7 +119,9 @@ class AddPro extends Component {
 				Description: proDes,
 				tag: tag,
 				MRP: price
-			}
+			},
+			proImg,
+			proFile
 		};
 
 		postData('/api/sell/', data1).then((data) => {
@@ -124,7 +148,7 @@ class AddPro extends Component {
 		this.state = {
 			productdet: {
 				title: 'Title',
-				tag: 'pdf',
+				tag: 'PDF',
 
 				stitle: 'short title ',
 				short_des: 'short description ',
@@ -175,7 +199,7 @@ class AddPro extends Component {
 						</div>
 						<div
 							className={
-								(this.state.productdet.tag === 'pdf' || this.state.productdet.tag === 'audio_book') &&
+								(this.state.productdet.tag === 'PDF' || this.state.productdet.tag === 'Audio') &&
 								'row_pair'
 							}
 						>
@@ -192,19 +216,18 @@ class AddPro extends Component {
 								/>
 								<span id="size" />
 							</div>
-							{(this.state.productdet.tag === 'pdf' || this.state.productdet.tag === 'audio_book') && (
+							{(this.state.productdet.tag === 'PDF' || this.state.productdet.tag === 'Audio') && (
 								<div className="lable_inp_pair">
-									<label htmlFor="Type">{this.state.productdet.tag} File</label>
+									<label htmlFor="InputFile">{this.state.productdet.tag} File</label>
 									<input
-										id="pro_img"
-										ref="file"
+										id="pro_file"
+										ref="pfile"
 										type="file"
 										name="user[image]"
-										accept="image/png, image/jpeg"
 										multiple="true"
-										onChange={this._onChange}
+										onChange={this._onChangeFile}
 									/>
-									<span id="size" />
+									<span id="file_size" />
 								</div>
 							)}
 						</div>

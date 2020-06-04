@@ -279,6 +279,7 @@ function log_username_vali() {
 	}
 }
 function log_pass_vali() {
+	alert('pass vali');
 	if ($('#wrong_pass').val().length == 0) {
 		$('#below_logPass').append($('<p>')).text('Enter your password');
 		$('#wrong_pass').css({
@@ -378,6 +379,7 @@ function otp_confirm() {
 }
 
 function send_log_data() {
+	alert('hi');
 	log_pass_vali();
 	log_username_vali();
 
