@@ -156,7 +156,6 @@ class ProfileCard extends React.Component {
 						Wallet
 						<div className="heading_value">{this.state.coins} coins</div>
 					</div>
-					<div className="log_out">Log Out</div>
 				</div>
 			</div>
 		);
