@@ -6,7 +6,6 @@ class AddProPage extends React.Component {
 	render() {
 		return (
 			<div className="HomePage">
-				<Header />
 				<AddPro />
 			</div>
 		);

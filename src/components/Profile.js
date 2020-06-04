@@ -1,12 +1,10 @@
 import React from 'react';
-import Header from './Header';
 import CateCon_for_profile from './CateCOn_profile';
 
 export default class profilePage extends React.Component {
 	render() {
 		return (
 			<div>
-				<Header />
 				<div className="main_profile_page">
 					<ProfileCard />
 					<Items_Cont />

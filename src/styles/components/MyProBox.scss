@@ -1,0 +1,73 @@
+.Myproductcont {
+    text-align: center;
+    height: 250px;
+    max-width: 200px;
+    // overflow: hidden;
+    // border: solid 1px black;
+    margin: 60px;
+    perspective: 550px;
+}
+
+.Myproduct_img {
+    margin-left: auto;
+    margin-right: auto;
+    height: 80%;
+    width: fit-content;
+    overflow: hidden;
+    // border: solid 1px black;
+    transition: 0.3s;
+    transform-origin: center;
+    transform: rotateY(1deg);
+    border-radius: 8px;
+}
+
+.Myproductcont:hover .Myproduct_img {
+    transform: rotateY(45deg) translateX(-50%);
+}
+#lib_head {
+    margin-top: 70px;
+    margin-left: 30px;
+}
+.Mybookcover {
+    height: 100%;
+    position: relative;
+}
+
+.Mytag {
+    position: absolute;
+    width: 200px;
+    margin: 0px;
+    top: 20px;
+    height: 12px;
+    left: -80px;
+    font-size: 10px;
+    background-color: $secondary;
+    text-align: center;
+    transform: rotateZ(-45deg);
+    z-index: 10;
+    box-shadow: 1px 1px 10px rgb(204, 204, 204);
+}
+.myBtnCon {
+    position: absolute;
+    height: 80%;
+    width: 20%;
+    right: 20%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    img {
+        height: 30px;
+        cursor: pointer;
+    }
+}
+
+.Myproduct_body {
+    h3 {
+        margin: 0px;
+        margin-top: 10px;
+        color: rgb(73, 73, 73);
+        font-family: cursive, Helvetica, sans-serif;
+    }
+}
