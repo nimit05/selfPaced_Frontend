@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Productbox from './Productbox';
 
-async function postData(url = '', data = {}) {
+async function postData(url = '', data) {
 	// Default options are marked with *
 	const response = await fetch(url, {
 		method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -9,12 +9,12 @@ async function postData(url = '', data = {}) {
 		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
 		credentials: 'same-origin', // include, *same-origin, omit
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'multipart/form-data'
 			// 'Content-Type': 'application/x-www-form-urlencoded',
 		},
 		redirect: 'follow', // manual, *follow, error
 		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-		body: JSON.stringify(data) // body data type must match "Content-Type" header
+		body: data // body data type must match "Content-Type" header
 	});
 	return response.json(); // parses JSON response into native JavaScript objects
 }
@@ -99,41 +99,6 @@ class AddPro extends Component {
 		}
 	};
 
-	addProBtn = () => {
-		let title = document.getElementById('pro_title').value;
-		let stitle = document.getElementById('pro_s_title').value;
-		let s_des = document.getElementById('pro_s_des').value;
-		let tag = document.getElementById('pro_type').value;
-		let price = document.getElementById('pro_price').value;
-		let proCat = document.getElementById('pro_cat').value;
-		let proDes = document.getElementById('pro_des').value;
-		let proImg = document.getElementById('pro_img').value;
-		let proFile = document.getElementById('pro_file').value;
-
-		let data1 = {
-			product: {
-				category: proCat,
-				BookName: title,
-				BookAuthor: stitle,
-				Edition: s_des,
-				Description: proDes,
-				tag: tag,
-				MRP: price
-			},
-			proImg,
-			proFile
-		};
-
-		postData('/api/sell/', data1).then((data) => {
-			console.log(data);
-			if (data.refrenceId) {
-				// location.replace('/');
-				alert('product saved');
-			} else {
-				alert('error creating product , Try Again later');
-			}
-		});
-	};
 	// a.category,
 	// 	a.BookName,
 	// 	a.BookAuthor,
@@ -176,92 +141,104 @@ class AddPro extends Component {
 					</div>
 					<div className="add_pro_det">
 						<h1>Create Your Product</h1>
-
-						<div className="row_pair">
-							<div className="lable_inp_pair">
-								<label htmlFor="Type">Type</label>
-								<select name="type" id="pro_type" onChange={this.updateProductPre}>
-									<option value="PDF">PDF</option>
-									<option value="old">Old Book</option>
-									<option value="Audio">Audio Book</option>
-									<option value="new_book">New Book</option>
-								</select>
-							</div>
-							<div className="lable_inp_pair">
-								<label htmlFor="Type">Categeroy</label>
-								<select name="type" id="pro_cat" onChange={this.updateProductPre}>
-									<option value="college">College</option>
-									<option value="old_book">Fiction</option>
-									<option value="audio_book">Novel</option>
-									<option value="new_book">sci-fi</option>
-								</select>
-							</div>
-						</div>
-						<div
-							className={
-								(this.state.productdet.tag === 'PDF' || this.state.productdet.tag === 'Audio') &&
-								'row_pair'
-							}
-						>
-							<div className="lable_inp_pair">
-								<label htmlFor="Type">Image</label>
-								<input
-									id="pro_img"
-									ref="file"
-									type="file"
-									name="user[image]"
-									accept="image/png, image/jpeg"
-									multiple="true"
-									onChange={this._onChange}
-								/>
-								<span id="size" />
-							</div>
-							{(this.state.productdet.tag === 'PDF' || this.state.productdet.tag === 'Audio') && (
+						<form action="/api/sell" method="post" encType="multipart/form-data">
+							<div className="row_pair">
 								<div className="lable_inp_pair">
-									<label htmlFor="InputFile">{this.state.productdet.tag} File</label>
-									<input
-										id="pro_file"
-										ref="pfile"
-										type="file"
-										name="user[image]"
-										multiple="true"
-										onChange={this._onChangeFile}
-									/>
-									<span id="file_size" />
+									<label htmlFor="Type">Type</label>
+									<select name="tag" id="pro_type" onChange={this.updateProductPre}>
+										<option value="PDF">PDF</option>
+										<option value="old">Old Book</option>
+										<option value="Audio">Audio Book</option>
+										<option value="new_book">New Book</option>
+									</select>
 								</div>
-							)}
-						</div>
-						<div className="row_pair">
-							<div className="lable_inp_pair">
-								<label htmlFor="Type">Title</label>
-								<input type="text" id="pro_title" onChange={this.updateProductPre} />
+								<div className="lable_inp_pair">
+									<label htmlFor="Category">Category</label>
+									<select name="category" id="pro_cat" onChange={this.updateProductPre}>
+										<option value="college">College</option>
+										<option value="old_book">Fiction</option>
+										<option value="audio_book">Novel</option>
+										<option value="new_book">sci-fi</option>
+									</select>
+								</div>
 							</div>
-							<div className="lable_inp_pair">
-								<label htmlFor="Type">Short Title</label>
-								<input type="text" id="pro_s_title" onChange={this.updateProductPre} />
+							<div
+								className={
+									(this.state.productdet.tag === 'PDF' || this.state.productdet.tag === 'Audio') &&
+									'row_pair'
+								}
+							>
+								<div className="lable_inp_pair">
+									<label htmlFor="Type">Image</label>
+									<input
+										id="pro_img"
+										ref="file"
+										type="file"
+										name="cover_img"
+										accept="image/png, image/jpeg"
+										multiple="true"
+										onChange={this._onChange}
+									/>
+									<span id="size" />
+								</div>
+								{(this.state.productdet.tag === 'PDF' || this.state.productdet.tag === 'Audio') && (
+									<div className="lable_inp_pair">
+										<label htmlFor="InputFile">{this.state.productdet.tag} File</label>
+										<input
+											id="pro_file"
+											ref="pfile"
+											type="file"
+											name="product_file"
+											multiple="true"
+											onChange={this._onChangeFile}
+										/>
+										<span id="file_size" />
+									</div>
+								)}
 							</div>
-						</div>
-						<div className="row_pair">
-							<div className="lable_inp_pair">
-								<label htmlFor="Type">Short Description</label>
-								<input type="text" id="pro_s_des" onChange={this.updateProductPre} />
+							<div className="row_pair">
+								<div className="lable_inp_pair">
+									<label htmlFor="Type">Title</label>
+									<input name="title" type="text" id="pro_title" onChange={this.updateProductPre} />
+								</div>
+								<div className="lable_inp_pair">
+									<label htmlFor="Type">Short Title</label>
+									<input
+										name="short_title"
+										type="text"
+										id="pro_s_title"
+										onChange={this.updateProductPre}
+									/>
+								</div>
 							</div>
-							<div className="lable_inp_pair">
-								<label htmlFor="Type">Price</label>
-								<input type="number" id="pro_price" onChange={this.updateProductPre} />
+							<div className="row_pair">
+								<div className="lable_inp_pair">
+									<label htmlFor="Type">Short Description</label>
+									<input
+										name="short_des"
+										type="text"
+										id="pro_s_des"
+										onChange={this.updateProductPre}
+									/>
+								</div>
+								<div className="lable_inp_pair">
+									<label htmlFor="Type">Price</label>
+									<input name="price" type="number" id="pro_price" onChange={this.updateProductPre} />
+								</div>
 							</div>
-						</div>
 
-						<div className="lable_inp_pair">
-							<label htmlFor="Type">Breif Description</label>
-							<textarea type="text" id="pro_des" />
-						</div>
-						<div className="row_pair" id="btnrow">
-							<button id="addpro_canbtn">Cancel</button>
-							<button id="addpro_addbtn" onClick={this.addProBtn}>
-								Add to Store
-							</button>
-						</div>
+							<div className="lable_inp_pair">
+								<label htmlFor="Type">Breif Description</label>
+								<textarea name="Breif_des" type="text" id="pro_des" />
+							</div>
+							<div className="row_pair" id="btnrow">
+								<button id="addpro_canbtn">Cancel</button>
+								{/* <button id="addpro_addbtn" onClick={this.addProBtn}>
+									Add to Store
+								</button> */}
+								<input type="submit" value="tushar" />
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

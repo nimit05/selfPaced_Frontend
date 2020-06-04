@@ -21,12 +21,7 @@ export default class MyProBox extends React.Component {
 					<img src={bin} alt="" />
 				</div>
 
-				<div
-					className="Myproduct_img"
-					onClick={() => {
-						alert('product content');
-					}}
-				>
+				<div className="Myproduct_img">
 					<div className="Mytag">
 						<strong>{this.props.tag}</strong>
 					</div>

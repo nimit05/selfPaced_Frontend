@@ -71,3 +71,16 @@
         font-family: cursive, Helvetica, sans-serif;
     }
 }
+
+@media only screen and (max-width: 777px) {
+    .Myproductcont {
+        text-align: center;
+        height: 250px;
+        max-width: 200px;
+        // overflow: hidden;
+        // border: solid 1px black;
+        margin: 10px;
+        margin-bottom: 30px;
+        perspective: 550px;
+    }
+}
