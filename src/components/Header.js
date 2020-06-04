@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 // import homePage from './HomePage';
 import pblogo from '../img/pblogo.png';
 import cart from '../img/cart.svg';
@@ -144,13 +144,16 @@ class Header extends React.Component {
 							</div>
 							<div class="tooltip">
 								{' '}
-								<div className="profile" onClick = {() => {
-									window.location.href = '/myprofile'
-								}}>
-									<h1>{this.state.username}</h1>
-									<img src={propic} alt=" " />
+								<div className="profile" >
+								<Navbar>
+									<Navitem icon = {<img src={propic} alt=" " />
+								} name = {this.state.username}>
+										<Dropdown />
+									</Navitem>
+								</Navbar>
+								
 								</div>
-								<span class="tooltiptext">My Profile</span>
+							
 							</div>
 						</div>
 					) : (
@@ -180,4 +183,53 @@ class Header extends React.Component {
 	}
 }
 
-export default Header;
+
+
+const Navbar = (props) => {
+    return(
+        <nav className = "navbar">
+            <ul className = "navbar-nav">{props.children}</ul>
+        
+        </nav>
+    )
+}
+
+const Navitem = (props) => {
+
+const [open,setOpen] = useState(false);
+
+  return(
+      <li className = "nav-item" onClick = {() => setOpen(!open)}>
+      
+        <a href ="#" className = "icon-button" >
+       
+            {props.icon}
+        </a>
+        
+        {open && props.children}
+        <span className= "name" >{props.name}</span>
+      </li>
+  )
+}
+
+const Dropdown = () => {
+
+    function Dropdownitem(props) {
+        return (
+            <a className = "menu-item" >
+                {props.children}
+            </a>
+        )
+    }
+    return(
+		<div className = "dropdown"> 
+		<div onClick = {() => window.location.href = "/myprofile"}>
+        <Dropdownitem ><span className = "span_dd" >My Profile</span></Dropdownitem>        
+		</div>
+        <Dropdownitem ><span className = "span_dd" >Log Out</span></Dropdownitem>
+		
+        </div>
+    )
+}
+
+export default Header ;
