@@ -1,6 +1,5 @@
 import React from 'react';
 // import Header from './Header'
-import Header from './Header';
 // import cart from '../img/cart.svg';
 import bookcover from '../img/bookcover.jpg';
 
@@ -10,7 +9,6 @@ export default class ProductPage extends React.Component {
 	render() {
 		return (
 			<div>
-				<Header />
 				<div className="main_body_pro_page">
 					<BookImg />
 					<Content />

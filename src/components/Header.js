@@ -140,7 +140,12 @@ class Header extends React.Component {
 								<img src={cart} alt=" " />
 								<span class="tooltiptext">Cart</span>
 							</div>
-							<div class="tooltip">
+							<div
+								class="tooltip"
+								onClick={() => {
+									window.location.href = '/My-Library';
+								}}
+							>
 								{' '}
 								<img src={lib} alt=" " />
 								<span class="tooltiptext">My Library</span>
@@ -158,22 +163,13 @@ class Header extends React.Component {
 						</div>
 					) : (
 						<div>
-							{' '}
-							<button
-								id="login_btn"
-								onClick={() => {
-									window.location.href = '/login.html';
-								}}
-							>
-								Login
-							</button>
 							<button
 								id="reg_btn"
 								onClick={() => {
 									window.location.href = '/regis.html';
 								}}
 							>
-								Register
+								Register/Login
 							</button>
 						</div>
 					)}

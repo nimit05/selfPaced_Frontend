@@ -103,12 +103,21 @@ button:focus {
 	background-color: $secondary;
 	color: white;
 	border-radius: 20px;
+	border: solid 2px white;
+	// box-shadow: 0px 0px 5px rgb(168, 168, 168);
 }
-// #reg_btn:hover {
-//     background-color: $primary;
-//     color: white;
-//     border-radius: 20px;
-// }
+#reg_btn:active {
+	background-color: $secondary;
+	color: white;
+	border-radius: 20px;
+	border: solid 2px white;
+	// box-shadow: 0px 0px 5px rgb(168, 168, 168);
+}
+#reg_btn:hover {
+	background-color: white;
+	color: $secondary;
+	border-radius: 20px;
+}
 
 .cat_btn_con {
 	width: 65%;
