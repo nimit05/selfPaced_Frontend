@@ -1,5 +1,7 @@
 import React from 'react';
 import CateCon_for_profile from './CateCOn_profile';
+import Base_Header from '../Hooks/Base_header'
+
 
 export default class profilePage extends React.Component {
 	render() {
@@ -9,6 +11,7 @@ export default class profilePage extends React.Component {
 					<ProfileCard />
 					<Items_Cont />
 				</div>
+				<Base_Header />
 			</div>
 		);
 	}

@@ -9,7 +9,7 @@ import profilePage from '../components/Profile';
 import MyCart from '../components/MyCart';
 import Header from '../components/Header';
 import Library from '../containers/Library';
-import App_Modal from '../components/Navbar_Demo';
+import Base_Header from '../Hooks/Base_header'
 
 const Apiroute = () => (
 	<BrowserRouter>
@@ -23,7 +23,7 @@ const Apiroute = () => (
 				<Route path="/My-Library" component={Library} exact={true} />
 				<Route path="/myprofile" component={profilePage} />
 				<Route path="/myCart" component={MyCart} />
-				<Route path="/Navbar" component={App_Modal} />
+				<Route path="/Base_Header" component={Base_Header} />
 			</Switch>
 		</div>
 	</BrowserRouter>

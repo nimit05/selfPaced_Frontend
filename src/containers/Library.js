@@ -1,6 +1,8 @@
 import React from 'react';
 import MyProBox from '../components/MyProBox';
 import Header from '../components/Header';
+import Base_Header from '../Hooks/Base_header'
+
 
 class Library extends React.Component {
 	render() {
@@ -25,6 +27,7 @@ class Library extends React.Component {
 					<MyProBox tag="PDF" title="Harry Potter" />
 					<MyProBox tag="PDF" title="Harry Potter" />
 				</div>
+				<Base_Header />
 			</div>
 		);
 	}

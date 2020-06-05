@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import bookcover from '../img/bookcover.jpg';
+import Base_Header from '../Hooks/Base_header'
+
 
 export default class MyCart extends React.Component {
 	render() {
@@ -9,6 +11,7 @@ export default class MyCart extends React.Component {
 				<Header />
 				<Payment_tab />
 				<Heading />
+				<Base_Header />
 			</div>
 		);
 	}

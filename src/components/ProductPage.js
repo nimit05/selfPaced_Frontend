@@ -2,6 +2,8 @@ import React from 'react';
 // import Header from './Header'
 // import cart from '../img/cart.svg';
 import bookcover from '../img/bookcover.jpg';
+import Base_Header from '../Hooks/Base_header'
+
 
 // import pblogo from '../img/pblogo.png';
 
@@ -13,6 +15,7 @@ export default class ProductPage extends React.Component {
 					<BookImg />
 					<Content />
 				</div>
+				<Base_Header />
 			</div>
 		);
 	}
