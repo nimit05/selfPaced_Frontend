@@ -1,12 +1,16 @@
+
 .payment_tab {
     width: 30vw;
     box-sizing: border-box;
     display: block;
     border-radius: 10px;
-    margin-left: 5vw;
+    // margin-left: 5vw;
     margin-right: 4vw;
-    margin-top: 6vw;
+    // margin-top: 6vw;
     float: right;
+    position: fixed;
+    right: 0vw;
+    top: 6vw;
 }
 
 .heading_cart {
@@ -192,6 +196,7 @@
         margin-top: 6vw;
         float: unset;
         margin-bottom: 10vw;
+        position: unset;
     }
 
     .heading_left_cart {
