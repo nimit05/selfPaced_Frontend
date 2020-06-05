@@ -19,7 +19,7 @@ const Apiroute = () => (
 				<Route path="/sell-your-product" component={AddProPage} exact={true} />
 				<Route path="/container" component={Productbox} exact={true} />
 				<Route path="/" component={HomePage} exact={true} />
-				<Route path="/productpage" component={ProductPage} exact={true} />
+				<Route path="/productpage/:refId" component={ProductPage} exact={true} />
 				<Route path="/My-Library" component={Library} exact={true} />
 				<Route path="/myprofile" component={profilePage} />
 				<Route path="/myCart" component={MyCart} />
