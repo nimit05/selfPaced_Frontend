@@ -1,6 +1,4 @@
 .payment_tab {
-    // background-color: $blur;
-    // border: 1px solid rgb(172, 172, 172);
     width: 30vw;
     box-sizing: border-box;
     display: block;
@@ -179,27 +177,114 @@
     color: green;
 }
 
+.hidden_hr{
+    display: none;
+}
+.cart_product_price_mob{
+    display: none;
+}
+
 @media screen and (max-width: 720px) {
+    .payment_tab {
+        width: 90vw;
+        margin-left: 0vw;
+        margin-right: 0vw;
+        margin-top: 6vw;
+        float: unset;
+        margin-bottom: 10vw;
+    }
+
+    .heading_left_cart {
+        //    float: left;
+        margin-left: 2vw;
+        margin-top: 0px;
+    }
     .heading_cart {
-        background-color: $blur;
-        height: 50px;
-        font-family: "Times New Roman", Times, serif;
-        width: 100%;
+        height: 40px;
         margin-top: 15vw;
-        color: $dark;
-        margin-bottom: 1.4vw;
+        font-size: 1rem;
+        display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    }
+    .payment_tab_heading {
+        font-size: 2rem;
+    }
+    .payment_promo {
+        font-size: 0.8rem;
+        height: 4vw;
+        padding: 6px 2%;
+        margin-bottom: 4vw;
+    }
+    .prod_det{
+        font-size: 0.1rem;
+    }
+
+    .user_coins {
+        margin-top: 1.5vw;
+    }
+    .checkout_div {
+        margin-top: 2vw;
+    }
+    .checkout_div {
+        margin-top: 4vw;
+    }
+    .checkout_btn {
+        padding: 8px;
         font-size: 1rem;
     }
-    .payment_tab {
-        // background-color: $blur;
-        // border: 1px solid rgb(172, 172, 172);
-        width: 30vw;
-        box-sizing: border-box;
-        display: block;
-        border-radius: 10px;
-        margin-left: 5vw;
-        margin-right: 4vw;
-        margin-top: 6vw;
-        // float: right;
+    .checkout_btn_pay{
+        padding: 8px;
+        font-size: 1rem;
     }
+    .hidden_hr{
+        display: unset;
+        color: $dark;
+        width: 90vw;
+    }
+    .img_cart {
+        width: 30vw;
+        height: 30vw;
+        margin-left: 5vw;
+    }
+
+    .details_cart {
+        width: 50vw;
+        height: 30vw;
+        margin-left: 10vw;
+        font-size: 1.1rem;
+        margin-right: 0vw;
+    }
+    .cart_product_price {
+       display: none;
+    }
+    .cart_product_price_mob{
+        color: $secondary;
+        display: unset;
+        margin-top: 5vw;
+        font-size: 1.5rem;
+    }
+    .cart_coins {
+        font-size: 1rem;
+    }
+    .cart_remove_button {
+        height: 1.5rem;
+        width: 5rem;
+        
+    }
+    
+    .btn_cart_div {
+        margin-top: 1.2vw;
+    }
+
+    .hr_cart {
+        color: $light;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 8vw;
+    }
+   
+    
+
 }

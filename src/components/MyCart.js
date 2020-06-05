@@ -9,7 +9,6 @@ export default class MyCart extends React.Component {
 		return (
 			<div>
 				<Header />
-				<Payment_tab />
 				<Heading />
 				<Base_Header />
 			</div>
@@ -98,13 +97,12 @@ class Payment_tab extends React.Component {
 				<div>
 					<input placeholder="HAVE A PROMOCODE?" type="text" className="payment_promo" />
 				</div>
-				<div>
+				<div className = "prod_det">
 					{this.state.Cart_Product.map((product) => {
 						return <Title_div title={product.BookName} Value={product.Value} />;
 					})}
 				</div>
-				<br />
-				<br />
+				
 				<hr />
 				<div>
 					<div className="title_tab_total">
@@ -168,6 +166,8 @@ class Heading extends React.Component {
 		return (
 			<div className="heading_cart">
 				<h1 className="heading_left_cart">Your Cart({this.state.count})</h1>
+				<Payment_tab />
+				<hr className = "hidden_hr" />
 				<div>
 					{this.state.Cart_Product.map((product) => {
 						return (
@@ -212,7 +212,9 @@ class Product_cart extends React.Component {
 						<div className="type_product_cart">
 							Type : <span className="type_value">{this.props.tag}</span>
 						</div>
-
+						<div className="cart_product_price_mob">
+						${this.props.Value} 
+					</div>
 						<div
 							className="btn_cart_div"
 							onClick={() => {
@@ -223,8 +225,9 @@ class Product_cart extends React.Component {
 						</div>
 					</div>
 					<div className="cart_product_price">
-						${this.props.Value} <span className="cart_coins">coins</span>
+						${this.props.Value} 
 					</div>
+					
 				</div>
 				<br />
 				<hr className="hr_cart" />
