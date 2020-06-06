@@ -71,11 +71,15 @@
 }
 .Main_BI {
 	margin-top: 50px;
-	width: 34vw;
-	padding: 5vw;
+	max-width: 40rem;
+	min-width: 30rem;
+	padding: 4rem ;
+
 	box-sizing: border-box;
 	text-align: center;
 	display: block;
+	// border: solid black;
+	margin-left: 6rem;
 }
 
 
@@ -86,8 +90,12 @@
 
 .Main_CT {
 	font-size: 2rem;
-	padding: 10rem 5rem;
-	width: 48%;
+	padding: 4rem ;
+	max-width: 45rem;
+	min-width: 35rem;
+	margin-left: 2rem;
+	// border: solid black;
+	margin-top: 2rem;
 }
 .author {
 	// color:;
@@ -125,44 +133,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-evenly;
-}
-
-@media screen and (max-width: 1250px) {
-
-	.Main_BI {
-		margin-top: 100px;
-		width: 60vw;
-		padding: 5vw;
-	}
-	// .main_body_pro_page {
-	// 	flex-direction: column;
-	
-	// }
-	.Main_CT {
-		font-size: 1.8rem;
-		padding: 3rem 10%;
-		width: 80%;
-		margin-left: 10rem;
-	}
-}
-
-@media screen and (max-width: 1200px) {
-
-	.Main_BI {
-		margin-top: 100px;
-		width: 60vw;
-		padding: 5vw;
-	}
-	// .main_body_pro_page {
-	// 	flex-direction: column;
-	
-	// }
-	.Main_CT {
-		font-size: 1.5rem;
-		padding: 3rem 10%;
-		width: 50%;
-	}
+	justify-content: start;
 }
 
 
@@ -172,6 +143,7 @@
 		margin-top: 100px;
 		width: 80vw;
 		padding: 5vw;
+		margin-left: 0rem;
 	}
 	.main_body_pro_page {
 		flex-direction: column;
@@ -180,26 +152,13 @@
 	.Main_CT {
 		font-size: 2rem;
 		padding: 3rem 10%;
-		width: 80%;
+		max-width: 35rem;
+		min-width: 15rem;
 	}
 }
 @media screen and (max-width: 550px) {
 
-	.Main_BI {
-		margin-top: 100px;
-		width: 100vw;
-		padding: 5vw;
-	}
-	.main_body_pro_page {
-		flex-direction: column;
 	
-	}
-	.Main_CT {
-		font-size: 1.7rem;
-		padding: 3rem 10%;
-		width: 80%;
-	}
-
 	.buy_btn_pp {
 		height: 2rem;
 		width: 6rem;
@@ -214,58 +173,19 @@
 		color: $light;
 	}
 }
-@media screen and (max-width: 600px) {
-
-	.Main_BI {
-		margin-top: 100px;
-		width: 80vw;
-		padding: 5vw;
-	}
-	.main_body_pro_page {
-		flex-direction: column;
-	
-	}
-	.Main_CT {
-		font-size: 1.8rem;
-		padding: 3rem 10%;
-		width: 80%;
-	}
-	.buy_btn_pp {
-		height: 2rem;
-		width: 8rem;
-		background-color: $secondary;
-		color: $light;
-	}
-	.adc_btn_pp {
-		height: 2rem;
-		width: 8rem;
-		background-color: $secondary;
-		margin-left: 1rem;
-		color: $light;
-	}
-}
-
 
 
 @media screen and (max-width: 380px) {
 
-	.Main_CT {
-		font-size: 1.5rem;
-		padding: 3rem 10%;
-	}
-
 	.buy_btn_pp {
 		height: 2rem;
 		width: 6rem;
-		background-color: $secondary;
-		color: $light;
+
 	}
 	.adc_btn_pp {
 		height: 2rem;
 		width: 6rem;
-		background-color: $secondary;
 		margin-left: 0.5rem;
-		color: $light;
 	}
 }
 
