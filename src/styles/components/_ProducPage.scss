@@ -1,5 +1,3 @@
-
-
 .header_left_PP {
 	display: flex;
 	background-color: $dark;
@@ -34,10 +32,10 @@
 		padding: 5px 25px;
 	}
 
-    img {
-        height: 30px;
-        cursor: pointer;
-    }
+	img {
+		height: 30px;
+		cursor: pointer;
+	}
 }
 .gap {
 	display: flex;
@@ -70,32 +68,23 @@
 	}
 }
 .Main_BI {
-	margin-top: 50px;
-	max-width: 40rem;
-	min-width: 30rem;
-	padding: 4rem ;
-
+	// padding: 4rem;
+	height: 20rem;
 	box-sizing: border-box;
 	text-align: center;
 	display: block;
-	// border: solid black;
-	margin-left: 6rem;
+	border: solid 1px rgb(173, 173, 173);
+	// margin-left: 6rem;
 }
 
-
 .product_img_pp {
-	height: calc(30vh - 14px);
-	text-align: center;
+	height: 100%;
 }
 
 .Main_CT {
+	width: 50%;
 	font-size: 2rem;
-	padding: 4rem ;
-	max-width: 45rem;
-	min-width: 35rem;
-	margin-left: 2rem;
-	// border: solid black;
-	margin-top: 2rem;
+	padding: 4rem;
 }
 .author {
 	// color:;
@@ -133,60 +122,57 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: start;
+	justify-content: space-evenly;
+	margin-top: 100px;
+	margin-bottom: 100px;
 }
 
-
 @media screen and (max-width: 800px) {
-
 	.Main_BI {
-		margin-top: 100px;
-		width: 80vw;
-		padding: 5vw;
-		margin-left: 0rem;
+		// margin-top: 60px;
+		// width: 80vw;
+		padding: 20px 60px;
+		// margin-left: 0rem;
+	}
+	.book_cont {
 	}
 	.main_body_pro_page {
 		flex-direction: column;
-	
+		justify-self: flex-start;
 	}
 	.Main_CT {
+		margin-top: 30px;
+		margin-bottom: 50px;
 		font-size: 2rem;
-		padding: 3rem 10%;
-		max-width: 35rem;
-		min-width: 15rem;
+		padding: 0rem 0px;
+		width: 90%;
+		box-sizing: border-box;
 	}
 }
-@media screen and (max-width: 550px) {
+// @media screen and (max-width: 550px) {
+// 	.buy_btn_pp {
+// 		height: 2rem;
+// 		width: 6rem;
+// 		background-color: $secondary;
+// 		color: $light;
+// 	}
+// 	.adc_btn_pp {
+// 		height: 2rem;
+// 		width: 6rem;
+// 		background-color: $secondary;
+// 		margin-left: 1rem;
+// 		color: $light;
+// 	}
+// }
 
-	
-	.buy_btn_pp {
-		height: 2rem;
-		width: 6rem;
-		background-color: $secondary;
-		color: $light;
-	}
-	.adc_btn_pp {
-		height: 2rem;
-		width: 6rem;
-		background-color: $secondary;
-		margin-left: 1rem;
-		color: $light;
-	}
-}
-
-
-@media screen and (max-width: 380px) {
-
-	.buy_btn_pp {
-		height: 2rem;
-		width: 6rem;
-
-	}
-	.adc_btn_pp {
-		height: 2rem;
-		width: 6rem;
-		margin-left: 0.5rem;
-	}
-}
-
-
+// @media screen and (max-width: 380px) {
+// 	.buy_btn_pp {
+// 		height: 2rem;
+// 		width: 6rem;
+// 	}
+// 	.adc_btn_pp {
+// 		height: 2rem;
+// 		width: 6rem;
+// 		margin-left: 0.5rem;
+// 	}
+// }

@@ -9,7 +9,7 @@ import profilePage from '../components/Profile';
 import MyCart from '../components/MyCart';
 import Header from '../components/Header';
 import Library from '../containers/Library';
-import Base_Header from '../Hooks/Base_header'
+import Base_Header from '../Hooks/Base_header';
 
 const Apiroute = () => (
 	<BrowserRouter>
@@ -25,6 +25,7 @@ const Apiroute = () => (
 				<Route path="/myCart" component={MyCart} />
 				<Route path="/Base_Header" component={Base_Header} />
 			</Switch>
+			<Base_Header />
 		</div>
 	</BrowserRouter>
 );
