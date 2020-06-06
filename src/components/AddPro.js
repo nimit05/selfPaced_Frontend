@@ -232,11 +232,16 @@ class AddPro extends Component {
 								<textarea name="Breif_des" type="text" id="pro_des" />
 							</div>
 							<div className="row_pair" id="btnrow">
-								<button id="addpro_canbtn">Cancel</button>
-								{/* <button id="addpro_addbtn" onClick={this.addProBtn}>
-									Add to Store
-								</button> */}
-								<input type="submit" value="tushar" />
+								<button
+									id="addpro_canbtn"
+									onClick={() => {
+										window.location.href = '/';
+									}}
+								>
+									Cancel
+								</button>
+
+								<input id="addpro_addbtn" type="submit" value="Add to Store" />
 							</div>
 						</form>
 					</div>

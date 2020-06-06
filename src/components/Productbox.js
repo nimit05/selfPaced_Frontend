@@ -16,6 +16,14 @@ export default class Productbox extends React.Component {
 		});
 	};
 
+	buy = () => {
+		alert('by');
+		let data = {
+			refrenceId: this.props.refId
+		};
+		postData('/api/products/Buy', data);
+	};
+
 	constructor(props) {
 		super(props);
 		console.log(this.props.isAdded);
@@ -56,7 +64,7 @@ export default class Productbox extends React.Component {
 					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />
 				</div>
 				<div className="product_body">
-					<h3>{this.props.title}</h3>
+					<h3 onClick={this.buy}>{this.props.title}</h3>
 					<h6>({this.props.stitle})</h6>
 					<p>{this.props.short_des}</p>
 					<h1>
