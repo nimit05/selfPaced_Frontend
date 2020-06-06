@@ -123,6 +123,7 @@ class Payment_tab extends React.Component {
 					<div className="checkout_div">
 						<button className="checkout_btn_pay">Pay with PayTM</button>
 					</div>
+					
 				</div>
 			</div>
 		);
@@ -186,6 +187,7 @@ class Heading extends React.Component {
 						);
 					})}
 				</div>
+				
 				</div>
 			</div>
 		);

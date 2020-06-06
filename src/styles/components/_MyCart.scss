@@ -2,11 +2,9 @@
 .payment_tab {
     width: 35rem;
     min-width: 25rem;
-    box-sizing: border-box;
-    display: block;
     border-radius: 10px;
-    margin-right: 4vw;
-    margin-left: 4rem;
+
+    padding: 5rem;
 }
 
 .heading_cart {
@@ -15,8 +13,6 @@
     font-family: "Times New Roman", Times, serif;
     width: 100%;
     margin-top: 3rem;
-    // position: fixed;
-    // top: 3vw;
     color: $dark;
     margin-bottom: 1.4vw;
     font-size: 1.2rem;
@@ -24,7 +20,8 @@
 
 .product_row_div{
     width: 70rem;
-    min-width: 60rem;
+    min-width: 40rem;
+   
 }
 
 .heading_left_cart {
@@ -37,7 +34,7 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: start;
-    align-items: center;
+    // align-items: ;
 }
 
 .product_cart {
@@ -45,8 +42,9 @@
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    width: 70rem;
-    min-width: 70rem;
+    max-width: 70rem;
+    min-width: 40rem;
+    // border: solid black;
 }
 
 .img_cart {
@@ -206,17 +204,18 @@
 
 @media screen and (max-width: 720px) {
     .payment_tab {
-        width: 25rem;
+        width: 20rem;
         min-width: 25rem;
         // border-radius: 10px;
         // margin-right: 4vw;
         // margin-left: 4rem;
+        padding: 3rem;
     }
     .content_div{
         display: flex;
         flex-direction: column;
         justify-content: start;
-        align-items: center;
+        // align-items: center;
     }
 
     .heading_cart {
@@ -273,10 +272,12 @@
     }
     
     .product_row_div{
-        width: 20rem;
+        width: 10rem;
         min-width: 20rem;
     }
 
-    
+    body{
+        overflow-x: hidden;
+    }
 
 }

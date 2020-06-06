@@ -27,71 +27,19 @@
         display: unset;
 
         img{
-            margin-right: 15vw;
+            margin-left: 2%
         }
     }
-
-   
 }
 
-@media screen and (max-width: 650px) {
-
-    .base_header {
-
-        img{
-            margin-right: 14.5vw;
-        }
-    }
-
-}
-@media screen and (max-width: 640px) {
-
-    .base_header {
-
-        img{
-            margin-right: 13.5vw;
-        }
-    }
-
-}
-@media screen and (max-width: 600px) {
-
-    .base_header {
-
-        img{
-            margin-right: 13vw;
-        }
-    }
-
-}
 @media screen and (max-width: 500px) {
-
     .base_header {
+        display: unset;
 
         img{
-            margin-right: 11vw;
+            margin-right: 8%;
         }
     }
-
 }
-@media screen and (max-width: 400px) {
 
-    .base_header {
-
-        img{
-            margin-right: 10vw;
-        }
-    }
-
-}
-@media screen and (max-width: 350px) {
-
-    .base_header {
-
-        img{
-            margin-right: 9vw;
-        }
-    }
-
-}
 
