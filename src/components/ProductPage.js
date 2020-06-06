@@ -11,7 +11,25 @@ export default class ProductPage extends React.Component {
 	constructor(props){
 		super(props)
 
-		fetch(`/api/products/specific/${window.location.href.substr(34)}`, {
+		
+	  
+		
+		this.state = {
+			BookName : null,
+			BookAuthor : null,
+			Value : null,
+			cover_img : null,
+			description : null,
+
+		}
+
+			
+	}
+
+	componentDidMount(){
+		const {refId} = this.props.match.params
+
+		fetch(`/api/products/specific/${refId}`, {
 			method: 'GET', // *GET, POST, PUT, DELETE, etc.
 			mode: 'cors', // no-cors, *cors, same-origin
 			cache: 'no-cache',
@@ -38,19 +56,8 @@ export default class ProductPage extends React.Component {
 					});
 				}
 			});
-	  
-		
-		this.state = {
-			BookName : null,
-			BookAuthor : null,
-			Value : null,
-			cover_img : null,
-			description : null,
-
-		}
-
-			
 	}
+
 	render() {
 		return (
 			<div>
