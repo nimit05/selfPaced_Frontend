@@ -10,6 +10,7 @@
 	width: 100%;
 	top: 0px;
 	z-index: 100;
+	box-shadow: 0px 0px 20px rgba(131, 131, 131, 0.397);
 }
 
 .header_left {
@@ -176,12 +177,6 @@ button:focus {
 	}
 }
 
-@media screen and (max-width: 730px) {
-	.user_btn_con {
-		display: none;
-	}
-}
-
 .profile {
 	// border: solid 1px white;
 	display: flex;
@@ -250,4 +245,12 @@ button:focus {
 }
 .parent {
 	position: relative;
+}
+@media screen and (max-width: 730px) {
+	.user_btn_con {
+		display: none;
+	}
+	.header_cont {
+		justify-content: center;
+	}
 }

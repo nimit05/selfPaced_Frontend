@@ -8,7 +8,6 @@ export default class ProductPage extends React.Component {
 			refrenceId: this.props.match.params.refId
 		};
 		let pro = await postData('/api/products/Buy', data);
-		alert(pro);
 		console.log(pro);
 		if (pro) {
 			alert('buyed');
