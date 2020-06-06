@@ -5,6 +5,7 @@ import cart from '../img/cart.svg';
 import lib from '../img/lib.svg';
 import plus from '../img/plus.svg';
 import propic from '../img/propic.svg';
+import money from '../img/money.svg';
 import OutsideAlerter from '../Hooks/OutsideAlerter';
 
 class Header extends React.Component {
@@ -40,31 +41,18 @@ class Header extends React.Component {
 	constructor(props) {
 		super(props);
 
-		fetch('/api/user', {
-			method: 'GET', // *GET, POST, PUT, DELETE, etc.
-			mode: 'cors', // no-cors, *cors, same-origin
-			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-			credentials: 'same-origin', // include, *same-origin, omit
-			headers: {
-				'Content-Type': 'application/json'
-				// 'Content-Type': 'application/x-www-form-urlencoded',
-			},
-			redirect: 'follow', // manual, *follow, error
-			referrerPolicy: 'no-referrer' // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-			// body: JSON.stringify(data) // body data type must match "Content-Type" header
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				if (data) {
-					this.setState(() => {
-						return {
-							islogin: true,
-							username: data.username
-						};
-					});
-				}
-			});
+		fetch('/api/user').then((res) => res.json()).then((data) => {
+			console.log(data);
+			if (data) {
+				this.setState(() => {
+					return {
+						islogin: true,
+						username: data.username,
+						coins: data.Coins
+					};
+				});
+			}
+		});
 
 		this.state = {
 			islogin: false,
@@ -155,7 +143,7 @@ class Header extends React.Component {
 								{' '}
 								<div className="profile">
 									<Navbar>
-										<Navitem icon={<img src={propic} alt=" " />} name={this.state.username}>
+										<Navitem icon={<img src={propic} alt=" " />} coins={this.state.coins}>
 											<Dropdown />
 										</Navitem>
 									</Navbar>
@@ -189,26 +177,29 @@ const Navbar = (props) => {
 };
 
 const Navitem = (props) => {
-const {ref,open,setOpen} = OutsideAlerter(false)
+	const { ref, open, setOpen } = OutsideAlerter(false);
 
+	const handleClick = () => {
+		setOpen((prevState) => !prevState);
+	};
+	return (
+		<li className="nav-item" onClick={handleClick} id="nav-item">
+			<span className="name" id="coins">
+				<img src={money} alt="" />
+				{props.coins}
+			</span>
+			<a href="#" className="icon-button">
+				{props.icon}
+			</a>
 
-const handleClick = () => {
-	setOpen((prevState) => !prevState)
-}
-  return(
-      <li className = "nav-item" onClick = {handleClick} id = "nav-item" >
-      
-        <a href ="#" className = "icon-button" >
-            {props.icon}
-        </a>
-        
-		{open && <div ref = {ref} className = "ref">
-			{props.children}
-		</div>}
-        <span className= "name" >{props.name}</span>
-      </li>
-  )
-}
+			{open && (
+				<div ref={ref} className="ref">
+					{props.children}
+				</div>
+			)}
+		</li>
+	);
+};
 
 const Dropdown = () => {
 	function Dropdownitem(props) {
@@ -222,8 +213,7 @@ const Dropdown = () => {
 					<span className="span_dd">My Profile</span>
 				</Dropdownitem>
 			</div>
-			<div>
-			</div>
+			<div />
 			<Dropdownitem>
 				<span
 					onClick={() => {
