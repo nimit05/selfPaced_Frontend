@@ -90,10 +90,26 @@ label {
     border: solid 1px $secondary;
     color: black;
     border-radius: 20px;
+    background-color: white;
 }
 #addpro_addbtn {
+    display: inline;
     background-color: $secondary;
     border-radius: 20px;
+    color: white;
+    height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: white;
+    padding: 10px 25px;
+    font-size: 1rem;
+}
+
+input[type="file"] {
+    // display: none;
 }
 
 @media screen and (max-width: 720px) {

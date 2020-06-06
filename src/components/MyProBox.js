@@ -7,6 +7,10 @@ import eye from '../img/eye.svg';
 // props to send are {1 title 2 tag 3 bookimg 4 stitle 5 short_des 6 price}
 
 export default class MyProBox extends React.Component {
+	show = () => {
+		window.location.href = this.props.file;
+	};
+
 	constructor(props) {
 		super(props);
 		this.state = {};
@@ -16,8 +20,8 @@ export default class MyProBox extends React.Component {
 		return (
 			<div className="Myproductcont">
 				<div className="myBtnCon">
-					<img src={eye} alt="" />
-					<img src={info} alt="" />
+					<img onClick={this.show} src={eye} alt="" />
+					<img onClick={this.info} src={info} alt="" />
 					<img src={bin} alt="" />
 				</div>
 
