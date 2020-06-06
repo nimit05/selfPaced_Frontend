@@ -20,6 +20,30 @@
 
 }
 
+#reg_btn_bh {
+	background-color: $secondary;
+	color: white;
+	border-radius: 20px;
+    border: solid 2px white;
+    align-items: center;
+	// box-shadow: 0px 0px 5px rgb(168, 168, 168);
+}
+#reg_btn_bh:active {
+	background-color: $secondary;
+	color: white;
+	border-radius: 20px;
+	border: solid 2px white;
+	// box-shadow: 0px 0px 5px rgb(168, 168, 168);
+}
+#reg_btn_bh:hover {
+	background-color: white;
+	color: $secondary;
+	border-radius: 20px;
+}
+.reg_btn_div{
+    padding: 0 30%;
+}
+
 
 
 @media screen and (max-width: 720px) {
@@ -27,7 +51,7 @@
         display: unset;
 
         img{
-            margin-left: 2%
+            margin-left: 4%
         }
     }
 }
@@ -38,6 +62,16 @@
 
         img{
             margin-right: 8%;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .base_header {
+        display: unset;
+
+        img{
+            margin-right: 6%;
         }
     }
 }

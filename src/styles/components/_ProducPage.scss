@@ -134,8 +134,6 @@
 		padding: 20px 60px;
 		// margin-left: 0rem;
 	}
-	.book_cont {
-	}
 	.main_body_pro_page {
 		flex-direction: column;
 		justify-self: flex-start;
@@ -148,31 +146,19 @@
 		width: 90%;
 		box-sizing: border-box;
 	}
-}
-// @media screen and (max-width: 550px) {
-// 	.buy_btn_pp {
-// 		height: 2rem;
-// 		width: 6rem;
-// 		background-color: $secondary;
-// 		color: $light;
-// 	}
-// 	.adc_btn_pp {
-// 		height: 2rem;
-// 		width: 6rem;
-// 		background-color: $secondary;
-// 		margin-left: 1rem;
-// 		color: $light;
-// 	}
-// }
 
-// @media screen and (max-width: 380px) {
-// 	.buy_btn_pp {
-// 		height: 2rem;
-// 		width: 6rem;
-// 	}
-// 	.adc_btn_pp {
-// 		height: 2rem;
-// 		width: 6rem;
-// 		margin-left: 0.5rem;
-// 	}
-// }
+	.buy_btn_pp {
+		height: 2rem;
+		width: 8rem;
+		background-color: $secondary;
+		color: $light;
+	}
+	.adc_btn_pp {
+		height: 2rem;
+		width: 8rem;
+		background-color: $secondary;
+		margin-left: 1rem;
+		color: $light;
+	}
+}
+

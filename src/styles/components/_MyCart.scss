@@ -78,6 +78,7 @@
     // padding: 10rem 10rem;
     // margin-left: 25vw;
 }
+
 .cart_row_wise{
     display: flex;
     flex-direction: row;
@@ -205,11 +206,8 @@
 @media screen and (max-width: 720px) {
     .payment_tab {
         width: 20rem;
-        min-width: 25rem;
-        // border-radius: 10px;
-        // margin-right: 4vw;
-        // margin-left: 4rem;
-        padding: 3rem;
+        min-width: 12rem;
+        padding: 2rem;
     }
     .content_div{
         display: flex;
@@ -276,8 +274,46 @@
         min-width: 20rem;
     }
 
-    body{
+    html,body{
         overflow-x: hidden;
+    }
+    .title_ab_total_value {
+        float: right;
+        color: $secondary;
+        font-size: 1.3rem;
+    }
+    .user_coins_value {
+        float: right;
+        font-size: 1.3rem;
+        color: $secondary;
+    }
+    .user_coins {
+        margin-top: 2rem;
     }
 
 }
+
+@media screen and (max-width: 500px) {
+    .payment_tab {
+        width: 20rem;
+        min-width: 12rem;
+        padding: 2rem;
+    }
+}
+@media screen and (max-width: 450px) {
+    .payment_tab {
+        width: 19rem;
+        min-width: 12rem;
+        padding: 2rem;
+    }
+    
+}
+@media screen and (max-width: 430px) {
+    .payment_tab {
+        width: 18rem;
+        min-width: 12rem;
+        padding: 2rem;
+    }
+    
+}
+
