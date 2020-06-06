@@ -2,6 +2,7 @@ import React from 'react';
 import MyProBox from '../components/MyProBox';
 import Header from '../components/Header';
 import Base_Header from '../Hooks/Base_header';
+// import PDFViewer from 'pdf-viewer-reactjs';
 
 class Library extends React.Component {
 	constructor(props) {
@@ -28,6 +29,11 @@ class Library extends React.Component {
 	render() {
 		return (
 			<div className="Library_con">
+				{/* <PDFViewer
+					document={{
+						url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf'
+					}}
+				/> */}
 				<h1 id="lib_head">Shelf (2)</h1>
 
 				<div className="proCon">

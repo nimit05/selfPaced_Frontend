@@ -41,7 +41,7 @@
 	border-radius: 20px;
 }
 .reg_btn_div{
-    padding: 0 30%;
+    padding: 0 29%;
 }
 
 
@@ -51,7 +51,7 @@
         display: unset;
 
         img{
-            margin-left: 4%
+            margin-left: 3%
         }
     }
 }
@@ -62,16 +62,6 @@
 
         img{
             margin-right: 8%;
-        }
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .base_header {
-        display: unset;
-
-        img{
-            margin-right: 6%;
         }
     }
 }

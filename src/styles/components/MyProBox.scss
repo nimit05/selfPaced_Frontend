@@ -5,14 +5,16 @@
     // overflow: hidden;
     // border: solid 1px black;
     margin: 60px;
-    perspective: 550px;
+    perspective: 750px;
 }
 
 .Myproduct_img {
     margin-left: auto;
     margin-right: auto;
-    height: 80%;
-    width: fit-content;
+    height: 85%;
+    // object-fit: cover;
+
+    width: 160px;
     overflow: hidden;
     // border: solid 1px black;
     transition: 0.3s;
