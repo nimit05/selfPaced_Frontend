@@ -13,35 +13,32 @@ const Base_Header = () => {
                 <img   onClick = {() => {
                     window.location.href = "/"
                 }}  
-                className = "home_svg home_bh"
+                className = "home_svg "
                 src = {home_icon} 
                 alt = " " />
 
                 <img   onClick = {() => {
                     window.location.href = "/myCart"
                 }}  
-                className = "home_svg"
+                
                 src = {cart} 
                 alt = " " />
 
                 <img   onClick = {() => {
                     window.location.href = "/sell-your-product"
                 }}  
-                className = "home_svg"
                 src = {plus} 
                 alt = " " />
 
                 <img   onClick = {() => {
                     window.location.href = "/My-Library"
                 }}  
-                className = "home_svg"
                 src = {lib} 
                 alt = " " />
 
                 <img   onClick = {() => {
                     window.location.href = "/myprofile"
                 }}  
-                className = "home_svg"
                 src = {picpro} 
                 alt = " " />
                 

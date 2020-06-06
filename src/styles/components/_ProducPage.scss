@@ -1,15 +1,6 @@
-// .MainHeader_PP{
 
-//     background-color: $dark;
-//     position: fixed;
-//     width: 100%;
-//     padding: 10px;
-//     // top: 50px;
-//     z-index: 100;
-// }
 
 .header_left_PP {
-	// margin-left: 100px;
 	display: flex;
 	background-color: $dark;
 	flex-direction: row;
@@ -60,32 +51,7 @@
 	// justify-content: space-between;
 	align-items: center;
 }
-.srch {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	float: left;
-	// padding: 0 10%;
-}
-#main_search_pp {
-	width: 100%;
-	min-width: 180px;
-	height: 37px;
-	// border-radius: 20px;
-	background-color: #eeeeee;
-	font-size: 0.84rem;
-	color: rgb(54, 54, 54);
-	padding-left: 10px;
-	background-image: url("../../img/search.svg");
-	background-repeat: no-repeat;
-	background-size: 63% 63%;
-	background-position: 175%;
-	box-sizing: border-box;
-	border: none;
-}
-#main_search_pp:focus {
-    outline: none;
-}
+
 .user_btn_pp {
 	width: 45%;
 	padding-right: 30px;
@@ -105,24 +71,31 @@
 }
 .Main_BI {
 	margin-top: 50px;
-	border: 1px solid rgb(172, 172, 172);
-	width: 34vw;
-	padding: 5vw;
+	max-width: 40rem;
+	min-width: 30rem;
+	padding: 4rem ;
+
 	box-sizing: border-box;
 	text-align: center;
 	display: block;
+	// border: solid black;
+	margin-left: 6rem;
 }
 
 
 .product_img_pp {
-	height: calc(50vh - 14px);
+	height: calc(30vh - 14px);
 	text-align: center;
 }
 
 .Main_CT {
-	font-size: 3rem;
-	padding: 10rem 5rem;
-	width: 48%;
+	font-size: 2rem;
+	padding: 4rem ;
+	max-width: 45rem;
+	min-width: 35rem;
+	margin-left: 2rem;
+	// border: solid black;
+	margin-top: 2rem;
 }
 .author {
 	// color:;
@@ -160,5 +133,60 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: start;
 }
+
+
+@media screen and (max-width: 800px) {
+
+	.Main_BI {
+		margin-top: 100px;
+		width: 80vw;
+		padding: 5vw;
+		margin-left: 0rem;
+	}
+	.main_body_pro_page {
+		flex-direction: column;
+	
+	}
+	.Main_CT {
+		font-size: 2rem;
+		padding: 3rem 10%;
+		max-width: 35rem;
+		min-width: 15rem;
+	}
+}
+@media screen and (max-width: 550px) {
+
+	
+	.buy_btn_pp {
+		height: 2rem;
+		width: 6rem;
+		background-color: $secondary;
+		color: $light;
+	}
+	.adc_btn_pp {
+		height: 2rem;
+		width: 6rem;
+		background-color: $secondary;
+		margin-left: 1rem;
+		color: $light;
+	}
+}
+
+
+@media screen and (max-width: 380px) {
+
+	.buy_btn_pp {
+		height: 2rem;
+		width: 6rem;
+
+	}
+	.adc_btn_pp {
+		height: 2rem;
+		width: 6rem;
+		margin-left: 0.5rem;
+	}
+}
+
+

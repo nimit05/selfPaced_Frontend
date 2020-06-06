@@ -32,6 +32,11 @@ export default class Productbox extends React.Component {
 		};
 	}
 
+	// product_pg(refId){
+	// 	data = {refrenceId : refId}
+	// 	postData2('/api/')
+	// }
+
 	render() {
 		let c;
 
@@ -52,8 +57,8 @@ export default class Productbox extends React.Component {
 				</div>
 				<div
 					className="product_img"
-					onClick={() => {
-						window.location.href = '/productpage';
+					onClick = {() => {
+						window.location.href = `/productpage/${this.props.refId}`
 					}}
 				>
 					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />
@@ -95,6 +100,25 @@ async function postData(url = '', data = {}) {
 		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
 		body: JSON.stringify(data) // body data type must match "Content-Type" header
 	});
-	// window.location.reload()
 	return response.json(); // parses JSON response into native JavaScript objects
 }
+
+async function postData2(url = '', data = {}) {
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify(data) // body data type must match "Content-Type" header
+	});
+	window.location.href = '/productpage'
+	return response.json(); // parses JSON response into native JavaScript objects
+}
+

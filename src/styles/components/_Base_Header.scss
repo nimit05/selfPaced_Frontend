@@ -10,21 +10,88 @@
     font-family: "Times New Roman", Times, serif;
     padding: 0.8rem;
     display: none;
-}
 
-.home_svg{
+    img{
         margin-left: 0vw;
         margin-right: 11vw;
         height: 30px;
         cursor: pointer;
 }
 
+}
+
+
+
 @media screen and (max-width: 720px) {
     .base_header {
         display: unset;
+
+        img{
+            margin-right: 15vw;
+        }
     }
+
+   
 }
 
-.home_bh{
-    margin-left: 3.3vw;
+@media screen and (max-width: 650px) {
+
+    .base_header {
+
+        img{
+            margin-right: 14.5vw;
+        }
+    }
+
 }
+@media screen and (max-width: 640px) {
+
+    .base_header {
+
+        img{
+            margin-right: 13.5vw;
+        }
+    }
+
+}
+@media screen and (max-width: 600px) {
+
+    .base_header {
+
+        img{
+            margin-right: 13vw;
+        }
+    }
+
+}
+@media screen and (max-width: 500px) {
+
+    .base_header {
+
+        img{
+            margin-right: 11vw;
+        }
+    }
+
+}
+@media screen and (max-width: 400px) {
+
+    .base_header {
+
+        img{
+            margin-right: 10vw;
+        }
+    }
+
+}
+@media screen and (max-width: 350px) {
+
+    .base_header {
+
+        img{
+            margin-right: 9vw;
+        }
+    }
+
+}
+
