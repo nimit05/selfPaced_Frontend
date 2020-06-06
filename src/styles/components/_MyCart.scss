@@ -205,9 +205,9 @@
 
 @media screen and (max-width: 720px) {
     .payment_tab {
-        width: 20rem;
+        max-width: 20rem;
         min-width: 12rem;
-        padding: 2rem;
+        padding: 13%;
     }
     .content_div{
         display: flex;
@@ -288,7 +288,7 @@
         color: $secondary;
     }
     .user_coins {
-        margin-top: 2rem;
+        margin-top: 1.5rem;
     }
 
 }
@@ -297,22 +297,22 @@
     .payment_tab {
         width: 20rem;
         min-width: 12rem;
-        padding: 2rem;
+        // padding: 2.5rem;
     }
 }
 @media screen and (max-width: 450px) {
     .payment_tab {
         width: 19rem;
         min-width: 12rem;
-        padding: 2rem;
+        // padding: 2.5rem;
     }
     
 }
 @media screen and (max-width: 430px) {
     .payment_tab {
-        width: 18rem;
+        max-width: 18rem;
         min-width: 12rem;
-        padding: 2rem;
+        
     }
     
 }
