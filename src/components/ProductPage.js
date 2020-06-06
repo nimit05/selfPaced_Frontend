@@ -3,6 +3,18 @@ import bookcover from '../img/bookcover.jpg';
 import CateCon from './CateCon';
 
 export default class ProductPage extends React.Component {
+	buy = async () => {
+		let data = {
+			refrenceId: this.props.match.params.refId
+		};
+		let pro = await postData('/api/products/Buy', data);
+		alert(pro);
+		console.log(pro);
+		if (pro) {
+			alert('buyed');
+		}
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -44,6 +56,7 @@ export default class ProductPage extends React.Component {
 						BookAuthor={this.state.BookAuthor}
 						Value={this.state.Value}
 						description={this.state.description}
+						buy={this.buy}
 					/>
 				</div>
 				<CateCon />
@@ -75,7 +88,9 @@ const Content = (props) => {
 				</div>
 			</div>
 			<div className="buy_pp ">
-				<button className="buy_btn_pp">Buy Now</button>
+				<button className="buy_btn_pp" onClick={props.buy}>
+					Buy Now
+				</button>
 				<button className="adc_btn_pp ">Add to Cart</button>
 			</div>
 			<br />
@@ -93,3 +108,21 @@ const Content = (props) => {
 		</div>
 	);
 };
+
+async function postData(url = '', data = {}) {
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify(data) // body data type must match "Content-Type" header
+	});
+	return response.json(); // parses JSON response into native JavaScript objects
+}

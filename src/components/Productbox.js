@@ -16,14 +16,6 @@ export default class Productbox extends React.Component {
 		});
 	};
 
-	buy = () => {
-		alert('by');
-		let data = {
-			refrenceId: this.props.refId
-		};
-		postData('/api/products/Buy', data);
-	};
-
 	constructor(props) {
 		super(props);
 		console.log(this.props.isAdded);
@@ -57,8 +49,8 @@ export default class Productbox extends React.Component {
 				</div>
 				<div
 					className="product_img"
-					onClick = {() => {
-						window.location.href = `/productpage/${this.props.refId}`
+					onClick={() => {
+						window.location.href = `/productpage/${this.props.refId}`;
 					}}
 				>
 					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />
@@ -118,7 +110,6 @@ async function postData2(url = '', data = {}) {
 		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
 		body: JSON.stringify(data) // body data type must match "Content-Type" header
 	});
-	window.location.href = '/productpage'
+	window.location.href = '/productpage';
 	return response.json(); // parses JSON response into native JavaScript objects
 }
-

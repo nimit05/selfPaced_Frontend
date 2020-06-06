@@ -14,7 +14,7 @@ export default class CateCon_for_profile extends React.Component {
 		postData('/api/products/myproducts').then((data) => {
 			console.log(data);
 			this.setState(() => {
-				return { proArray: data.products };
+				return { proArray: data };
 			});
 		});
 	}
@@ -22,12 +22,13 @@ export default class CateCon_for_profile extends React.Component {
 		return (
 			<div className="CateCon">
 				<div className="cate_head">
-					<h1 className = "heading_mob_pp">My Products</h1>
-					<h3 className = "see_mob_pp">See More -></h3>
+					<h1 className="heading_mob_pp">My Products</h1>
+					<h3 className="see_mob_pp">See More -></h3>
 				</div>
 
 				<div className="cate_body">
 					{this.state.proArray.map((e) => {
+						e = e.Product;
 						return (
 							<Productbox
 								title={e.BookName}
@@ -64,14 +65,11 @@ async function postData(url = '', data = {}) {
 
 // props to send are {1 title 2 tag 3 bookimg 4 stitle 5 short_des 6 price}
 class Productbox extends React.Component {
-
 	constructor(props) {
 		super(props);
-		
 	}
 
 	render() {
-
 		return (
 			<div className="productcont_for_profile">
 				<div className="tag_for_profile">
