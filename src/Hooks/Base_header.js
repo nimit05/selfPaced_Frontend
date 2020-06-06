@@ -31,7 +31,7 @@ export default class Base_Header extends React.Component {
     return(
         <div className = "base_header">
         <div className = "img_cont_bh">
-        {this.state.islogin?(<div> <img   onClick = {() => {
+        {this.state.islogin?(<div className = "icon_bh"> <img   onClick = {() => {
             window.location.href = "/"
         }}  
         className = "home_svg "
