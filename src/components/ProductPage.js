@@ -3,6 +3,7 @@ import React from 'react';
 // import cart from '../img/cart.svg';
 import bookcover from '../img/bookcover.jpg';
 import Base_Header from '../Hooks/Base_header'
+import CateCon_for_profile from './CateCOn_profile';
 
 
 // import pblogo from '../img/pblogo.png';
@@ -66,6 +67,7 @@ export default class ProductPage extends React.Component {
 					<Content  BookName = {this.state.BookName} BookAuthor = {this.state.BookAuthor} 
 					Value = {this.state.Value} description = {this.state.description} />
 				</div>
+				<CateCon_for_profile />
 				<Base_Header />
 			</div>
 		);
