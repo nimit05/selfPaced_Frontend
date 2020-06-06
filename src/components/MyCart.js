@@ -164,11 +164,14 @@ class Heading extends React.Component {
 
 	render() {
 		return (
+			<div>
 			<div className="heading_cart">
 				<h1 className="heading_left_cart">Your Cart({this.state.count})</h1>
+				</div>
+				<div className = "content_div">
 				<Payment_tab />
 				<hr className = "hidden_hr" />
-				<div>
+				<div className = "product_row_div">
 					{this.state.Cart_Product.map((product) => {
 						return (
 							<Product_cart
@@ -182,6 +185,7 @@ class Heading extends React.Component {
 							/>
 						);
 					})}
+				</div>
 				</div>
 			</div>
 		);
@@ -204,6 +208,7 @@ class Product_cart extends React.Component {
 					<div className="img_cart">
 						<img className="product_img_cart" src={bookcover} alt=" " />
 					</div>
+					
 					<div className="details_cart">
 						<h3>{this.props.BookName}</h3>
 						<h6>{this.props.BookAuthor}</h6>
@@ -223,9 +228,7 @@ class Product_cart extends React.Component {
 						>
 							<button className="cart_remove_button">Remove</button>
 						</div>
-					</div>
-					<div className="cart_product_price">
-						${this.props.Value} 
+						
 					</div>
 					
 				</div>
