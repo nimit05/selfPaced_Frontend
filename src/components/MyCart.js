@@ -1,16 +1,13 @@
 import React from 'react';
 import Header from './Header';
 import bookcover from '../img/bookcover.jpg';
-import Base_Header from '../Hooks/Base_header'
-
+import Base_Header from '../Hooks/Base_header';
 
 export default class MyCart extends React.Component {
 	render() {
 		return (
 			<div>
-				<Header />
 				<Heading />
-				<Base_Header />
 			</div>
 		);
 	}
@@ -82,7 +79,7 @@ class Payment_tab extends React.Component {
 	}
 
 	Total(coins) {
-		if(this.Total_Value(this.state.Cart_Product) < coins ){
+		if (this.Total_Value(this.state.Cart_Product) < coins) {
 			return 0;
 		}
 		if(coins < 0){
@@ -107,12 +104,14 @@ class Payment_tab extends React.Component {
 				<div>
 					<input placeholder="HAVE A PROMOCODE?" type="text" className="payment_promo" />
 				</div>
-				<div className = "prod_det">
+				<div className="prod_det">
 					{this.state.Cart_Product.map((product) => {
-						return <Title_div title={product.BookName} Value={product.Value} cover_img = {product.cover_img} />;
+						return (
+							<Title_div title={product.BookName} Value={product.Value} cover_img={product.cover_img} />
+						);
 					})}
 				</div>
-				
+
 				<hr />
 				<div>
 					<div className="title_tab_total">
@@ -178,29 +177,28 @@ class Heading extends React.Component {
 	render() {
 		return (
 			<div>
-			<div className="heading_cart">
-				<h1 className="heading_left_cart">Your Cart({this.state.count})</h1>
+				<div className="heading_cart">
+					<h1 className="heading_left_cart">Your Cart({this.state.count})</h1>
 				</div>
-				<div className = "content_div">
-				<Payment_tab />
-				<hr className = "hidden_hr" />
-				<div className = "product_row_div">
-					{this.state.Cart_Product.map((product) => {
-						return (
-							<Product_cart
-								key={product.refrenceId}
-								BookName={product.BookName}
-								BookAuthor={product.BookAuthor}
-								Value={product.Value}
-								tag={product.tag}
-								refrenceId={product.refrenceId}
-								total={this.Total_Value}
-								bookimg={`http://localhost:4444/covers/${product.cover_img}`}
-							/>
-						);
-					})}
-				</div>
-				
+				<div className="content_div">
+					<Payment_tab />
+					<hr className="hidden_hr" />
+					<div className="product_row_div">
+						{this.state.Cart_Product.map((product) => {
+							return (
+								<Product_cart
+									key={product.refrenceId}
+									BookName={product.BookName}
+									BookAuthor={product.BookAuthor}
+									Value={product.Value}
+									tag={product.tag}
+									refrenceId={product.refrenceId}
+									total={this.Total_Value}
+									bookimg={`http://localhost:4444/covers/${product.cover_img}`}
+								/>
+							);
+						})}
+					</div>
 				</div>
 			</div>
 		);
@@ -220,16 +218,21 @@ class Product_cart extends React.Component {
 		return (
 			<div className="product_cart_cont">
 				<div className="product_cart">
-					<div className="img_cart" onClick={() => {
-						window.location.href = `/productpage/${this.props.refrenceId}`;
-					}}>
+					<div
+						className="img_cart"
+						onClick={() => {
+							window.location.href = `/productpage/${this.props.refrenceId}`;
+						}}
+					>
 						<img className="product_img_cart" src={this.props.bookimg} alt=" " />
 					</div>
-					
+
 					<div className="details_cart">
-						<h3 onClick={() => {
-							window.location.href = `/productpage/${this.props.refrenceId}`;
-						}}>
+						<h3
+							onClick={() => {
+								window.location.href = `/productpage/${this.props.refrenceId}`;
+							}}
+						>
 							{this.props.BookName}
 						</h3>
 						<h6>{this.props.BookAuthor}</h6>
@@ -238,9 +241,7 @@ class Product_cart extends React.Component {
 						<div className="type_product_cart">
 							Type : <span className="type_value">{this.props.tag}</span>
 						</div>
-						<div className="cart_product_price_mob">
-						${this.props.Value} 
-					</div>
+						<div className="cart_product_price_mob">${this.props.Value}</div>
 						<div
 							className="btn_cart_div"
 							onClick={() => {
@@ -249,9 +250,7 @@ class Product_cart extends React.Component {
 						>
 							<button className="cart_remove_button">Remove</button>
 						</div>
-						
 					</div>
-					
 				</div>
 				<br />
 				<hr className="hr_cart" />

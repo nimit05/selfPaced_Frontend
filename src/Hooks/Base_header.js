@@ -4,8 +4,23 @@ import cart from '../img/cart.svg'
 import plus from '../img/plus.svg'
 import lib from '../img/lib.svg'
 import picpro from '../img/propic.svg';
+import { GoogleLogin } from 'react-google-login';
+
 
 export default class Base_Header extends React.Component {
+    responseGoogle = (response) => {
+		fetch('/api/register/google', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ tokenId: response.tokenId })
+		})
+			.then((res) => res.json())
+			.then((parJson) => {
+				if (parJson.email) {
+					window.location.href = '/';
+				}
+			});
+	};
 
     constructor(props){
         super(props)
@@ -72,6 +87,17 @@ export default class Base_Header extends React.Component {
                                     >
                                         Register/Login
                                     </button>
+                                    <GoogleLogin
+                                    clientId="462910295856-266vqnfa4rummelmbin515fqa070eo7j.apps.googleusercontent.com"
+                                    buttonText="Continue with Google"
+                                    style={{ backgroundColor: 'blue' }}
+                                    className="gbtn"
+                                    onSuccess={this.responseGoogle}
+                                    onFailure={() => {
+                                        alert('Error in google login ');
+                                    }}
+                                    cookiePolicy={'single_host_origin'}
+                                />
                 </div>)}
                
         </div>

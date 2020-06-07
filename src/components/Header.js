@@ -7,6 +7,7 @@ import plus from '../img/plus.svg';
 import propic from '../img/propic.svg';
 import money from '../img/money.svg';
 import OutsideAlerter from '../Hooks/OutsideAlerter';
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 class Header extends React.Component {
 	findName = () => {
@@ -37,22 +38,36 @@ class Header extends React.Component {
 			};
 		});
 	};
-
-	findbook(){
-
-		var input = document.getElementById('main_search_inp');
-		input.addEventListener('keyup' , function(event) {
-			if(event.keyCode == 13){
-				event.preventDefault();
-				if(!document.getElementById('main_search_inp').value.trim()){
-					window.location.href = '/'
-				}else{
-					window.location.href = `/Search_items/${document.getElementById('main_search_inp').value.trim()}`
-				}
-				
-			}
+	responseGoogle = (response) => {
+		fetch('/api/register/google', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ tokenId: response.tokenId })
 		})
-	
+			.then((res) => res.json())
+			.then((parJson) => {
+				if (parJson.email) {
+					window.location.href = '/';
+				} else if (parJson.error) {
+					alert('error occured')
+				}
+			});
+	};
+
+	findbook() {
+		if (document.getElementById('main_search_inp').value != null) {
+			var input = document.getElementById('main_search_inp');
+			input.addEventListener('keyup', function(event) {
+				if (event.keyCode == 13) {
+					event.preventDefault();
+					if(!document.getElementById('main_search_inp').value.trim()){
+						window.location.href = '/'
+					}else{
+					window.location.href = `/Search_items/${document.getElementById('main_search_inp').value.trim()}`;
+					}
+				}
+			});
+		}
 	}
 
 	constructor(props) {
@@ -65,7 +80,8 @@ class Header extends React.Component {
 					return {
 						islogin: true,
 						username: data.username,
-						coins: data.Coins
+						coins: data.Coins,
+						pro_pic: data.pro_img
 					};
 				});
 			}
@@ -74,6 +90,7 @@ class Header extends React.Component {
 		this.state = {
 			islogin: false,
 			username: null,
+			pro_pic: null,
 			allItemsName: [
 				'tushar',
 				'tushar',
@@ -111,7 +128,13 @@ class Header extends React.Component {
 				</div>
 				<div className="user_btn_con frse">
 					<div className="parent">
-						<input onChange={this.findName} id="main_search_inp" placeholder="Search" type="text" onClick = {this.findbook} />
+						<input
+							onChange={this.findName}
+							id="main_search_inp"
+							placeholder="Search"
+							type="text"
+							onClick={this.findbook}
+						/>
 						<div className="searchRe">
 							{this.state.searchNames.map((e, i) => {
 								if (i > 5) {
@@ -160,7 +183,10 @@ class Header extends React.Component {
 								{' '}
 								<div className="profile">
 									<Navbar>
-										<Navitem icon={<img src={propic} alt=" " />} coins={this.state.coins}>
+										<Navitem
+											icon={<img id="pro_pic" src={this.state.pro_pic} alt=" " />}
+											coins={this.state.coins}
+										>
 											<Dropdown />
 										</Navitem>
 									</Navbar>
@@ -168,7 +194,7 @@ class Header extends React.Component {
 							</div>
 						</div>
 					) : (
-						<div>
+						<div className="fr">
 							<button
 								id="reg_btn"
 								onClick={() => {
@@ -177,6 +203,17 @@ class Header extends React.Component {
 							>
 								Register/Login
 							</button>
+							<GoogleLogin
+								clientId="462910295856-266vqnfa4rummelmbin515fqa070eo7j.apps.googleusercontent.com"
+								buttonText="Continue with Google"
+								style={{ backgroundColor: 'blue' }}
+								className="gbtn"
+								onSuccess={this.responseGoogle}
+								onFailure={() => {
+									alert('Error in google login ');
+								}}
+								cookiePolicy={'single_host_origin'}
+							/>
 						</div>
 					)}
 				</div>
@@ -237,14 +274,14 @@ const Dropdown = () => {
 						fetch('/api/login/out', {
 							method: 'DELETE'
 						});
-						// window.location.reload()
-						// window.location.href = '/'
+						window.location.reload();
 					}}
 					className="span_dd"
 				>
 					Log Out
 				</span>
 			</Dropdownitem>
+		
 		</div>
 	);
 };
