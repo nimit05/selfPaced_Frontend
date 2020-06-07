@@ -220,7 +220,7 @@ const Dropdown = () => {
 						fetch('/api/login/out', {
 							method: 'DELETE'
 						});
-						// window.location.reload();
+						window.location.href = '/'
 					}}
 					className="span_dd"
 				>
