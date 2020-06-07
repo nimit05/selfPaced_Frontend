@@ -1,0 +1,41 @@
+.search_items{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+
+    .heading_search {
+        background-color: $blur;
+        height: 50px;
+        font-family: "Times New Roman", Times, serif;
+        width: 100%;
+        margin-top: 3rem;
+        color: $dark;
+        margin-bottom: 0rem;
+        font-size: 1.2rem;
+    }
+    .heading_left_search {
+        //    float: left;
+        margin-left: 2vw;
+        margin-top: 50px;
+    }
+}
+.search_error{
+    font-size: 1.5rem;
+
+}
+@media screen and (max-width : 720px){
+    .search_items{
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 5rem;
+        // margin-bottom: 5rem;
+        .productcont{
+            margin: 5rem auto;
+            
+        }
+    }
+}

@@ -99,7 +99,7 @@ class Payment_tab extends React.Component {
 				</div>
 				<div className = "prod_det">
 					{this.state.Cart_Product.map((product) => {
-						return <Title_div title={product.BookName} Value={product.Value} />;
+						return <Title_div title={product.BookName} Value={product.Value} cover_img = {product.cover_img} />;
 					})}
 				</div>
 				
@@ -183,6 +183,7 @@ class Heading extends React.Component {
 								tag={product.tag}
 								refrenceId={product.refrenceId}
 								total={this.Total_Value}
+								bookimg={`http://localhost:4444/covers/${product.cover_img}`}
 							/>
 						);
 					})}
@@ -207,12 +208,18 @@ class Product_cart extends React.Component {
 		return (
 			<div className="product_cart_cont">
 				<div className="product_cart">
-					<div className="img_cart">
-						<img className="product_img_cart" src={bookcover} alt=" " />
+					<div className="img_cart" onClick={() => {
+						window.location.href = `/productpage/${this.props.refrenceId}`;
+					}}>
+						<img className="product_img_cart" src={this.props.bookimg} alt=" " />
 					</div>
 					
 					<div className="details_cart">
-						<h3>{this.props.BookName}</h3>
+						<h3 onClick={() => {
+							window.location.href = `/productpage/${this.props.refrenceId}`;
+						}}>
+							{this.props.BookName}
+						</h3>
 						<h6>{this.props.BookAuthor}</h6>
 						<span />
 

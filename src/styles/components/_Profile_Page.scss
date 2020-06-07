@@ -1,24 +1,27 @@
 #ProfileCard {
-    background-color: #e6e4e2;
+    // background-color: #e6e4e2;
     border: 1px solid rgb(172, 172, 172);
-    width: 22vw;
-    // height: 32vw;
+    width: 25rem;
+    min-width: 25rem;
     padding: 30px 10px;
     box-sizing: border-box;
     display: block;
     border-radius: 20px;
-    margin-left: 5vw;
-    margin-right: 2vw;
+    margin-left: 4rem;
+    margin-right: 5rem;
     float: left;
-    // margin-bottom: 15vw;
 }
 
+
 .items_cont {
-    background-color: #e6e4e2;
+    // background-color: #e6e4e2;
     border: 1px solid rgb(172, 172, 172);
-    width: 60vw;
+    max-width: 70rem;
+    min-width: 20rem;
+    height: 28rem;
     border-radius: 20px;
-    margin-bottom: 8vw;
+    // margin-bottom: 8;
+    margin-right: 3rem;
 }
 
 .items_colm {
@@ -34,7 +37,7 @@
     display: flex;
     flex-direction: row;
     justify-content: start;
-    align-items: center;
+    // align-items: center;
 }
 
 .info {
@@ -73,6 +76,9 @@
     opacity: 0.5;
     padding: 0 8%;
 }
+.hr_pro{
+    opacity: 0.5;
+}
 .user_name {
     text-align: center;
     font-size: 2rem;
@@ -83,7 +89,7 @@
     font-size: 1.2rem;
     color: $dark;
     margin-top: 0.5vw;
-    background-color: #e6e4e2;
+    // background-color: #e6e4e2;
     border: transparent;
 }
 
@@ -105,16 +111,16 @@
         display: flex;
         flex-direction: column;
         justify-content: start;
-        align-items: center;
+        // align-items: center;
     }
 
     #ProfileCard {
-        width: 75vw;
-        height: 110vw;
-        margin-top: 15vw;
-        margin-bottom: 10vw;
-        margin-left: 1vw;
-        margin-right: 1vw;
+
+        width: 20rem;
+        min-width: 20rem;
+        margin: auto;
+        margin-bottom: 3rem;
+
     }
 
     .info {
@@ -126,13 +132,15 @@
         align-items: center;
     }
     .items_cont {
-        background-color: #e6e4e2;
-        border: 1px solid rgb(172, 172, 172);
-        width: 80vw;
+        background-color: unset;
+        border: unset;
+        width: 30rem;
+        min-width: 10rem;
+        height: 28rem;
         border-radius: 20px;
-        // margin-bottom: 8vw;
+        // margin-bottom: 8;
+        margin-right: 3rem;
     }
-
     .user_pro_pic {
         width: 60px;
         height: 60px;
@@ -164,10 +172,8 @@
     }
     .heading_value {
         font-size: 1rem;
-        color: $dark;
         margin-top: 1.5vw;
-        background-color: #e6e4e2;
-        border: transparent;
+       
     }
 
     .log_out {

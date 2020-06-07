@@ -36,6 +36,7 @@ export default class CateCon_for_profile extends React.Component {
 								stitle={e.BookAuthor}
 								short_des={e.Edition}
 								price={e.Value}
+								refId = {e.refrenceId}
 								bookimg={`http://localhost:4444/covers/${e.cover_img}`}
 							/>
 						);
@@ -78,7 +79,7 @@ class Productbox extends React.Component {
 				<div
 					className="product_img"
 					onClick={() => {
-						window.location.href = '/productpage';
+						window.location.href = `/productpage/${this.props.refId}`;
 					}}
 				>
 					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />

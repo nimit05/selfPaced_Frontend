@@ -22,7 +22,8 @@ export default class ProductPage extends React.Component {
 			BookAuthor: null,
 			Value: null,
 			cover_img: null,
-			description: null
+			description: null,
+			refId : null
 		};
 	}
 
@@ -38,12 +39,18 @@ export default class ProductPage extends React.Component {
 						BookAuthor: data.BookAuthor,
 						Value: data.Value,
 						cover_img: data.cover_img,
-						description: data.Description
+						description: data.Description,
+						refId : data.refrenceId
 					};
 				});
 			}
 		});
 	}
+	addToCart = (refId) => {
+		let data = { refrenceId: refId };
+		postData('/api/products/AddToCart', data);
+
+}
 
 	render() {
 		return (
@@ -56,6 +63,8 @@ export default class ProductPage extends React.Component {
 						Value={this.state.Value}
 						description={this.state.description}
 						buy={this.buy}
+						refId = {this.state.refId}
+						addToCart = {this.addToCart}
 					/>
 				</div>
 				<CateCon />
@@ -90,7 +99,9 @@ const Content = (props) => {
 				<button className="buy_btn_pp" onClick={props.buy}>
 					Buy Now
 				</button>
-				<button className="adc_btn_pp ">Add to Cart</button>
+				<button className="adc_btn_pp " onClick = {() => {
+					props.addToCart(props.refId)
+				}}>Add to Cart</button>
 			</div>
 			<br />
 			<div className="des_pp">
