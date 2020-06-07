@@ -58,18 +58,17 @@ class Header extends React.Component {
 			});
 	};
 
-	findbook(){
-       if(document.getElementById('main_search_inp').value != null){
-		var input = document.getElementById('main_search_inp');
-		var val = document.getElementById('main_search_inp').value;
-		input.addEventListener('keyup' , function(event) {
-			if(event.keyCode == 13){
-				event.preventDefault();
-					window.location.href = `/Search_items/${document.getElementById('main_search_inp').value}`
-				
-			}
-		})
-	}
+	findbook() {
+		if (document.getElementById('main_search_inp').value != null) {
+			var input = document.getElementById('main_search_inp');
+			var val = document.getElementById('main_search_inp').value;
+			input.addEventListener('keyup', function(event) {
+				if (event.keyCode == 13) {
+					event.preventDefault();
+					window.location.href = `/Search_items/${document.getElementById('main_search_inp').value}`;
+				}
+			});
+		}
 	}
 
 	constructor(props) {
@@ -82,7 +81,8 @@ class Header extends React.Component {
 					return {
 						islogin: true,
 						username: data.username,
-						coins: data.Coins
+						coins: data.Coins,
+						pro_pic: data.pro_img
 					};
 				});
 			}
@@ -91,6 +91,7 @@ class Header extends React.Component {
 		this.state = {
 			islogin: false,
 			username: null,
+			pro_pic: null,
 			allItemsName: [
 				'tushar',
 				'tushar',
@@ -128,7 +129,13 @@ class Header extends React.Component {
 				</div>
 				<div className="user_btn_con frse">
 					<div className="parent">
-						<input onChange={this.findName} id="main_search_inp" placeholder="Search" type="text" onClick = {this.findbook} />
+						<input
+							onChange={this.findName}
+							id="main_search_inp"
+							placeholder="Search"
+							type="text"
+							onClick={this.findbook}
+						/>
 						<div className="searchRe">
 							{this.state.searchNames.map((e, i) => {
 								if (i > 5) {
@@ -177,7 +184,10 @@ class Header extends React.Component {
 								{' '}
 								<div className="profile">
 									<Navbar>
-										<Navitem icon={<img src={propic} alt=" " />} coins={this.state.coins}>
+										<Navitem
+											icon={<img id="pro_pic" src={this.state.pro_pic} alt=" " />}
+											coins={this.state.coins}
+										>
 											<Dropdown />
 										</Navitem>
 									</Navbar>
@@ -265,12 +275,7 @@ const Dropdown = () => {
 						fetch('/api/login/out', {
 							method: 'DELETE'
 						});
-<<<<<<< HEAD
 						window.location.reload();
-=======
-						// window.location.reload()
-						// window.location.href = '/'
->>>>>>> f70840b06408fe32f370cfd9377d2d366cdcabec
 					}}
 					className="span_dd"
 				>
