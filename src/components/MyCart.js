@@ -24,7 +24,7 @@ class Payment_tab extends React.Component {
 		this.Total = this.Total.bind(this);
 		this.state = {
 			Cart_Product: [],
-			coins: null
+			coins: null,
 		};
 
 		fetch('/api/user/Cart', {
@@ -82,11 +82,21 @@ class Payment_tab extends React.Component {
 	}
 
 	Total(coins) {
-		if(this.Total_Value(this.state.Cart_Product) < coins){
+		if(this.Total_Value(this.state.Cart_Product) < coins ){
 			return 0;
+		}
+		if(coins < 0){
+			return this.Total_Value(this.state.Cart_Product);
 		}
 		let overall = this.Total_Value(this.state.Cart_Product) - coins;
 		return overall;
+	}
+
+	isDisable(coins){
+		if(coins < this.Total_Value(this.state.Cart_Product)){
+			return true;
+		}
+		return false;
 	}
 
 	render() {
@@ -111,18 +121,20 @@ class Payment_tab extends React.Component {
 					</div>
 					<div className="user_coins">
 						Your Coins
-						<span className="user_coins_value">- ${this.state.coins}</span>
+						<span className="user_coins_value"> ${this.state.coins}</span>
 					</div>
 					<div className="user_coins">
 						Order Total
 						<div className="order_total">${this.Total(this.state.coins)}</div>
 					</div>
 					<div className="checkout_div">
-						<button className="checkout_btn">Proceed To Checkout</button>
+						<button className="checkout_btn" disabled = {this.isDisable(this.state.coins)} onClick = {() => {
+							window.location.href = '/'
+						}}>Proceed To Checkout</button>
 					</div>
-					<div className="checkout_div">
+				  {/*<div className="checkout_div">
 						<button className="checkout_btn_pay">Pay with PayTM</button>
-					</div>
+				</div>*/}
 					
 				</div>
 			</div>

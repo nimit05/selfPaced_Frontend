@@ -39,17 +39,20 @@ class Header extends React.Component {
 	};
 
 	findbook(){
-       if(document.getElementById('main_search_inp').value != null){
+
 		var input = document.getElementById('main_search_inp');
-		var val = document.getElementById('main_search_inp').value;
 		input.addEventListener('keyup' , function(event) {
 			if(event.keyCode == 13){
 				event.preventDefault();
-					window.location.href = `/Search_items/${document.getElementById('main_search_inp').value}`
+				if(!document.getElementById('main_search_inp').value.trim()){
+					window.location.href = '/'
+				}else{
+					window.location.href = `/Search_items/${document.getElementById('main_search_inp').value.trim()}`
+				}
 				
 			}
 		})
-	}
+	
 	}
 
 	constructor(props) {

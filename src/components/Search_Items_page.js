@@ -4,20 +4,6 @@ import CateCon from './CateCon';
 import Base_Header from '../Hooks/Base_header'
 
 
-// export default class Search_item extends React.Component{
-   
-//     render(){
-//         return(
-//             <div>
-//                 <Searched_items />
-//                 <CateCon />
-//                 <CateCon />
-//                 <CateCon />
-//                 <Base_Header />
-//             </div>
-//         )
-//     }
-// }
 
 export default class Search_items extends React.Component{
     constructor(props){
@@ -42,6 +28,7 @@ export default class Search_items extends React.Component{
     componentDidMount(){
       
         const {name} = this.props.match.params
+        
         fetch(`/api/products/search/${name}`).then((res) => res.json()).then((data) => {
             if(data) {
                 this.setState(() => {
