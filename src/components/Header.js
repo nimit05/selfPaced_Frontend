@@ -38,6 +38,20 @@ class Header extends React.Component {
 		});
 	};
 
+	findbook(){
+       if(document.getElementById('main_search_inp').value != null){
+		var input = document.getElementById('main_search_inp');
+		var val = document.getElementById('main_search_inp').value;
+		input.addEventListener('keyup' , function(event) {
+			if(event.keyCode == 13){
+				event.preventDefault();
+					window.location.href = `/Search_items/${document.getElementById('main_search_inp').value}`
+				
+			}
+		})
+	}
+	}
+
 	constructor(props) {
 		super(props);
 
@@ -94,7 +108,7 @@ class Header extends React.Component {
 				</div>
 				<div className="user_btn_con frse">
 					<div className="parent">
-						<input onChange={this.findName} id="main_search_inp" placeholder="Search" type="text" />
+						<input onChange={this.findName} id="main_search_inp" placeholder="Search" type="text" onClick = {this.findbook} />
 						<div className="searchRe">
 							{this.state.searchNames.map((e, i) => {
 								if (i > 5) {
@@ -220,7 +234,8 @@ const Dropdown = () => {
 						fetch('/api/login/out', {
 							method: 'DELETE'
 						});
-						window.location.href = '/'
+						// window.location.reload()
+						// window.location.href = '/'
 					}}
 					className="span_dd"
 				>

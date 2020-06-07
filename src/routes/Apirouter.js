@@ -10,6 +10,7 @@ import MyCart from '../components/MyCart';
 import Header from '../components/Header';
 import Library from '../containers/Library';
 import Base_Header from '../Hooks/Base_header';
+import Search_items from '../components/Search_Items_page';
 
 const Apiroute = () => (
 	<BrowserRouter>
@@ -24,6 +25,7 @@ const Apiroute = () => (
 				<Route path="/myprofile" component={profilePage} />
 				<Route path="/myCart" component={MyCart} />
 				<Route path="/Base_Header" component={Base_Header} />
+				<Route path="/Search_items/:name" component={Search_items} />
 			</Switch>
 			<Base_Header />
 		</div>
