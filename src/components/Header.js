@@ -119,8 +119,8 @@ class Header extends React.Component {
 					}}
 				>
 					<img src={pblogo} alt=" " />
-					<b>PuraniBooks</b>
-					<span>.com</span>
+					<b>SelfPaced</b>
+					<span>.in</span>
 				</div>
 
 				<div className="header_center">

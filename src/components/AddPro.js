@@ -241,7 +241,7 @@ class AddPro extends Component {
 									Cancel
 								</button>
 
-								<input id="addpro_addbtn" type="submit" value="Add to Store" />
+								<input id="addpro_addbtn" type="submit" value="Add to Store"  />
 							</div>
 						</form>
 					</div>

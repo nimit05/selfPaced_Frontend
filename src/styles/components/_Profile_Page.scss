@@ -50,10 +50,10 @@
 }
 .user_pro_pic {
     // background-color: black;
-    width: 110px;
-    height: 110px;
+    width: 60px;
+    height: 60px;
     border: solid $dark;
-    border-radius: 100px;
+    border-radius: 50px;
     margin-right: 1.2vw;
 }
 .edit {
@@ -81,7 +81,7 @@
 }
 .user_name {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1rem;
     margin-top: 0.8vw;
     //    margin-right: 1vw;
 }
@@ -142,15 +142,15 @@
         margin-right: 3rem;
     }
     .user_pro_pic {
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
         border: solid $dark;
-        border-radius: 100px;
+        border-radius: 50px;
         margin-right: 0.8vw;
     }
     .edit {
         color: $secondary;
-        font-size: 1rem;
+        font-size: 0.6rem;
         cursor: pointer;
     }
     .heading {
@@ -166,7 +166,7 @@
 
     .user_name {
         text-align: center;
-        font-size: 1.1rem;
+        font-size: 0.7rem;
         margin-top: 0.8vw;
         //    margin-right: 1vw;
     }

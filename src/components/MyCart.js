@@ -79,13 +79,13 @@ class Payment_tab extends React.Component {
 	}
 
 	Total(coins) {
-		if (this.Total_Value(this.state.Cart_Product) < coins) {
-			return 0;
+		if (this.Total_Value(this.state.Cart_Product) > coins) {
+			return this.Total_Value(this.state.Cart_Product) - coins;
 		}
 		if(coins < 0){
 			return this.Total_Value(this.state.Cart_Product);
 		}
-		let overall = this.Total_Value(this.state.Cart_Product) - coins;
+		let overall =  coins - this.Total_Value(this.state.Cart_Product);
 		return overall;
 	}
 
@@ -122,13 +122,19 @@ class Payment_tab extends React.Component {
 						Your Coins
 						<span className="user_coins_value"> ${this.state.coins}</span>
 					</div>
-					<div className="user_coins">
-						Order Total
-						<div className="order_total">${this.Total(this.state.coins)}</div>
-					</div>
 					<div className="checkout_div">
-						<button className="checkout_btn" disabled = {this.isDisable(this.state.coins)} onClick = {() => {
-							window.location.href = '/'
+						<button className="checkout_btn"  onClick = {() => {
+							if(this.state.coins < this.Total_Value(this.state.Cart_Product)){
+								alert('Insufficient Balance')
+							}
+							let data = {
+								coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
+							}
+							postData2('/api/user/CheckoutFromCart' , data).then((data) => {
+								if(!data){
+									alert("error occured")
+								}
+							})
 						}}>Proceed To Checkout</button>
 					</div>
 				  {/*<div className="checkout_div">
@@ -286,5 +292,23 @@ async function postData(url = '', data = {}) {
 		body: JSON.stringify(data) // body data type must match "Content-Type" header
 	});
 	window.location.reload();
+	return response.json(); // parses JSON response into native JavaScript objects
+}
+async function postData2(url = '', data = {}) {
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify(data) // body data type must match "Content-Type" header
+	});
+	window.location.reload()
 	return response.json(); // parses JSON response into native JavaScript objects
 }
