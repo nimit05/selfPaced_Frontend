@@ -125,8 +125,6 @@
 .hr_cart {
     color: $light;
     max-width: 70rem;
-    // min-width: 40rem;
-    // float: left;
     margin-left: 0;
 }
 
@@ -212,10 +210,12 @@
 
 @media screen and (max-width: 720px) {
     .payment_tab {
-        max-width: 20rem;
+        max-width: 25rem;
         min-width: 12rem;
-        padding: 10%;
+        // padding: 10%;
         // margin: auto;
+        margin-left: auto;
+        margin-right: auto;
     }
     .content_div{
         display: flex;
@@ -298,6 +298,10 @@
     .user_coins {
         margin-top: 1.5rem;
     }
+    .hr_cart {
+        color: $light;
+        width: 100%;
+    }
 
 }
 
@@ -307,21 +311,17 @@
         min-width: 12rem;
         // padding: 2.5rem;
     }
+    .payment_tab_heading {
+        font-size: 1.5rem;
+    }
 }
 @media screen and (max-width: 450px) {
     .payment_tab {
-        width: 19rem;
+        width: 15rem;
         min-width: 12rem;
         // padding: 2.5rem;
     }
     
 }
-@media screen and (max-width: 430px) {
-    .payment_tab {
-        max-width: 18rem;
-        min-width: 12rem;
-        
-    }
-    
-}
+
 

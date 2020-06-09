@@ -26,6 +26,7 @@ const Apiroute = () => (
 				<Route path="/myCart" component={MyCart} />
 				<Route path="/Base_Header" component={Base_Header} />
 				<Route path="/Search_items/:name" component={Search_items} />
+
 			</Switch>
 			<Base_Header />
 		</div>

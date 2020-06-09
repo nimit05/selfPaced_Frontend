@@ -12,8 +12,6 @@ class HomePage extends React.Component {
 				<MainHeader />
 				<Middle />
 				<CateCon />
-				<CateCon />
-				<CateCon />
 				<Base_Header />
 			</div>
 		);

@@ -10,6 +10,12 @@
     margin-left: 4rem;
     margin-right: 5rem;
     float: left;
+    img {
+		// margin-left: 3vw;
+        height: 80px;
+        width: 80px;
+		cursor: pointer;
+	}
 }
 
 
@@ -50,9 +56,9 @@
 }
 .user_pro_pic {
     // background-color: black;
-    width: 60px;
-    height: 60px;
-    border: solid $dark;
+    width: 80px;
+    height: 80px;
+    // border: solid $dark;
     border-radius: 50px;
     margin-right: 1.2vw;
 }
@@ -116,10 +122,16 @@
 
     #ProfileCard {
 
-        width: 20rem;
-        min-width: 20rem;
+        max-width: 20rem;
+        min-width: 12rem;
         margin: auto;
         margin-bottom: 3rem;
+        img {
+            // margin-left: 3vw;
+            height: 40px;
+            width: 40px;
+            cursor: pointer;
+        }
 
     }
 
@@ -144,9 +156,9 @@
     .user_pro_pic {
         width: 40px;
         height: 40px;
-        border: solid $dark;
+        // border: solid $dark;
         border-radius: 50px;
-        margin-right: 0.8vw;
+        margin-right: 1rem
     }
     .edit {
         color: $secondary;
@@ -171,7 +183,7 @@
         //    margin-right: 1vw;
     }
     .heading_value {
-        font-size: 1rem;
+        font-size: 0.9rem;
         margin-top: 1.5vw;
        
     }

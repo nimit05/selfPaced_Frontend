@@ -1,28 +1,40 @@
-import React from 'react';
-import CateCon_for_profile from './CateCOn_profile';
-import Base_Header from '../Hooks/Base_header'
-import CateCon from './CateCon';
+import React from 'react'
+import Modal from 'react-modal'
 
-
-export default class profilePage extends React.Component {
-	render() {
-		return (
-			<div>
-				<div className="main_profile_page">
-					<ProfileCard />
-					<Items_Cont />
-				</div>
-				<br />
-				<hr className = "hr_pro" />
-				<CateCon />
-				<CateCon />
-				<Base_Header />
-			</div>
-		);
-	}
+export default class Profile_Modal extends React.Component {
+    alugobi = () =>{
+        this.setState((prevState) => {
+            return{
+                open : !prevState
+            }
+        })
+    }
+    constructor(props){
+        super(props)
+        this.state = {
+            open : true
+        }
+    }
+    
+    render(){
+        return(
+            <Modal
+            isOpen = {this.state.open}
+            className = "modal"
+            contentLabel = "Selected Option"
+            onRequestClose = {this.alugobi}
+            >
+            <div className = "profile_mod_cont">
+                <ProfileCard />
+            </div>
+            <button onClick = {this.alugobi}>Close</button>
+            </Modal>
+        )
+    }
 }
 
- class ProfileCard extends React.Component {
+
+class ProfileCard extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -48,8 +60,7 @@ export default class profilePage extends React.Component {
 							phone_Number: data.phone_Number,
 							Address: data.Address,
 							name: data.name,
-							coins: data.Coins,
-							pro_pic : data.pro_img
+							coins: data.Coins
 						};
 					});
 				}
@@ -61,8 +72,7 @@ export default class profilePage extends React.Component {
 			Address: null,
 			name: null,
 			coins: null,
-			edited: false,
-			pro_pic : null
+			edited: false
 		};
 	}
 
@@ -70,9 +80,7 @@ export default class profilePage extends React.Component {
 		return (
 			<div id="ProfileCard">
 				<div className="info">
-					<div className="user_pro_pic">
-						<img id = "pro_pic" src = {this.state.pro_pic} alt = " " />
-					</div>
+					<div className="user_pro_pic" />
 					<div className="user_name">
 						{this.state.name}
 						<div>
@@ -172,14 +180,6 @@ export default class profilePage extends React.Component {
 	}
 }
 
-const Items_Cont = () => {
-	return (
-		<div className="items_cont">
-			<CateCon_for_profile />
-		</div>
-	);
-};
-
 async function postData(url = '', data = {}) {
 	// Default options are marked with *
 	const response = await fetch(url, {
@@ -197,3 +197,4 @@ async function postData(url = '', data = {}) {
 	});
 	return response.json(); // parses JSON response into native JavaScript objects
 }
+
