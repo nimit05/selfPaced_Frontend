@@ -68,6 +68,30 @@ async function postData(url = '', data = {}) {
 class Productbox extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			product_file : null
+		};
+
+		fetch(`/api/products/specific/${this.props.refId}`, {
+			method: 'GET', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			cache: 'no-cache',
+			credentials: 'same-origin', // include, *same-origin, omit
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			redirect: 'follow', // manual, *follow, error
+			referrerPolicy: 'no-referrer'
+		}).then((res) => res.json())
+		.then((data) => {
+			if(!data.BookName){
+				this.setState(() => {
+					return{
+						product_file : data.product_file
+					}
+				})
+			}
+		})
 	}
 
 	render() {
@@ -79,7 +103,7 @@ class Productbox extends React.Component {
 				<div
 					className="product_img"
 					onClick={() => {
-						window.location.href = `/productpage/${this.props.refId}`;
+						window.location.href = `http://localhost:4444/files/${this.state.product_file}`
 					}}
 				>
 					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />
