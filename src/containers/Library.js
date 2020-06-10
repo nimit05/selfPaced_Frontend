@@ -45,7 +45,7 @@ class Library extends React.Component {
 									tag={e.Product.tag}
 									title={e.Product.BookName}
 									bookimg={`/covers/${e.Product.cover_img}`}
-									file={`/files/${e.Product.product_file}`}
+									file={`http://localhost:4444/files/${e.Product.product_file}`}
 								/>
 							);
 						})}

@@ -20,14 +20,33 @@ export default class Productbox extends React.Component {
 		super(props);
 		console.log(this.props.isAdded);
 		this.state = {
-			addedToCart: this.props.isAdded
+			addedToCart: this.props.isAdded,
+			product_file : null,
+			isData : false
 		};
-	}
 
-	// product_pg(refId){
-	// 	data = {refrenceId : refId}
-	// 	postData2('/api/')
-	// }
+		fetch(`/api/products/specific/${this.props.refId}`, {
+			method: 'GET', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			cache: 'no-cache',
+			credentials: 'same-origin', // include, *same-origin, omit
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			redirect: 'follow', // manual, *follow, error
+			referrerPolicy: 'no-referrer'
+		}).then((res) => res.json())
+		.then((data) => {
+			if(!data.BookName){
+				this.setState(() => {
+					return{
+						product_file : data.product_file,
+						isData : true
+					}
+				})
+			}
+		})
+	}
 
 	render() {
 		let c;
@@ -50,7 +69,12 @@ export default class Productbox extends React.Component {
 				<div
 					className="product_img"
 					onClick={() => {
-						window.location.href = `/productpage/${this.props.refId}`;
+						if(this.state.isData){
+							window.location.href = `http://localhost:4444/files/${this.state.product_file}`
+							
+						}else{
+						window.location.href = `/productpage/${this.props.refId}`
+						}
 					}}
 				>
 					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />
@@ -81,6 +105,23 @@ async function postData(url = '', data = {}) {
 	// Default options are marked with *
 	const response = await fetch(url, {
 		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify(data) // body data type must match "Content-Type" header
+	});
+	return response.json(); // parses JSON response into native JavaScript objects
+}
+async function postData2(url = '', data = {}) {
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: 'GET', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, *cors, same-origin
 		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
 		credentials: 'same-origin', // include, *same-origin, omit
