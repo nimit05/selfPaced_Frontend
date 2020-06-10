@@ -229,7 +229,7 @@ class AddPro extends Component {
 
 							<div className="lable_inp_pair">
 								<label htmlFor="Type">Breif Description</label>
-								<textarea name="Breif_des" type="text" id="pro_des" />
+								<textarea name="B_des" type="text" id="pro_des" />
 							</div>
 							<div className="row_pair" id="btnrow">
 								<button
@@ -241,7 +241,7 @@ class AddPro extends Component {
 									Cancel
 								</button>
 
-								<input id="addpro_addbtn" type="submit" value="Add to Store"  />
+								<input id="addpro_addbtn" type="submit" value="Add to Store" />
 							</div>
 						</form>
 					</div>

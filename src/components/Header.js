@@ -49,7 +49,7 @@ class Header extends React.Component {
 				if (parJson.email) {
 					window.location.href = '/';
 				} else if (parJson.error) {
-					alert('error occured')
+					alert('error occured');
 				}
 			});
 	};
@@ -60,10 +60,12 @@ class Header extends React.Component {
 			input.addEventListener('keyup', function(event) {
 				if (event.keyCode == 13) {
 					event.preventDefault();
-					if(!document.getElementById('main_search_inp').value.trim()){
-						window.location.href = '/'
-					}else{
-					window.location.href = `/Search_items/${document.getElementById('main_search_inp').value.trim()}`;
+					if (!document.getElementById('main_search_inp').value.trim()) {
+						window.location.href = '/';
+					} else {
+						window.location.href = `/Search_items/${document
+							.getElementById('main_search_inp')
+							.value.trim()}`;
 					}
 				}
 			});
@@ -126,26 +128,26 @@ class Header extends React.Component {
 				<div className="header_center">
 					<span />
 				</div>
-				<div className="user_btn_con frse">
-					<div className="parent">
-						<input
-							onChange={this.findName}
-							id="main_search_inp"
-							placeholder="Search"
-							type="text"
-							onClick={this.findbook}
-						/>
-						<div className="searchRe">
-							{this.state.searchNames.map((e, i) => {
-								if (i > 5) {
-									return false;
-								} else {
-									return <li key={i}>{e}</li>;
-								}
-							})}
-						</div>
+				<div className="parent">
+					<input
+						onChange={this.findName}
+						id="main_search_inp"
+						placeholder="Search"
+						type="text"
+						onClick={this.findbook}
+					/>
+					<div className="searchRe">
+						{this.state.searchNames.map((e, i) => {
+							if (i > 5) {
+								return false;
+							} else {
+								return <li key={i}>{e}</li>;
+							}
+						})}
 					</div>
+				</div>
 
+				<div className="user_btn_con frse">
 					{this.state.islogin ? (
 						<div className="frse logindet">
 							<div class="tooltip">
@@ -281,7 +283,6 @@ const Dropdown = () => {
 					Log Out
 				</span>
 			</Dropdownitem>
-		
 		</div>
 	);
 };

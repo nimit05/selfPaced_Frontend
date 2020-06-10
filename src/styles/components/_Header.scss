@@ -261,10 +261,24 @@ button:focus {
 }
 .parent {
 	position: relative;
+	transform: translateX(25vw);
 }
 @media screen and (max-width: 730px) {
 	.user_btn_con {
 		display: none;
 	}
-	
+
+	.parent {
+		transform: translateX(0px);
+		margin-right: 20px;
+	}
+	.gbtn {
+		border-radius: 20px !important;
+		height: 44px !important;
+		div {
+			border-radius: 20px !important;
+			// margin-top: -2px !important;
+			height: 15px !important;
+		}
+	}
 }
