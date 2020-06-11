@@ -20,32 +20,9 @@ export default class Productbox extends React.Component {
 		super(props);
 		console.log(this.props.isAdded);
 		this.state = {
-			addedToCart: this.props.isAdded,
-			product_file : null,
-			isData : false
+			addedToCart: this.props.isAdded
 		};
 
-		fetch(`/api/products/specific/${this.props.refId}`, {
-			method: 'GET', // *GET, POST, PUT, DELETE, etc.
-			mode: 'cors', // no-cors, *cors, same-origin
-			cache: 'no-cache',
-			credentials: 'same-origin', // include, *same-origin, omit
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			redirect: 'follow', // manual, *follow, error
-			referrerPolicy: 'no-referrer'
-		}).then((res) => res.json())
-		.then((data) => {
-			if(!data.BookName){
-				this.setState(() => {
-					return{
-						product_file : data.product_file,
-						isData : true
-					}
-				})
-			}
-		})
 	}
 
 	render() {
@@ -69,12 +46,9 @@ export default class Productbox extends React.Component {
 				<div
 					className="product_img"
 					onClick={() => {
-						if(this.state.isData){
-							window.location.href = `http://localhost:4444/files/${this.state.product_file}`
-							
-						}else{
+						
 						window.location.href = `/productpage/${this.props.refId}`
-						}
+
 					}}
 				>
 					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />
