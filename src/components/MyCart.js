@@ -21,7 +21,7 @@ class Payment_tab extends React.Component {
 		this.Total = this.Total.bind(this);
 		this.state = {
 			Cart_Product: [],
-			coins: null,
+			coins: null
 		};
 
 		fetch('/api/user/Cart', {
@@ -82,15 +82,15 @@ class Payment_tab extends React.Component {
 		if (this.Total_Value(this.state.Cart_Product) > coins) {
 			return this.Total_Value(this.state.Cart_Product) - coins;
 		}
-		if(coins < 0){
+		if (coins < 0) {
 			return this.Total_Value(this.state.Cart_Product);
 		}
-		let overall =  coins - this.Total_Value(this.state.Cart_Product);
+		let overall = coins - this.Total_Value(this.state.Cart_Product);
 		return overall;
 	}
 
-	isDisable(coins){
-		if(coins < this.Total_Value(this.state.Cart_Product)){
+	isDisable(coins) {
+		if (coins < this.Total_Value(this.state.Cart_Product)) {
 			return true;
 		}
 		return false;
@@ -123,24 +123,28 @@ class Payment_tab extends React.Component {
 						<span className="user_coins_value"> ${this.state.coins}</span>
 					</div>
 					<div className="checkout_div">
-						<button className="checkout_btn"  onClick = {() => {
-							if(this.state.coins < this.Total_Value(this.state.Cart_Product)){
-								alert('Insufficient Balance')
-							}
-							let data = {
-								coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
-							}
-							postData2('/api/user/CheckoutFromCart' , data).then((data) => {
-								if(!data){
-									alert("error occured")
+						<button
+							className="checkout_btn"
+							onClick={() => {
+								if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
+									alert('Insufficient Balance');
 								}
-							})
-						}}>Proceed To Checkout</button>
+								let data = {
+									coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
+								};
+								postData2('/api/user/CheckoutFromCart', data).then((data) => {
+									if (!data) {
+										alert('error occured');
+									}
+								});
+							}}
+						>
+							Proceed To Checkout
+						</button>
 					</div>
-				  {/*<div className="checkout_div">
+					{/*<div className="checkout_div">
 						<button className="checkout_btn_pay">Pay with PayTM</button>
 				</div>*/}
-					
 				</div>
 			</div>
 		);
@@ -200,7 +204,7 @@ class Heading extends React.Component {
 									tag={product.tag}
 									refrenceId={product.refrenceId}
 									total={this.Total_Value}
-									bookimg={`http://localhost:4444/covers/${product.cover_img}`}
+									bookimg={`/covers/${product.cover_img}`}
 								/>
 							);
 						})}
@@ -309,6 +313,6 @@ async function postData2(url = '', data = {}) {
 		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
 		body: JSON.stringify(data) // body data type must match "Content-Type" header
 	});
-	window.location.reload()
+	window.location.reload();
 	return response.json(); // parses JSON response into native JavaScript objects
 }
