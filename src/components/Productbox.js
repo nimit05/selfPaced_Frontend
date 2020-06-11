@@ -20,39 +20,9 @@ export default class Productbox extends React.Component {
 		super(props);
 		console.log(this.props.isAdded);
 		this.state = {
-<<<<<<< HEAD
 			addedToCart: this.props.isAdded
 		};
 
-=======
-			addedToCart: this.props.isAdded,
-			product_file: null,
-			isData: false
-		};
-
-		fetch(`/api/products/specific/${this.props.refId}`, {
-			method: 'GET', // *GET, POST, PUT, DELETE, etc.
-			mode: 'cors', // no-cors, *cors, same-origin
-			cache: 'no-cache',
-			credentials: 'same-origin', // include, *same-origin, omit
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			redirect: 'follow', // manual, *follow, error
-			referrerPolicy: 'no-referrer'
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				if (!data.BookName) {
-					this.setState(() => {
-						return {
-							product_file: data.product_file,
-							isData: true
-						};
-					});
-				}
-			});
->>>>>>> 2a338aedf0ae2ca901246fc8b89d77736e124953
 	}
 
 	render() {
@@ -76,17 +46,9 @@ export default class Productbox extends React.Component {
 				<div
 					className="product_img"
 					onClick={() => {
-<<<<<<< HEAD
 						
 						window.location.href = `/productpage/${this.props.refId}`
 
-=======
-						if (this.state.isData) {
-							window.location.href = `/files/${this.state.product_file}`;
-						} else {
-							window.location.href = `/productpage/${this.props.refId}`;
-						}
->>>>>>> 2a338aedf0ae2ca901246fc8b89d77736e124953
 					}}
 				>
 					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />
