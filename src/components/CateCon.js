@@ -67,7 +67,7 @@ export default class CateCon extends React.Component {
 								price={e.Value}
 								refId={e.refrenceId}
 								isAdded={isadded}
-								bookimg={`http://localhost:4444/covers/${e.cover_img}`}
+								bookimg={`/covers/${e.cover_img}`}
 							/>
 						);
 					})}

@@ -21,8 +21,8 @@ export default class Productbox extends React.Component {
 		console.log(this.props.isAdded);
 		this.state = {
 			addedToCart: this.props.isAdded,
-			product_file : null,
-			isData : false
+			product_file: null,
+			isData: false
 		};
 
 		fetch(`/api/products/specific/${this.props.refId}`, {
@@ -35,17 +35,18 @@ export default class Productbox extends React.Component {
 			},
 			redirect: 'follow', // manual, *follow, error
 			referrerPolicy: 'no-referrer'
-		}).then((res) => res.json())
-		.then((data) => {
-			if(!data.BookName){
-				this.setState(() => {
-					return{
-						product_file : data.product_file,
-						isData : true
-					}
-				})
-			}
 		})
+			.then((res) => res.json())
+			.then((data) => {
+				if (!data.BookName) {
+					this.setState(() => {
+						return {
+							product_file: data.product_file,
+							isData: true
+						};
+					});
+				}
+			});
 	}
 
 	render() {
@@ -69,11 +70,10 @@ export default class Productbox extends React.Component {
 				<div
 					className="product_img"
 					onClick={() => {
-						if(this.state.isData){
-							window.location.href = `http://localhost:4444/files/${this.state.product_file}`
-							
-						}else{
-						window.location.href = `/productpage/${this.props.refId}`
+						if (this.state.isData) {
+							window.location.href = `/files/${this.state.product_file}`;
+						} else {
+							window.location.href = `/productpage/${this.props.refId}`;
 						}
 					}}
 				>
@@ -135,4 +135,3 @@ async function postData2(url = '', data = {}) {
 	});
 	return response.json(); // parses JSON response into native JavaScript objects
 }
-

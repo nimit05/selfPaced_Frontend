@@ -36,8 +36,8 @@ export default class CateCon_for_profile extends React.Component {
 								stitle={e.BookAuthor}
 								short_des={e.Edition}
 								price={e.Value}
-								refId = {e.refrenceId}
-								bookimg={`http://localhost:4444/covers/${e.cover_img}`}
+								refId={e.refrenceId}
+								bookimg={`/covers/${e.cover_img}`}
 							/>
 						);
 					})}
