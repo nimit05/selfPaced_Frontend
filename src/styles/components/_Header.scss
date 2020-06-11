@@ -261,15 +261,32 @@ button:focus {
 }
 .parent {
 	position: relative;
+	transform: translateX(25vw);
 }
 @media screen and (max-width: 730px) {
 	.user_btn_con {
 		display: none;
 	}
+<<<<<<< HEAD
 	// .header_cont {
 	// 	// justify-content: center;
 	// }
 	#main_search_inp{
 		display: unset;
+=======
+
+	.parent {
+		transform: translateX(0px);
+		margin-right: 20px;
+	}
+	.gbtn {
+		border-radius: 20px !important;
+		height: 44px !important;
+		div {
+			border-radius: 20px !important;
+			// margin-top: -2px !important;
+			height: 15px !important;
+		}
+>>>>>>> 832809cff897d1f631bdd1aa3519eaa731f243a9
 	}
 }
