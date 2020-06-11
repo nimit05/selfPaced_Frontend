@@ -41,7 +41,7 @@ export default class Product_cont extends React.Component {
         return(
             <div>
             <h1 >Fresh Arrivals</h1>
-            <div classname = "cont_for_product">
+            <div className = "cont_for_product">
             {this.state.proArray.map((e) => {
                 let a = this.state.addedtocartArr.indexOf(e.refrenceId);
                 console.log(a);

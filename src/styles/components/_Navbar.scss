@@ -71,3 +71,30 @@
     margin-right: 20px;
     margin-left: 0px;
 }
+
+.cont_for_product{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    .productcont{
+    
+        margin-bottom: 60px;
+    }
+}
+@media screen and (max-width : 720px){
+
+.cont_for_product{
+    // margin-left: auto;
+    // margin-right: auto;
+    padding: 50px;
+    .productcont{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        // align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 60px;
+    }
+}
+}
