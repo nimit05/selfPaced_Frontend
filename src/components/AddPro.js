@@ -202,7 +202,7 @@ class AddPro extends Component {
 									<input name="title" type="text" id="pro_title" onChange={this.updateProductPre} />
 								</div>
 								<div className="lable_inp_pair">
-									<label htmlFor="Type">Short Title</label>
+									<label htmlFor="Type">Author</label>
 									<input
 										name="short_title"
 										type="text"
