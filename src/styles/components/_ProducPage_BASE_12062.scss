@@ -1,5 +1,4 @@
-.MainHeader_PP{
-
+.MainHeader_PP {
     background-color: $dark;
     position: fixed;
     width: 100%;
@@ -13,8 +12,8 @@
     display: flex;
     background-color: $dark;
     flex-direction: row;
-    justify-content: start;
-	align-items: center;
+    justify-content: flex-start;
+    align-items: center;
 
     img {
         margin-top: 5px;
@@ -36,126 +35,121 @@
 .pp_btn {
     width: 65%;
     padding: 0 3%;
-	button {
-		background-color: transparent;
-		color: $light;
-		font-size: 17px;
-		padding: 5px 25px;
-	}
+    button {
+        background-color: transparent;
+        color: $light;
+        font-size: 17px;
+        padding: 5px 25px;
+    }
 
-	img {
-		height: 30px;
-		cursor: pointer;
-	}
+    img {
+        height: 30px;
+        cursor: pointer;
+    }
 }
-.gap{
+.gap {
     display: flex;
     flex-direction: row;
-     width: 100%;
-     padding: 0 10%;
+    width: 100%;
+    padding: 0 10%;
 }
-.ext{
+.ext {
     display: flex;
     flex-direction: row;
     // justify-content: space-between;
-	align-items: center;
-    
+    align-items: center;
 }
-.srch{
+.srch {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     float: left;
     // padding: 0 10%;
 }
-#main_search_pp{
+#main_search_pp {
     width: 100%;
-	min-width: 180px;
-	height: 37px;
-	// border-radius: 20px;
-	background-color: #eeeeee;
-	font-size: 0.84rem;
-	color: rgb(54, 54, 54);
-	padding-left: 10px;
-	background-image: url("../../img/search.svg");
-	background-repeat: no-repeat;
-	background-size: 63% 63%;
-	background-position: 175%;
-	box-sizing: border-box;
-	border: none;
+    min-width: 180px;
+    height: 37px;
+    // border-radius: 20px;
+    background-color: #eeeeee;
+    font-size: 0.84rem;
+    color: rgb(54, 54, 54);
+    padding-left: 10px;
+    background-image: url("../../img/search.svg");
+    background-repeat: no-repeat;
+    background-size: 63% 63%;
+    background-position: 175%;
+    box-sizing: border-box;
+    border: none;
 }
 #main_search_pp:focus {
-	outline: none;
+    outline: none;
 }
 .user_btn_pp {
-	width: 45%;
-	padding-right: 30px;
-	button {
-		background-color: transparent;
-		color: $light;
-		font-size: 16px;
-		padding: 5px 10px;
-		font-weight: 300;
-		margin-left: 2vw;
-	}
+    width: 45%;
+    padding-right: 30px;
+    button {
+        background-color: transparent;
+        color: $light;
+        font-size: 16px;
+        padding: 5px 10px;
+        font-weight: 300;
+        margin-left: 2vw;
+    }
 
-	img {
-
-		height: 30px;
-		cursor: pointer;
-	}
+    img {
+        height: 30px;
+        cursor: pointer;
+    }
 }
-.Main_BI{
+.Main_BI {
     padding: 10rem 5rem;
     float: left;
 }
-.book_cont{
+.book_cont {
     font-size: 5rem;
 
-    width : 800px;
+    width: 800px;
     height: 400px;
     padding: 3rem;
 }
 
 .product_img_pp {
-	// margin-top: -14px;
-	height: calc(90% - 14px);
-	text-align: center;
+    // margin-top: -14px;
+    height: calc(90% - 14px);
+    text-align: center;
 }
 
-.Main_CT{
- font-size: 3rem ;
- padding: 10rem 5rem;
-
+.Main_CT {
+    font-size: 3rem;
+    padding: 10rem 5rem;
 }
-.author{
+.author {
     // color:;
     font-size: 1rem;
-    
 }
-.hr{
+.hr {
     opacity: 0.5;
 }
-.price_pp{
-font-size: 1.4rem;    
+.price_pp {
+    font-size: 1.4rem;
 }
-.price_val{
+.price_val {
     color: $secondary;
 }
-.des_cont{
+.des_cont {
     font-size: 1rem;
 }
-.des_pp{
+.des_pp {
     font-size: 1.5rem;
-    
 }
-.buy_btn_pp{
+.buy_btn_pp {
     height: 2rem;
     width: 10rem;
     background-color: $secondary;
     color: $light;
 }
-.adc_btn_pp{
+.adc_btn_pp {
     height: 2rem;
     width: 10rem;
     background-color: $secondary;

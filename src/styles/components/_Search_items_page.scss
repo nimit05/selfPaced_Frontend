@@ -1,7 +1,7 @@
-.search_items{
+.search_items {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-top: 5rem;
 
@@ -21,23 +21,21 @@
         margin-top: 50px;
     }
 }
-.search_error{
+.search_error {
     font-size: 1.5rem;
-
 }
-@media screen and (max-width : 720px){
-    .search_items{
+@media screen and (max-width: 720px) {
+    .search_items {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
 
-        .productcont{
+        .productcont {
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
             margin-bottom: 3rem;
-
         }
     }
 }

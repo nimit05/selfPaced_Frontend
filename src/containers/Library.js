@@ -34,7 +34,7 @@ class Library extends React.Component {
 						url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf'
 					}}
 				/> */}
-				<h1 id="lib_head">Shelf (2)</h1>
+				<h1 id="lib_head">Shelf ({this.state.products.length})</h1>
 
 				<div className="proCon">
 					{this.state.products &&
@@ -46,6 +46,7 @@ class Library extends React.Component {
 									title={e.Product.BookName}
 									bookimg={`/covers/${e.Product.cover_img}`}
 									file={`/files/${e.Product.product_file}`}
+									refId={e.Product.refrenceId}
 								/>
 							);
 						})}

@@ -4,6 +4,10 @@ import bookcover from '../img/bookcover.jpg';
 // props to send are {1 title 2 tag 3 bookimg 4 stitle 5 short_des 6 price}
 
 export default class Productbox extends React.Component {
+	loaded = (id) => {
+		document.getElementById(id).style.display = 'block';
+	};
+
 	addToCart = (refId) => {
 		if (this.state.addedToCart === false) {
 			let data = { refrenceId: refId };
@@ -22,7 +26,6 @@ export default class Productbox extends React.Component {
 		this.state = {
 			addedToCart: this.props.isAdded
 		};
-
 	}
 
 	render() {
@@ -39,22 +42,27 @@ export default class Productbox extends React.Component {
 		}
 
 		return (
-			<div className="productcont">
+			<div className="productcont" id={this.props.refId}>
 				<div className="tag">
 					<strong>{this.props.tag}</strong>
 				</div>
 				<div
 					className="product_img"
 					onClick={() => {
-						
-						window.location.href = `/productpage/${this.props.refId}`
-
+						window.location.href = `/productpage/${this.props.refId}`;
 					}}
 				>
-					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />
+					<img
+						className="bookcover"
+						onLoad={() => {
+							this.loaded(this.props.refId);
+						}}
+						src={this.props.bookimg ? this.props.bookimg : bookcover}
+						alt={this.props.title}
+					/>
 				</div>
 				<div className="product_body">
-					<h3 onClick={this.buy}>{this.props.title}</h3>
+					<h3>{this.props.title}</h3>
 					<h6>({this.props.stitle})</h6>
 					<p>{this.props.short_des}</p>
 					<h1>
