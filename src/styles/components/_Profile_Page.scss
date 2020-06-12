@@ -11,13 +11,12 @@
     margin-right: 5rem;
     float: left;
     img {
-		// margin-left: 3vw;
+        // margin-left: 3vw;
         height: 80px;
         width: 80px;
-		cursor: pointer;
-	}
+        cursor: pointer;
+    }
 }
-
 
 .items_cont {
     // background-color: #e6e4e2;
@@ -42,7 +41,7 @@
     margin-top: 80px;
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
     // align-items: center;
 }
 
@@ -51,7 +50,7 @@
     padding: 5% 18%;
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
 }
 .user_pro_pic {
@@ -82,7 +81,7 @@
     opacity: 0.5;
     padding: 0 8%;
 }
-.hr_pro{
+.hr_pro {
     opacity: 0.5;
 }
 .user_name {
@@ -116,12 +115,11 @@
         // margin-top: 3.2vw;
         display: flex;
         flex-direction: column;
-        justify-content: start;
+        justify-content: flex-start;
         // align-items: center;
     }
 
     #ProfileCard {
-
         max-width: 20rem;
         min-width: 12rem;
         margin: auto;
@@ -132,7 +130,6 @@
             width: 40px;
             cursor: pointer;
         }
-
     }
 
     .info {
@@ -140,7 +137,7 @@
         padding: 5% 18%;
         display: flex;
         flex-direction: row;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: center;
     }
     .items_cont {
@@ -158,7 +155,7 @@
         height: 40px;
         // border: solid $dark;
         border-radius: 50px;
-        margin-right: 1rem
+        margin-right: 1rem;
     }
     .edit {
         color: $secondary;
@@ -185,7 +182,6 @@
     .heading_value {
         font-size: 0.9rem;
         margin-top: 1.5vw;
-       
     }
 
     .log_out {

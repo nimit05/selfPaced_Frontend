@@ -24,15 +24,14 @@ export default class ProductPage extends React.Component {
 			cover_img: null,
 			description: null,
 			refId: null,
-			inLibrary : false
+			inLibrary: false
 		};
 	}
 
 	componentDidMount() {
 		const { refId } = this.props.match.params;
 
-		fetch(`/api/products/specific/${refId}`).then((res) => res.json())
-		.then((data) => {
+		fetch(`/api/products/specific/${refId}`).then((res) => res.json()).then((data) => {
 			console.log(data);
 			if (data) {
 				this.setState(() => {
@@ -48,24 +47,19 @@ export default class ProductPage extends React.Component {
 			}
 		});
 
-
 		let data4 = {
-			refrenceId : refId
-		}
+			refrenceId: refId
+		};
 
-		  postData2('/api/products/search_item',data4).then((data) => {
-			if(data){
+		fetch(`/api/products/search_item/${refId}`).then((data) => {
+			if (data) {
 				this.setState(() => {
-					return{
-						inLibrary : true
-					}
-				})
+					return {
+						inLibrary: true
+					};
+				});
 			}
-		})
-
-
-		
-		
+		});
 	}
 	addToCart = (refId) => {
 		let data = { refrenceId: refId };
@@ -85,7 +79,7 @@ export default class ProductPage extends React.Component {
 						buy={this.buy}
 						refId={this.state.refId}
 						addToCart={this.addToCart}
-						inLibrary = {this.state.inLibrary}
+						inLibrary={this.state.inLibrary}
 					/>
 				</div>
 				<CateCon />
@@ -118,22 +112,25 @@ const Content = (props) => {
 			</div>
 
 			<div>
-			{props.inLibrary ? (<div className="buy_pp ">
-			<button className="buy_btn_pp" onClick={props.buy}>
-				Buy Now
-			</button>
-			<button
-				className="adc_btn_pp "
-				onClick={() => {
-					props.addToCart(props.refId);
-				}}
-			>
-				Add to Cart
-			</button>
-		</div>) : (<div>
-			
-				<button>See in Library</button>
-			</div>)}
+				{props.inLibrary ? (
+					<div className="buy_pp ">
+						<button className="buy_btn_pp" onClick={props.buy}>
+							Buy Now
+						</button>
+						<button
+							className="adc_btn_pp "
+							onClick={() => {
+								props.addToCart(props.refId);
+							}}
+						>
+							Add to Cart
+						</button>
+					</div>
+				) : (
+					<div>
+						<button>See in Library</button>
+					</div>
+				)}
 			</div>
 			<br />
 			<div className="des_pp">
@@ -173,8 +170,8 @@ async function postData2(url = '', data = {}) {
 			// 'Content-Type': 'application/x-www-form-urlencoded',
 		},
 		redirect: 'follow', // manual, *follow, error
-		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    // body data type must match "Content-Type" header
+		referrerPolicy: 'no-referrer' // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		// body data type must match "Content-Type" header
 	});
 	return response.json(); // parses JSON response into native JavaScript objects
 }

@@ -7,6 +7,10 @@ import eye from '../img/eye.svg';
 // props to send are {1 title 2 tag 3 bookimg 4 stitle 5 short_des 6 price}
 
 export default class MyProBox extends React.Component {
+	loaded = (id) => {
+		document.getElementById(id).style.display = 'block';
+	};
+
 	show = () => {
 		window.location.href = this.props.file;
 	};
@@ -18,7 +22,7 @@ export default class MyProBox extends React.Component {
 
 	render() {
 		return (
-			<div className="Myproductcont">
+			<div className="Myproductcont" id={this.props.refId}>
 				<div className="myBtnCon">
 					<img onClick={this.show} src={eye} alt="" />
 					<img onClick={this.info} src={info} alt="" />
@@ -29,7 +33,14 @@ export default class MyProBox extends React.Component {
 					<div className="Mytag">
 						<strong>{this.props.tag}</strong>
 					</div>
-					<img className="Mybookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />
+					<img
+						onLoad={() => {
+							this.loaded(this.props.refId);
+						}}
+						className="Mybookcover"
+						src={this.props.bookimg ? this.props.bookimg : bookcover}
+						alt=" "
+					/>
 				</div>
 				<div className="Myproduct_body">
 					<h3>{this.props.title}</h3>

@@ -136,6 +136,7 @@ class AddPro extends Component {
 							stitle={this.state.productdet.stitle}
 							short_des={this.state.productdet.short_des}
 							price={this.state.productdet.price}
+							refId={'sample'}
 						/>
 						<h2>Live Preview</h2>
 					</div>

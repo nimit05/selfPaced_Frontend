@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import homePage from './HomePage';
-import pblogo from '../img/pblogo.png';
+import mainLOGO from '../img/name-logo.png';
 import cart from '../img/cart.svg';
 import lib from '../img/lib.svg';
 import plus from '../img/plus.svg';
@@ -93,20 +93,7 @@ class Header extends React.Component {
 			islogin: false,
 			username: null,
 			pro_pic: null,
-			allItemsName: [
-				'tushar',
-				'tushar',
-				'tushcsdcadscdas fd kfjkladsjf eir dalcilaejclelcjsdjkc dfjar',
-				'tushar',
-				'tushar',
-				'tushar',
-				'tushar',
-				'tushar',
-				'tushar',
-				'bahfd',
-				'nimit ',
-				'nashedi'
-			],
+			allItemsName: [],
 			searchNames: []
 		};
 	}
@@ -120,15 +107,10 @@ class Header extends React.Component {
 						window.location.href = '/';
 					}}
 				>
-					<img src={pblogo} alt=" " />
-					<b>SelfPaced</b>
-					<span>.in</span>
+					<img src={mainLOGO} alt=" " />
 				</div>
 
-				<div className="header_center">
-					<span />
-				</div>
-				<div className="parent">
+				<div className="parent search_con">
 					<input
 						onChange={this.findName}
 						id="main_search_inp"
@@ -186,7 +168,13 @@ class Header extends React.Component {
 								<div className="profile">
 									<Navbar>
 										<Navitem
-											icon={<img id="pro_pic" src={this.state.pro_pic} alt=" " />}
+											icon={
+												<img
+													id="pro_pic"
+													src={this.state.pro_pic ? this.state.pro_pic : propic}
+													alt=" "
+												/>
+											}
 											coins={this.state.coins}
 										>
 											<Dropdown />
