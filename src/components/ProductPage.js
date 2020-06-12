@@ -24,7 +24,7 @@ export default class ProductPage extends React.Component {
 			cover_img: null,
 			description: null,
 			refId: null,
-			inLibrary : false
+			id : null
 		};
 	}
 
@@ -37,34 +37,17 @@ export default class ProductPage extends React.Component {
 			if (data) {
 				this.setState(() => {
 					return {
+						id : data.id,
 						BookName: data.BookName,
 						BookAuthor: data.BookAuthor,
 						Value: data.Value,
 						cover_img: data.cover_img,
 						description: data.Description,
-						refId: data.refrenceId
+						refId: data.refrenceId,
 					};
 				});
 			}
 		});
-
-
-		let data4 = {
-			refrenceId : refId
-		}
-
-		  postData2('/api/products/search_item',data4).then((data) => {
-			if(data){
-				this.setState(() => {
-					return{
-						inLibrary : true
-					}
-				})
-			}
-		})
-
-
-		
 		
 	}
 	addToCart = (refId) => {
@@ -85,8 +68,11 @@ export default class ProductPage extends React.Component {
 						buy={this.buy}
 						refId={this.state.refId}
 						addToCart={this.addToCart}
-						inLibrary = {this.state.inLibrary}
+						id = {this.state.id}
 					/>
+					<Comments 
+					id = {this.state.id}
+					 />
 				</div>
 				<CateCon />
 				<CateCon />
@@ -103,29 +89,51 @@ const BookImg = (props) => {
 		</div>
 	);
 };
-const Content = (props) => {
+class Content extends React.Component{
+constructor(props){
+	super(props)
+
+	this.state = {
+		inLibrary : true
+	}
+
+	let data = {
+		id : this.props.id
+	}
+
+	  postData('/api/products/search_item' ,data ).then((data) => {
+		if(data){
+			this.setState(() => {
+				return{
+					inLibrary : false
+				}
+			})
+		}
+	})
+}
+	render(){
 	return (
 		<div className="Main_CT">
 			<div>
-				{props.BookName}
+				{this.props.BookName}
 				<div className="author">
-					<span className="by">By</span> {props.BookAuthor}
+					<span className="by">By</span> {this.props.BookAuthor}
 					<hr className="hr" />
 				</div>
 				<div className="price_pp">
-					Price :<span className="price_val">{props.Value} coins</span>
+					Price :<span className="price_val">{this.props.Value} coins</span>
 				</div>
 			</div>
 
 			<div>
-			{props.inLibrary ? (<div className="buy_pp ">
-			<button className="buy_btn_pp" onClick={props.buy}>
+			{this.state.inLibrary ? (<div className="buy_pp ">
+			<button className="buy_btn_pp" onClick={this.props.buy}>
 				Buy Now
 			</button>
 			<button
 				className="adc_btn_pp "
 				onClick={() => {
-					props.addToCart(props.refId);
+					this.props.addToCart(this.props.refId);
 				}}
 			>
 				Add to Cart
@@ -138,11 +146,47 @@ const Content = (props) => {
 			<br />
 			<div className="des_pp">
 				About
-				<div className="des_cont">{props.description}</div>
+				<div className="des_cont">{this.props.description}</div>
 			</div>
 		</div>
 	);
+		}
 };
+
+class Comments extends React.Component{
+	constructor(props){
+		super(props)
+
+		this.state = {
+			body : null,
+			username : null
+		}
+
+		let data = {
+			Product_id : this.props.id
+		}
+		postData('/api/comment/all' , data).then((data) => {
+			if(data){
+				this.setState(() => {
+					return{
+						body : data.body,
+						username : data.userId
+					}
+				})
+			}
+		})
+
+	}
+	render(){
+		return(
+			<div>
+				<div>
+				<h1>{this.state.username} : {this.state.body}</h1>
+				</div>
+			</div>
+		)
+	}
+}
 
 async function postData(url = '', data = {}) {
 	// Default options are marked with *
@@ -158,23 +202,6 @@ async function postData(url = '', data = {}) {
 		redirect: 'follow', // manual, *follow, error
 		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
 		body: JSON.stringify(data) // body data type must match "Content-Type" header
-	});
-	return response.json(); // parses JSON response into native JavaScript objects
-}
-async function postData2(url = '', data = {}) {
-	// Default options are marked with *
-	const response = await fetch(url, {
-		method: 'GET', // *GET, POST, PUT, DELETE, etc.
-		mode: 'cors', // no-cors, *cors, same-origin
-		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-		credentials: 'same-origin', // include, *same-origin, omit
-		headers: {
-			'Content-Type': 'application/json'
-			// 'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		redirect: 'follow', // manual, *follow, error
-		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    // body data type must match "Content-Type" header
 	});
 	return response.json(); // parses JSON response into native JavaScript objects
 }

@@ -49,7 +49,8 @@ export default class profilePage extends React.Component {
 							Address: data.Address,
 							name: data.name,
 							coins: data.Coins,
-							pro_pic : data.pro_img
+							pro_pic : data.pro_img,
+							Earnings : data.Earnings
 						};
 					});
 				}
@@ -62,7 +63,8 @@ export default class profilePage extends React.Component {
 			name: null,
 			coins: null,
 			edited: false,
-			pro_pic : null
+			pro_pic : null,
+			Earnings : null
 		};
 	}
 
@@ -165,6 +167,10 @@ export default class profilePage extends React.Component {
 					<div className="heading">
 						Wallet
 						<div className="heading_value">{this.state.coins} coins</div>
+					</div>
+					<div className="heading">
+						Earnings
+						<div className="heading_value">{this.state.Earnings} coins</div>
 					</div>
 				</div>
 			</div>
