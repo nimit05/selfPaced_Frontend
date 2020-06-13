@@ -313,9 +313,9 @@
     }
 
     .transaction{
-        width: 20rem;
+        width: 22rem;
         min-width: 20rem;
-        // height: 20rem;
+        height: 20rem;
         margin-left: auto;
         margin-right: auto;
         // margin: auto;
@@ -327,6 +327,9 @@
             color: $dark;
             margin-left: 1rem;
             font-size: 1.4rem;
+        }
+        h3{
+            font-size: 1rem;
         }
     }
     .trans_details{
