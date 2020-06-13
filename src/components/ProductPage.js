@@ -24,7 +24,7 @@ export default class ProductPage extends React.Component {
 			cover_img: null,
 			description: null,
 			refId: null,
-			inLibrary: true,
+			inLibrary: truw,
 			id : null
 		};
 	}
@@ -54,7 +54,7 @@ export default class ProductPage extends React.Component {
 			if (data) {
 				this.setState(() => {
 					return {
-						inLibrary: false
+						inLibrary: true
 					};
 				});
 			}
@@ -108,7 +108,7 @@ constructor(props){
 	return (
 		<div className="Main_CT">
 			<div>
-				{this.props.BookName}
+				{this.props.BookName}{this.props.inLibrary}
 				<div className="author">
 					<span className="by">By</span> {this.props.BookAuthor}
 					<hr className="hr" />
