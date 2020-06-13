@@ -10,12 +10,12 @@ export default class profilePage extends React.Component {
 			<div>
 				<div className="main_profile_page">
 					<ProfileCard />
+					<div className = "trans">
 					<Items_Cont />
+					<Transaction />
+					</div>
 				</div>
-				<br />
-				<hr className = "hr_pro" />
-				<CateCon />
-				<CateCon />
+		
 				<Base_Header />
 			</div>
 		);
@@ -49,7 +49,8 @@ export default class profilePage extends React.Component {
 							Address: data.Address,
 							name: data.name,
 							coins: data.Coins,
-							pro_pic : data.pro_img
+							pro_pic : data.pro_img,
+							Earnings : data.Earnings
 						};
 					});
 				}
@@ -62,7 +63,8 @@ export default class profilePage extends React.Component {
 			name: null,
 			coins: null,
 			edited: false,
-			pro_pic : null
+			pro_pic : null,
+			Earnings : null
 		};
 	}
 
@@ -166,6 +168,10 @@ export default class profilePage extends React.Component {
 						Wallet
 						<div className="heading_value">{this.state.coins} coins</div>
 					</div>
+					<div className="heading">
+						Earnings
+						<div className="heading_value">{this.state.Earnings} coins</div>
+					</div>
 				</div>
 			</div>
 		);
@@ -179,6 +185,66 @@ const Items_Cont = () => {
 		</div>
 	);
 };
+
+class Transaction extends React.Component {
+	constructor(props){
+		super(props)
+
+		this.state = {
+			total_trans : []
+		}
+
+		fetch('/api/user/transaction', {
+			method: 'GET', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			cache: 'no-cache',
+			credentials: 'same-origin', // include, *same-origin, omit
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			redirect: 'follow', // manual, *follow, error
+			referrerPolicy: 'no-referrer'
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				if(data){
+					this.setState(() => {
+						return {
+						 total_trans : data	
+						}
+					})
+				}
+			})
+
+	}
+
+	render(){
+		return (
+			<div className = "transaction">
+			<h1>Transactions({this.state.total_trans.length})</h1>
+			<div className = "trans_details">
+						<div className = "trans_date">Date</div>
+						<div className = "trans_transaction">Transaction</div>
+						<div className = "trans_product_head">Product</div>
+						 <div className = "trans_Value_head">Value</div>
+						</div>
+			{this.state.total_trans.map((trans) => {
+				return(
+					<div className = "trans_details">
+						<div className = "trans_date">2020-06-13</div>
+						<div className = "trans_transaction">{trans.TransactionId}</div>
+						<div className = "trans_product">{trans.productId}</div>
+						<div className = "trans_Value">{trans.Debited ? (<div className = "trans_minus">
+							-{trans.Value} coins
+							</div>) : (<div className = "trans_plus"> +{trans.Value}coins</div>)}</div>
+
+					</div>
+				)
+			})}
+			</div>
+		)
+	}
+}
 
 
 

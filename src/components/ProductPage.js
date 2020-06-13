@@ -36,12 +36,13 @@ export default class ProductPage extends React.Component {
 			if (data) {
 				this.setState(() => {
 					return {
+						id : data.id,
 						BookName: data.BookName,
 						BookAuthor: data.BookAuthor,
 						Value: data.Value,
 						cover_img: data.cover_img,
 						description: data.Description,
-						refId: data.refrenceId
+						refId: data.refrenceId,
 					};
 				});
 			}
@@ -78,6 +79,9 @@ export default class ProductPage extends React.Component {
 						addToCart={this.addToCart}
 						inLibrary={this.state.inLibrary}
 					/>
+					<Comments 
+					id = {this.state.id}
+					 />
 				</div>
 				<CateCon />
 				<CateCon />
@@ -94,30 +98,52 @@ const BookImg = (props) => {
 		</div>
 	);
 };
-const Content = (props) => {
+class Content extends React.Component{
+constructor(props){
+	super(props)
+
+	this.state = {
+		inLibrary : true
+	}
+
+	let data = {
+		id : this.props.id
+	}
+
+	  postData('/api/products/search_item' ,data ).then((data) => {
+		if(data){
+			this.setState(() => {
+				return{
+					inLibrary : false
+				}
+			})
+		}
+	})
+}
+	render(){
 	return (
 		<div className="Main_CT">
 			<div>
-				{props.BookName}
+				{this.props.BookName}
 				<div className="author">
-					<span className="by">By</span> {props.BookAuthor}
+					<span className="by">By</span> {this.props.BookAuthor}
 					<hr className="hr" />
 				</div>
 				<div className="price_pp">
-					Price :<span className="price_val">{props.Value} coins</span>
+					Price :<span className="price_val">{this.props.Value} coins</span>
 				</div>
 			</div>
 
 			<div>
-				{props.inLibrary ? (
+				{this.props.inLibrary ? (
 					<div className="buy_pp ">
-						<button className="buy_btn_pp" onClick={props.buy}>
+						<button className="buy_btn_pp" onClick={this.props.buy}>
 							Buy Now
 						</button>
 						<button
 							className="adc_btn_pp "
 							onClick={() => {
-								props.addToCart(props.refId);
+								this.props.addToCart(this.props.refId);
 							}}
 						>
 							Add to Cart
@@ -132,11 +158,47 @@ const Content = (props) => {
 			<br />
 			<div className="des_pp">
 				About
-				<div className="des_cont">{props.description}</div>
+				<div className="des_cont">{this.props.description}</div>
 			</div>
 		</div>
 	);
+		}
 };
+
+class Comments extends React.Component{
+	constructor(props){
+		super(props)
+
+		this.state = {
+			body : null,
+			username : null
+		}
+
+		let data = {
+			Product_id : this.props.id
+		}
+		postData('/api/comment/all' , data).then((data) => {
+			if(data){
+				this.setState(() => {
+					return{
+						body : data.body,
+						username : data.userId
+					}
+				})
+			}
+		})
+
+	}
+	render(){
+		return(
+			<div>
+				<div>
+				<h1>{this.state.username} : {this.state.body}</h1>
+				</div>
+			</div>
+		)
+	}
+}
 
 async function postData(url = '', data = {}) {
 	// Default options are marked with *

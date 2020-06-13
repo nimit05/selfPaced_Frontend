@@ -11,7 +11,19 @@ export default class CateCon_for_profile extends React.Component {
 			proArray: []
 		};
 
-		postData('/api/products/myproducts').then((data) => {
+		fetch('/api/user/products', {
+			method: 'GET', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			cache: 'no-cache',
+			credentials: 'same-origin', // include, *same-origin, omit
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			redirect: 'follow', // manual, *follow, error
+			referrerPolicy: 'no-referrer'
+		})
+			.then((res) => res.json())
+			.then((data) => {
 			console.log(data);
 			this.setState(() => {
 				return { proArray: data };
