@@ -210,7 +210,7 @@ class Transaction extends React.Component {
 				if(data){
 					this.setState(() => {
 						return {
-						 total_trans : data	
+						 total_trans : data.reverse()
 						}
 					})
 				}
@@ -222,9 +222,10 @@ class Transaction extends React.Component {
 		return (
 			<div className = "transaction">
 			<h1>Transactions({this.state.total_trans.length})</h1>
+			<h3>Latest Transaction</h3>
 			<div className = "trans_details">
 						<div className = "trans_date">Date</div>
-						<div className = "trans_transaction">TransactionId</div>
+						<div className = "trans_transaction">Transaction ID</div>
 						<div className = "trans_product_head">Product</div>
 						 <div className = "trans_Value_head">Value</div>
 						</div>
@@ -241,6 +242,21 @@ class Transaction extends React.Component {
 					</div>
 				)
 			})}
+
+				{this.state.total_trans.map((trans) => {
+					return (
+						<div className = "trans_details_mob">
+						<div className = "trans_product_mob">{trans.productId}</div>
+						<div className = "trans_row">
+						<div className = "trans_Value_mob">{trans.Debited ? (<div className = "trans_minus_mob">
+						-{trans.Value}coins
+						</div>) : (<div className = "trans_plus"> +{trans.Value}coins</div>)}</div>
+						<div className = "trans_date_mob">2020-06-13</div>
+						</div>
+						</div>
+					)
+				})}
+		
 			</div>
 		)
 	}

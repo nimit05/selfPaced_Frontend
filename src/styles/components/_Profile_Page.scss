@@ -20,6 +20,10 @@
     }
 }
 
+.trans_details_mob{
+    display: none;
+}
+
 .items_cont {
     // background-color: #e6e4e2;
     border: 1px solid rgb(172, 172, 172);
@@ -54,9 +58,16 @@
     border: 1px solid rgb(172, 172, 172);
     border-radius: 20px;
     margin-bottom: 3rem;
+    overflow-y: scroll;
+	white-space: nowrap;
     h1{
         color: $dark;
         margin-left: 1rem;
+    }
+    
+    h3{
+        margin-left: 1rem;
+        color: $dark;
     }
 }
 
@@ -159,7 +170,7 @@
 }
 .trans_transaction{
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 600;
     // margin-right: auto;
     margin-left: 5rem;
     width: 18rem;
@@ -292,5 +303,60 @@
     .see_mob_pp {
         font-size: 0.5rem;
         margin-left: 8vw;
+    }
+    .trans_row{
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-evenly;
+        margin-bottom: 1rem;
+        margin-left: 2rem;
+    }
+
+    .transaction{
+        width: 20rem;
+        min-width: 20rem;
+        // height: 20rem;
+        margin-left: auto;
+        margin-right: auto;
+        // margin: auto;
+        // border: solid black;
+        border: none;
+        border-radius: 20px;
+        margin-bottom: 0rem;
+        h1{
+            color: $dark;
+            margin-left: 1rem;
+            font-size: 1.4rem;
+        }
+    }
+    .trans_details{
+        display: none;
+    }
+    .trans_details_mob{
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+    .trans_product_mob{
+        font-size: 1rem;
+        margin-left: 1rem;
+        width: 10rem;
+        font-weight: 550;
+        margin-top: 0rem;
+        // margin-right: 50%;
+    }
+    // .trans_Value_mob{
+    //     margin-left: 2rem;
+    // }
+    .trans_date_mob{
+        // margin-left: 1.5rem;
+        // margin-left: 2rem;
+        font-size: 0.6rem;
+    color: #898887;
+
+        font-weight: 500;
+    }
+    .trans_minus_mob{
+        color: $secondary;
     }
 }
