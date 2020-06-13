@@ -25,10 +25,13 @@ export default class CateCon_for_profile extends React.Component {
 			.then((res) => res.json())
 			.then((data) => {
 			console.log(data);
+			if(data){
 			this.setState(() => {
 				return { proArray: data };
 			});
+		}
 		});
+	
 	}
 	render() {
 		return (
@@ -40,7 +43,6 @@ export default class CateCon_for_profile extends React.Component {
 
 				<div className="cate_body">
 					{this.state.proArray.map((e) => {
-						e = e.Product;
 						return (
 							<Productbox
 								title={e.BookName}

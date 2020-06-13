@@ -11,8 +11,8 @@ export default class profilePage extends React.Component {
 				<div className="main_profile_page">
 					<ProfileCard />
 					<div className = "trans">
-					<Items_Cont />
 					<Transaction />
+					<Items_Cont />
 					</div>
 				</div>
 		
@@ -224,7 +224,7 @@ class Transaction extends React.Component {
 			<h1>Transactions({this.state.total_trans.length})</h1>
 			<div className = "trans_details">
 						<div className = "trans_date">Date</div>
-						<div className = "trans_transaction">Transaction</div>
+						<div className = "trans_transaction">TransactionId</div>
 						<div className = "trans_product_head">Product</div>
 						 <div className = "trans_Value_head">Value</div>
 						</div>

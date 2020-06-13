@@ -24,7 +24,8 @@ export default class ProductPage extends React.Component {
 			cover_img: null,
 			description: null,
 			refId: null,
-			inLibrary: false
+			inLibrary: true,
+			id : null
 		};
 	}
 
@@ -48,15 +49,12 @@ export default class ProductPage extends React.Component {
 			}
 		});
 
-		let data4 = {
-			refrenceId: refId
-		};
 
-		fetch(`/api/products/search_item/${refId}`).then((data) => {
+		fetch(`/api/products/search_item/${this.state.id}`).then((data) => {
 			if (data) {
 				this.setState(() => {
 					return {
-						inLibrary: true
+						inLibrary: false
 					};
 				});
 			}
@@ -105,23 +103,6 @@ class Content extends React.Component{
 constructor(props){
 	super(props)
 
-	this.state = {
-		inLibrary : true
-	}
-
-	let data = {
-		id : this.props.id
-	}
-
-	  postData('/api/products/search_item' ,data ).then((data) => {
-		if(data){
-			this.setState(() => {
-				return{
-					inLibrary : false
-				}
-			})
-		}
-	})
 }
 	render(){
 	return (
