@@ -25,7 +25,7 @@ export default class ProductPage extends React.Component {
 			description: null,
 			refId: null,
 			inLibrary: true,
-			id : null
+			id: null
 		};
 	}
 
@@ -79,9 +79,9 @@ export default class ProductPage extends React.Component {
 						refId={this.state.refId}
 						addToCart={this.addToCart}
 						inLibrary={this.state.inLibrary}
-						id = {this.state.id}
+						id={this.state.id}
 					/>
-					<Comments pro_id = {this.state.id} />
+					{this.state.id && <Comments pro_id={this.state.id} />}
 				</div>
 				<CateCon />
 				<CateCon />
@@ -126,7 +126,8 @@ class Content extends React.Component {
 				<div>
 					{this.props.BookName}
 					<div className="author">
-						<span className="by">By</span> {this.props.BookAuthor}{this.props.id}
+						<span className="by">By</span> {this.props.BookAuthor}
+						{this.props.id}
 						<hr className="hr" />
 					</div>
 					<div className="price_pp">
@@ -177,32 +178,35 @@ class Comments extends React.Component {
 		super(props);
 
 		this.state = {
-			comments : [],
+			comments: []
 		};
+		if (this.props.pro_id) {
+			alert('chala');
 
-		
-		fetch(`/api/comment/${this.props.pro_id}`).then((res) => res.json()).then((data) => {
-			if (data) {
-				this.setState(() => {
-					return {
-						comments : data
-					};
-				});
-			}
-		});
+			fetch(`/api/comment/${this.props.pro_id}`).then((res) => res.json()).then((data) => {
+				if (data) {
+					this.setState(() => {
+						return {
+							comments: data
+						};
+					});
+					alert(data);
+				}
+			});
+		}
 	}
+
 	render() {
 		return (
 			<div>
-			
-			<div className = "comment_div">
-			<h1>{this.props.pro_id}</h1>
+				<div className="comment_div">
+					<h1>{this.props.pro_id}</h1>
 					{this.state.comments.map((e) => {
 						return (
 							<h1>
 								{e.body} : {e.userId}
 							</h1>
-						)
+						);
 					})}
 				</div>
 			</div>
@@ -223,9 +227,7 @@ async function postData(url = '', data = {}) {
 		},
 		redirect: 'follow', // manual, *follow, error
 		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-	    body: JSON.stringify(data)// body data type must match "Content-Type" header
+		body: JSON.stringify(data) // body data type must match "Content-Type" header
 	});
 	return response.json(); // parses JSON response into native JavaScript objects
 }
-
-
