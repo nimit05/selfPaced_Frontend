@@ -335,6 +335,7 @@ function send_reg_data() {
 	email_vali();
 	name_vali();
 	username_vali();
+	re_pass_vali();
 
 	if (nomistake) {
 		let data = {

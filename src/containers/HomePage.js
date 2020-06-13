@@ -3,8 +3,8 @@ import Header from '../components/Header';
 import MainHeader from '../components/MainHeader';
 import Middle from '../components/Middle';
 import CateCon from '../components/CateCon';
-import Base_Header from '../Hooks/Base_header'
-import Product_cont from '../components/Product_cont'
+import Base_Header from '../Hooks/Base_header';
+import Product_cont from '../components/Product_cont';
 
 class HomePage extends React.Component {
 	render() {
