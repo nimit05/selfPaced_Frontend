@@ -24,7 +24,7 @@ export default class ProductPage extends React.Component {
 			cover_img: null,
 			description: null,
 			refId: null,
-			inLibrary: false
+			inLibrary: true
 		};
 	}
 
@@ -36,24 +36,24 @@ export default class ProductPage extends React.Component {
 			if (data) {
 				this.setState(() => {
 					return {
-						id : data.id,
+						id: data.id,
 						BookName: data.BookName,
 						BookAuthor: data.BookAuthor,
 						Value: data.Value,
 						cover_img: data.cover_img,
 						description: data.Description,
-						refId: data.refrenceId,
+						refId: data.refrenceId
 					};
 				});
 			}
 		});
 
 		let data = await fetch(`/api/products/search_item/${refId}`);
-
-		if (data.json() == true) {
+		let res = await data.json();
+		if (res == true) {
 			this.setState(() => {
 				return {
-					isLibrary: true
+					inLibrary: false
 				};
 			});
 		}
@@ -79,9 +79,7 @@ export default class ProductPage extends React.Component {
 						addToCart={this.addToCart}
 						inLibrary={this.state.inLibrary}
 					/>
-					<Comments 
-					id = {this.state.id}
-					 />
+					<Comments id={this.state.id} />
 				</div>
 				<CateCon />
 				<CateCon />
@@ -98,105 +96,113 @@ const BookImg = (props) => {
 		</div>
 	);
 };
-class Content extends React.Component{
-constructor(props){
-	super(props)
-
-	this.state = {
-		inLibrary : true
-	}
-
-	let data = {
-		id : this.props.id
-	}
-
-	  postData('/api/products/search_item' ,data ).then((data) => {
-		if(data){
-			this.setState(() => {
-				return{
-					inLibrary : false
-				}
-			})
-		}
-	})
-}
-	render(){
-	return (
-		<div className="Main_CT">
-			<div>
-				{this.props.BookName}
-				<div className="author">
-					<span className="by">By</span> {this.props.BookAuthor}
-					<hr className="hr" />
-				</div>
-				<div className="price_pp">
-					Price :<span className="price_val">{this.props.Value} coins</span>
-				</div>
-			</div>
-
-			<div>
-				{this.props.inLibrary ? (
-					<div className="buy_pp ">
-						<button className="buy_btn_pp" onClick={this.props.buy}>
-							Buy Now
-						</button>
-						<button
-							className="adc_btn_pp "
-							onClick={() => {
-								this.props.addToCart(this.props.refId);
-							}}
-						>
-							Add to Cart
-						</button>
-					</div>
-				) : (
-					<div>
-						<button>See in Library</button>
-					</div>
-				)}
-			</div>
-			<br />
-			<div className="des_pp">
-				About
-				<div className="des_cont">{this.props.description}</div>
-			</div>
-		</div>
-	);
-		}
-};
-
-class Comments extends React.Component{
-	constructor(props){
-		super(props)
+class Content extends React.Component {
+	constructor(props) {
+		super(props);
 
 		this.state = {
-			body : null,
-			username : null
-		}
+			inLibrary: true
+		};
 
 		let data = {
-			Product_id : this.props.id
-		}
-		postData('/api/comment/all' , data).then((data) => {
-			if(data){
-				this.setState(() => {
-					return{
-						body : data.body,
-						username : data.userId
-					}
-				})
-			}
-		})
+			id: this.props.id
+		};
 
+		postData('/api/products/search_item', data).then((data) => {
+			if (data) {
+				this.setState(() => {
+					return {
+						inLibrary: false
+					};
+				});
+			}
+		});
 	}
-	render(){
-		return(
-			<div>
+	render() {
+		return (
+			<div className="Main_CT">
 				<div>
-				<h1>{this.state.username} : {this.state.body}</h1>
+					{this.props.BookName}
+					<div className="author">
+						<span className="by">By</span> {this.props.BookAuthor}
+						<hr className="hr" />
+					</div>
+					<div className="price_pp">
+						Price :<span className="price_val">{this.props.Value} coins</span>
+					</div>
+				</div>
+
+				<div>
+					{this.props.inLibrary ? (
+						<div className="buy_pp ">
+							<button className="buy_btn_pp" onClick={this.props.buy}>
+								Buy Now
+							</button>
+							<button
+								className="adc_btn_pp "
+								onClick={() => {
+									this.props.addToCart(this.props.refId);
+								}}
+							>
+								Add to Cart
+							</button>
+						</div>
+					) : (
+						<div className="buy_pp ">
+							<button
+								className="buy_btn_pp"
+								onClick={() => {
+									window.location.href = '/My-Library';
+								}}
+							>
+								See in Library
+							</button>
+						</div>
+					)}
+				</div>
+				<br />
+				<div className="des_pp">
+					About
+					<div className="des_cont">{this.props.description}</div>
 				</div>
 			</div>
-		)
+		);
+	}
+}
+
+class Comments extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			body: null,
+			username: null
+		};
+
+		let data = {
+			Product_id: this.props.id
+		};
+		postData('/api/comment/all', data).then((data) => {
+			if (data) {
+				this.setState(() => {
+					return {
+						body: data.body,
+						username: data.userId
+					};
+				});
+			}
+		});
+	}
+	render() {
+		return (
+			<div>
+				<div>
+					<h1>
+						{this.state.username} : {this.state.body}
+					</h1>
+				</div>
+			</div>
+		);
 	}
 }
 
