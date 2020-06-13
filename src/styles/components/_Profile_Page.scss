@@ -3,6 +3,7 @@
     border: 1px solid rgb(172, 172, 172);
     width: 26rem;
     min-width: 25rem;
+    // height: 40rem;
     padding: 30px 10px;
     box-sizing: border-box;
     display: block;
@@ -43,6 +44,24 @@
     flex-direction: row;
     justify-content: flex-start;
     // align-items: center;
+}
+
+.transaction{
+    width: 70rem;
+    min-width: 45rem;
+    height: 20rem;
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 20px;
+    margin-top: 5rem;
+    h1{
+        color: $dark;
+        margin-left: 1rem;
+    }
+}
+
+.trans{
+    display: flex;
+    flex-direction: column;
 }
 
 .info {
@@ -109,6 +128,76 @@
     color: $secondary;
     cursor: pointer;
 }
+
+.trans_heading{
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-around;
+}
+.trans_details{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-top: 2rem;
+}
+
+.trans_det_2{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-top: 2rem;
+}
+
+.trans_date{
+    font-size: 1rem;
+    font-weight: 700;
+    // margin-right: auto;
+    margin-left: 5%;
+    width: 5rem;
+
+}
+.trans_transaction{
+    font-size: 1rem;
+    font-weight: 700;
+    // margin-right: auto;
+    margin-left: 5rem;
+    width: 18rem;
+
+}
+.trans_product{
+    font-size: 1rem;
+    font-weight: 500;
+    color: $dark;
+    margin-right: 5rem;
+    width: 12rem;
+    margin-left: 15rem;
+
+}
+.trans_product_head{
+    font-size: 1rem;
+    font-weight: 700;
+    color: $dark;
+    margin-right: 5rem;
+    width: 12rem;
+    margin-left: 15rem;
+
+}
+.trans_Value{
+    font-size: 1.1rem;
+    font-weight: 530;
+    // margin-left: 10%;
+    // margin-right: 5%;
+    color: $secondary;
+}
+.trans_plus{
+    color: green;
+}
+.trans_Value_head{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $dark;
+}
+
 
 @media screen and (max-width: 720px) {
     .main_profile_page {
