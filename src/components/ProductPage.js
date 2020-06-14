@@ -25,7 +25,8 @@ export default class ProductPage extends React.Component {
 			description: null,
 			refId: null,
 			inLibrary: true,
-			id: null
+			id: null,
+			sample_file: null
 		};
 	}
 
@@ -43,7 +44,8 @@ export default class ProductPage extends React.Component {
 						Value: data.Value,
 						cover_img: data.cover_img,
 						description: data.Description,
-						refId: data.refrenceId
+						refId: data.refrenceId,
+						sample_file: data.sample_pro
 					};
 				});
 			}
@@ -80,6 +82,7 @@ export default class ProductPage extends React.Component {
 						addToCart={this.addToCart}
 						inLibrary={this.state.inLibrary}
 						id={this.state.id}
+						sample_file={this.state.sample_file}
 					/>
 					{this.state.id && <Comments pro_id={this.state.id} />}
 				</div>
@@ -149,6 +152,16 @@ class Content extends React.Component {
 							>
 								Add to Cart
 							</button>
+							{this.props.sample_file && (
+								<button
+									className="adc_btn_pp "
+									onClick={() => {
+										window.location.href = `/files/${this.props.sample_file}.pdf`;
+									}}
+								>
+									See Sample
+								</button>
+							)}
 						</div>
 					) : (
 						<div className="buy_pp ">
