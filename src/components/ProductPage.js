@@ -50,7 +50,8 @@ export default class ProductPage extends React.Component {
 			rating : null,
 			open : false,
 			cover_img : null,
-			star_Value : null
+			star_Value : null,
+			sample_file: null
 		};
 
 
@@ -75,6 +76,7 @@ export default class ProductPage extends React.Component {
 						rating : data.rating,
 						cover_img : data.cover_img,
 	
+						sample_file: data.sample_pro
 					};
 				});
 			}
@@ -116,6 +118,7 @@ export default class ProductPage extends React.Component {
 						tag = {this.state.tag}
 						rating = {this.state.rating}
 						cover_img = {`/covers/${this.state.cover_img}`}
+						sample_file={this.state.sample_file}
 					/>
 				</div>
 				<hr />
@@ -277,6 +280,16 @@ class Content extends React.Component {
 							>
 								Add to Cart
 							</button>
+							{this.props.sample_file && (
+								<button
+									className="adc_btn_pp "
+									onClick={() => {
+										window.location.href = `/files/${this.props.sample_file}.pdf`;
+									}}
+								>
+									See Sample
+								</button>
+							)}
 						</div>
 					) : (
 						<div className="buy_pp ">

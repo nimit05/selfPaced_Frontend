@@ -227,6 +227,16 @@ class AddPro extends Component {
 									<input name="price" type="number" id="pro_price" onChange={this.updateProductPre} />
 								</div>
 							</div>
+							<div className="row_pair">
+								<div className="lable_inp_pair">
+									<label htmlFor="Type">Sample PDF (Starting Page Number)</label>
+									<input name="sample_start" type="number" id="pro_sample_start" />
+								</div>
+								<div className="lable_inp_pair">
+									<label htmlFor="Type">Number of Pages in Sample PDF</label>
+									<input name="sample_pages" type="number" id="pro_sample_end" />
+								</div>
+							</div>
 
 							<div className="lable_inp_pair">
 								<label htmlFor="Type">Breif Description</label>

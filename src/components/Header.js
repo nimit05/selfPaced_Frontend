@@ -7,7 +7,7 @@ import plus from '../img/plus.svg';
 import propic from '../img/propic.svg';
 import money from '../img/money.svg';
 import OutsideAlerter from '../Hooks/OutsideAlerter';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 
 class Header extends React.Component {
 	findName = () => {
