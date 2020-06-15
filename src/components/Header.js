@@ -258,6 +258,15 @@ const Dropdown = () => {
 				</Dropdownitem>
 			</div>
 			<div />
+			<div onClick = {() => {
+				window.location.href = '/myorders'
+			}}>
+				<Dropdownitem>
+					<span className = "span_dd">
+						My orders
+					</span>
+				</Dropdownitem>
+			</div>
 			<Dropdownitem>
 				<span
 					onClick={() => {

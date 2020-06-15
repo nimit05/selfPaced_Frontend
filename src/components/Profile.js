@@ -234,7 +234,7 @@ class Transaction extends React.Component {
 					<div className = "trans_details">
 						<div className = "trans_date">2020-06-13</div>
 						<div className = "trans_transaction">{trans.TransactionId}</div>
-						<div className = "trans_product">{trans.productId}</div>
+						<div className = "trans_product">{trans.item.BookName}</div>
 						<div className = "trans_Value">{trans.Debited ? (<div className = "trans_minus">
 							-{trans.Value} coins
 							</div>) : (<div className = "trans_plus"> +{trans.Value}coins</div>)}</div>
@@ -246,7 +246,7 @@ class Transaction extends React.Component {
 				{this.state.total_trans.map((trans) => {
 					return (
 						<div className = "trans_details_mob">
-						<div className = "trans_product_mob">{trans.productId}</div>
+						<div className = "trans_product_mob">{trans.item.BookName}</div>
 						<div className = "trans_row">
 						<div className = "trans_Value_mob">{trans.Debited ? (<div className = "trans_minus_mob">
 						-{trans.Value}coins
@@ -277,7 +277,7 @@ async function postData(url = '', data = {}) {
 			// 'Content-Type': 'application/x-www-form-urlencoded',
 		},
 		redirect: 'follow', // manual, *follow, error
-		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		referrerPolicy: 'no-referrer',
 		body: JSON.stringify(data) // body data type must match "Content-Type" header
 	});
 	return response.json(); // parses JSON response into native JavaScript objects

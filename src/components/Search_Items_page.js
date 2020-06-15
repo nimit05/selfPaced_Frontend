@@ -41,9 +41,9 @@ export default class Search_items extends React.Component {
 				<div className="heading_cart">
 					<h1 className="heading_left_cart">Search({this.state.products.length})</h1>
 				</div>
-				<div className="search_items">
+				<div >
 					{this.state.products.length ? (
-						<div>
+						<div className="search_items">
 							{this.state.products.map((e) => {
 								let a = this.state.addedtocartArr.indexOf(e.refrenceId);
 								console.log(a);

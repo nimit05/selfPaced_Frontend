@@ -1,8 +1,28 @@
-import React from 'react';
+import React,{useState} from 'react';
+import {FaStar} from 'react-icons/fa';
 import bookcover from '../img/bookcover.jpg';
 import CateCon from './CateCon';
+import Modal from 'react-modal'
+import propic from '../img/propic.svg';
+
 
 export default class ProductPage extends React.Component {
+
+	SetRating(ratingValue){
+		this.setState(() => {
+			return {
+				star_Value : ratingValue
+			}
+		})
+	}
+
+	alugobi = () =>{
+        this.setState((prevState) => {
+            return{
+                open : !prevState.open
+            }
+        })
+    }
 	buy = async () => {
 		let data = {
 			refrenceId: this.props.match.params.refId
@@ -25,8 +45,15 @@ export default class ProductPage extends React.Component {
 			description: null,
 			refId: null,
 			inLibrary: true,
-			id : null
+			id: null,
+			tag : null,
+			rating : null,
+			open : false,
+			cover_img : null,
+			star_Value : null
 		};
+
+
 	}
 
 	async componentDidMount() {
@@ -43,11 +70,17 @@ export default class ProductPage extends React.Component {
 						Value: data.Value,
 						cover_img: data.cover_img,
 						description: data.Description,
-						refId: data.refrenceId
+						refId: data.refrenceId,
+						tag : data.tag,
+						rating : data.rating,
+						cover_img : data.cover_img,
+	
 					};
 				});
 			}
 		});
+
+
 
 		let data = await fetch(`/api/products/search_item/${refId}`);
 		let res = await data.json();
@@ -77,19 +110,90 @@ export default class ProductPage extends React.Component {
 						description={this.state.description}
 						buy={this.buy}
 						refId={this.state.refId}
-						addToCart={this.addToCart}
+						addToCart={this.addToCart}	
 						inLibrary={this.state.inLibrary}
-						id = {this.state.id}
+						id={this.state.id}
+						tag = {this.state.tag}
+						rating = {this.state.rating}
+						cover_img = {`/covers/${this.state.cover_img}`}
 					/>
-					<Comments pro_id = {this.state.id} />
 				</div>
-				<CateCon />
-				<CateCon />
+				<hr />
+					<div className = "review_pp_heading">
+						<h1>
+							Reviews About Product
+						</h1>
+						<button className = "modal_btn" onClick = {this.alugobi}>Post your review</button>
+						{this.state.id && <Reviews pro_id = {this.state.id}  rating = {this.state.rating} />}
+						
+					</div>
+			
+					<Modal
+						isOpen = {this.state.open}
+						className = "modal"
+						contentLabel = "Selected Option"
+						onRequestClose = {this.alugobi}
+					>
+					<div className = "pic_modal">
+						<img src = {`/covers/${this.state.cover_img}`} alt = " " />
+						<div className = "modal_bookName">{this.state.BookName} - {this.state.BookAuthor}</div>
+						<div> 	
+						<h2 className = "rate_modal">Rate Product</h2>
+						<div className = "star_cont">
+							{[ ...Array(5)].map((star , i) => {
+							const ratingValue = i + 1
+		
+								return (
+										<label>
+											<input 
+												className = "inp"
+												type = "radio"
+												value = {ratingValue}
+												onClick = {() => {
+													this.SetRating(ratingValue)
+												}}
+											/>
+											<FaStar 
+											color = {ratingValue <= this.state.star_Value ? "#ffc107" : "#D3D3D3"  }
+											className = "star"
+											size = {20}
+											/>
+										</label>
+										)
+								})}</div>
+					</div>
+
+						<div className = "review_body">
+							<h2 className = "rate_modal">Post Your Review</h2>
+							<input type = "text" placeholder = "Write your review about product" id = "body_input" />
+						</div>
+						<div className ="submit_div">
+						<button className = "submit_modal" onClick = {() => {
+								this.alugobi()
+							 let data3 = {
+								 comment : document.getElementById('body_input').value,
+								 rating : this.state.star_Value,
+								productId : this.state.id
+							 }
+							 postData('/api/review' , data3).then((data) => {
+								 if(!data){
+									 alert('internal error')
+								 }
+							 })
+
+						}}>Submit</button>
+					</div>
+					</div>
+					
+				</Modal>
+				<hr />
 				<CateCon />
 			</div>
 		);
 	}
 }
+
+
 
 const BookImg = (props) => {
 	return (
@@ -99,12 +203,15 @@ const BookImg = (props) => {
 	);
 };
 class Content extends React.Component {
+
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			inLibrary: true
+			inLibrary: true,
+			rating : null
 		};
+
 
 		let data = {
 			id: this.props.id
@@ -121,13 +228,35 @@ class Content extends React.Component {
 		});
 	}
 	render() {
+
 		return (
 			<div className="Main_CT">
 				<div>
 					{this.props.BookName}
 					<div className="author">
-						<span className="by">By</span> {this.props.BookAuthor}{this.props.id}
+						<span className="by">By</span> {this.props.BookAuthor}
 						<hr className="hr" />
+					</div>
+					<div className = "price_pp">
+						Rating : 
+						<span>
+						{[ ...Array(5)].map((star , i) => {
+							const ratingValue = i + 1
+		
+						return (
+							<label>
+									<FaStar 
+									color = {ratingValue <= this.props.rating ? "#ffc107" : "#D3D3D3"  }
+									 size = {20}
+									 />
+							</label>
+						)
+						})}
+
+					       </span>
+					</div>
+					<div className = "price_pp">
+						Type : <span className = "type_value">{this.props.tag}</span>
 					</div>
 					<div className="price_pp">
 						Price :<span className="price_val">{this.props.Value} coins</span>
@@ -172,43 +301,77 @@ class Content extends React.Component {
 	}
 }
 
-class Comments extends React.Component {
-	constructor(props) {
-		super(props);
+
+class Reviews extends React.Component{
+
+
+	constructor(props){
+		super(props)
 
 		this.state = {
-			comments : [],
-		};
-
-		
-		fetch(`/api/comment/${this.props.pro_id}`).then((res) => res.json()).then((data) => {
-			if (data) {
-				this.setState(() => {
-					return {
-						comments : data
-					};
-				});
+						reviews: [],
+						user_pic : null
+					}
+		if(this.props.pro_id){
+			const data = {
+				username : this.props.username
 			}
-		});
+			fetch(`/api/review/${this.props.pro_id}` , data).then((res) => res.json())
+			.then((data) => {
+				if(data){
+					this.setState(() => {
+						return{
+						reviews : data.reverse()
+						}
+					})
+				}
+			})
+		}
+					
+		
+
 	}
-	render() {
+	render(){
 		return (
-			<div>
-			
-			<div className = "comment_div">
-			<h1>{this.props.pro_id}</h1>
-					{this.state.comments.map((e) => {
+			<div className = "review_section">
+				<div>
+					{this.state.reviews.map((review) => {
 						return (
-							<h1>
-								{e.body} : {e.userId}
-							</h1>
+							<div>
+								<div className = "user_det">
+								<img src = {propic}  />
+									<span className = "review_username">{review.userId}</span>
+								</div>
+								<div>
+								{[ ...Array(5)].map((star , i) => {
+									const ratingValue = i + 1
+				
+								return (
+									<label>
+											<FaStar 
+											color = {ratingValue <= this.props.rating ? "#ffc107" : "#D3D3D3"  }
+											 size = {20}
+											 />
+									</label>
+								)
+								})}
+								</div>
+								<div>
+									{review.comment}
+								</div>
+								
+								<br />
+								<br />
+							</div>
 						)
 					})}
 				</div>
 			</div>
-		);
+		)
 	}
 }
+
+
 
 async function postData(url = '', data = {}) {
 	// Default options are marked with *
@@ -222,10 +385,9 @@ async function postData(url = '', data = {}) {
 			// 'Content-Type': 'application/x-www-form-urlencoded',
 		},
 		redirect: 'follow', // manual, *follow, error
-		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-	    body: JSON.stringify(data)// body data type must match "Content-Type" header
+		referrerPolicy: 'no-referrer', 
+		body: JSON.stringify(data) // body data type must match "Content-Type" header
 	});
 	return response.json(); // parses JSON response into native JavaScript objects
 }
-
 

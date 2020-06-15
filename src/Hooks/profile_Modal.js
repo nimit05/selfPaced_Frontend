@@ -24,9 +24,6 @@ export default class Profile_Modal extends React.Component {
             contentLabel = "Selected Option"
             onRequestClose = {this.alugobi}
             >
-            <div className = "profile_mod_cont">
-                <ProfileCard />
-            </div>
             <button onClick = {this.alugobi}>Close</button>
             </Modal>
         )

@@ -1,0 +1,27 @@
+.ordered_pro{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+.my_order_div{
+    margin-top: 100px;
+}
+.order_det{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.3rem;
+    color: $dark;
+    font-weight: 800;
+}
+.order_date{
+    font-size: 0.9rem;
+}
+
+@media  screen and (max-width : 720px){
+  .order_det{
+    margin-bottom: 30px;
+  }
+}
