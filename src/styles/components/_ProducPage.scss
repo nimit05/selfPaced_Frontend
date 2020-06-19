@@ -109,7 +109,7 @@
 	}
 }
 .review_body{
-	input[type=text]{
+	textarea{
 		width: 30rem;
 		height: 10rem;
 		margin-left: 1rem;
@@ -119,6 +119,7 @@
 .submit_modal{
 	padding: 8px 20px;
 	background-color: $secondary;
+	color: $light;
 	// margin: auto;
 }
 .submit_div{
@@ -142,6 +143,7 @@
 .modal_btn{
 	background-color: $secondary;
 	padding: 5px 15px;
+	color: $light;
 }
 
 .review_username{

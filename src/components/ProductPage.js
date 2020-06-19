@@ -126,7 +126,7 @@ export default class ProductPage extends React.Component {
 						<h1>
 							Reviews About Product
 						</h1>
-						<button className = "modal_btn" onClick = {this.alugobi}>Post your review</button>
+						<button className = "modal_btn" onClick = {this.alugobi} id = "post_btn">Post your review</button>
 						{this.state.id && <Reviews pro_id = {this.state.id}  rating = {this.state.rating} />}
 						
 					</div>
@@ -168,7 +168,7 @@ export default class ProductPage extends React.Component {
 
 						<div className = "review_body">
 							<h2 className = "rate_modal">Post Your Review</h2>
-							<input type = "text" placeholder = "Write your review about product" id = "body_input" />
+							<textarea type = "text" placeholder = "Write your review about product" id = "body_input" />
 						</div>
 						<div className ="submit_div">
 						<button className = "submit_modal" onClick = {() => {
@@ -323,13 +323,11 @@ class Reviews extends React.Component{
 
 		this.state = {
 						reviews: [],
-						user_pic : null
+						user_pic : null,
+						disable : false
 					}
 		if(this.props.pro_id){
-			const data = {
-				username : this.props.username
-			}
-			fetch(`/api/review/${this.props.pro_id}` , data).then((res) => res.json())
+			fetch(`/api/review/${this.props.pro_id}`).then((res) => res.json())
 			.then((data) => {
 				if(data){
 					this.setState(() => {
@@ -337,6 +335,14 @@ class Reviews extends React.Component{
 						reviews : data.reverse()
 						}
 					})
+				}
+			})
+
+			fetch(`/api/review/isAllowed/${this.props.pro_id}`).then((res) => res.json())
+			.then((data) => {
+				if(data == true){
+					document.getElementById('post_btn').disabled = true
+					document.getElementById('post_btn').style.background = '#FFB6C1'
 				}
 			})
 		}
@@ -347,6 +353,7 @@ class Reviews extends React.Component{
 	render(){
 		return (
 			<div className = "review_section">
+			
 				<div>
 					{this.state.reviews.map((review) => {
 						return (
@@ -403,4 +410,5 @@ async function postData(url = '', data = {}) {
 	});
 	return response.json(); // parses JSON response into native JavaScript objects
 }
+
 
