@@ -189,6 +189,46 @@
 		margin-left: 1rem;
 		color: $light;
 	}
+
+	.modal_bookName{
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin-left: 10px;
+	}
+	
+	.review_title_head{
+		input[type=text]{
+			width: 25rem;
+			height: 25px;
+			margin-left: 1rem;
+		}
+	}
+	.review_body{
+		textarea{
+			width: 20rem;
+			height: 10rem;
+			margin-left: 1rem;
+		}
+	}
+	
+	.submit_div{
+		// padding: 30px;
+		// margin: auto;
+		margin-left: 8rem;
+		margin-top: 1.5rem;
+	}
+	
+	.review_section{
+		// border: solid black;
+		width: 50rem;
+		margin: auto;
+		img{
+			height: 30px;
+			margin-right: 10px;
+		
+		}
+	}
+	
 }
 
 

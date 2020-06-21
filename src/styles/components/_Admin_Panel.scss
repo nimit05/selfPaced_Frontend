@@ -1,0 +1,71 @@
+.admin_det{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: solid $dark;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.ap_username{
+    width: 12rem;
+    // border: solid red;
+}
+.count_user{
+    // margin-right: auto;
+    // margin-left: auto;
+    margin: auto;
+    font-size: 2rem;
+    font-weight: 600;
+    border: solid black;
+    width: 18rem;
+    // text-align: center;
+    margin-bottom: 1rem;
+}
+.count_products{
+    margin-left: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    border: solid black;
+    width: 22rem;
+    // text-align: center;
+    margin-bottom: 1rem;
+}
+.count_div{
+    margin: auto;
+    width: 41rem;
+    margin-bottom: 1rem;
+}
+.ap_user_det{
+    margin-top: 5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 30rem;
+    border: solid black;
+    height: 20rem;
+    // margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+.ap-user-value{
+    margin-bottom: 1rem;
+}
+.review_section_ap{
+	// border: solid black;
+    width: 50rem;
+    border: solid black;
+    margin: auto;
+    // padding: 0 rem;
+	img{
+		height: 30px;
+		margin-right: 10px;
+	
+	}
+}
+.ap_product_cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

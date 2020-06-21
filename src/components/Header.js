@@ -89,12 +89,24 @@ class Header extends React.Component {
 			}
 		});
 
+		fetch('/api/login/isAdmin').then((res) => res.json())
+		.then((data) => {
+			if(data == true){
+				this.setState(() => {
+					return{
+						isAdmin : true
+					}
+				})
+			}
+		})
+
 		this.state = {
 			islogin: false,
 			username: null,
 			pro_pic: null,
 			allItemsName: [],
-			searchNames: []
+			searchNames: [],
+			isAdmin : false
 		};
 	}
 
@@ -181,6 +193,11 @@ class Header extends React.Component {
 										</Navitem>
 									</Navbar>
 								</div>
+							</div>
+							<div>
+									{this.state.isAdmin && <div onClick = {() => {
+										window.location.href = '/Admin_Panel'
+									}}> <img src = {propic} alt = ' ' /></div>}
 							</div>
 						</div>
 					) : (

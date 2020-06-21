@@ -343,6 +343,7 @@ class Reviews extends React.Component{
 				if(data == true){
 					document.getElementById('post_btn').disabled = true
 					document.getElementById('post_btn').style.background = '#FFB6C1'
+					document.getElementById('post_btn').style.cursor = 'unset'
 				}
 			})
 		}

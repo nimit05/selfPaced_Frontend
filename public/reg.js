@@ -418,7 +418,8 @@ function send_log_data() {
 	};
 	if (nologmistake) {
 		postData('/api/login', data3).then((data) => {
-			if (data.username) {
+			
+			 if (data.username) {
 				location.replace('/');
 			} else if (data.error) {
 				$('#below_logUser').append($('<p>')).text('Username Or Password is Incorrect');
