@@ -20,7 +20,7 @@ export default class User_details extends React.Component{
             reviews : [],
             s_products : [],
             o_products : [],
-            reports : []
+            reports : [],
 		};
 
        const {username} = this.props.match.params;
@@ -114,13 +114,14 @@ export default class User_details extends React.Component{
 							price={product.Value}
                             refId={product.refrenceId}
                             title = {product.BookName}
+                            deleted = {product.deleted}
                             />
                             </div>
                     )
                 })}
                 </div>
             </div>
-            {/*<div >
+            <div >
             <h1>Ordered Products</h1>
             <div className = "ap_product_cont">
                 {this.state.o_products && this.state.o_products.map((product) => {
@@ -139,19 +140,36 @@ export default class User_details extends React.Component{
                     )
                 })}
                 </div>
-            </div>*/}
+            </div>
             </div>
         )
     }
 }
 
 class Comments_Ap extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            reports : []
+        }
+    }
+   
     render(){
         return (
             <div className = "review_section_ap">
 			
             <div>
                 {this.props.reviews && this.props.reviews.map((review) => {
+                    postData3(`/api/review/reports/${review.id}`).then((data) => {
+                        if(data){
+                            this.setState(() => {
+                                return{
+                                    reports : data
+                                }
+                            })
+                        }
+                    })
+                
                     return (
                         <div>
                             <div className = "user_det">
@@ -163,7 +181,9 @@ class Comments_Ap extends React.Component{
                             </div>
                             <div onClick = {() => {
                                 postData(`/api/review/${review.id}`)
-                            }}><a href = "#">Delete</a></div>
+                            }}><a href = "#">Delete</a>
+                            <div>reports : {this.state.reports.length -1}</div>
+                            </div>
                             <br />
                             <br />
                         </div>
@@ -178,8 +198,21 @@ class Products_ap extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            delete : false
+            delete : false,
+            reports : []
         }
+      
+        postData3(`/api/products/reports/${this.props.refId}`).then((data) => {
+            if(data){
+                this.setState(() => {
+                    return {
+                        reports : data
+                    }
+                })
+            }else{
+                alert('internal error')
+            }
+        })
     }
     render(){
     return(
@@ -205,17 +238,11 @@ class Products_ap extends React.Component {
 					</h1>
 				</div>
             </div>
-            <div  onClick = {() => {
-                postData2(`/api/products/${this.props.refId}`).then((data) => {
-                    if(data){
-                        this.setState(() => {
-                            return{
-                                delete : true
-                            }
-                        })
-                    }
-                })
-            }}><a href = "#">{this.state.delete ? 'deleted' : 'delete'}</a></div>
+            <div className = "below_product"  onClick = {() => {
+                postData2(`/api/products/${this.props.refId}`)
+            }}><div><a href = "#">{this.props.deleted ? 'deleted' : 'delete'}</a></div>
+            <div>reports :{this.state.reports.length -1}</div>
+            </div>
         </div>
     )
 }
@@ -253,6 +280,22 @@ async function postData2(url = '', data = {}) {
 		redirect: 'follow', // manual, *follow, error
 		referrerPolicy: 'no-referrer',
 		body: JSON.stringify(data) // body data type must match "Content-Type" header
+	});
+	return response.json(); // parses JSON response into native JavaScript objects
+}
+async function postData3(url = '', data = {}) {
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: 'GET', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer',
 	});
 	return response.json(); // parses JSON response into native JavaScript objects
 }
