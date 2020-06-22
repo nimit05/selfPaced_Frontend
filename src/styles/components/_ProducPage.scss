@@ -108,7 +108,7 @@
 	}
 }
 .review_body {
-	input[type="text"] {
+	textarea {
 		width: 30rem;
 		height: 10rem;
 		margin-left: 1rem;
@@ -118,6 +118,7 @@
 .submit_modal {
 	padding: 8px 20px;
 	background-color: $secondary;
+	color: $light;
 	// margin: auto;
 }
 .submit_div {
@@ -146,6 +147,7 @@
 .modal_btn {
 	background-color: $secondary;
 	padding: 5px 15px;
+	color: $light;
 }
 
 .review_username {
@@ -155,6 +157,13 @@
 .user_det {
 	display: flex;
 	flex-direction: row;
+}
+.report {
+	font-size: 0.8rem;
+	margin-top: 1rem;
+}
+.report_product {
+	margin-right: 0.5rem;
 }
 
 .rev_con {
@@ -198,5 +207,43 @@
 		background-color: $secondary;
 		margin-left: 1rem;
 		color: $light;
+	}
+
+	.modal_bookName {
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin-left: 10px;
+	}
+
+	.review_title_head {
+		input[type=text] {
+			width: 25rem;
+			height: 25px;
+			margin-left: 1rem;
+		}
+	}
+	.review_body {
+		textarea {
+			width: 20rem;
+			height: 10rem;
+			margin-left: 1rem;
+		}
+	}
+
+	.submit_div {
+		// padding: 30px;
+		// margin: auto;
+		margin-left: 8rem;
+		margin-top: 1.5rem;
+	}
+
+	.review_section {
+		// border: solid black;
+		width: 50rem;
+		margin: auto;
+		img {
+			height: 30px;
+			margin-right: 10px;
+		}
 	}
 }

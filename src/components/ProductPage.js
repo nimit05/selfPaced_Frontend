@@ -49,7 +49,8 @@ export default class ProductPage extends React.Component {
 			open: false,
 			cover_img: null,
 			star_Value: null,
-			sample_file: null
+			sample_file: null,
+			Seller: null
 		};
 	}
 
@@ -71,7 +72,7 @@ export default class ProductPage extends React.Component {
 						tag: data.tag,
 						rating: data.rating,
 						cover_img: data.cover_img,
-
+						Seller: data.SellerUsername,
 						sample_file: data.sample_pro
 					};
 				});
@@ -108,6 +109,7 @@ export default class ProductPage extends React.Component {
 						refId={this.state.refId}
 						addToCart={this.addToCart}
 						inLibrary={this.state.inLibrary}
+						Seller={this.state.Seller}
 						id={this.state.id}
 						tag={this.state.tag}
 						rating={this.state.rating}
@@ -118,7 +120,7 @@ export default class ProductPage extends React.Component {
 				<hr />
 				<div className="review_pp_heading">
 					<h1>Reviews About Product</h1>
-					<button className="modal_btn" onClick={this.alugobi}>
+					<button className="modal_btn" onClick={this.alugobi} id="post_btn">
 						Post your review
 					</button>
 					{this.state.id && <Reviews pro_id={this.state.id} rating={this.state.rating} />}
@@ -132,8 +134,8 @@ export default class ProductPage extends React.Component {
 				>
 					<div className="pic_modal">
 						<img src={`/covers/${this.state.cover_img}`} alt=" " />
-						<div className="modal_title">
-							{this.state.title} - {this.state.s_title}
+						<div className="modal_bookName">
+							{this.state.BookName} - {this.state.BookAuthor}
 						</div>
 						<div>
 							<h2 className="rate_modal">Rate Product</h2>
@@ -160,6 +162,11 @@ export default class ProductPage extends React.Component {
 									);
 								})}
 							</div>
+						</div>
+
+						<div className="review_body">
+							<h2 className="rate_modal">Post Your Review</h2>
+							<textarea type="text" placeholder="Write your review about product" id="body_input" />
 						</div>
 
 						<div className="review_body">
@@ -257,6 +264,9 @@ class Content extends React.Component {
 					<div className="price_pp">
 						Price :<span className="price_val">{this.props.Value} coins</span>
 					</div>
+					<div className="price_pp">
+						Seller :<span className="type_val">{this.props.Seller}</span>
+					</div>
 				</div>
 
 				<div>
@@ -302,6 +312,37 @@ class Content extends React.Component {
 					About
 					<div className="des_cont">{this.props.description}</div>
 				</div>
+				<div className="report">
+					<span
+						className="report_product"
+						onClick={() => {
+							let data4 = {
+								refId: this.props.refId
+							};
+							postData('/api/products/report', data4).then((data) => {
+								if (data == false) {
+									alert('eror occured');
+								}
+							});
+						}}
+					>
+						<a href="#">Report product</a>
+					</span>
+					<span
+						onClick={() => {
+							let data = {
+								username: this.props.Seller
+							};
+							postData('/api/user/report', data).then((data) => {
+								if (!data) {
+									alert('eror occured');
+								}
+							});
+						}}
+					>
+						<a href="#">Report Seller</a>
+					</span>
+				</div>
 			</div>
 		);
 	}
@@ -313,13 +354,11 @@ class Reviews extends React.Component {
 
 		this.state = {
 			reviews: [],
-			user_pic: null
+			user_pic: null,
+			disable: false
 		};
 		if (this.props.pro_id) {
-			const data = {
-				username: this.props.username
-			};
-			fetch(`/api/review/${this.props.pro_id}`, data).then((res) => res.json()).then((data) => {
+			fetch(`/api/review/${this.props.pro_id}`).then((res) => res.json()).then((data) => {
 				if (data) {
 					this.setState(() => {
 						return {
@@ -328,12 +367,20 @@ class Reviews extends React.Component {
 					});
 				}
 			});
+
+			fetch(`/api/review/isAllowed/${this.props.pro_id}`).then((res) => res.json()).then((data) => {
+				if (data == true) {
+					document.getElementById('post_btn').disabled = true;
+					document.getElementById('post_btn').style.background = '#FFB6C1';
+					document.getElementById('post_btn').style.cursor = 'unset';
+				}
+			});
 		}
 	}
 	render() {
 		return (
 			<div className="review_section">
-				<div className="revsec_con">
+				<div>
 					{this.state.reviews.map((review) => {
 						return (
 							<div className="rev_con">
@@ -355,8 +402,20 @@ class Reviews extends React.Component {
 										);
 									})}
 								</div>
-								<div>{review.comment}</div>
-
+								<div
+									onClick={() => {
+										let data = {
+											id: review.id
+										};
+										postData('/api/review/report', data).then((data) => {
+											if (!data) {
+												alert('error occured');
+											}
+										});
+									}}
+								>
+									<a href="#">Report</a>
+								</div>
 								<br />
 								<br />
 							</div>

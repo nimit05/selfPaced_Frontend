@@ -12,6 +12,8 @@ import Library from '../containers/Library';
 import Base_Header from '../Hooks/Base_header';
 import Search_items from '../components/Search_Items_page';
 import MyOrders from '../components/MyOrders'
+import Admin_Panel from '../components/Admin_Panel'
+import User_details from '../components/Admin_Panel_User'
 
 const Apiroute = () => (
 	<BrowserRouter>
@@ -28,7 +30,8 @@ const Apiroute = () => (
 				<Route path="/myorders" component={MyOrders} />
 				<Route path="/Base_Header" component={Base_Header} />
 				<Route path="/Search_items/:name" component={Search_items} />
-
+				<Route path = "/Admin_panel" component={Admin_Panel} />
+				<Route path = "/Admin_panel_user/:username" component={User_details} />
 			</Switch>
 			<Base_Header />
 		</div>
