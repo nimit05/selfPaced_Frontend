@@ -174,35 +174,51 @@ class Comments_Ap extends React.Component{
         )
     }
 }
-const Products_ap = (props) => {
+class Products_ap extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            delete : false
+        }
+    }
+    render(){
     return(
         <div className = "product_admin_panel">
             <div className="productcont_for_profile">
 				<div className="tag_for_profile">
-					<strong>{props.tag}</strong>
+					<strong>{this.props.tag}</strong>
 				</div>
 				<div
 					className="product_img"
 					onClick={() => {
-						window.location.href = `/productpage/${props.refId}`
+						window.location.href = `/productpage/${this.props.refId}`
 					}}
 				>
-					<img className="bookcover" src={props.bookimg} alt=" " />
+					<img className="bookcover" src={this.props.bookimg} alt=" " />
 				</div>
 				<div className="product_body_for_profile">
-					<h3>{props.title}</h3>
-					<h6>({props.stitle})</h6>
-					<p>{props.short_des}</p>
+					<h3>{this.props.title}</h3>
+					<h6>({this.props.stitle})</h6>
+					<p>{this.props.short_des}</p>
 					<h1>
-						{props.price} <span>coins</span>
+						{this.props.price} <span>coins</span>
 					</h1>
 				</div>
             </div>
             <div  onClick = {() => {
-                postData(`/api/products/${props.refId}`)
-            }}><a href = "#">Delete</a></div>
+                postData2(`/api/products/${this.props.refId}`).then((data) => {
+                    if(data){
+                        this.setState(() => {
+                            return{
+                                delete : true
+                            }
+                        })
+                    }
+                })
+            }}><a href = "#">{this.state.delete ? 'deleted' : 'delete'}</a></div>
         </div>
     )
+}
 }
 
 
@@ -222,4 +238,21 @@ async function postData(url = '') {
     });
     window.location.reload()
 
+}
+async function postData2(url = '', data = {}) {
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer',
+		body: JSON.stringify(data) // body data type must match "Content-Type" header
+	});
+	return response.json(); // parses JSON response into native JavaScript objects
 }
