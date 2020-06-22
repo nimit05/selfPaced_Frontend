@@ -60,10 +60,10 @@ export default class CateCon extends React.Component {
 
 						return (
 							<Productbox
-								title={e.BookName}
+								title={e.title}
 								tag={e.tag}
-								stitle={e.BookAuthor}
-								short_des={e.Edition}
+								stitle={e.s_title}
+								short_des={e.short_des}
 								price={e.Value}
 								refId={e.refrenceId}
 								isAdded={isadded}

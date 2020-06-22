@@ -374,7 +374,6 @@ function send_reg_data() {
 		});
 	}
 }
-
 function make_email() {
 	veri = true;
 	login = false;

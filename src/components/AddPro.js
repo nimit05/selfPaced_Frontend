@@ -100,9 +100,9 @@ class AddPro extends Component {
 	};
 
 	// a.category,
-	// 	a.BookName,
-	// 	a.BookAuthor,
-	// 	a.Edition,
+	// 	a.title,
+	// 	a.s_title,
+	// 	a.short_des,
 	// 	a.Description,
 	// 	a.tag,
 	// 	a.MRP

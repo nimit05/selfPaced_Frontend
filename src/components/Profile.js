@@ -1,8 +1,7 @@
 import React from 'react';
 import CateCon_for_profile from './CateCOn_profile';
-import Base_Header from '../Hooks/Base_header'
+import Base_Header from '../Hooks/Base_header';
 import CateCon from './CateCon';
-
 
 export default class profilePage extends React.Component {
 	render() {
@@ -10,19 +9,19 @@ export default class profilePage extends React.Component {
 			<div>
 				<div className="main_profile_page">
 					<ProfileCard />
-					<div className = "trans">
-					<Transaction />
-					<Items_Cont />
+					<div className="trans">
+						<Transaction />
+						<Items_Cont />
 					</div>
 				</div>
-		
+
 				<Base_Header />
 			</div>
 		);
 	}
 }
 
- class ProfileCard extends React.Component {
+class ProfileCard extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -49,8 +48,8 @@ export default class profilePage extends React.Component {
 							Address: data.Address,
 							name: data.name,
 							coins: data.Coins,
-							pro_pic : data.pro_img,
-							Earnings : data.Earnings
+							pro_pic: data.pro_img,
+							Earnings: data.Earnings
 						};
 					});
 				}
@@ -63,8 +62,8 @@ export default class profilePage extends React.Component {
 			name: null,
 			coins: null,
 			edited: false,
-			pro_pic : null,
-			Earnings : null
+			pro_pic: null,
+			Earnings: null
 		};
 	}
 
@@ -73,7 +72,7 @@ export default class profilePage extends React.Component {
 			<div id="ProfileCard">
 				<div className="info">
 					<div className="user_pro_pic">
-						<img id = "pro_pic" src = {this.state.pro_pic} alt = " " />
+						<img id="pro_pic" src={this.state.pro_pic} alt=" " />
 					</div>
 					<div className="user_name">
 						{this.state.name}
@@ -187,12 +186,12 @@ const Items_Cont = () => {
 };
 
 class Transaction extends React.Component {
-	constructor(props){
-		super(props)
+	constructor(props) {
+		super(props);
 
 		this.state = {
-			total_trans : []
-		}
+			total_trans: []
+		};
 
 		fetch('/api/user/transaction', {
 			method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -207,63 +206,65 @@ class Transaction extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				if(data){
+				if (data) {
 					this.setState(() => {
 						return {
-						 total_trans : data.reverse()
-						}
-					})
+							total_trans: data.reverse()
+						};
+					});
 				}
-			})
-
+			});
 	}
 
-	render(){
+	render() {
 		return (
-			<div className = "transaction">
-			<h1>Transactions({this.state.total_trans.length})</h1>
-			<h3>Latest Transaction</h3>
-			<div className = "trans_details">
-						<div className = "trans_date">Date</div>
-						<div className = "trans_transaction">Transaction ID</div>
-						<div className = "trans_product_head">Product</div>
-						 <div className = "trans_Value_head">Value</div>
+			<div className="transaction">
+				<h1>Transactions({this.state.total_trans.length})</h1>
+				<h3>Latest Transaction</h3>
+				<div className="trans_details">
+					<div className="trans_date">Date</div>
+					<div className="trans_transaction">Transaction ID</div>
+					<div className="trans_product_head">Product</div>
+					<div className="trans_Value_head">Value</div>
+				</div>
+				{this.state.total_trans.map((trans) => {
+					return (
+						<div className="trans_details">
+							<div className="trans_date">2020-06-13</div>
+							<div className="trans_transaction">{trans.TransactionId}</div>
+							<div className="trans_product">{trans.item.title}</div>
+							<div className="trans_Value">
+								{trans.Debited ? (
+									<div className="trans_minus">-{trans.Value} coins</div>
+								) : (
+									<div className="trans_plus"> +{trans.Value}coins</div>
+								)}
+							</div>
 						</div>
-			{this.state.total_trans.map((trans) => {
-				return(
-					<div className = "trans_details">
-						<div className = "trans_date">2020-06-13</div>
-						<div className = "trans_transaction">{trans.TransactionId}</div>
-						<div className = "trans_product">{trans.item.BookName}</div>
-						<div className = "trans_Value">{trans.Debited ? (<div className = "trans_minus">
-							-{trans.Value} coins
-							</div>) : (<div className = "trans_plus"> +{trans.Value}coins</div>)}</div>
-
-					</div>
-				)
-			})}
+					);
+				})}
 
 				{this.state.total_trans.map((trans) => {
 					return (
-						<div className = "trans_details_mob">
-						<div className = "trans_product_mob">{trans.item.BookName}</div>
-						<div className = "trans_row">
-						<div className = "trans_Value_mob">{trans.Debited ? (<div className = "trans_minus_mob">
-						-{trans.Value}coins
-						</div>) : (<div className = "trans_plus"> +{trans.Value}coins</div>)}</div>
-						<div className = "trans_date_mob">2020-06-13</div>
+						<div className="trans_details_mob">
+							<div className="trans_product_mob">{trans.item.title}</div>
+							<div className="trans_row">
+								<div className="trans_Value_mob">
+									{trans.Debited ? (
+										<div className="trans_minus_mob">-{trans.Value}coins</div>
+									) : (
+										<div className="trans_plus"> +{trans.Value}coins</div>
+									)}
+								</div>
+								<div className="trans_date_mob">2020-06-13</div>
+							</div>
 						</div>
-						</div>
-					)
+					);
 				})}
-		
 			</div>
-		)
+		);
 	}
 }
-
-
-
 
 async function postData(url = '', data = {}) {
 	// Default options are marked with *
