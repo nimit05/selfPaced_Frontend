@@ -19,7 +19,8 @@ export default class User_details extends React.Component{
             Earnings : null,
             reviews : [],
             s_products : [],
-            o_products : []
+            o_products : [],
+            reports : []
 		};
 
        const {username} = this.props.match.params;
@@ -35,7 +36,7 @@ export default class User_details extends React.Component{
                     name: data.name,
                     coins: data.Coins,
                     pro_pic : data.pro_img,
-                    Earnings : data.Earnings
+                    Earnings : data.Earnings,
                 };
             });
            }
@@ -70,6 +71,16 @@ export default class User_details extends React.Component{
                })
            }
        })
+       fetch(`/api/user/reports/${username}`).then((res) => res.json())
+       .then((data) => {
+           if(data){
+               this.setState(() => {
+                   return {
+                       reports : data
+                   }
+               })
+           }
+       })
    }
     render(){
         return (
@@ -82,6 +93,7 @@ export default class User_details extends React.Component{
                 <div className = "ap-user-value">Address : {this.state.Address}</div>
                 <div className = "ap-user-value">coins : {this.state.coins}</div>
                 <div className = "ap-user-value">Earnings : {this.state.Earnings}</div>
+                <div className = "ap-user-value">Reports : {this.state.reports.length -1 }</div>
             </div>
             <div>
                 <Comments_Ap 
@@ -91,7 +103,7 @@ export default class User_details extends React.Component{
             <div >
             <h1>Sold Products</h1>
             <div className = "ap_product_cont">
-                {this.state.s_products.map((product) => {
+                {this.state.s_products && this.state.s_products.map((product) => {
                     return(
                         <div >
                         <Products_ap 
@@ -108,10 +120,10 @@ export default class User_details extends React.Component{
                 })}
                 </div>
             </div>
-            <div >
+            {/*<div >
             <h1>Ordered Products</h1>
             <div className = "ap_product_cont">
-                {this.state.o_products.map((product) => {
+                {this.state.o_products && this.state.o_products.map((product) => {
                     return(
                         <div >
                         <Products_ap 
@@ -127,7 +139,7 @@ export default class User_details extends React.Component{
                     )
                 })}
                 </div>
-            </div>
+            </div>*/}
             </div>
         )
     }
@@ -139,7 +151,7 @@ class Comments_Ap extends React.Component{
             <div className = "review_section_ap">
 			
             <div>
-                {this.props.reviews.map((review) => {
+                {this.props.reviews && this.props.reviews.map((review) => {
                     return (
                         <div>
                             <div className = "user_det">
@@ -149,7 +161,9 @@ class Comments_Ap extends React.Component{
                             <div>
                                 {review.comment}
                             </div>
-                            
+                            <div onClick = {() => {
+                                postData(`/api/review/${review.id}`)
+                            }}><a href = "#">Delete</a></div>
                             <br />
                             <br />
                         </div>
@@ -162,7 +176,7 @@ class Comments_Ap extends React.Component{
 }
 const Products_ap = (props) => {
     return(
-        <div>
+        <div className = "product_admin_panel">
             <div className="productcont_for_profile">
 				<div className="tag_for_profile">
 					<strong>{props.tag}</strong>
@@ -183,7 +197,29 @@ const Products_ap = (props) => {
 						{props.price} <span>coins</span>
 					</h1>
 				</div>
-			</div>
+            </div>
+            <div  onClick = {() => {
+                postData(`/api/products/${props.refId}`)
+            }}><a href = "#">Delete</a></div>
         </div>
     )
+}
+
+
+async function postData(url = '') {
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    });
+    window.location.reload()
+
 }

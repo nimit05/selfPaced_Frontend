@@ -51,7 +51,8 @@ export default class ProductPage extends React.Component {
 			open : false,
 			cover_img : null,
 			star_Value : null,
-			sample_file: null
+			sample_file: null,
+			Seller : null
 		};
 
 
@@ -75,7 +76,7 @@ export default class ProductPage extends React.Component {
 						tag : data.tag,
 						rating : data.rating,
 						cover_img : data.cover_img,
-	
+						Seller : data.SellerUsername,
 						sample_file: data.sample_pro
 					};
 				});
@@ -114,6 +115,7 @@ export default class ProductPage extends React.Component {
 						refId={this.state.refId}
 						addToCart={this.addToCart}	
 						inLibrary={this.state.inLibrary}
+						Seller = {this.state.Seller}
 						id={this.state.id}
 						tag = {this.state.tag}
 						rating = {this.state.rating}
@@ -264,6 +266,9 @@ class Content extends React.Component {
 					<div className="price_pp">
 						Price :<span className="price_val">{this.props.Value} coins</span>
 					</div>
+					<div className="price_pp">
+						Seller :<span className="type_val">{this.props.Seller}</span>
+					</div>
 				</div>
 
 				<div>
@@ -308,6 +313,29 @@ class Content extends React.Component {
 				<div className="des_pp">
 					About
 					<div className="des_cont">{this.props.description}</div>
+				</div>
+				<div className = "report">
+					<span className = "report_product" onClick = {() => {
+						let data4 = {
+							refId : this.props.refId
+						}
+						postData('/api/products/report' , data4).then((data) => {
+							if(data == false){
+								alert('eror occured')
+							}
+						})
+					}}><a href = "#">Report product</a></span>
+					<span onClick = {() => {
+						let data = {
+							
+							username : this.props.Seller
+						}
+						postData('/api/user/report' , data).then((data) => {
+							if(!data){
+								alert('eror occured')
+							}
+						})
+					}}><a href = "#">Report Seller</a></span>
 				</div>
 			</div>
 		);
@@ -380,7 +408,16 @@ class Reviews extends React.Component{
 								<div>
 									{review.comment}
 								</div>
-								
+								<div onClick = {() => {
+									let data = {
+										id : review.id
+									}
+									postData('/api/review/report' , data).then((data) => {
+										if(!data){
+											alert('error occured')
+										}
+									})
+								}}><a href = "#">Report</a></div>
 								<br />
 								<br />
 							</div>
