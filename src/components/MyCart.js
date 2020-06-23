@@ -106,9 +106,7 @@ class Payment_tab extends React.Component {
 				</div>
 				<div className="prod_det">
 					{this.state.Cart_Product.map((product) => {
-						return (
-							<Title_div title={product.BookName} Value={product.Value} cover_img={product.cover_img} />
-						);
+						return <Title_div title={product.title} Value={product.Value} cover_img={product.cover_img} />;
 					})}
 				</div>
 
@@ -142,7 +140,8 @@ class Payment_tab extends React.Component {
 							Proceed To Checkout
 						</button>
 					</div>
-					<div class='pm-button'><a href='https://www.payumoney.com/paybypayumoney/#/E69656664540667BE595C9FE236CEFFA'><img src='https://www.payumoney.com/media/images/payby_payumoney/new_buttons/23.png' /></a></div> 					{/*<div className="checkout_div">
+					<div class='pm-button'><a href='https://www.payumoney.com/paybypayumoney/#/A410E06A207B53FB419833205EF1D415'><img src='https://www.payumoney.com/media/images/payby_payumoney/new_buttons/23.png' /></a></div> 
+							{/*<div className="checkout_div">
 						<button className="checkout_btn_pay">Pay with PayTM</button>
 				</div>*/}
 				</div>
@@ -198,8 +197,8 @@ class Heading extends React.Component {
 							return (
 								<Product_cart
 									key={product.refrenceId}
-									BookName={product.BookName}
-									BookAuthor={product.BookAuthor}
+									title={product.title}
+									s_title={product.s_title}
 									Value={product.Value}
 									tag={product.tag}
 									refrenceId={product.refrenceId}
@@ -243,9 +242,9 @@ class Product_cart extends React.Component {
 								window.location.href = `/productpage/${this.props.refrenceId}`;
 							}}
 						>
-							{this.props.BookName}
+							{this.props.title}
 						</h3>
-						<h6>{this.props.BookAuthor}</h6>
+						<h6>{this.props.s_title}</h6>
 						<span />
 
 						<div className="type_product_cart">

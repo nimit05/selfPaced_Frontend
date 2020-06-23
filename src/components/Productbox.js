@@ -5,7 +5,7 @@ import bookcover from '../img/bookcover.jpg';
 
 export default class Productbox extends React.Component {
 	loaded = (id) => {
-		document.getElementById(id).style.display = 'block';
+		document.getElementById(id).style.display = 'inline-block';
 	};
 
 	addToCart = (refId) => {

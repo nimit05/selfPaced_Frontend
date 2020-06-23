@@ -1,28 +1,26 @@
-import React,{useState} from 'react';
-import {FaStar} from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaStar } from 'react-icons/fa';
 import bookcover from '../img/bookcover.jpg';
 import CateCon from './CateCon';
-import Modal from 'react-modal'
+import Modal from 'react-modal';
 import propic from '../img/propic.svg';
 
-
 export default class ProductPage extends React.Component {
-
-	SetRating(ratingValue){
+	SetRating(ratingValue) {
 		this.setState(() => {
 			return {
-				star_Value : ratingValue
-			}
-		})
+				star_Value: ratingValue
+			};
+		});
 	}
 
-	alugobi = () =>{
-        this.setState((prevState) => {
-            return{
-                open : !prevState.open
-            }
-        })
-    }
+	alugobi = () => {
+		this.setState((prevState) => {
+			return {
+				open: !prevState.open
+			};
+		});
+	};
 	buy = async () => {
 		let data = {
 			refrenceId: this.props.match.params.refId
@@ -38,24 +36,22 @@ export default class ProductPage extends React.Component {
 		super(props);
 
 		this.state = {
-			BookName: null,
-			BookAuthor: null,
+			title: null,
+			s_title: null,
 			Value: null,
 			cover_img: null,
 			description: null,
 			refId: null,
 			inLibrary: true,
 			id: null,
-			tag : null,
-			rating : null,
-			open : false,
-			cover_img : null,
-			star_Value : null,
+			tag: null,
+			rating: null,
+			open: false,
+			cover_img: null,
+			star_Value: null,
 			sample_file: null,
-			Seller : null
+			Seller: null
 		};
-
-
 	}
 
 	async componentDidMount() {
@@ -67,23 +63,21 @@ export default class ProductPage extends React.Component {
 				this.setState(() => {
 					return {
 						id: data.id,
-						BookName: data.BookName,
-						BookAuthor: data.BookAuthor,
+						title: data.title,
+						s_title: data.s_title,
 						Value: data.Value,
 						cover_img: data.cover_img,
 						description: data.Description,
 						refId: data.refrenceId,
-						tag : data.tag,
-						rating : data.rating,
-						cover_img : data.cover_img,
-						Seller : data.SellerUsername,
+						tag: data.tag,
+						rating: data.rating,
+						cover_img: data.cover_img,
+						Seller: data.SellerUsername,
 						sample_file: data.sample_pro
 					};
 				});
 			}
 		});
-
-
 
 		let data = await fetch(`/api/products/search_item/${refId}`);
 		let res = await data.json();
@@ -107,89 +101,99 @@ export default class ProductPage extends React.Component {
 				<div className="main_body_pro_page">
 					<BookImg cover_img={this.state.cover_img} />
 					<Content
-						BookName={this.state.BookName}
-						BookAuthor={this.state.BookAuthor}
+						title={this.state.title}
+						s_title={this.state.s_title}
 						Value={this.state.Value}
 						description={this.state.description}
 						buy={this.buy}
 						refId={this.state.refId}
-						addToCart={this.addToCart}	
+						addToCart={this.addToCart}
 						inLibrary={this.state.inLibrary}
-						Seller = {this.state.Seller}
+						Seller={this.state.Seller}
 						id={this.state.id}
-						tag = {this.state.tag}
-						rating = {this.state.rating}
-						cover_img = {`/covers/${this.state.cover_img}`}
+						tag={this.state.tag}
+						rating={this.state.rating}
+						cover_img={`/covers/${this.state.cover_img}`}
 						sample_file={this.state.sample_file}
 					/>
 				</div>
 				<hr />
-					<div className = "review_pp_heading">
-						<h1>
-							Reviews About Product
-						</h1>
-						<button className = "modal_btn" onClick = {this.alugobi} id = "post_btn">Post your review</button>
-						{this.state.id && <Reviews pro_id = {this.state.id}  rating = {this.state.rating} />}
-						
-					</div>
-			
-					<Modal
-						isOpen = {this.state.open}
-						className = "modal"
-						contentLabel = "Selected Option"
-						onRequestClose = {this.alugobi}
-					>
-					<div className = "pic_modal">
-						<img src = {`/covers/${this.state.cover_img}`} alt = " " />
-						<div className = "modal_bookName">{this.state.BookName} - {this.state.BookAuthor}</div>
-						<div> 	
-						<h2 className = "rate_modal">Rate Product</h2>
-						<div className = "star_cont">
-							{[ ...Array(5)].map((star , i) => {
-							const ratingValue = i + 1
-		
-								return (
+				<div className="review_pp_heading">
+					<h1>Reviews About Product</h1>
+					<button className="modal_btn" onClick={this.alugobi} id="post_btn">
+						Post your review
+					</button>
+					{this.state.id && <Reviews pro_id={this.state.id} rating={this.state.rating} />}
+				</div>
+
+				<Modal
+					isOpen={this.state.open}
+					className="modal"
+					contentLabel="Selected Option"
+					onRequestClose={this.alugobi}
+				>
+					<div className="pic_modal">
+						<img src={`/covers/${this.state.cover_img}`} alt=" " />
+						<div className="modal_bookName">
+							{this.state.BookName} - {this.state.BookAuthor}
+						</div>
+						<div>
+							<h2 className="rate_modal">Rate Product</h2>
+							<div className="star_cont">
+								{[ ...Array(5) ].map((star, i) => {
+									const ratingValue = i + 1;
+
+									return (
 										<label>
-											<input 
-												className = "inp"
-												type = "radio"
-												value = {ratingValue}
-												onClick = {() => {
-													this.SetRating(ratingValue)
+											<input
+												className="inp"
+												type="radio"
+												value={ratingValue}
+												onClick={() => {
+													this.SetRating(ratingValue);
 												}}
 											/>
-											<FaStar 
-											color = {ratingValue <= this.state.star_Value ? "#ffc107" : "#D3D3D3"  }
-											className = "star"
-											size = {20}
+											<FaStar
+												color={ratingValue <= this.state.star_Value ? '#ffc107' : '#D3D3D3'}
+												className="star"
+												size={20}
 											/>
 										</label>
-										)
-								})}</div>
-					</div>
-
-						<div className = "review_body">
-							<h2 className = "rate_modal">Post Your Review</h2>
-							<textarea type = "text" placeholder = "Write your review about product" id = "body_input" />
+									);
+								})}
+							</div>
 						</div>
-						<div className ="submit_div">
-						<button className = "submit_modal" onClick = {() => {
-								this.alugobi()
-							 let data3 = {
-								 comment : document.getElementById('body_input').value,
-								 rating : this.state.star_Value,
-								productId : this.state.id
-							 }
-							 postData('/api/review' , data3).then((data) => {
-								 if(!data){
-									 alert('internal error')
-								 }
-							 })
 
-						}}>Submit</button>
+						<div className="review_body">
+							<h2 className="rate_modal">Post Your Review</h2>
+							<textarea type="text" placeholder="Write your review about product" id="body_input" />
+						</div>
+
+						<div className="review_body">
+							<h2 className="rate_modal">Post Your Review</h2>
+							<input type="text" placeholder="Write your review about product" id="body_input" />
+						</div>
+						<div className="submit_div">
+							<button
+								className="submit_modal"
+								onClick={() => {
+									this.alugobi();
+									let data3 = {
+										comment: document.getElementById('body_input').value,
+										rating: this.state.star_Value,
+										productId: this.state.id
+									};
+									postData('/api/review', data3).then((data) => {
+										if (!data) {
+											alert('internal error');
+										}
+									});
+								}}
+							>
+								Submit
+							</button>
+						</div>
 					</div>
-					</div>
-					
 				</Modal>
 				<hr />
 				<CateCon />
@@ -197,8 +201,6 @@ export default class ProductPage extends React.Component {
 		);
 	}
 }
-
-
 
 const BookImg = (props) => {
 	return (
@@ -208,15 +210,13 @@ const BookImg = (props) => {
 	);
 };
 class Content extends React.Component {
-
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			inLibrary: true,
-			rating : null
+			rating: null
 		};
-
 
 		let data = {
 			id: this.props.id
@@ -233,35 +233,33 @@ class Content extends React.Component {
 		});
 	}
 	render() {
-
 		return (
 			<div className="Main_CT">
 				<div>
-					{this.props.BookName}
+					{this.props.title}
 					<div className="author">
-						<span className="by">By</span> {this.props.BookAuthor}
+						<span className="by">By</span> {this.props.s_title}
 						<hr className="hr" />
 					</div>
-					<div className = "price_pp">
-						Rating : 
+					<div className="price_pp">
+						Rating :
 						<span>
-						{[ ...Array(5)].map((star , i) => {
-							const ratingValue = i + 1
-		
-						return (
-							<label>
-									<FaStar 
-									color = {ratingValue <= this.props.rating ? "#ffc107" : "#D3D3D3"  }
-									 size = {20}
-									 />
-							</label>
-						)
-						})}
+							{[ ...Array(5) ].map((star, i) => {
+								const ratingValue = i + 1;
 
-					       </span>
+								return (
+									<label>
+										<FaStar
+											color={ratingValue <= this.props.rating ? '#ffc107' : '#D3D3D3'}
+											size={20}
+										/>
+									</label>
+								);
+							})}
+						</span>
 					</div>
-					<div className = "price_pp">
-						Type : <span className = "type_value">{this.props.tag}</span>
+					<div className="price_pp">
+						Type : <span className="type_value">{this.props.tag}</span>
 					</div>
 					<div className="price_pp">
 						Price :<span className="price_val">{this.props.Value} coins</span>
@@ -314,122 +312,120 @@ class Content extends React.Component {
 					About
 					<div className="des_cont">{this.props.description}</div>
 				</div>
-				<div className = "report">
-					<span className = "report_product" onClick = {() => {
-						let data4 = {
-							refId : this.props.refId
-						}
-						postData('/api/products/report' , data4).then((data) => {
-							if(data == false){
-								alert('eror occured')
-							}
-						})
-					}}><a href = "#">Report product</a></span>
-					<span onClick = {() => {
-						let data = {
-							
-							username : this.props.Seller
-						}
-						postData('/api/user/report' , data).then((data) => {
-							if(!data){
-								alert('eror occured')
-							}
-						})
-					}}><a href = "#">Report Seller</a></span>
+				<div className="report">
+					<span
+						className="report_product"
+						onClick={() => {
+							let data4 = {
+								refId: this.props.refId
+							};
+							postData('/api/products/report', data4).then((data) => {
+								if (data == false) {
+									alert('eror occured');
+								}
+							});
+						}}
+					>
+						<a href="#">Report product</a>
+					</span>
+					<span
+						onClick={() => {
+							let data = {
+								username: this.props.Seller
+							};
+							postData('/api/user/report', data).then((data) => {
+								if (!data) {
+									alert('eror occured');
+								}
+							});
+						}}
+					>
+						<a href="#">Report Seller</a>
+					</span>
 				</div>
 			</div>
 		);
 	}
 }
 
-
-class Reviews extends React.Component{
-
-
-	constructor(props){
-		super(props)
+class Reviews extends React.Component {
+	constructor(props) {
+		super(props);
 
 		this.state = {
-						reviews: [],
-						user_pic : null,
-						disable : false
-					}
-		if(this.props.pro_id){
-			fetch(`/api/review/${this.props.pro_id}`).then((res) => res.json())
-			.then((data) => {
-				if(data){
+			reviews: [],
+			user_pic: null,
+			disable: false
+		};
+		if (this.props.pro_id) {
+			fetch(`/api/review/${this.props.pro_id}`).then((res) => res.json()).then((data) => {
+				if (data) {
 					this.setState(() => {
-						return{
-						reviews : data.reverse()
-						}
-					})
+						return {
+							reviews: data.reverse()
+						};
+					});
 				}
-			})
+			});
 
-			fetch(`/api/review/isAllowed/${this.props.pro_id}`).then((res) => res.json())
-			.then((data) => {
-				if(data == true){
-					document.getElementById('post_btn').disabled = true
-					document.getElementById('post_btn').style.background = '#FFB6C1'
-					document.getElementById('post_btn').style.cursor = 'unset'
+			fetch(`/api/review/isAllowed/${this.props.pro_id}`).then((res) => res.json()).then((data) => {
+				if (data == true) {
+					document.getElementById('post_btn').disabled = true;
+					document.getElementById('post_btn').style.background = '#FFB6C1';
+					document.getElementById('post_btn').style.cursor = 'unset';
 				}
-			})
+			});
 		}
-					
-		
-
 	}
-	render(){
+	render() {
 		return (
-			<div className = "review_section">
-			
+			<div className="review_section">
 				<div>
 					{this.state.reviews.map((review) => {
 						return (
-							<div>
-								<div className = "user_det">
-								<img src = {propic}  />
-									<span className = "review_username">{review.userId}</span>
+							<div className="rev_con">
+								<div className="user_det">
+									<img src={propic} />
+									<span className="review_username">{review.userId}</span>
 								</div>
 								<div>
-								{[ ...Array(5)].map((star , i) => {
-									const ratingValue = i + 1
-				
-								return (
-									<label>
-											<FaStar 
-											color = {ratingValue <= this.props.rating ? "#ffc107" : "#D3D3D3"  }
-											 size = {20}
-											 />
-									</label>
-								)
-								})}
+									{[ ...Array(5) ].map((star, i) => {
+										const ratingValue = i + 1;
+
+										return (
+											<label>
+												<FaStar
+													color={ratingValue <= this.props.rating ? '#ffc107' : '#D3D3D3'}
+													size={20}
+												/>
+											</label>
+										);
+									})}
 								</div>
-								<div>
-									{review.comment}
+								<div
+									onClick={() => {
+										let data = {
+											id: review.id
+										};
+										postData('/api/review/report', data).then((data) => {
+											if (!data) {
+												alert('error occured');
+											}
+										});
+									}}
+								>
+									<a href="#">Report</a>
 								</div>
-								<div onClick = {() => {
-									let data = {
-										id : review.id
-									}
-									postData('/api/review/report' , data).then((data) => {
-										if(!data){
-											alert('error occured')
-										}
-									})
-								}}><a href = "#">Report</a></div>
 								<br />
 								<br />
 							</div>
-						)
+						);
 					})}
 				</div>
 			</div>
-		)
+		);
 	}
 }
-
-
 
 async function postData(url = '', data = {}) {
 	// Default options are marked with *
@@ -443,10 +439,8 @@ async function postData(url = '', data = {}) {
 			// 'Content-Type': 'application/x-www-form-urlencoded',
 		},
 		redirect: 'follow', // manual, *follow, error
-		referrerPolicy: 'no-referrer', 
+		referrerPolicy: 'no-referrer',
 		body: JSON.stringify(data) // body data type must match "Content-Type" header
 	});
 	return response.json(); // parses JSON response into native JavaScript objects
 }
-
-

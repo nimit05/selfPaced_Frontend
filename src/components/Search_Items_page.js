@@ -20,9 +20,6 @@ export default class Search_items extends React.Component {
 				});
 			}
 		});
-	}
-
-	componentDidMount() {
 		const { name } = this.props.match.params;
 
 		fetch(`/api/products/search/${name}`).then((res) => res.json()).then((data) => {
@@ -35,13 +32,15 @@ export default class Search_items extends React.Component {
 			}
 		});
 	}
+
+	componentDidMount() {}
 	render() {
 		return (
 			<div>
 				<div className="heading_cart">
 					<h1 className="heading_left_cart">Search({this.state.products.length})</h1>
 				</div>
-				<div >
+				<div>
 					{this.state.products.length ? (
 						<div className="search_items">
 							{this.state.products.map((e) => {
@@ -56,10 +55,10 @@ export default class Search_items extends React.Component {
 
 								return (
 									<Productbox
-										title={e.BookName}
+										title={e.title}
 										tag={e.tag}
-										stitle={e.BookAuthor}
-										short_des={e.Edition}
+										stitle={e.s_title}
+										short_des={e.short_des}
 										price={e.Value}
 										refId={e.refrenceId}
 										isAdded={isadded}

@@ -89,16 +89,15 @@ class Header extends React.Component {
 			}
 		});
 
-		fetch('/api/login/isAdmin').then((res) => res.json())
-		.then((data) => {
-			if(data == true){
+		fetch('/api/login/isAdmin').then((res) => res.json()).then((data) => {
+			if (data == true) {
 				this.setState(() => {
-					return{
-						isAdmin : true
-					}
-				})
+					return {
+						isAdmin: true
+					};
+				});
 			}
-		})
+		});
 
 		this.state = {
 			islogin: false,
@@ -106,7 +105,7 @@ class Header extends React.Component {
 			pro_pic: null,
 			allItemsName: [],
 			searchNames: [],
-			isAdmin : false
+			isAdmin: false
 		};
 	}
 
@@ -194,11 +193,6 @@ class Header extends React.Component {
 									</Navbar>
 								</div>
 							</div>
-							<div>
-									{this.state.isAdmin && <div onClick = {() => {
-										window.location.href = '/Admin_Panel'
-									}}> <img src = {propic} alt = ' ' /></div>}
-							</div>
 						</div>
 					) : (
 						<div className="fr">
@@ -275,15 +269,25 @@ const Dropdown = () => {
 				</Dropdownitem>
 			</div>
 			<div />
-			<div onClick = {() => {
-				window.location.href = '/myorders'
-			}}>
+			<div
+				onClick={() => {
+					window.location.href = '/myorders';
+				}}
+			>
 				<Dropdownitem>
-					<span className = "span_dd">
-						My orders
-					</span>
+					<span className="span_dd">My orders</span>
 				</Dropdownitem>
 			</div>
+			<Dropdownitem>
+				<span
+					onClick={() => {
+						window.location.href = '/Admin_Panel';
+					}}
+					className="span_dd"
+				>
+					Admin Pannel
+				</span>
+			</Dropdownitem>
 			<Dropdownitem>
 				<span
 					onClick={() => {

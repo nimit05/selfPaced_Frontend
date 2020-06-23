@@ -1,8 +1,8 @@
-import React from 'react'
-import Productbox from './Productbox'
+import React from 'react';
+import Productbox from './Productbox';
 
 export default class Product_cont extends React.Component {
-    constructor(props) {
+	constructor(props) {
 		super(props);
 
 		this.state = {
@@ -37,38 +37,38 @@ export default class Product_cont extends React.Component {
 				});
 			});
 	}
-    render(){
-        return(
-            <div>
-            <h1 >Fresh Arrivals</h1>
-            <div className = "cont_for_product">
-            {this.state.proArray.map((e) => {
-                let a = this.state.addedtocartArr.indexOf(e.refrenceId);
-                console.log(a);
-                let isadded;
-                if (a == -1) {
-                    isadded = false;
-                } else {
-                    isadded = true;
-                }
+	render() {
+		return (
+			<div>
+				<h1>Fresh Arrivals</h1>
+				<div className="cont_for_product">
+					{this.state.proArray.map((e) => {
+						let a = this.state.addedtocartArr.indexOf(e.refrenceId);
+						console.log(a);
+						let isadded;
+						if (a == -1) {
+							isadded = false;
+						} else {
+							isadded = true;
+						}
 
-                return (
-                    <Productbox
-                        title={e.BookName}
-                        tag={e.tag}
-                        stitle={e.BookAuthor}
-                        short_des={e.Edition}
-                        price={e.Value}
-                        refId={e.refrenceId}
-                        isAdded={isadded}
-                        bookimg={`covers/${e.cover_img}`}
-                    />
-                );
-            })}
-            </div>
-            </div>
-        )
-    }
+						return (
+							<Productbox
+								title={e.title}
+								tag={e.tag}
+								stitle={e.s_title}
+								short_des={e.short_des}
+								price={e.Value}
+								refId={e.refrenceId}
+								isAdded={isadded}
+								bookimg={`covers/${e.cover_img}`}
+							/>
+						);
+					})}
+				</div>
+			</div>
+		);
+	}
 }
 async function postData(url = '', data = {}) {
 	// Default options are marked with *

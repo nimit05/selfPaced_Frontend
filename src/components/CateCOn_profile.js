@@ -24,14 +24,13 @@ export default class CateCon_for_profile extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-			console.log(data);
-			if(data){
-			this.setState(() => {
-				return { proArray: data };
+				console.log(data);
+				if (data) {
+					this.setState(() => {
+						return { proArray: data };
+					});
+				}
 			});
-		}
-		});
-	
 	}
 	render() {
 		return (
@@ -45,10 +44,10 @@ export default class CateCon_for_profile extends React.Component {
 					{this.state.proArray.map((e) => {
 						return (
 							<Productbox
-								title={e.BookName}
+								title={e.title}
 								tag={e.tag}
-								stitle={e.BookAuthor}
-								short_des={e.Edition}
+								stitle={e.s_title}
+								short_des={e.short_des}
 								price={e.Value}
 								refId={e.refrenceId}
 								bookimg={`/covers/${e.cover_img}`}
@@ -83,8 +82,8 @@ class Productbox extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			product_file : null
-		}
+			product_file: null
+		};
 	}
 
 	render() {
@@ -96,7 +95,7 @@ class Productbox extends React.Component {
 				<div
 					className="product_img"
 					onClick={() => {
-						window.location.href = `/productpage/${this.props.refId}`
+						window.location.href = `/productpage/${this.props.refId}`;
 					}}
 				>
 					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />

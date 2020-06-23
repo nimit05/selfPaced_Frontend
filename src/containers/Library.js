@@ -43,7 +43,7 @@ class Library extends React.Component {
 								<MyProBox
 									key={i}
 									tag={e.Product.tag}
-									title={e.Product.BookName}
+									title={e.Product.title}
 									bookimg={`/covers/${e.Product.cover_img}`}
 									file={`/files/${e.Product.product_file}`}
 									refId={e.Product.refrenceId}
