@@ -1,0 +1,63 @@
+.wallet_page{
+    margin-top: 5rem;
+    width: 30rem;
+    height: 15rem;
+    // border: solid black;
+    margin-left: auto;
+    margin-right: auto;
+    // box-shadow: 10px 10px 8px #888888;  
+    // background-color: #F9C3D1;
+
+}
+.header-wallet{
+    // background-color: #F9C3D1;
+    width: 100%;
+    // box-shadow: 10px 10px 8px #888888;  
+    // border: solid black;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    color: $secondary;
+    font-size: 2rem;
+    font-weight: 600;
+    height: 5rem;
+}
+.wallet_value{
+    // margin-top: 0rem;
+    padding: 1rem;
+    box-shadow: 10px 10px 8px #F9C3D1;  
+
+    margin-top: 0.2rem;
+    // background-color: #F9C3D1;
+
+    // margin-left: 2rem;
+}
+.below_wallet_value{
+    font-size: 1.5rem;
+    color: $secondary;
+}
+.add_wallet{
+    font-size: 1.5rem;
+}
+.transaction_wallet{
+    width: 70rem;
+    min-width: 45rem;
+    height: 20rem;
+    margin-top: 5rem;
+    // border: 1px solid rgb(172, 172, 172);
+    // border-radius: 20px;
+    margin-bottom: 3rem;
+    overflow-y: scroll;
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+    h1{
+        color: $dark;
+        margin-left: 1rem;
+    }
+    
+    h3{
+        margin-left: 1rem;
+        color: $dark;
+    }
+}

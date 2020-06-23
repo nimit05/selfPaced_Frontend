@@ -140,7 +140,6 @@ class Payment_tab extends React.Component {
 							Proceed To Checkout
 						</button>
 					</div>
-					<div class='pm-button'><a href='https://www.payumoney.com/paybypayumoney/#/A410E06A207B53FB419833205EF1D415'><img src='https://www.payumoney.com/media/images/payby_payumoney/new_buttons/23.png' /></a></div> 
 							{/*<div className="checkout_div">
 						<button className="checkout_btn_pay">Pay with PayTM</button>
 				</div>*/}

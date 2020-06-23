@@ -10,7 +10,7 @@ export default class profilePage extends React.Component {
 				<div className="main_profile_page">
 					<ProfileCard />
 					<div className="trans">
-						<Transaction />
+						
 						<Items_Cont />
 					</div>
 				</div>
@@ -185,86 +185,6 @@ const Items_Cont = () => {
 	);
 };
 
-class Transaction extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			total_trans: []
-		};
-
-		fetch('/api/user/transaction', {
-			method: 'GET', // *GET, POST, PUT, DELETE, etc.
-			mode: 'cors', // no-cors, *cors, same-origin
-			cache: 'no-cache',
-			credentials: 'same-origin', // include, *same-origin, omit
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			redirect: 'follow', // manual, *follow, error
-			referrerPolicy: 'no-referrer'
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				if (data) {
-					this.setState(() => {
-						return {
-							total_trans: data.reverse()
-						};
-					});
-				}
-			});
-	}
-
-	render() {
-		return (
-			<div className="transaction">
-				<h1>Transactions({this.state.total_trans.length})</h1>
-				<h3>Latest Transaction</h3>
-				<div className="trans_details">
-					<div className="trans_date">Date</div>
-					<div className="trans_transaction">Transaction ID</div>
-					<div className="trans_product_head">Product</div>
-					<div className="trans_Value_head">Value</div>
-				</div>
-				{this.state.total_trans.map((trans) => {
-					return (
-						<div className="trans_details">
-							<div className="trans_date">2020-06-13</div>
-							<div className="trans_transaction">{trans.TransactionId}</div>
-							<div className="trans_product">{trans.item.title}</div>
-							<div className="trans_Value">
-								{trans.Debited ? (
-									<div className="trans_minus">-{trans.Value} coins</div>
-								) : (
-									<div className="trans_plus"> +{trans.Value}coins</div>
-								)}
-							</div>
-						</div>
-					);
-				})}
-
-				{this.state.total_trans.map((trans) => {
-					return (
-						<div className="trans_details_mob">
-							<div className="trans_product_mob">{trans.item.title}</div>
-							<div className="trans_row">
-								<div className="trans_Value_mob">
-									{trans.Debited ? (
-										<div className="trans_minus_mob">-{trans.Value}coins</div>
-									) : (
-										<div className="trans_plus"> +{trans.Value}coins</div>
-									)}
-								</div>
-								<div className="trans_date_mob">2020-06-13</div>
-							</div>
-						</div>
-					);
-				})}
-			</div>
-		);
-	}
-}
 
 async function postData(url = '', data = {}) {
 	// Default options are marked with *

@@ -188,6 +188,10 @@ button:focus {
 		height: 15px;
 	}
 }
+.wallet{
+	margin-left: 3rem;
+	cursor: pointer;
+}
 
 .profile {
 	// border: solid 1px white;
@@ -195,11 +199,11 @@ button:focus {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	margin-left: 30px;
+	// margin-left: 30px;
 	cursor: pointer;
 
 	img {
-		margin-left: 10px;
+		margin-left: 8px;
 	}
 }
 
