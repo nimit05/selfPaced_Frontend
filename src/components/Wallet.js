@@ -1,14 +1,33 @@
 import React from 'react'
 
 export default class Wallet extends React.Component{
+    constructor(props){
+        super(props)
+            this.state = {
+                coins : null,
+                earnings : null
+            }
+            fetch('/api/user').then((res) => res.json())
+            .then((data) => {
+                if(data){
+                    this.setState(() => {
+                        return {
+                            coins : data.Coins,
+                            earnings : data.Earnings
+                        }
+                    })
+                }
+            })
+        }
+    
     render(){
         return (
             <div>
                 <div className = "wallet_page">
                     <div className  = "header-wallet">
-                            <div className = "wallet_value">$500 coins
+                            <div className = "wallet_value">${this.state.coins} coins
                                 <div className = "below_wallet_value">wallet</div></div>
-                            <div className = "wallet_value">$250 coins
+                            <div className = "wallet_value">${this.state.earnings} coins
                                 <div className = "below_wallet_value">Earnings</div></div>
                             <div className = "wallet_value add_wallet">Add 1000 coins to wallet
                                 <div className = "below_wallet_value">
