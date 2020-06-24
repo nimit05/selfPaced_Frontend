@@ -194,8 +194,9 @@ class Header extends React.Component {
 												/>
 											}
 											coins={this.state.coins}
+											
 										>
-											<Dropdown />
+											<Dropdown isAdmin = {this.state.isAdmin} />
 										</Navitem>
 									</Navbar>
 								</div>
@@ -217,9 +218,9 @@ class Header extends React.Component {
 								style={{ backgroundColor: 'blue' }}
 								className="gbtn"
 								onSuccess={this.responseGoogle}
-								onFailure={() => {
-									alert('Error in google login ');
-								}}
+								// onFailure={() => {
+								// 	alert('Error in google login ');
+								// }}
 								cookiePolicy={'single_host_origin'}
 							/>
 						</div>
@@ -260,7 +261,7 @@ const Navitem = (props) => {
 	);
 };
 
-const Dropdown = () => {
+const Dropdown = (props) => {
 	function Dropdownitem(props) {
 		return <a className="menu-item">{props.children}</a>;
 	}
@@ -282,7 +283,8 @@ const Dropdown = () => {
 					<span className="span_dd">My orders</span>
 				</Dropdownitem>
 			</div>
-			<Dropdownitem>
+			{props.isAdmin && (	
+				<Dropdownitem>
 				<span
 					onClick={() => {
 						window.location.href = '/Admin_Panel';
@@ -291,7 +293,8 @@ const Dropdown = () => {
 				>
 					Admin Pannel
 				</span>
-			</Dropdownitem>
+			</Dropdownitem>)}
+		
 			<Dropdownitem>
 				<span
 					onClick={() => {

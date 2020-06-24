@@ -169,10 +169,6 @@ export default class ProductPage extends React.Component {
 							<textarea type="text" placeholder="Write your review about product" id="body_input" />
 						</div>
 
-						<div className="review_body">
-							<h2 className="rate_modal">Post Your Review</h2>
-							<input type="text" placeholder="Write your review about product" id="body_input" />
-						</div>
 						<div className="submit_div">
 							<button
 								className="submit_modal"

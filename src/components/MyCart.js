@@ -127,6 +127,7 @@ class Payment_tab extends React.Component {
 								if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
 									alert('Insufficient Balance');
 								}
+								else{
 								let data = {
 									coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
 								};
@@ -135,6 +136,8 @@ class Payment_tab extends React.Component {
 										alert('error occured');
 									}
 								});
+							}
+
 							}}
 						>
 							Proceed To Checkout
