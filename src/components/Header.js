@@ -174,11 +174,11 @@ class Header extends React.Component {
 								<img src={lib} alt=" " />
 								<span class="tooltiptext">My Library</span>
 							</div>
-							<div class = "tooltip wallet">
-							{''}
-								<div className="name" id="coins" onClick = {() => window.location.href = '/wallet'}>
-								<img src={money} alt="" />
-								{this.state.coins}
+							<div class="tooltip wallet">
+								{''}
+								<div className="name" id="coins" onClick={() => (window.location.href = '/wallet')}>
+									<img src={money} alt="" />
+									{this.state.coins}
 								</div>
 							</div>
 							<div class="tooltip">
@@ -247,7 +247,6 @@ const Navitem = (props) => {
 	};
 	return (
 		<li className="nav-item" onClick={handleClick} id="nav-item">
-		
 			<a href="#" className="icon-button">
 				{props.icon}
 			</a>

@@ -92,7 +92,7 @@ button:focus {
 
 .user_btn_con {
 	// width: 650px;
-	padding-right: 30px;
+	// padding-right: 30px;
 	margin-right: 30px;
 
 	button {
@@ -188,7 +188,7 @@ button:focus {
 		height: 15px;
 	}
 }
-.wallet{
+.wallet {
 	margin-left: 3rem;
 	cursor: pointer;
 }
@@ -199,6 +199,7 @@ button:focus {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	width: 50px;
 	// margin-left: 30px;
 	cursor: pointer;
 
@@ -260,7 +261,7 @@ button:focus {
 	}
 }
 
-.admin_panel{
+.admin_panel {
 	margin-top: 5rem;
 }
 

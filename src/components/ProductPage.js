@@ -135,7 +135,7 @@ export default class ProductPage extends React.Component {
 					<div className="pic_modal">
 						<img src={`/covers/${this.state.cover_img}`} alt=" " />
 						<div className="modal_bookName">
-							{this.state.BookName} - {this.state.BookAuthor}
+							{this.state.title} - {this.state.s_title}
 						</div>
 						<div>
 							<h2 className="rate_modal">Rate Product</h2>

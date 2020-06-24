@@ -2,6 +2,7 @@ import React from 'react';
 import CateCon_for_profile from './CateCOn_profile';
 import Base_Header from '../Hooks/Base_header';
 import CateCon from './CateCon';
+import propic from '../img/propic.svg';
 
 export default class profilePage extends React.Component {
 	render() {
@@ -10,7 +11,6 @@ export default class profilePage extends React.Component {
 				<div className="main_profile_page">
 					<ProfileCard />
 					<div className="trans">
-						
 						<Items_Cont />
 					</div>
 				</div>
@@ -72,7 +72,7 @@ class ProfileCard extends React.Component {
 			<div id="ProfileCard">
 				<div className="info">
 					<div className="user_pro_pic">
-						<img id="pro_pic" src={this.state.pro_pic} alt=" " />
+						<img id="pro_pic" src={this.state.pro_pic ? this.state.pro_pic : propic} alt=" " />
 					</div>
 					<div className="user_name">
 						{this.state.name}
@@ -88,7 +88,6 @@ class ProfileCard extends React.Component {
 											};
 										});
 										let data = {
-											email: document.getElementById('input_email').value,
 											phone_Number: document.getElementById('input_phone_Number').value,
 											Address: document.getElementById('input_Address').value
 										};
@@ -126,38 +125,42 @@ class ProfileCard extends React.Component {
 				</div>
 				<div className="details">
 					<div className="heading">
-						Username
-						{this.state.edited ? (
-							<input type="text" className="heading_value " value={this.state.username} />
-						) : (
-							<div className="heading_value">{this.state.username}</div>
-						)}
-					</div>
-					<div className="heading">
-						Email
+						<span> Username</span>
 						<div className="heading_value">
-							{this.state.edited ? (
-								<input type="text" className="heading_value input_email" id="input_email" />
-							) : (
-								<div className="heading_value">{this.state.email}</div>
-							)}
+							<div>{this.state.username}</div>
 						</div>
 					</div>
 					<div className="heading">
-						Phone No.
+						<span>Email</span>
+						<div className="heading_value">
+							<div className="heading_value">{this.state.email}</div>
+						</div>
+					</div>
+					<div className="heading">
+						<span>Phone No.</span>
 						<div className="heading_value">
 							{this.state.edited ? (
-								<input type="text" className="heading_value " id="input_phone_Number" />
+								<input
+									type="text"
+									className="heading_value "
+									id="input_phone_Number"
+									defaultValue={this.state.phone_Number}
+								/>
 							) : (
 								<div className="heading_value">{this.state.phone_Number}</div>
 							)}
 						</div>
 					</div>
 					<div className="heading">
-						Address
+						<span>Address</span>
 						<div className="heading_value">
 							{this.state.edited ? (
-								<input type="text" className="heading_value input_Address" id="input_Address" />
+								<input
+									type="text"
+									className="heading_value input_Address"
+									id="input_Address"
+									defaultValue={this.state.Address}
+								/>
 							) : (
 								<div className="heading_value">{this.state.Address}</div>
 							)}
@@ -184,7 +187,6 @@ const Items_Cont = () => {
 		</div>
 	);
 };
-
 
 async function postData(url = '', data = {}) {
 	// Default options are marked with *

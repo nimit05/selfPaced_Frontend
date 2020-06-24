@@ -210,7 +210,7 @@
 	}
 
 	.modal_bookName {
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 		font-weight: 500;
 		margin-left: 10px;
 	}
@@ -224,7 +224,7 @@
 	}
 	.review_body {
 		textarea {
-			width: 20rem;
+			width: 17rem;
 			height: 10rem;
 			margin-left: 1rem;
 		}
@@ -244,6 +244,20 @@
 		img {
 			height: 30px;
 			margin-right: 10px;
+		}
+	}
+
+	.pic_modal {
+		width: 300px;
+		height: 200px;
+		// margin: auto;
+		// border: solid black;
+	
+		img {
+			height: 150px;
+			cursor: pointer;
+			margin-left: 7px;
+			margin-top: 10px;
 		}
 	}
 }

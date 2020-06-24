@@ -1,9 +1,10 @@
 #ProfileCard {
-    // background-color: #e6e4e2;
-    // border: 1px solid rgb(172, 172, 172);
-    width: 26rem;
-    min-width: 26rem;
-    // height: 40rem;   
+    background-color: #ffffff;
+    border: 1px solid rgb(204, 204, 204);
+    width: 30vw;
+    min-width: 450px;
+    max-width: 450px;
+    // height: 40rem;
     // min-height: 25rem;
     padding: 30px 10px;
     box-sizing: border-box;
@@ -12,6 +13,8 @@
     margin-left: 4rem;
     margin-right: 5rem;
     float: left;
+    box-shadow: 0px 0px 20px rgba(90, 90, 90, 0.197);
+    transition: 0.3s;
     img {
         // margin-left: 3vw;
         height: 80px;
@@ -19,8 +22,11 @@
         cursor: pointer;
     }
 }
+#ProfileCard:hover {
+    box-shadow: 0px 0px 5px rgba(90, 90, 90, 0.197);
+}
 
-.trans_details_mob{
+.trans_details_mob {
     display: none;
 }
 
@@ -51,7 +57,7 @@
     // align-items: center;
 }
 
-.transaction{
+.transaction {
     width: 70rem;
     min-width: 45rem;
     height: 20rem;
@@ -59,30 +65,30 @@
     border-radius: 20px;
     margin-bottom: 3rem;
     overflow-y: scroll;
-	white-space: nowrap;
-    h1{
+    white-space: nowrap;
+    h1 {
         color: $dark;
         margin-left: 1rem;
     }
-    
-    h3{
+
+    h3 {
         margin-left: 1rem;
         color: $dark;
     }
 }
 
-.trans{
+.trans {
     display: flex;
     flex-direction: column;
 }
 
 .info {
-    align-items: center;
-    padding: 5% 18%;
+    width: 100%;
+    padding: 20px 0;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 .user_pro_pic {
     // background-color: black;
@@ -102,6 +108,22 @@
     margin-bottom: 1.4vw;
     padding: 0 8%;
     font-size: 1.2rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    align-items: center;
+    input {
+        border: 1px solid gray;
+        width: 100%;
+        height: 25px;
+        padding: auto 10px;
+    }
+    span {
+    }
+
+    div {
+        font-size: 1.1rem;
+    }
 }
 
 .details {
@@ -122,9 +144,13 @@
     //    margin-right: 1vw;
 }
 .heading_value {
-    font-size: 1.2rem;
+    // font-size: 1.2rem;
     color: $dark;
-    margin-top: 0.5vw;
+    display: inline;
+    margin-left: 10px;
+    // width: 200px;
+    // float: right;
+    // margin-top: 0.5vw;
     // background-color: #e6e4e2;
     border: transparent;
 }
@@ -141,75 +167,70 @@
     cursor: pointer;
 }
 
-.trans_heading{
+.trans_heading {
     display: flex;
     flex-direction: row;
     // justify-content: space-around;
 }
-.trans_details{
+.trans_details {
     display: flex;
     flex-direction: row;
     justify-content: start;
     margin-top: 2rem;
 }
 
-.trans_det_2{
+.trans_det_2 {
     display: flex;
     flex-direction: row;
     justify-content: start;
     margin-top: 2rem;
 }
 
-.trans_date{
+.trans_date {
     font-size: 1rem;
     font-weight: 700;
     // margin-right: auto;
     margin-left: 5%;
     width: 5rem;
-
 }
-.trans_transaction{
+.trans_transaction {
     font-size: 1rem;
     font-weight: 600;
     // margin-right: auto;
     margin-left: 5rem;
     width: 18rem;
-
 }
-.trans_product{
+.trans_product {
     font-size: 1rem;
     font-weight: 500;
     color: $dark;
     margin-right: 5rem;
     width: 12rem;
     margin-left: 15rem;
-
 }
-.trans_product_head{
+.trans_product_head {
     font-size: 1rem;
     font-weight: 700;
     color: $dark;
     margin-right: 5rem;
     width: 12rem;
     margin-left: 15rem;
-
 }
-.trans_Value{
+.trans_Value {
     font-size: 1.1rem;
     font-weight: 530;
     // margin-left: 10%;
     // margin-right: 5%;
     color: $secondary;
 }
-.trans_plus{
+.trans_plus {
     color: green;
 }
-.trans_Value_head{
+.trans_Value_head {
     font-size: 1.1rem;
     font-weight: 700;
     color: $dark;
 }
-
 
 @media screen and (max-width: 720px) {
     .main_profile_page {
@@ -221,8 +242,8 @@
     }
 
     #ProfileCard {
-        max-width: 20rem;
-        min-width: 12rem;
+        width: 90%;
+        min-width: 90%;
         margin: auto;
         margin-bottom: 3rem;
         img {
@@ -304,7 +325,7 @@
         font-size: 0.5rem;
         margin-left: 8vw;
     }
-    .trans_row{
+    .trans_row {
         display: flex;
         flex-direction: column;
         // justify-content: space-evenly;
@@ -312,7 +333,7 @@
         margin-left: 2rem;
     }
 
-    .transaction{
+    .transaction {
         width: 22rem;
         min-width: 20rem;
         height: 20rem;
@@ -323,24 +344,24 @@
         border: none;
         border-radius: 20px;
         margin-bottom: 0rem;
-        h1{
+        h1 {
             color: $dark;
             margin-left: 1rem;
             font-size: 1.4rem;
         }
-        h3{
+        h3 {
             font-size: 1rem;
         }
     }
-    .trans_details{
+    .trans_details {
         display: none;
     }
-    .trans_details_mob{
+    .trans_details_mob {
         display: flex;
-        flex-direction: row; 
+        flex-direction: row;
         justify-content: space-between;
     }
-    .trans_product_mob{
+    .trans_product_mob {
         font-size: 1rem;
         margin-left: 1rem;
         width: 10rem;
@@ -351,15 +372,15 @@
     // .trans_Value_mob{
     //     margin-left: 2rem;
     // }
-    .trans_date_mob{
+    .trans_date_mob {
         // margin-left: 1.5rem;
         // margin-left: 2rem;
         font-size: 0.6rem;
-    color: #898887;
+        color: #898887;
 
         font-weight: 500;
     }
-    .trans_minus_mob{
+    .trans_minus_mob {
         color: $secondary;
     }
 }
