@@ -14,7 +14,6 @@ import Search_items from '../components/Search_Items_page';
 import MyOrders from '../components/MyOrders'
 import Admin_Panel from '../components/Admin_Panel'
 import User_details from '../components/Admin_Panel_User'
-import Wallet from '../components/Wallet'
 
 const Apiroute = () => (
 	<BrowserRouter>
@@ -33,7 +32,6 @@ const Apiroute = () => (
 				<Route path="/Search_items/:name" component={Search_items} />
 				<Route path = "/Admin_panel" component={Admin_Panel} />
 				<Route path = "/Admin_panel_user/:username" component={User_details} />
-				<Route path = "/Wallet" component={Wallet} />
 			</Switch>
 			<Base_Header />
 		</div>

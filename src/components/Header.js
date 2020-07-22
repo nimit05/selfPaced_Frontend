@@ -175,13 +175,7 @@ class Header extends React.Component {
 								<img src={lib} alt=" " />
 								<span class="tooltiptext">My Library</span>
 							</div>
-							<div class="tooltip wallet">
-								{''}
-								<div className="name" id="coins" onClick={() => (window.location.href = '/wallet')}>
-									<img src={money} alt="" />
-									{this.state.coins}
-								</div>
-							</div>
+						
 							<div class="tooltip">
 								{' '}
 								<div className="profile" >
@@ -261,6 +255,10 @@ const Navitem = (props) => {
 		<li className="nav-item" onClick={() => {
 		setOpen((prevState) => !prevState);
 		}} id="nav-item">
+		<span className="name" id="coins">
+				<img src={money} alt="" />
+				{props.coins}
+			</span>
 			<a href="#" className="icon-button" id = 'helo' >
 				{props.icon}
 			</a>
