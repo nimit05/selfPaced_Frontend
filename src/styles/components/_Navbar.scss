@@ -57,8 +57,7 @@
 //     background-color: #c74f6f;
 // }
 
-.name {
-}
+
 .span_dd {
     color: $secondary;
 }
@@ -78,6 +77,11 @@
         margin-bottom: 60px;
     }
 }
+
+.li_system{
+    display: none;
+}
+
 @media screen and (max-width: 720px) {
     .cont_for_product {
         // margin-left: auto;

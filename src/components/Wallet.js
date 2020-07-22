@@ -29,12 +29,7 @@ export default class Wallet extends React.Component{
                                 <div className = "below_wallet_value">wallet</div></div>
                             <div className = "wallet_value">${this.state.earnings} coins
                                 <div className = "below_wallet_value">Earnings</div></div>
-                            <div className = "wallet_value add_wallet">Add 1000 coins to wallet
-                                <div className = "below_wallet_value">
-                                <div class='pm-button'>
-                                    <a href='https://www.payumoney.com/paybypayumoney/#/9AC375731E013DB56B1D7644DBC3BDB2'><img src='https://www.payumoney.com/media/images/payby_payumoney/new_buttons/21.png' /></a></div> 
-                        </div>
-                        </div>
+                           
                     </div>
             
                 </div>

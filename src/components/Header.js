@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef , useState , useEffect} from 'react';
 // import homePage from './HomePage';
 import mainLOGO from '../img/name-logo.png';
 import cart from '../img/cart.svg';
@@ -122,6 +122,7 @@ class Header extends React.Component {
 				</div>
 
 				<div className="parent search_con">
+				
 					<input
 						onChange={this.findName}
 						id="main_search_inp"
@@ -183,7 +184,7 @@ class Header extends React.Component {
 							</div>
 							<div class="tooltip">
 								{' '}
-								<div className="profile">
+								<div className="profile" >
 									<Navbar>
 										<Navitem
 											icon={
@@ -240,14 +241,27 @@ const Navbar = (props) => {
 };
 
 const Navitem = (props) => {
-	const { ref, open, setOpen } = OutsideAlerter(false);
 
-	const handleClick = () => {
+
+
+
+    const ref = useRef(null)
+	const [open, setOpen ] = useState(false);
+
+	const handleOutsideClick = (event) => {
+		if(ref.current && !ref.current.contains(event.target)){
 		setOpen((prevState) => !prevState);
-	};
+		}
+	}
+
+	
+		document.addEventListener("click",handleOutsideClick ,true)
+	
 	return (
-		<li className="nav-item" onClick={handleClick} id="nav-item">
-			<a href="#" className="icon-button">
+		<li className="nav-item" onClick={() => {
+		setOpen((prevState) => !prevState);
+		}} id="nav-item">
+			<a href="#" className="icon-button" id = 'helo' >
 				{props.icon}
 			</a>
 

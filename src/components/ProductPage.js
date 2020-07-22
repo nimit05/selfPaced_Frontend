@@ -29,6 +29,8 @@ export default class ProductPage extends React.Component {
 		console.log(pro);
 		if (pro) {
 			alert('buyed');
+		}else if (pro == false){
+			alert('insufficient balance')
 		}
 	};
 
@@ -123,7 +125,9 @@ export default class ProductPage extends React.Component {
 					<button className="modal_btn" onClick={this.alugobi} id="post_btn">
 						Post your review
 					</button>
+					
 					{this.state.id && <Reviews pro_id={this.state.id} rating={this.state.rating} />}
+					
 				</div>
 
 				<Modal
