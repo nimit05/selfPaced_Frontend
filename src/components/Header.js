@@ -112,13 +112,15 @@ class Header extends React.Component {
 	render() {
 		return (
 			<div className="header_cont">
-				<div
-					className="header_left"
-					onClick={() => {
-						window.location.href = '/';
-					}}
-				>
-					<img src={mainLOGO} alt=" " />
+				<div className = "header_logo">
+					<div
+						className="header_left"
+						onClick={() => {
+							window.location.href = '/';
+						}}
+					>
+						<img src={mainLOGO} alt=" " />
+					</div>
 				</div>
 
 				<div className="parent search_con">

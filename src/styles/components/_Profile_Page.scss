@@ -74,6 +74,7 @@
     padding: 1rem 2rem;
     border-bottom: 2px solid rgb(172, 172, 172);
     // border: solid black;
+    color: $secondary;
 }
 
 .details_subhead{
@@ -86,10 +87,10 @@
     font-size: 1.2rem;
     font-weight: 600;
     padding: 1rem 2rem;
-    color: $dark;
+    color: $secondary;
 
     .det_edit{
-        color: $grey_text;
+        color: $secondary;
         cursor: pointer;
         display: flex;
         flex-direction: row;
