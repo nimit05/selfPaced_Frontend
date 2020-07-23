@@ -1,9 +1,26 @@
 .payment_tab {
-    width: 35rem;
+    width: 25rem;
     min-width: 25rem;
     border-radius: 10px;
-    padding: 5rem;
+    padding: 0 5rem;
+    // border: solid black;
 }
+
+.my_cart{
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.content_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // border: solid black;
+    padding: 0 15rem;
+    
+}
+
 
 .heading_cart {
     background-color: $blur;
@@ -23,15 +40,8 @@
 
 .heading_left_cart {
     //    float: left;
-    margin-left: 2vw;
+    margin-left: 20rem;
     margin-top: 50px;
-}
-
-.content_div {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    // align-items: ;
 }
 
 .product_cart {
@@ -39,8 +49,10 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    max-width: 70rem;
+    width: 45rem;
     min-width: 40rem;
+    margin-left: 5rem;
+    border-bottom: 1px solid $l_grey_text;
     // border: solid black;
 }
 
@@ -121,7 +133,7 @@
 }
 .hr_cart {
     color: $light;
-    max-width: 70rem;
+    max-width: 50rem;
     margin-left: 0;
 }
 
@@ -168,8 +180,8 @@
     // background-color: white;
     border: solid $secondary;
     // color: white;
-    background-color: $light;
-
+    // background-color: $light;
+    
     padding: 10px;
     font-size: 1.4rem;
 }

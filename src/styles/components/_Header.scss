@@ -24,6 +24,7 @@
 .fr {
 	display: flex;
 	flex-direction: row;
+	margin-right: 18rem;
 }
 .search_con {
 	// justify-self: flex-end;
@@ -34,7 +35,7 @@
 .header_left {
 	position: absolute;
 	top: 0px;
-	left: 10px;
+	left: 20rem;
 	cursor: pointer;
 	img {
 		object-fit: cover;
@@ -197,7 +198,7 @@ button:focus {
 	align-items: center;
 	width: 50px;
 	margin-left: 80px;
-	margin-right: 50px;
+	margin-right: 20rem;
 	cursor: pointer;
 
 	img {

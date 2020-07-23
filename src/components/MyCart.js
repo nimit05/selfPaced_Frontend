@@ -4,10 +4,60 @@ import bookcover from '../img/bookcover.jpg';
 import Base_Header from '../Hooks/Base_header';
 
 export default class MyCart extends React.Component {
+
+	constructor(props) {
+		super(props);
+
+		fetch('/api/user/Cart', {})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				if (data) {
+					this.setState(() => {
+						return {
+							Cart_Product: data,
+							count: data.length
+						};
+					});
+				}
+			});
+		this.state = {
+			Cart_Product: [],
+			count: 0
+		};
+	}
+
 	render() {
 		return (
-			<div>
-				<Heading />
+			<div className = "my_cart">
+				<div>
+					<Heading 
+					count = {this.state.count}
+				 	/> 
+				 </div>
+				<div>
+					<div className="content_div">
+						<div className="product_row_div">
+							{this.state.Cart_Product.map((product) => {
+								return (
+									<Product_cart
+										key={product.refrenceId}
+										title={product.title}
+										s_title={product.s_title}
+										Value={product.Value}
+										tag={product.tag}
+										refrenceId={product.refrenceId}
+										total={this.Total_Value}
+										bookimg={`/covers/${product.cover_img}`}
+									/>
+								);
+							})}
+						</div>
+						<div> 
+							<Payment_tab />
+						 </div>
+					</div>
+				</div>
 			</div>
 		);
 	}
@@ -153,63 +203,12 @@ class Payment_tab extends React.Component {
 }
 
 class Heading extends React.Component {
-	constructor(props) {
-		super(props);
-
-		fetch('/api/user/Cart', {
-			method: 'GET', // *GET, POST, PUT, DELETE, etc.
-			mode: 'cors', // no-cors, *cors, same-origin
-			cache: 'no-cache',
-			credentials: 'same-origin', // include, *same-origin, omit
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			redirect: 'follow', // manual, *follow, error
-			referrerPolicy: 'no-referrer'
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				if (data) {
-					this.setState(() => {
-						return {
-							Cart_Product: data,
-							count: data.length
-						};
-					});
-				}
-			});
-		this.state = {
-			Cart_Product: [],
-			count: 0
-		};
-	}
 
 	render() {
 		return (
 			<div>
 				<div className="heading_cart">
-					<h1 className="heading_left_cart">Your Cart({this.state.count})</h1>
-				</div>
-				<div className="content_div">
-					<Payment_tab />
-					<hr className="hidden_hr" />
-					<div className="product_row_div">
-						{this.state.Cart_Product.map((product) => {
-							return (
-								<Product_cart
-									key={product.refrenceId}
-									title={product.title}
-									s_title={product.s_title}
-									Value={product.Value}
-									tag={product.tag}
-									refrenceId={product.refrenceId}
-									total={this.Total_Value}
-									bookimg={`/covers/${product.cover_img}`}
-								/>
-							);
-						})}
-					</div>
+					<h1 className="heading_left_cart">Your Cart({this.props.count})</h1>
 				</div>
 			</div>
 		);
@@ -264,7 +263,6 @@ class Product_cart extends React.Component {
 					</div>
 				</div>
 				<br />
-				<hr className="hr_cart" />
 			</div>
 		);
 	}

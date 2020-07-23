@@ -99,7 +99,7 @@ export default class ProductPage extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className = "productPage">
 				<div className="main_body_pro_page">
 					<BookImg cover_img={this.state.cover_img} />
 					<Content
@@ -119,15 +119,15 @@ export default class ProductPage extends React.Component {
 						sample_file={this.state.sample_file}
 					/>
 				</div>
-				<hr />
+				<hr className = "hr_divider" />
 				<div className="review_pp_heading">
 					<h1>Reviews About Product</h1>
 					<button className="modal_btn" onClick={this.alugobi} id="post_btn">
 						Post your review
 					</button>
-					
-					{this.state.id && <Reviews pro_id={this.state.id} rating={this.state.rating} />}
-					
+					<div className = "review_view">
+						{this.state.id && <Reviews pro_id={this.state.id} rating={this.state.rating} />}
+						</div>
 				</div>
 
 				<Modal
@@ -195,8 +195,10 @@ export default class ProductPage extends React.Component {
 						</div>
 					</div>
 				</Modal>
-				<hr />
-				<CateCon />
+				<hr className = "hr_divider" />
+				<div className = "cart_catecon">
+					<CateCon />
+				</div>
 			</div>
 		);
 	}

@@ -73,7 +73,7 @@ export default class Productbox extends React.Component {
 							this.addToCart(this.props.refId);
 						}}
 						className="add_to_cart_btn"
-						style={c}
+						
 					>
 						{this.state.addedToCart ? 'Added To Cart' : 'Add To Cart'}
 					</button>

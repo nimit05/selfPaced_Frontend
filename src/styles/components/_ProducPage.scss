@@ -5,6 +5,7 @@
 	text-align: center;
 	display: block;
 	border: solid 1px rgb(173, 173, 173);
+	// border: solid black;
 	// margin-left: 6rem;
 }
 
@@ -12,10 +13,22 @@
 	height: 100%;
 }
 
+
+	.hr_divider{
+		width: 80rem;
+	}
+
+
+.cart_catecon{
+	padding: 0 20rem;
+}
+
 .Main_CT {
-	width: 50%;
+	width: 30rem;
 	font-size: 2rem;
-	padding: 4rem;
+	padding: 4rem 0;
+	margin-left: 5rem;
+	// border: solid black;
 }
 .author {
 	// color:;
@@ -56,6 +69,9 @@
 	justify-content: space-evenly;
 	margin-top: 100px;
 	margin-bottom: 100px;
+	// border: solid black;
+	padding: 0 20rem;
+
 }
 
 .comment_div {
@@ -69,6 +85,8 @@
 
 .review_pp_heading {
 	margin-left: 2rem;
+	// border: solid black;
+	padding: 0 20rem;
 }
 
 .pic_modal {
@@ -132,12 +150,18 @@
 	// border: solid black;
 	width: 100%;
 	margin: auto;
-
 	img {
 		height: 30px;
 		margin-right: 10px;
 	}
 }
+
+.review_view{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+}
+
 .revsec_con {
 	width: 100%;
 	display: flex;

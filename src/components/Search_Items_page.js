@@ -40,7 +40,7 @@ export default class Search_items extends React.Component {
 				<div className="heading_cart">
 					<h1 className="heading_left_cart">Search({this.state.products.length})</h1>
 				</div>
-				<div>
+				<div className = "SearchPage">
 					{this.state.products.length ? (
 						<div className="search_items">
 							{this.state.products.map((e) => {
@@ -75,10 +75,11 @@ export default class Search_items extends React.Component {
 				</div>
 				<br />
 				<br />
-				<hr className="hr_pro" />
-				<CateCon />
-				<CateCon />
-				<CateCon />
+				<hr className="hr_divider" />
+				<div className = "cart_catecon">
+					<CateCon />	
+				</div>
+			
 				<Base_Header />
 			</div>
 		);
