@@ -58,25 +58,22 @@
   }
 }
 
-#main_search_inp:focus {
+.main_search_inp:focus {
   outline: none;
 }
 
-#main_search_inp {
+.main_search_inp {
   width: 180px;
-  min-width: 180px;
   height: 25px;
   border-radius: 20px;
   background-color: #eeeeee;
   font-size: 0.84rem;
   color: rgb(54, 54, 54);
   padding-left: 10px;
-  background-image: url("../../img/search.svg");
-  background-repeat: no-repeat;
-  background-size: 70% 70%;
-  background-position: 175%;
   box-sizing: border-box;
   border: none;
+  transition: 0.05s;
+  text-align: center;
 }
 
 .cat_btn {
@@ -262,10 +259,21 @@ button:focus {
 .admin_panel {
   margin-top: 5rem;
 }
+#search_btn_header {
+  display: none;
+}
 
 @media screen and (max-width: 730px) {
   .user_btn_con {
     display: none;
+  }
+  #search_btn_header {
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    height: 25px;
+    transform: rotateY(180deg) rotateZ(6deg);
   }
 
   .header_cont {
@@ -274,8 +282,25 @@ button:focus {
   .header_left {
     left: 10px;
   }
-  #main_search_inp {
-    width: 10%;
+  .header_left_none {
+    display: none;
+  }
+  .main_search_inp {
+    width: 0px;
+    padding: 0px;
+  }
+  .main_search_inp_mob {
+    position: absolute;
+    right: 30px;
+    top: -18px;
+    width: 80vw;
+    border-radius: 0px;
+    height: 38px;
+    text-align: center;
+    transition: 0.5s;
+  }
+  .searchRe {
+    display: none;
   }
   .parent {
     transform: translateX(0px);
