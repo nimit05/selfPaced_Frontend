@@ -1,6 +1,7 @@
 .payment_tab {
     width: 25rem;
     min-width: 25rem;
+    margin-left: 3vw;
     border-radius: 10px;
     padding: 0 5rem;
     // border: solid black;
@@ -9,7 +10,9 @@
 .my_cart{
     display: flex;
     flex-direction: column;
-   
+   border: solid black;
+   width : 100%;
+   min-width: 80rem;
 }
 
 .content_div {
@@ -17,7 +20,7 @@
     flex-direction: row;
     justify-content: space-between;
     // border: solid black;
-    padding: 0 15rem;
+    padding: 0 10vw;
     
 }
 
@@ -40,7 +43,7 @@
 
 .heading_left_cart {
     //    float: left;
-    margin-left: 20rem;
+    margin-left: 10vw;
     margin-top: 50px;
 }
 
@@ -51,9 +54,9 @@
     align-items: center;
     width: 45rem;
     min-width: 40rem;
-    margin-left: 5rem;
+    margin-left: 5vw;
     border-bottom: 1px solid $l_grey_text;
-    // border: solid black;
+    border: solid black;
 }
 
 .product_img_cart {
@@ -70,7 +73,7 @@
     padding: 3rem 3rem;
     margin-left: 3vw;
     cursor: pointer;
-    //    border: solid black;
+       border: solid black;
 }
 
 .details_cart {

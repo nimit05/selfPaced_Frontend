@@ -39,7 +39,7 @@ export default class Product_cont extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className = "profuctCont">
 				
 				<div className="cont_for_product">
 					<h1>Fresh Arrivals</h1>
