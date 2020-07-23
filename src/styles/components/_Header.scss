@@ -207,6 +207,7 @@ button:focus {
 .tooltip {
   position: relative;
   display: inline-block;
+  max-width: 100px;
 }
 
 .tooltip .tooltiptext {
