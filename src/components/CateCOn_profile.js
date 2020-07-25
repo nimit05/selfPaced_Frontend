@@ -1,6 +1,5 @@
 import React from 'react';
 import bookcover from '../img/bookcover.jpg';
-import Productbox from './Productbox'
 // props to send to productbox are {1 title 2 tag 3 bookimg 4 stitle 5 short_des 6 price}
 
 export default class CateCon_for_profile extends React.Component {
@@ -34,7 +33,7 @@ export default class CateCon_for_profile extends React.Component {
 	}
 	render() {
 		return (
-			<div className="CateCon_profile">
+			<div className="CateCon">
 			
 				<div className="cate_body">
 					{this.state.proArray.map((e) => {
@@ -57,3 +56,37 @@ export default class CateCon_for_profile extends React.Component {
 }
 
 
+class Productbox extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			product_file: null
+		};
+	}
+
+	render() {
+		return (
+			<div className="productcont_for_profile">
+				<div className="tag_for_profile">
+					<strong>{this.props.tag}</strong>
+				</div>
+				<div
+					className="product_img"
+					onClick={() => {
+						window.location.href = `/productpage/${this.props.refId}`;
+					}}
+				>
+					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />
+				</div>
+				<div className="product_body_for_profile">
+					<h3>{this.props.title}</h3>
+					<h6>({this.props.stitle})</h6>
+					<p>{this.props.short_des}</p>
+					<h1>
+						{this.props.price} <span>coins</span>
+					</h1>
+				</div>
+			</div>
+		);
+	}
+}
