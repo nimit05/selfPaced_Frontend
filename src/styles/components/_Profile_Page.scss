@@ -2,11 +2,9 @@
 .profile_cont{
     border: 1px solid rgb(204, 204, 204);
     width: 20rem;
-    min-width: 18rem;
+    // min-width: 18rem;
     height: 25rem;
     border-radius: 20px;
-    // margin-left: 4rem;
-    // margin-right: 5rem;
     box-shadow: 0px 0px 20px rgba(90, 90, 90, 0.197);
     transition: 0.3s;
     img {
@@ -18,33 +16,37 @@
 }
 
 .profile_page{
-    margin-top: 6rem;
-    margin-left: 20rem;
+    margin-top: 4rem;
     display: flex;
     flex-direction: row;
-    // justify-content: space-evenly;
+    // border: solid black;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    // padding: 0 15%;
 }
 
 .profile_mode{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 15rem;
+    width: 15vw;
     padding: 0 2rem;
     align-items: left;
     height: 15rem;
-    // border: solid black;
 }
 
 .mode_head{
     color: $grey_text;
     font-size: 1.3rem;
+    width: 11rem;
     font-weight: 600;
     cursor: pointer;
 }
 
 .ProfileCard{
-    width: 50rem;
+    width: 45vw ;
+    min-width: 40rem;
     height: 42rem;
     border: 1px solid rgb(172, 172, 172);
     border-radius: 20px;
@@ -52,11 +54,11 @@
     box-shadow: 0px 0px 20px rgba(90, 90, 90, 0.197);
     font-family: Arial, Helvetica, sans-serif;
 
- 
 }
 
 .pink{
     color: $secondary;
+    width: 11rem;
     font-size: 1.3rem;
     font-weight: 600;
     cursor: pointer;
@@ -111,10 +113,11 @@
     align-items: center;
    margin-left: 3rem;
    margin-bottom: 1rem;
-    width:40rem;
+    width:40vw;
     .row_cont{
         width: 16rem;
-    
+        min-width: 16rem;
+        // border: solid black;
     }
 }
 
@@ -135,6 +138,8 @@
     color: black;
     font-size: 1.2rem;
     margin-left: 3px;
+    text-transform: unset
+
 }
 
 .trans_details_mob {
@@ -145,18 +150,17 @@
     width: 80%;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
+   
 
 }
 
 .items_cont {
-    // background-color: #e6e4e2;
     border: 1px solid rgb(172, 172, 172);
-    width: 57rem;
+    width: 53vw;
     min-width: 20rem;
     height: 28rem;
     box-shadow: 0px 0px 20px rgba(90, 90, 90, 0.197);
     border-radius: 20px;
-    // margin-bottom: 8;
     margin-right: 3rem;
 }
 
@@ -177,8 +181,8 @@
 }
 
 .transaction {
-    width: 55rem;
-    min-width: 45rem;
+    width: 55vw;
+    // min-width: 45rem;
     height: 20rem;
     border: 1px solid rgb(172, 172, 172);
     border-radius: 20px;
@@ -210,9 +214,7 @@
     display: flex;
     flex-direction: row;
     text-align: center;
-    border-bottom: 1px solid rgb(172, 172, 172);
-    border-width: 79%;
-    border-spacing: 1rem;
+ 
 }
 .user_pro_pic {
     // background-color: black;
@@ -260,17 +262,14 @@
     text-align: center;
     font-size: 1.1rem;
     margin-top: 0.8vw;
+    // border: solid black;
+    width: 8rem;
     //    margin-right: 1vw;
 }
 .heading_value {
-    // font-size: 1.2rem;
     color: $dark;
     display: inline;
     margin-left: 10px;
-    // width: 200px;
-    // float: right;
-    // margin-top: 0.5vw;
-    // background-color: #e6e4e2;
     border: transparent;
 }
 
@@ -353,163 +352,162 @@
 
 .graph_cont{
     height: 35rem;
-    width: 55rem;
+    width: 55vw;
+    min-width: 40rem;
     canvas {
         height: 30rem !important;
-        width: 50rem !important;
+        width: 50vw !important;
     }
     padding: 0 2rem;
 }
 
 @media screen and (max-width: 720px) {
-    .main_profile_page {
-        // margin-top: 3.2vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        // align-items: center;
-    }
 
-    #ProfileCard {
-        width: 90%;
-        min-width: 90%;
-        margin: auto;
-        margin-bottom: 3rem;
-        img {
-            // margin-left: 3vw;
-            height: 40px;
-            width: 40px;
-            cursor: pointer;
-        }
-    }
+ 
 
-    .info {
-        align-items: center;
-        padding: 5% 18%;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-    }
-    .items_cont {
-        background-color: unset;
-        border: unset;
-        width: 30rem;
-        min-width: 10rem;
-        height: 28rem;
-        border-radius: 20px;
-        // margin-bottom: 8;
-        margin-right: 3rem;
-    }
-    .user_pro_pic {
-        width: 40px;
+
+  .profile_cont{
+    border: none;
+    width: 100%;
+    height: unset;
+    box-shadow: none;
+    img {
+        // margin-left: 3vw;
         height: 40px;
-        // border: solid $dark;
-        border-radius: 50px;
-        margin-right: 1rem;
-    }
-    .edit {
-        color: $secondary;
-        font-size: 0.6rem;
+        width: 40px;
         cursor: pointer;
     }
-    .heading {
-        color: #898887;
-        margin-bottom: 3vw;
-        padding: 0 8%;
-        font-size: 1rem;
-    }
+    // border: solid black;
 
-    .details {
-        padding: 0.5vw;
-    }
+}
 
-    .user_name {
-        text-align: center;
-        font-size: 0.7rem;
-        margin-top: 0.8vw;
-        //    margin-right: 1vw;
-    }
-    .heading_value {
-        font-size: 0.9rem;
-        margin-top: 1.5vw;
-    }
+.user_name {
 
-    .log_out {
-        color: $secondary;
-        // margin-bottom: 1.4vw;
-        // margin-top: 2vw;
-        padding: 0 8%;
-        font-size: 1rem;
-        cursor: pointer;
-    }
-    .save:hover {
-        color: $secondary;
-        cursor: pointer;
-    }
-    .heading_mob_pp {
-        font-size: 1rem;
-    }
-    .see_mob_pp {
-        font-size: 0.5rem;
-        margin-left: 8vw;
-    }
-    .trans_row {
-        display: flex;
-        flex-direction: column;
-        // justify-content: space-evenly;
+    margin-top: 10px;
+    align-items: center;
+  
+}
+
+.info {
+    width: 79%;
+    // border: solid black;
+    padding: 0rem 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    // border: solid black;
+}
+
+.user_pro_pic {   
+    margin-right: 0rem;
+}
+
+.profile_mode{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 0 0rem;
+    align-items: unset;
+    height: unset;
+    // border: solid black;    
+}
+
+.mode_head{
+    font-size: 1rem;    
+    width: unset;
+
+}
+
+.profile_page{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0%;
+}
+
+.pink{
+    width: unset;
+    font-size: 1rem;
+}
+
+.profile_right_cont{
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.ProfileCard{
+    width: 80%;
+    min-width: unset;
+    height: 42rem;
+    border: unset;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    box-shadow: unset;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 3%;
+}
+
+.details_row{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    // border: solid black;
+    align-items: unset;
+   margin-left: 1rem;
+   margin-bottom: 1rem;
+    width:50%;
+    .row_cont{
+        width: unset;
+        min-width: unset;
         margin-bottom: 1rem;
-        margin-left: 2rem;
-    }
-
-    .transaction {
-        width: 22rem;
-        min-width: 20rem;
-        height: 20rem;
-        margin-left: auto;
-        margin-right: auto;
-        // margin: auto;
         // border: solid black;
-        border: none;
-        border-radius: 20px;
-        margin-bottom: 0rem;
-        h1 {
-            color: $dark;
-            margin-left: 1rem;
-            font-size: 1.4rem;
-        }
-        h3 {
-            font-size: 1rem;
-        }
     }
-    .trans_details {
-        display: none;
-    }
-    .trans_details_mob {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .trans_product_mob {
-        font-size: 1rem;
-        margin-left: 1rem;
-        width: 10rem;
-        font-weight: 550;
-        margin-top: 0rem;
-        // margin-right: 50%;
-    }
-    // .trans_Value_mob{
-    //     margin-left: 2rem;
-    // }
-    .trans_date_mob {
-        // margin-left: 1.5rem;
-        // margin-left: 2rem;
-        font-size: 0.6rem;
-        color: #898887;
+}
 
-        font-weight: 500;
+.details_subhead{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1rem;
+    padding: 1rem 1rem;
+    img{
+        height: 15px;
+        margin-left: 10px;
     }
-    .trans_minus_mob {
-        color: $secondary;
-    }
+
+}
+
+.items_cont {
+    border: none;
+    width: 80%;
+    min-width: unset;
+    height: unset;
+    box-shadow: unset;
+    border-radius: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0rem;
+    
+}
+
+.details_lab{
+    font-size: 1rem;
+}
+
+.sidebar{
+    width: 20rem;
+    position: absolute;
+    height: 30rem;
+    background-color: red;
+    opacity: 0.8;
+    transition: 1sec;
+}
+
 }

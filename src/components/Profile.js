@@ -5,6 +5,7 @@ import CateCon from './CateCon';
 import propic from '../img/propic.svg';
 import {Line} from 'react-chartjs-2';
 import edit from '../img/edit.svg'
+import Product_cont from './Product_cont';
 
 export default class Profile extends React.Component {
 
@@ -35,7 +36,8 @@ export default class Profile extends React.Component {
 		this.state = {
 			pro_img : null,
 			username : null,
-			mode : 'details'
+			mode : 'details',
+			sidebar : false
 		}
 	}
 	render() {
@@ -50,6 +52,7 @@ export default class Profile extends React.Component {
 							Nimit Wadhwa
 						</div>
 					</div>
+			
 					<div className = "profile_mode">
 						<div className = {this.state.mode === 'details' ? "pink" :"mode_head"} onClick = {() =>this.handleMode('details')} >
 							My Profile
@@ -103,7 +106,10 @@ class ProfileCard extends React.Component {
 							name: data.name,
 							coins: data.Coins,
 							pro_pic: data.pro_img,
-							Earnings: data.Earnings
+							Earnings: data.Earnings,
+							bio : data.bio,
+							College : data.College,
+							Quali : data.Qualification
 						};
 					});
 				}
@@ -115,6 +121,9 @@ class ProfileCard extends React.Component {
 			Address: null,
 			name: null,
 			coins: null,
+			bio : null ,
+			College : null,
+			Quali : null,
 			edited: false,
 			pro_pic: null,
 			Earnings: null,
@@ -127,9 +136,7 @@ class ProfileCard extends React.Component {
 	render() {
 		return (
 			<div className="ProfileCard">
-				<div className = "details_head">
-					My Profile
-				</div>
+		
 				<div className = "details_subhead">
 					<div>Personal Details :	</div>
 						<div className = "det_edit"onClick = {() => {
@@ -143,7 +150,14 @@ class ProfileCard extends React.Component {
 								{this.state.edit_p ? (<div>
 									Edit
 									</div>) :
-									 <div>
+									 <div onClick = {() => {
+										 let data = {
+											 name : document.getElementById('user_name').value,
+											 bio : document.getElementById('user_bio').value
+										 }
+
+										 postData('/api/user' , data)
+									 }}>
 									 	Save
 									 </div> }
 							</div>
@@ -170,7 +184,7 @@ class ProfileCard extends React.Component {
 						{this.state.edit_p ? 
 							(<div className = "details_value">{this.state.name}</div>) :
 							(<div className = "details_value">
-								<input type="text" defaultValue = {this.state.name} />
+								<input type="text" id = "user_name" defaultValue = {this.state.name} />
 							</div>) 
 						
 								}
@@ -180,11 +194,10 @@ class ProfileCard extends React.Component {
 				<div className = "row_cont_bio">
 					<div className = "details_lab">Bio</div>
 					{this.state.edit_p ?
-					(<div className = "details_value">Lorem Ipsum is simply dummy text of the 
-					printing and typesetting industry. Lorem Ipsum has been the industry's sta
-					ndard dummy text ever since the 1500s, when an unknown printer took a galle
+					(<div className = "details_value">
+						{this.state.bio}
 					</div>) :
-					(<div className = "details_value"><textarea /> </div>) }
+					(<div className = "details_value"><textarea id = "user_bio" defaultValue = {this.state.bio} /> </div>) }
 				</div>
 				</div>
 				<div className = "details_subhead">
@@ -200,7 +213,14 @@ class ProfileCard extends React.Component {
 								{this.state.edit_ed ? (<div>
 									Edit
 									</div>) :
-									 <div>
+									 <div onClick = {() => {
+										let data = {
+											College : document.getElementById('user_college').value,
+											Qualification : document.getElementById('user_quali').value
+										}
+
+										postData('/api/user' , data)
+									}}>
 									 	Save
 									 </div> }
 							</div>
@@ -212,11 +232,15 @@ class ProfileCard extends React.Component {
 					<div className = "details_row">
 					<div className = "row_cont">
 						<div className = "details_lab">College</div>
-						<div className = "details_value_email">DCRUST,Murthal</div>
+						{this.state.edit_ed ? (<div className = "details_value_email">{this.state.College}</div>) :
+							(<div className = "details_value_email"><input type = "text" defaultValue = {this.state.College}
+							 id = "user_college" /> </div>)}
 					</div>
 					<div className = "row_cont">
 						<div className = "details_lab">Qualification</div>
-						<div className = "details_value">Electrical Engineer</div>
+						{this.state.edit_ed ? (<div className = "details_value_email">{this.state.Quali}</div>) :
+							(<div className = "details_value_email"><input type = "text" defaultValue = {this.state.Quali}
+							 id = "user_quali" /> </div>)}
 					</div>
 				</div>
 
@@ -232,10 +256,18 @@ class ProfileCard extends React.Component {
 							<div>
 								{this.state.edit_c ? (<div>
 									Edit
-									</div>) :
-									 <div>
+									</div>) :(
+									 <div onClick = {() => {
+										let data = {
+											email : document.getElementById('user_email').value,
+											phone_Number : document.getElementById('user_ph').value,
+											Address : document.getElementById('user_add').value
+										}
+
+										postData('/api/user' , data)
+									}}>
 									 	Save
-									 </div> }
+									 </div> ) }
 							</div>
 							<div>
 								{this.state.edit_c && <img src = {edit} /> }
@@ -246,9 +278,9 @@ class ProfileCard extends React.Component {
 					<div className = "row_cont">
 						<div className = "details_lab">Email</div>
 						{this.state.edit_c ? 
-							(<div className = "details_value">{this.state.email}</div>) :
+							(<div className = "details_value_email">{this.state.email}</div>) :
 							(<div className = "details_value">
-								<input type="text" defaultValue = {this.state.email} />
+								<input type="text" defaultValue = {this.state.email} id="user_email" />
 							</div>) 
 						
 								}
@@ -258,7 +290,7 @@ class ProfileCard extends React.Component {
 						{this.state.edit_c ? 
 							(<div className = "details_value">{this.state.phone_Number}</div>) :
 							(<div className = "details_value">
-								<input type="text" defaultValue = {this.state.phone_Number} />
+								<input type="text" defaultValue = {this.state.phone_Number} id="user_ph" />
 							</div>) 
 						
 								}					
@@ -270,7 +302,7 @@ class ProfileCard extends React.Component {
 						{this.state.edit_c ? 
 							(<div className = "details_value">{this.state.Address}</div>) :
 							(<div className = "details_value">
-								<input type="text" defaultValue = {this.state.Address} />
+								<input type="text" defaultValue = {this.state.Address} id="user_add" />
 							</div>) 
 						
 								}
@@ -406,5 +438,6 @@ async function postData(url = '', data = {}) {
 		referrerPolicy: 'no-referrer',
 		body: JSON.stringify(data) // body data type must match "Content-Type" header
 	});
+	window.location.reload()
 	return response.json(); // parses JSON response into native JavaScript objects
 }

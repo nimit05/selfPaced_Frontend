@@ -226,7 +226,7 @@ class Product_cart extends React.Component {
 	}
 	render() {
 		return (
-			<div className="product_cart_cont">
+			
 				<div className="product_cart">
 					<div
 						className="img_cart"
@@ -262,8 +262,7 @@ class Product_cart extends React.Component {
 						</div>
 					</div>
 				</div>
-				<br />
-			</div>
+			
 		);
 	}
 }
