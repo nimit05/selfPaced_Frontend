@@ -1,177 +1,188 @@
 .productcont {
-	width: 270px;
-	height: 350px;
-	box-shadow: 5px 5px 20px #cccccc;
-	border: solid 1px rgb(218, 218, 218);
-	margin: auto 18px;
-	// margin-top: ;
-	display: none;
-	overflow: hidden;
-	box-sizing: border-box;
-	padding: 0px;
-	text-align: center;
-	background-color: white;
-	transition: 0.2s;
+  width: 270px;
+  height: 350px;
+  box-shadow: 5px 5px 20px #cccccc;
+  border: solid 1px rgb(218, 218, 218);
+  margin: auto 18px;
+  // margin-top: ;
+  display: none;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0px;
+  text-align: center;
+  background-color: white;
+  transition: 0.2s;
 }
 
 .productcont_for_profile {
-	width: 170px;
-	height: 240px;
-	box-shadow: 5px 5px 20px #cccccc;
-	border: solid 1px rgb(218, 218, 218);
-	margin: auto 35px;
-	// margin-top: ;
-	display: inline-block;
-	overflow: hidden;
-	box-sizing: border-box;
-	padding: 0px;
-	text-align: center;
-	background-color: white;
-	transition: 0.2s;
+  width: 170px;
+  height: 240px;
+  box-shadow: 5px 5px 20px #cccccc;
+  border: solid 1px rgb(218, 218, 218);
+  margin: auto 35px;
+  // margin-top: ;
+  display: inline-block;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0px;
+  text-align: center;
+  background-color: white;
+  transition: 0.2s;
 }
 
 .productcont:hover {
-	box-shadow: 1px 1px 8px #cccccc;
+  box-shadow: 1px 1px 8px #cccccc;
 }
 
 .product_img {
-	// margin-top: -14px;
-	height: calc(60% - 14px);
-	text-align: center;
-	cursor: pointer;
+  // margin-top: -14px;
+  height: calc(60% - 14px);
+  text-align: center;
+  cursor: pointer;
 }
 
 .good {
-	color: $primary;
+  color: $primary;
 }
 
 .tag {
-	position: relative;
-	margin: 0px;
-	height: 15px;
-	top: 28px;
-	left: -100px;
-	font-size: 12px;
-	background-color: $secondary;
-	text-align: center;
-	transform: rotateZ(-45deg);
-	z-index: 10;
-	box-shadow: 1px 1px 10px rgb(204, 204, 204);
+  position: relative;
+  margin: 0px;
+  height: 15px;
+  top: 28px;
+  left: -100px;
+  font-size: 12px;
+  background-color: $secondary;
+  text-align: center;
+  transform: rotateZ(-45deg);
+  z-index: 10;
+  box-shadow: 1px 1px 10px rgb(204, 204, 204);
 }
 .tag_for_profile {
-	position: relative;
-	margin: 0px;
-	height: 10px;
-	top: 12px;
-	left: -70px;
-	font-size: 8px;
-	background-color: $secondary;
-	text-align: center;
-	transform: rotateZ(-45deg);
-	z-index: 7;
-	box-shadow: 1px 1px 10px rgb(204, 204, 204);
+  position: relative;
+  margin: 0px;
+  height: 10px;
+  top: 12px;
+  left: -70px;
+  font-size: 8px;
+  background-color: $secondary;
+  text-align: center;
+  transform: rotateZ(-45deg);
+  z-index: 7;
+  box-shadow: 1px 1px 10px rgb(204, 204, 204);
 }
 .bookcover {
-	max-height: 100%;
-	max-width: 100%;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .product_body {
-	padding: 0px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 40%;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40%;
 
-	h3 {
-		// font-family: "Balsamiq Sans", cursive;
-		font-family: Arial, Helvetica, sans-serif;
-		color: rgb(66, 66, 66);
-		margin: 8px 4px;
-	}
+  h3 {
+    // font-family: "Balsamiq Sans", cursive;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(66, 66, 66);
+    margin: 8px auto;
+    width: 80%;
+    display: block;
+    white-space: nowrap;
+    text-overflow: "-";
+    overflow: hidden;
+  }
 
-	p {
-		// border: solid 1px black;
-		white-space: wrap !important;
-		overflow: hidden;
-		width: 80%;
-		font-family: Georgia, 'Times New Roman', Times, serif;
-		color: rgb(85, 85, 85);
-		margin: 0px auto;
-		font-size: 12px;
-	}
+  p {
+    // border: solid 1px black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: "ellipsis";
+    width: 80%;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: rgb(85, 85, 85);
+    margin: 0px auto;
+    font-size: 12px;
+  }
 
-	h1 {
-		margin: 5px;
-		color: $secondary;
+  h6 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: "ellipsis";
+  }
+  h1 {
+    margin: 5px;
+    color: $secondary;
 
-		span {
-			font-size: 1.5rem;
-		}
-	}
+    span {
+      font-size: 1.5rem;
+    }
+  }
 
-	button {
-		height: 34px;
-		color: white;
-		background-color: $secondary;
-		font-size: 18px;
-		width: 100%;
-		margin: 0px;
-	}
+  button {
+    height: 34px;
+    color: white;
+    background-color: $secondary;
+    font-size: 18px;
+    width: 100%;
+    margin: 0px;
+  }
 
-	h6 {
-		margin: 0px;
-		margin-top: -8px;
-		color: gray;
-	}
+  h6 {
+    margin: 0px;
+    margin-top: -8px;
+    color: gray;
+  }
 }
 
 .product_body_for_profile {
-	padding: 0px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 40%;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40%;
 
-	h3 {
-		// font-family: "Balsamiq Sans", cursive;
-		font-family: "Roboto Mono", monospace;
-		color: rgb(66, 66, 66);
-		margin: 8px 4px;
-	}
+  h3 {
+    // font-family: "Balsamiq Sans", cursive;
+    font-family: "Roboto Mono", monospace;
+    color: rgb(66, 66, 66);
+    margin: 8px 4px;
+  }
 
-	p {
-		// border: solid 1px black;
-		white-space: wrap !important;
-		overflow: hidden;
-		width: 80%;
-		font-family: "Balsamiq Sans", cursive;
-		color: rgb(85, 85, 85);
-		margin: 0px auto;
-		font-size: 9px;
-	}
+  p {
+    // border: solid 1px black;
+    white-space: wrap !important;
+    overflow: hidden;
+    width: 80%;
+    font-family: "Balsamiq Sans", cursive;
+    color: rgb(85, 85, 85);
+    margin: 0px auto;
+    font-size: 9px;
+  }
 
-	h1 {
-		margin: 5px;
-		color: $secondary;
-		font-size: 1rem;
-		span {
-			font-size: 1rem;
-		}
-	}
+  h1 {
+    margin: 5px;
+    color: $secondary;
+    font-size: 1rem;
+    span {
+      font-size: 1rem;
+    }
+  }
 
-	button {
-		height: 34px;
-		color: white;
-		background-color: $secondary;
-		font-size: 12px;
-		width: 100%;
-		margin: 0px;
-	}
+  button {
+    height: 34px;
+    color: white;
+    background-color: $secondary;
+    font-size: 12px;
+    width: 100%;
+    margin: 0px;
+  }
 
-	h6 {
-		margin: 0px;
-		margin-top: -8px;
-		color: gray;
-	}
+  h6 {
+    margin: 0px;
+    margin-top: -8px;
+    color: gray;
+  }
 }
