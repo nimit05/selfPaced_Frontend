@@ -62,15 +62,21 @@ export default class MyCart extends React.Component {
 								);
 							})}
 						</div>
+						{this.state.Cart_Product.length != 0 && (
 							<div className = "grand_total">
 								<div className="details_cart">
 									<div className="img_cart">
 									</div>
 
 								<div className = "book_title_cart">
+									<div className="type_product_cart_mob">
+										Grand Total : 
+										<div className="cart_product_price_mob price_tot" >{this.cartTotal()} coins</div>
+									</div>
+
 								</div>
 								
-								<div className="type_product_total">
+								<div className="type_product_cart">
 									Grand Total :
 								</div>
 
@@ -82,7 +88,9 @@ export default class MyCart extends React.Component {
 							>
 							</div>
 						</div>
+					
 									</div>
+						)}
 						<div> 
 							
 						 </div>
@@ -233,7 +241,6 @@ class Product_cart extends React.Component {
 							>
 								<img className="product_img_cart" src={this.props.bookimg} alt=" " />
 							</div>
-
 							<div className = "book_title_cart"
 								onClick={() => {
 									window.location.href = `/productpage/${this.props.refrenceId}`;
@@ -241,12 +248,28 @@ class Product_cart extends React.Component {
 							>
 								{this.props.title}
 								<h6>{this.props.s_title}</h6>
+								
+								
+								<div className="type_product_cart_mob">
+									Type : <span className="type_value">{this.props.tag}</span>
+								</div>
+								<br />
+								<div className="cart_product_price_mob"><span className = "price_mob">Price : </span>{this.props.Value} coins</div>
+								<br />
+								<div
+									className="btn_cart_div_mob"
+									onClick={() => {
+									this.RemoveFromcart(this.props.refrenceId);
+									}}
+									>
+										<button className = "cart_remove_button" >Remove</button>
+							</div>
 							</div>
 							
 							<div className="type_product_cart">
 								Type : <span className="type_value">{this.props.tag}</span>
 							</div>
-
+							
 							<div className="cart_product_price">{this.props.Value} coins</div>
 					
 
@@ -258,8 +281,8 @@ class Product_cart extends React.Component {
 						>
 							<img className = 'cart_remove_button' src = {cancel} />
 						</div>
+						</div>
 					</div>
-				</div>
 		);
 	}
 }
