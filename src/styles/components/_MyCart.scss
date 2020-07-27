@@ -78,7 +78,7 @@
 .img_cart {
     width: 6rem;
     min-width: 6rem;
-    margin-right: 1rem;
+    // margin-right: 1rem;
     // border: solid black;
     cursor: pointer;
       img{
@@ -178,6 +178,9 @@
 .btn_cart_div_mob{
     display: none;
 }
+.low_head_mob{
+    display: none;
+}
 
 @media screen and (max-width: 720px) {
 
@@ -208,14 +211,7 @@
     }
 
     .check_head{
-        margin-right: 1rem;
-        button{
-            padding: 4px 16px;
-            background-color: $secondary;
-            color: $light;
-            font-size: 1.1rem;
-            border-radius: 10px;
-        }
+        display: none;
     }
 
     .details_cart {
@@ -224,7 +220,7 @@
         font-size: 1.5rem;
       .book_title_cart{
           font-size: 1.1rem;
-        
+          margin-left: 1rem;
         //   border: solid black;
           width: 15rem;
     
@@ -267,12 +263,13 @@
 
     .cart_product_price_mob{
         display: unset;
-        font-size: 1rem;
+        font-size: 1.2rem;
         color: $secondary;
+        font-weight: 600;
         // border: solid black;
         width: 8rem;
         .price_mob{
-            color: black;
+            // color: black;
             font-weight: 400;
 
         }
@@ -284,6 +281,31 @@
 
     .price_tot{
         margin-left: 8px;
+    }
+    .low_head_mob{
+        height: 50px;
+        font-family: "Times New Roman", Times, serif;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        // border: solid black;
+            color: $dark;
+        margin-bottom: 1vw;
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .check_head_mob{
+        margin-right: 1rem;
+        button{
+            padding: 4px 16px;
+            background-color: $secondary;
+            color: $light;
+            font-size: 1.1rem;
+            border-radius: 10px;
+        }
     }
 }
 

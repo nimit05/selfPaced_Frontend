@@ -42,6 +42,7 @@ export default class MyCart extends React.Component {
 				<div>
 					<Heading 
 					count = {this.state.count}
+					cartTotal = {this.cartTotal}
 				 	/> 
 				 </div>
 				<div>
@@ -69,11 +70,6 @@ export default class MyCart extends React.Component {
 									</div>
 
 								<div className = "book_title_cart">
-									<div className="type_product_cart_mob">
-										Grand Total : 
-										<div className="cart_product_price_mob price_tot" >{this.cartTotal()} coins</div>
-									</div>
-
 								</div>
 								
 								<div className="type_product_cart">
@@ -115,17 +111,7 @@ class Heading extends React.Component {
 			coins: null
 		};
 
-		fetch('/api/user/Cart', {
-			method: 'GET', // *GET, POST, PUT, DELETE, etc.
-			mode: 'cors', // no-cors, *cors, same-origin
-			cache: 'no-cache',
-			credentials: 'same-origin', // include, *same-origin, omit
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			redirect: 'follow', // manual, *follow, error
-			referrerPolicy: 'no-referrer'
-		})
+		fetch('/api/user/Cart')
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -138,17 +124,7 @@ class Heading extends React.Component {
 				}
 			});
 
-		fetch('/api/user', {
-			method: 'GET', // *GET, POST, PUT, DELETE, etc.
-			mode: 'cors', // no-cors, *cors, same-origin
-			cache: 'no-cache',
-			credentials: 'same-origin', // include, *same-origin, omit
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			redirect: 'follow', // manual, *follow, error
-			referrerPolicy: 'no-referrer'
-		})
+		fetch('/api/user')
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -213,6 +189,27 @@ class Heading extends React.Component {
 						}}>Checkout</button>
 					</div>
 				</div>
+				<div className = "low_head_mob">
+					<div className="cart_product_price_mob price_tot" >{this.props.cartTotal()} coins</div>
+					<div className = "check_head_mob">
+						<button onClick={() => {
+							if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
+								alert('Insufficient Balance');
+							}
+							else{
+							let data = {
+								coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
+							};
+							postData2('/api/user/CheckoutFromCart', data).then((data) => {
+								if (!data) {
+									alert('error occured');
+								}
+							});
+						}
+
+						}}>Checkout</button>
+				</div>
+				</div>
 			</div>
 		);
 	}
@@ -241,12 +238,10 @@ class Product_cart extends React.Component {
 							>
 								<img className="product_img_cart" src={this.props.bookimg} alt=" " />
 							</div>
-							<div className = "book_title_cart"
-								onClick={() => {
+							<div className = "book_title_cart">
+								<span onClick={() => {
 									window.location.href = `/productpage/${this.props.refrenceId}`;
-								}}
-							>
-								{this.props.title}
+								}} >{this.props.title}</span>
 								<h6>{this.props.s_title}</h6>
 								
 								
@@ -254,7 +249,8 @@ class Product_cart extends React.Component {
 									Type : <span className="type_value">{this.props.tag}</span>
 								</div>
 								<br />
-								<div className="cart_product_price_mob"><span className = "price_mob">Price : </span>{this.props.Value} coins</div>
+								<div className="cart_product_price_mob"><span className = "price_mob">
+									Price : </span>{this.props.Value} coins</div>
 								<br />
 								<div
 									className="btn_cart_div_mob"
