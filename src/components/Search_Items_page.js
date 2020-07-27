@@ -20,6 +20,9 @@ export default class Search_items extends React.Component {
 				});
 			}
 		});
+	}
+
+	componentDidMount() {
 		const { name } = this.props.match.params;
 
 		fetch(`/api/products/search/${name}`).then((res) => res.json()).then((data) => {
@@ -32,15 +35,13 @@ export default class Search_items extends React.Component {
 			}
 		});
 	}
-
-	componentDidMount() {}
 	render() {
 		return (
 			<div>
-				<div className="heading_cart">
-					<h1 className="heading_left_cart">Search({this.state.products.length})</h1>
+				<div className="heading_search">
+					<h1 className="heading_left_search">Search({this.state.products.length})</h1>
 				</div>
-				<div className = "SearchPage">
+				<div >
 					{this.state.products.length ? (
 						<div className="search_items">
 							{this.state.products.map((e) => {
@@ -55,10 +56,10 @@ export default class Search_items extends React.Component {
 
 								return (
 									<Productbox
-										title={e.title}
+										title={e.BookName}
 										tag={e.tag}
-										stitle={e.s_title}
-										short_des={e.short_des}
+										stitle={e.BookAuthor}
+										short_des={e.Edition}
 										price={e.Value}
 										refId={e.refrenceId}
 										isAdded={isadded}
@@ -75,11 +76,10 @@ export default class Search_items extends React.Component {
 				</div>
 				<br />
 				<br />
-				<hr className="hr_divider" />
-				<div className = "cart_catecon">
-					<CateCon />	
-				</div>
-			
+				<hr className="hr_pro" />
+				<CateCon />
+				<CateCon />
+				<CateCon />
 				<Base_Header />
 			</div>
 		);

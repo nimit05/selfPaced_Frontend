@@ -24,6 +24,22 @@
 .search_error {
     font-size: 1.5rem;
 }
+
+.heading_search{
+     // background-color: $blur;
+     height: 50px;
+     font-family: "Times New Roman", Times, serif;
+     width: 95%;
+     margin-left: auto;
+     margin-right: auto;
+     // border: solid black;
+     margin-top: 4rem;
+     color: $dark;
+     margin-bottom: 1vw;
+     font-size: 1.2rem;
+   
+}
+
 @media screen and (max-width: 720px) {
     .search_items {
         display: flex;
