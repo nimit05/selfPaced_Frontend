@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     // border: solid black;
-    width : 65%;
+    width : 100%;
     min-width: 50rem;
 
     margin-right: auto;
@@ -23,7 +23,9 @@
     // background-color: $blur;
     height: 50px;
     font-family: "Times New Roman", Times, serif;
-    width: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     // border: solid black;
     margin-top: 4rem;
     color: $dark;
@@ -58,14 +60,15 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 90%;
     // min-width: 60rem;
     border-top: 1px solid $l_grey_text;
     border-bottom: 1px solid $l_grey_text;
     // border: solid black;
     height: 150px;
     padding: 1rem 0;
-
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn_cart_div{
@@ -112,7 +115,9 @@
 }
 
 .grand_total{
-    width: 100%;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
     // border: solid black;
 
     .grand_val{
