@@ -1,15 +1,11 @@
-.payment_tab {
-    width: 25vw;
-    border-radius: 10px;
-    // border: solid black;
-    padding: 0 2rem;
-}
 
 .my_cart{
     display: flex;
     flex-direction: column;
     // border: solid black;
     width : 65%;
+    min-width: 50rem;
+
     margin-right: auto;
     margin-left: auto;
 
@@ -17,11 +13,9 @@
 
 .content_div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    // border: solid black;
-    // padding: 0 10vw;
-    
+
 }
 
 
@@ -30,76 +24,110 @@
     height: 50px;
     font-family: "Times New Roman", Times, serif;
     width: 100%;
-    margin-top: 3rem;
+    // border: solid black;
+    margin-top: 4rem;
     color: $dark;
-    margin-bottom: 1.4vw;
+    margin-bottom: 1vw;
     font-size: 1.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.check_head{
+    margin-right: 4rem;
+    button{
+        padding: 10px 20px;
+        background-color: $secondary;
+        color: $light;
+        font-size: 1.5rem;
+        border-radius: 10px;
+    }
 }
 
 .product_row_div {
-    width: 70rem;
-    min-width: 40rem;
+    width: 100%;
+    // min-width: 40rem;
 }
 
-.heading_left_cart {
-    //    float: left;
-    margin-left: 10vw;
-    margin-top: 50px;
-}
+
 
 .product_cart {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    width: 80%;
-    // min-width: 40rem;
+    width: 100%;
+    // min-width: 60rem;
+    border-top: 1px solid $l_grey_text;
     border-bottom: 1px solid $l_grey_text;
     // border: solid black;
-}
-
-.product_img_cart {
-
-    // border: solid black;
     height: 150px;
-    width: 100%
+    padding: 1rem 0;
+
 }
+
+.btn_cart_div{
+    width: 5rem;
+}
+
 
 .img_cart {
-    width: 10rem;
-    padding: 3rem 3rem;
+    width: 6rem;
+    min-width: 6rem;
+    margin-right: 1rem;
+    // border: solid black;
     cursor: pointer;
-    //    border: solid black;
+      img{
+        height: 130px;
+        width: 100%;
+    }
 }
 
 .details_cart {
-    width: 20rem;
-    min-width: 10rem;
-    padding: 2rem;
-    height : 13rem;
+    width: 100%;
+    padding: 10px;
     box-sizing: border-box;
     display: block;
     color: $dark;
     font-size: 1.5rem;
     // border: solid black;
     font-weight: 600;
-    // margin-bottom: 1rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 
-    h3 {
-        cursor: pointer;
-    }
+  .book_title_cart{
+      font-size: 1.4rem;
+    //   border: solid black;
+      width: 20rem;
+
+  }
     h3,
     h6 {
         margin: 5px;
     }
 }
 
+.grand_total{
+    width: 100%;
+    // border: solid black;
+
+    .grand_val{
+        margin-left: 1rem;
+        font-size: 1.5rem;
+        color: $secondary;
+        font-weight: 600;
+    }
+}
+
 .cart_product_price {
-    margin-bottom: 4.5vw;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: $secondary;
-    // padding: 10rem 10rem;
-    // margin-left: 25vw;
+    // border: solid black;
+    width: 10rem;
 }
 
 .cart_row_wise {
@@ -114,41 +142,34 @@
 }
 
 .type_product_cart {
-    margin-top: 0.4vw;
+    width: 10rem;
     font-size: 1.2rem;
+    // border: solid black;
+}
+.type_product_total {
+    width: 10rem;
+    font-size: 1.2rem;
+    // text-align: right;
+    // border: solid black;
 }
 .type_value {
     font-size: 1.1rem;
     color: $secondary;
 }
 .cart_remove_button {
-    height: 1.8rem;
+    height: 1.5rem;
     width: 6rem;
-    background-color: $secondary;
-    color: $light;
+    cursor: pointer;
 }
 
-.btn_cart_div {
-    margin-top: 0.6vw;
-}
+
 .hr_cart {
     color: $light;
     max-width: 50rem;
     margin-left: 0;
 }
 
-.payment_tab_heading {
-    font-size: 2.5rem;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-.payment_promo {
-    font-size: 1.1rem;
-    width: 90%;
-    height: 1.5vw;
-    border: 1px solid rgb(172, 172, 172);
-    padding: 5px 5%;
-    margin-top: 0.8vw;
-}
+
 .title_div {
     margin-top: 1vw;
     font-size: 1.3rem;

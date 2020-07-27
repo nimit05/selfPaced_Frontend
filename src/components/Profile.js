@@ -46,7 +46,7 @@ export default class Profile extends React.Component {
 				<div className = "profile_cont" >
 					<div className="info">
 						<div className="user_pro_pic">
-							<img id="pro_pic" src={this.state.pro_pic ? this.state.pro_img : propic} alt=" " />
+							<img id="pro_pic" src={this.state.pro_pic ? this.state.pro_img	 : propic} alt=" " />
 						</div>
 						<div className="user_name">
 							{this.state.username}

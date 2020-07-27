@@ -2,8 +2,17 @@ import React from 'react';
 import Header from './Header';
 import bookcover from '../img/bookcover.jpg';
 import Base_Header from '../Hooks/Base_header';
+import cancel from '../img/cancel.svg'
 
 export default class MyCart extends React.Component {
+
+	cartTotal = () => {
+		let t = 0 
+		this.state.Cart_Product.map(e => {
+			t = parseInt(t) + parseInt(e.Value)
+		})
+		return t;
+	}
 
 	constructor(props) {
 		super(props);
@@ -47,14 +56,35 @@ export default class MyCart extends React.Component {
 										Value={product.Value}
 										tag={product.tag}
 										refrenceId={product.refrenceId}
-										total={this.Total_Value}
 										bookimg={`/covers/${product.cover_img}`}
+
 									/>
 								);
 							})}
 						</div>
+							<div className = "grand_total">
+								<div className="details_cart">
+									<div className="img_cart">
+									</div>
+
+								<div className = "book_title_cart">
+								</div>
+								
+								<div className="type_product_total">
+									Grand Total :
+								</div>
+
+								<div className="cart_product_price">{this.cartTotal()} coins</div>
+						
+
+							<div
+							className="btn_cart_div"
+							>
+							</div>
+						</div>
+									</div>
 						<div> 
-							<Payment_tab />
+							
 						 </div>
 					</div>
 				</div>
@@ -63,7 +93,10 @@ export default class MyCart extends React.Component {
 	}
 }
 
-class Payment_tab extends React.Component {
+
+
+class Heading extends React.Component {
+
 	constructor(props) {
 		super(props);
 
@@ -148,67 +181,29 @@ class Payment_tab extends React.Component {
 
 	render() {
 		return (
-			<div className="payment_tab">
-				<div className="payment_tab_heading">ORDER SUMMARY</div>
-				<hr />
-				<div>
-					<input placeholder="HAVE A PROMOCODE?" type="text" className="payment_promo" />
-				</div>
-				<div className="prod_det">
-					{this.state.Cart_Product.map((product) => {
-						return <Title_div title={product.title} Value={product.Value} cover_img={product.cover_img} />;
-					})}
-				</div>
-
-				<hr />
-				<div>
-					<div className="title_tab_total">
-						Total Value
-						<div className="title_ab_total_value">${this.Total_Value(this.state.Cart_Product)}</div>
-					</div>
-					<div className="user_coins">
-						Your Coins
-						<span className="user_coins_value"> ${this.state.coins}</span>
-					</div>
-					<div className="checkout_div">
-						<button
-							className="checkout_btn"
-							onClick={() => {
-								if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
-									alert('Insufficient Balance');
-								}
-								else{
-								let data = {
-									coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
-								};
-								postData2('/api/user/CheckoutFromCart', data).then((data) => {
-									if (!data) {
-										alert('error occured');
-									}
-								});
-							}
-
-							}}
-						>
-							Proceed To Checkout
-						</button>
-					</div>
-							{/*<div className="checkout_div">
-						<button className="checkout_btn_pay">Pay with PayTM</button>
-				</div>*/}
-				</div>
-			</div>
-		);
-	}
-}
-
-class Heading extends React.Component {
-
-	render() {
-		return (
 			<div>
 				<div className="heading_cart">
-					<h1 className="heading_left_cart">Your Cart({this.props.count})</h1>
+					<div>
+						<h1 className="heading_left_cart">Items({this.props.count})</h1>
+					</div>
+					<div className = "check_head">
+						<button onClick={() => {
+							if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
+								alert('Insufficient Balance');
+							}
+							else{
+							let data = {
+								coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
+							};
+							postData2('/api/user/CheckoutFromCart', data).then((data) => {
+								if (!data) {
+									alert('error occured');
+								}
+							});
+						}
+
+						}}>Checkout</button>
+					</div>
 				</div>
 			</div>
 		);
@@ -226,43 +221,45 @@ class Product_cart extends React.Component {
 	}
 	render() {
 		return (
-			
 				<div className="product_cart">
-					<div
-						className="img_cart"
-						onClick={() => {
-							window.location.href = `/productpage/${this.props.refrenceId}`;
-						}}
-					>
-						<img className="product_img_cart" src={this.props.bookimg} alt=" " />
-					</div>
 
 					<div className="details_cart">
-						<h3
-							onClick={() => {
-								window.location.href = `/productpage/${this.props.refrenceId}`;
-							}}
-						>
-							{this.props.title}
-						</h3>
-						<h6>{this.props.s_title}</h6>
-						<span />
 
-						<div className="type_product_cart">
-							Type : <span className="type_value">{this.props.tag}</span>
-						</div>
-						<div className="cart_product_price_mob">${this.props.Value}</div>
+								<div
+								className="img_cart"
+								onClick={() => {
+									window.location.href = `/productpage/${this.props.refrenceId}`;
+								}}
+							>
+								<img className="product_img_cart" src={this.props.bookimg} alt=" " />
+							</div>
+
+							<div className = "book_title_cart"
+								onClick={() => {
+									window.location.href = `/productpage/${this.props.refrenceId}`;
+								}}
+							>
+								{this.props.title}
+								<h6>{this.props.s_title}</h6>
+							</div>
+							
+							<div className="type_product_cart">
+								Type : <span className="type_value">{this.props.tag}</span>
+							</div>
+
+							<div className="cart_product_price">{this.props.Value} coins</div>
+					
+
 						<div
 							className="btn_cart_div"
 							onClick={() => {
 								this.RemoveFromcart(this.props.refrenceId);
 							}}
 						>
-							<button className="cart_remove_button">Remove</button>
+							<img className = 'cart_remove_button' src = {cancel} />
 						</div>
 					</div>
 				</div>
-			
 		);
 	}
 }
