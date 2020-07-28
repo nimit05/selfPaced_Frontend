@@ -12,7 +12,7 @@
   z-index: 100;
   box-shadow: 0px 0px 20px rgba(131, 131, 131, 0.2);
   box-sizing: border-box;
-  padding: 0px 15vw;
+  padding: 0px 8vw;
 }
 .gbtn {
   border-radius: 20px !important;
@@ -36,7 +36,7 @@
 .header_left {
   position: absolute;
   top: 0px;
-  left: 15vw;
+  left: 1vw;
   cursor: pointer;
   img {
     object-fit: cover;
@@ -243,6 +243,7 @@ button:focus {
   width: 170px;
   z-index: 15000;
   border-bottom: solid 1px rgb(175, 175, 175);
+  display: none;
 
   li {
     border: solid 1px rgb(175, 175, 175);

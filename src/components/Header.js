@@ -9,6 +9,7 @@ import money from "../img/money.svg";
 import OutsideAlerter from "../Hooks/OutsideAlerter";
 import { GoogleLogin } from "react-google-login";
 import magni from "../img/search.svg";
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   findName = () => {
@@ -124,14 +125,9 @@ class Header extends React.Component {
             document.querySelector(".header_left").classList.toggle("header_left_none");
           }}
         />
-        <div
-          className="header_left"
-          onClick={() => {
-            window.location.href = "/";
-          }}
-        >
+        <Link className="header_left" to="/">
           <img src={mainLOGO} alt=" " />
-        </div>
+        </Link>
 
         <div className="parent search_con">
           <input
@@ -156,37 +152,21 @@ class Header extends React.Component {
         <div className="user_btn_con frse">
           {this.state.islogin ? (
             <div className="frse logindet">
-              <div class="tooltip">
+              <Link to="/sell-your-product" class="tooltip">
                 {" "}
-                <img
-                  onClick={() => {
-                    window.location.href = "/sell-your-product";
-                  }}
-                  src={plus}
-                  alt=" "
-                />
+                <img src={plus} alt=" " />
                 <span class="tooltiptext">Sell Items</span>
-              </div>
-              <div
-                class="tooltip"
-                onClick={() => {
-                  window.location.href = "/myCart";
-                }}
-              >
+              </Link>
+              <Link to="/myCart" class="tooltip">
                 {" "}
                 <img src={cart} alt=" " />
                 <span class="tooltiptext">Cart</span>
-              </div>
-              <div
-                class="tooltip"
-                onClick={() => {
-                  window.location.href = "/My-Library";
-                }}
-              >
+              </Link>
+              <Link to="/My-Library" class="tooltip">
                 {" "}
                 <img src={lib} alt=" " />
                 <span class="tooltiptext">My Library</span>
-              </div>
+              </Link>
 
               <div class="tooltip">
                 {" "}
@@ -283,31 +263,22 @@ const Dropdown = props => {
 
   return (
     <div className="dropdown">
-      <div onClick={() => (window.location.href = "/myprofile")}>
+      <Link to="/myprofile">
         <Dropdownitem>
           <span className="span_dd">My Profile</span>
         </Dropdownitem>
-      </div>
+      </Link>
       <div />
-      <div
-        onClick={() => {
-          window.location.href = "/myorders";
-        }}
-      >
+      <Link to="/myorders">
         <Dropdownitem>
           <span className="span_dd">My orders</span>
         </Dropdownitem>
-      </div>
+      </Link>
       {props.isAdmin && (
         <Dropdownitem>
-          <span
-            onClick={() => {
-              window.location.href = "/Admin_Panel";
-            }}
-            className="span_dd"
-          >
+          <Link to="/Admin_Panel" className="span_dd">
             Admin Pannel
-          </span>
+          </Link>
         </Dropdownitem>
       )}
 
