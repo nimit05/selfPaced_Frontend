@@ -80,7 +80,6 @@ export default class Search_items extends React.Component {
 				<CateCon />
 				<CateCon />
 				<CateCon />
-				<Base_Header />
 			</div>
 		);
 	}

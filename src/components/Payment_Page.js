@@ -1,4 +1,5 @@
 import React from 'react'
+import CateCon from './CateCon'
 
 export default class Payment_tab extends React.Component {
 	constructor(props) {
@@ -8,20 +9,10 @@ export default class Payment_tab extends React.Component {
 		this.Total = this.Total.bind(this);
 		this.state = {
 			Cart_Product: [],
-			coins: null
+            coins: null,
 		};
 
-		fetch('/api/user/Cart', {
-			method: 'GET', // *GET, POST, PUT, DELETE, etc.
-			mode: 'cors', // no-cors, *cors, same-origin
-			cache: 'no-cache',
-			credentials: 'same-origin', // include, *same-origin, omit
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			redirect: 'follow', // manual, *follow, error
-			referrerPolicy: 'no-referrer'
-		})
+		fetch('/api/user/Cart')
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -34,17 +25,7 @@ export default class Payment_tab extends React.Component {
 				}
 			});
 
-		fetch('/api/user', {
-			method: 'GET', // *GET, POST, PUT, DELETE, etc.
-			mode: 'cors', // no-cors, *cors, same-origin
-			cache: 'no-cache',
-			credentials: 'same-origin', // include, *same-origin, omit
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			redirect: 'follow', // manual, *follow, error
-			referrerPolicy: 'no-referrer'
-		})
+		fetch('/api/user')
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -76,12 +57,13 @@ export default class Payment_tab extends React.Component {
 		return overall;
 	}
 
-	isDisable(coins) {
-		if (coins < this.Total_Value(this.state.Cart_Product)) {
+	isDisable() {
+		if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
 			return true;
 		}
 		return false;
 	}
+
 
 	render() {
 		return (
@@ -109,7 +91,7 @@ export default class Payment_tab extends React.Component {
 					</div>
 					<div className="checkout_div">
 						<button
-							className="checkout_btn"
+							className={this.isDisable() ? 'checkout_btn_dis' : 'checkout_btn'}
 							onClick={() => {
 								if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
 									alert('Insufficient Balance');
@@ -125,15 +107,17 @@ export default class Payment_tab extends React.Component {
 								});
 							}
 
-							}}
+                            }}
+                            disabled = {this.disable}
 						>
 							Proceed To Checkout
 						</button>
 					</div>
-							{/*<div className="checkout_div">
-						<button className="checkout_btn_pay">Pay with PayTM</button>
-				</div>*/}
+							<div className="checkout_div">
+						<button className="checkout_btn_pay">Add Money To Wallet</button>
 				</div>
+                </div>
+
 			</div>
 		);
 	}

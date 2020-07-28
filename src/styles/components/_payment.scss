@@ -1,0 +1,234 @@
+.payment_tab {
+    width: 25rem;
+    min-width: 25rem;
+    border-radius: 10px;
+    padding: 0 5rem;
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    // border: solid black;
+}
+
+
+.cart_row_wise {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cart_coins {
+    font-size: 1.5rem;
+}
+
+
+.hr_cart {
+    color: $light;
+    max-width: 50rem;
+    margin-left: 0;
+}
+
+.payment_tab_heading {
+    font-size: 2.5rem;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.payment_promo {
+    font-size: 1.1rem;
+    width: 90%;
+    height: 1.5vw;
+    border: 1px solid rgb(172, 172, 172);
+    padding: 5px 5%;
+    margin-top: 0.8vw;
+}
+.title_div {
+    margin-top: 1vw;
+    font-size: 1.3rem;
+}
+
+.title_div_price {
+    float: right;
+    color: $secondary;
+}
+.title_ab_total_value {
+    float: right;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.user_coins_value {
+    float: right;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.user_coins {
+    margin-top: 1rem;
+}
+.checkout_div {
+    margin-top: 1.5vw;
+}
+.checkout_btn {
+    width: 100%;
+    color: white;
+    // background-color: white;
+    border: solid $secondary;
+    // color: white;
+    background-color: $secondary;
+    
+    padding: 10px;
+    font-size: 1.4rem;
+}
+
+.checkout_btn_dis {
+    width: 100%;
+    color: white;
+    // background-color: white;
+    border: solid  $l_secondary;
+    // color: white;
+    background-color: $l_secondary;
+    cursor: not-allowed;
+    padding: 10px;
+    font-size: 1.4rem;
+}
+
+.checkout_btn_pay {
+    width: 100%;
+    color: #00b9f1;
+    background-color: $light;
+    // background-color: white;
+    border: solid #00b9f1;
+    // color: white;
+    padding: 10px;
+    font-size: 1.4rem;
+}
+.checkout_btn_pay:hover {
+    background-color: #00b9f1;
+    color: white;
+}
+
+.order_total {
+    float: right;
+    font-size: 1.3rem;
+    color: green;
+}
+
+.hidden_hr {
+    display: none;
+}
+.cart_product_price_mob {
+    display: none;
+}
+
+@media screen and (max-width: 720px) {
+    .payment_tab {
+        max-width: 25rem;
+        min-width: 12rem;
+        // padding: 10%;
+        // margin: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    // .content_div {
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: flex-start;
+    //     // align-items: center;
+    // }
+
+    // .heading_cart {
+    //     font-size: 1rem;
+    // }
+    .payment_tab_heading {
+        font-size: 2rem;
+    }
+    .payment_promo {
+        font-size: 0.8rem;
+        height: 4vw;
+        padding: 6px 2%;
+        margin-bottom: 4vw;
+    }
+    // .prod_det {
+    //     font-size: 0.1rem;
+    // }
+
+    .user_coins {
+        margin-top: 1.5vw;
+    }
+    .checkout_div {
+        margin-top: 2vw;
+    }
+    .checkout_div {
+        margin-top: 4vw;
+    }
+    .checkout_btn {
+        padding: 8px;
+        font-size: 1rem;
+    }
+    .checkout_btn_pay {
+        padding: 8px;
+        font-size: 1rem;
+    }
+    // .hidden_hr {
+    //     display: unset;
+    //     color: $dark;
+    //     width: 90vw;
+    // }
+
+    // .img_cart {
+    //     width: 10rem;
+    //     min-width: 10rem;
+    //     padding: 3rem 1rem;
+    // }
+
+    // .details_cart {
+    //     width: 15rem;
+    //     min-width: 25rem;
+    //     font-size: 1.1rem;
+    // }
+
+    // .product_row_div {
+    //     width: 10rem;
+    //     min-width: 20rem;
+    // }
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+    .title_ab_total_value {
+        float: right;
+        color: $secondary;
+        font-size: 1rem;
+    }
+    .title_tab_total {
+        margin-top: 2rem;
+    }
+
+    .user_coins_value {
+        float: right;
+        font-size: 1rem;
+        color: $secondary;
+    }
+    .user_coins {
+        margin-top: 1.5rem;
+    }
+    .hr_cart {
+        display: none;
+    }
+}
+
+// @media screen and (max-width: 500px) {
+//     .payment_tab {
+//         width: 20rem;
+//         min-width: 12rem;
+//         // padding: 2.5rem;
+//     }
+//     .payment_tab_heading {
+//         font-size: 1.5rem;
+//     }
+// }
+// @media screen and (max-width: 450px) {
+//     .payment_tab {
+//         width: 15rem;
+//         min-width: 12rem;
+//         // padding: 2.5rem;
+//     }
+// }
