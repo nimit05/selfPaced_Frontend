@@ -75,11 +75,7 @@ export default class Search_items extends React.Component {
 					)}
 				</div>
 				<br />
-				<br />
-				<hr className="hr_pro" />
-				<CateCon />
-				<CateCon />
-				<CateCon />
+
 			</div>
 		);
 	}

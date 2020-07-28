@@ -75,14 +75,14 @@ export default class Payment_tab extends React.Component {
 				</div>
 				<div className="prod_det">
 					{this.state.Cart_Product.map((product) => {
-						return <Title_div title={product.title} Value={product.Value} cover_img={product.cover_img} />;
+						return <Title_div title={product.title} Value={product.Value} cover_img={product.cover_img} />
 					})}
 				</div>
 
 				<hr />
 				<div>
 					<div className="title_tab_total">
-						Total Value
+						<div>Total Value</div>
 						<div className="title_ab_total_value">${this.Total_Value(this.state.Cart_Product)}</div>
 					</div>
 					<div className="user_coins">
@@ -108,7 +108,7 @@ export default class Payment_tab extends React.Component {
 							}
 
                             }}
-                            disabled = {this.disable}
+							disabled = {this.isDisable}
 						>
 							Proceed To Checkout
 						</button>
@@ -117,7 +117,7 @@ export default class Payment_tab extends React.Component {
 						<button className="checkout_btn_pay">Add Money To Wallet</button>
 				</div>
                 </div>
-
+              <br />
 			</div>
 		);
 	}
@@ -129,8 +129,8 @@ const Title_div = (props) => {
 		<div className="title_div">
 			<div className="title_div_name">
 				{props.title}
-				<div className="title_div_price">${props.Value}</div>
 			</div>
+			<div className="title_div_price">${props.Value}</div>
 		</div>
 	);
 };

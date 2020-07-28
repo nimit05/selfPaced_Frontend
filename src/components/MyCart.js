@@ -1,5 +1,6 @@
 import React from 'react';
 import cancel from '../img/cancel.svg'
+import Payment_tab from './Payment_Page'
 
 export default class MyCart extends React.Component {
 
@@ -87,6 +88,9 @@ export default class MyCart extends React.Component {
 						<div> 
 							
 						 </div>
+					</div>
+					<div className = "mob_cart_pay">
+							<Payment_tab />
 					</div>
 				</div>
 			</div>
@@ -185,13 +189,15 @@ class Heading extends React.Component {
 
 						window.location.href = "/payment"
 
-						}}>Checkout</button>
+						}}
+						 
+						>Checkout</button>
 					</div>
 				</div>
 				{this.state.Cart_Product.length != 0 && (
 				<div className = "low_head_mob">
 					<div className="cart_product_price_mob price_tot" >{this.props.cartTotal()} coins</div>
-					<div className = "check_head_mob">
+					<div className = {this.isDisable ? "light_mob" : "check_head_mob"}>
 						<button onClick={() => {
 							if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
 								alert('Insufficient Balance');
@@ -206,8 +212,11 @@ class Heading extends React.Component {
 								}
 							});
 						}
+						// window.location.href = "/payment"	
 
-						}}>Checkout</button>
+						}} 
+						 disabled = {this.isDisable}
+						>Checkout</button>
 				</div>
 				</div>
 				)}

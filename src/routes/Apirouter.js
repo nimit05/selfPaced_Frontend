@@ -36,7 +36,8 @@ const Apiroute = () => (
 				<Route path = "/payment" component={Payment_tab} />
 				<Route path = "/Admin_panel_user/:username" component={User_details} />
 			</Switch>
-			<CateCon />
+			<hr />
+			<CateCon />	
 			<Base_Header />
 		</div>
 	</BrowserRouter>
