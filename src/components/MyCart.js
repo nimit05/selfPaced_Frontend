@@ -41,6 +41,8 @@ export default class MyCart extends React.Component {
 					<Heading 
 					count = {this.state.count}
 					cartTotal = {this.cartTotal}
+					coins = {this.state.coins}
+					Cart_Product = {this.state.Cart_Product}
 				 	/> 
 				 </div>
 				<div>
@@ -89,9 +91,11 @@ export default class MyCart extends React.Component {
 							
 						 </div>
 					</div>
+					{this.state.Cart_Product.length != 0 && (
 					<div className = "mob_cart_pay">
 							<Payment_tab />
 					</div>
+					)}
 				</div>
 			</div>
 		);
@@ -107,36 +111,10 @@ class Heading extends React.Component {
 
 		this.Total_Value = this.Total_Value.bind(this);
 		this.Total = this.Total.bind(this);
-		this.state = {
-			Cart_Product: [],
-			coins: null
-		};
 
-		fetch('/api/user/Cart')
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				if (data) {
-					this.setState(() => {
-						return {
-							Cart_Product: data
-						};
-					});
-				}
-			});
+		this.isDisable()
 
-		fetch('/api/user')
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				if (data) {
-					this.setState(() => {
-						return {
-							coins: data.Coins
-						};
-					});
-				}
-			});
+	
 	}
 	Total_Value(data) {
 		let total = 0;
@@ -147,18 +125,18 @@ class Heading extends React.Component {
 	}
 
 	Total(coins) {
-		if (this.Total_Value(this.state.Cart_Product) > coins) {
-			return this.Total_Value(this.state.Cart_Product) - coins;
+		if (this.Total_Value(this.props.Cart_Product) > coins) {
+			return this.Total_Value(this.props.Cart_Product) - coins;
 		}
 		if (coins < 0) {
-			return this.Total_Value(this.state.Cart_Product);
+			return this.Total_Value(this.props.Cart_Product);
 		}
-		let overall = coins - this.Total_Value(this.state.Cart_Product);
+		let overall = coins - this.Total_Value(this.props.Cart_Product);
 		return overall;
 	}
 
-	isDisable(coins) {
-		if (coins < this.Total_Value(this.state.Cart_Product)) {
+	isDisable() {
+		if (this.props.coins < this.Total_Value(this.props.Cart_Product) || this.Total_Value(this.props.Cart_Product) == 0) {
 			return true;
 		}
 		return false;
@@ -171,40 +149,29 @@ class Heading extends React.Component {
 					<div>
 						<h1 className="heading_left_cart">Items({this.props.count})</h1>
 					</div>
+					{this.props.Cart_Product.length != 0 && (
 					<div className = "check_head">
 						<button onClick={() => {
-						// 	if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
-						// 		alert('Insufficient Balance');
-						// 	}
-						// 	else{
-						// 	let data = {
-						// 		coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
-						// 	};
-						// 	postData2('/api/user/CheckoutFromCart', data).then((data) => {
-						// 		if (!data) {
-						// 			alert('error occured');
-						// 		}
-						// 	});
-						// }
-
+		
 						window.location.href = "/payment"
 
 						}}
 						 
 						>Checkout</button>
 					</div>
+					)}
 				</div>
-				{this.state.Cart_Product.length != 0 && (
+				{this.props.Cart_Product.length != 0 && (
 				<div className = "low_head_mob">
 					<div className="cart_product_price_mob price_tot" >{this.props.cartTotal()} coins</div>
 					<div className = {this.isDisable ? "light_mob" : "check_head_mob"}>
 						<button onClick={() => {
-							if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
+							if (this.state.coins < this.Total_Value(this.props.Cart_Product)) {
 								alert('Insufficient Balance');
 							}
 							else{
 							let data = {
-								coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
+								coins: this.props.coins - this.Total_Value(this.props.Cart_Product)
 							};
 							postData2('/api/user/CheckoutFromCart', data).then((data) => {
 								if (!data) {
@@ -215,7 +182,7 @@ class Heading extends React.Component {
 						// window.location.href = "/payment"	
 
 						}} 
-						 disabled = {this.isDisable}
+						 disabled = {this.isDisable()}
 						>Checkout</button>
 				</div>
 				</div>

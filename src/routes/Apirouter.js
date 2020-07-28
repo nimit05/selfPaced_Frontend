@@ -16,6 +16,7 @@ import Admin_Panel from "../components/Admin_Panel";
 import User_details from "../components/Admin_Panel_User";
 import Payment_tab from "../components/Payment_Page";
 import CateCon from "../components/CateCon";
+import Earnings from "../components/My_Earnings";
 
 const Apiroute = () => (
   <BrowserRouter>
