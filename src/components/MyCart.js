@@ -1,7 +1,4 @@
 import React from 'react';
-import Header from './Header';
-import bookcover from '../img/bookcover.jpg';
-import Base_Header from '../Hooks/Base_header';
 import cancel from '../img/cancel.svg'
 
 export default class MyCart extends React.Component {
@@ -172,19 +169,21 @@ class Heading extends React.Component {
 					</div>
 					<div className = "check_head">
 						<button onClick={() => {
-							if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
-								alert('Insufficient Balance');
-							}
-							else{
-							let data = {
-								coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
-							};
-							postData2('/api/user/CheckoutFromCart', data).then((data) => {
-								if (!data) {
-									alert('error occured');
-								}
-							});
-						}
+						// 	if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
+						// 		alert('Insufficient Balance');
+						// 	}
+						// 	else{
+						// 	let data = {
+						// 		coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
+						// 	};
+						// 	postData2('/api/user/CheckoutFromCart', data).then((data) => {
+						// 		if (!data) {
+						// 			alert('error occured');
+						// 		}
+						// 	});
+						// }
+
+						window.location.href = "/payment"
 
 						}}>Checkout</button>
 					</div>
@@ -285,16 +284,7 @@ class Product_cart extends React.Component {
 	}
 }
 
-const Title_div = (props) => {
-	return (
-		<div className="title_div">
-			<div className="title_div_name">
-				{props.title}
-				<div className="title_div_price">${props.Value}</div>
-			</div>
-		</div>
-	);
-};
+
 
 async function postData(url = '', data = {}) {
 	// Default options are marked with *
