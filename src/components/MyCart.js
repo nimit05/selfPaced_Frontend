@@ -189,6 +189,7 @@ class Heading extends React.Component {
 						}}>Checkout</button>
 					</div>
 				</div>
+				{this.state.Cart_Product.length != 0 && (
 				<div className = "low_head_mob">
 					<div className="cart_product_price_mob price_tot" >{this.props.cartTotal()} coins</div>
 					<div className = "check_head_mob">
@@ -210,6 +211,7 @@ class Heading extends React.Component {
 						}}>Checkout</button>
 				</div>
 				</div>
+				)}
 			</div>
 		);
 	}
