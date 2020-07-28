@@ -4,6 +4,9 @@ import customer from '../img/customer.svg'
 import up_arrow from '../img/up-arrow.svg'
 import earnings from '../img/earnings.svg'
 import products from '../img/products.svg'
+import book from '../img/bookcover.jpg'
+import back from '../img/back.svg'
+import next from '../img/next.svg'
 
 export default class Earnings extends React.Component{
     render(){
@@ -12,7 +15,7 @@ export default class Earnings extends React.Component{
             datasets: [
               {
                 label: "Earnings",
-                backgroundColor: '#DAF1D5',
+                backgroundColor: '#E5F7E1',
                 borderColor: "#34866B",
                 data: [0, 10, 5, 2, 20, 30, 45],
                 fontSize : '1.2rem'               }
@@ -80,9 +83,42 @@ export default class Earnings extends React.Component{
                       </div>
                     </div>
 
+                    <div className = "productwise_ear_chart">
+                      <div className = 'slider'>
+                         <img src = {back} alt = " " />
+                      </div>
+                      <div className = "img_con">
+                          <img src = {book} alt = " " />
+                      </div>
+                      <div className = "details_div_ear">
+                        <div className = "name">Concepts Of Physics (H.C Verma)</div>
+                        <div className = "type">
+                          <span>Type : </span>
+                          <span>PDF</span>
+                        </div>
+                        <div className = "type">
+                          <span>Price : </span>
+                          <span>100 coins</span>
+                        </div>
+                        <div className = "type">
+                          <span>Copies Sold : </span>
+                          <span>45</span>
+                      </div>
+                      <div className = "type">
+                          <span>Earnings : </span>
+                          <span>4500 coins</span>
+                      </div>
+                      </div>
+                      <div className = "slider" >
+                         <img src = {next} alt = " " />
+                      </div>
+                    </div>
+
                     <div>
                         <Transaction />
                     </div>
+
+                   
 
             </div>
         )
@@ -148,70 +184,74 @@ class Info extends React.Component{
 }
 
 class Transaction extends React.Component {
-    constructor(props) {
-      super(props);
-  
-      this.state = {
-        total_trans: []
-      };
-  
-      fetch("/api/user/transaction")
-        .then(res => res.json())
-        .then(data => {
-          if (data) {
-            this.setState(() => {
-              return {
-                total_trans: data.reverse()
-              };
-            });
-          }
-        });
-    }
-  
-    render() {
-      return (
-        <div className="transaction">
-          <h1>Transactions({this.state.total_trans.length})</h1>
-          <h3>Latest Transaction</h3>
-          <div className="trans_details">
-            <div className="trans_date">Date</div>
-            <div className="trans_product_head">Product</div>
-            <div className="trans_Value_head">Value</div>
-          </div>
-          {this.state.total_trans.map(trans => {
-            return (
-              <div className="trans_details">
-                <div className="trans_date">2020-06-13</div>
-                <div className="trans_product">{trans.item.title}</div>
-                <div className="trans_Value">
-                  {trans.Debited ? (
-                    <div className="trans_minus">-{trans.Value} coins</div>
-                  ) : (
-                    <div className="trans_plus"> +{trans.Value}coins</div>
-                  )}
-                </div>
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			total_trans: []
+		};
+
+		fetch('/api/user/transaction')
+			.then((res) => res.json())
+			.then((data) => {
+				if (data) {
+					this.setState(() => {
+						return {
+							total_trans: data.reverse()
+						};
+					});
+				}
+			});
+	}
+
+	render() {
+		return (
+			<div className="transaction">
+				<h1>Transactions({this.state.total_trans.length})</h1>
+				<div className="trans_details">
+					<div className="trans_date">Date</div>
+					<div className="trans_transaction">Transaction ID</div>
+					<div className="trans_product_head">Product</div>
+					<div className="trans_Value_head">Value</div>
+				</div>
+				{this.state.total_trans.map((trans) => {
+					return (
+						<div className="trans_details">
+							<div className="trans_date">2020-06-13</div>
+							<div className="trans_transaction">{trans.TransactionId}</div>
+							<div className="trans_product">{trans.item.title}</div>
+							<div className="trans_Value">
+								{trans.Debited ? (
+									<div className="trans_minus">-{trans.Value} coins</div>
+								) : (
+									<div className="trans_plus"> +{trans.Value}coins</div>
+								)}
               </div>
-            );
-          })}
-  
-          {this.state.total_trans.map(trans => {
-            return (
-              <div className="trans_details_mob">
-                <div className="trans_product_mob">{trans.item.title}</div>
-                <div className="trans_row">
-                  <div className="trans_Value_mob">
-                    {trans.Debited ? (
-                      <div className="trans_minus_mob">-{trans.Value}coins</div>
-                    ) : (
-                      <div className="trans_plus"> +{trans.Value}coins</div>
-                    )}
-                  </div>
-                  <div className="trans_date_mob">2020-06-13</div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      );
-    }
-  }
+              
+						</div>
+					)
+				})}
+
+				{this.state.total_trans.map((trans) => {
+					return (
+						<div className="trans_details_mob">
+							<div className="trans_product_mob">{trans.item.title}</div>
+							<div className="trans_row">
+								<div className="trans_Value_mob">
+									{trans.Debited ? (
+										<div className="trans_minus_mob">-{trans.Value}coins</div>
+									) : (
+										<div className="trans_plus"> +{trans.Value}coins</div>
+									)}
+								</div>
+								<div className="trans_date_mob">2020-06-13</div>
+							</div>
+						</div>
+					);
+        })}
+       
+      </div>
+      
+		);
+	}
+}
