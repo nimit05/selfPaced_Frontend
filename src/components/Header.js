@@ -10,6 +10,7 @@ import OutsideAlerter from "../Hooks/OutsideAlerter";
 import { GoogleLogin } from "react-google-login";
 import magni from "../img/search.svg";
 import { Link } from "react-router-dom";
+import Earnings from './My_Earnings'
 
 class Header extends React.Component {
   findName = () => {
@@ -269,9 +270,9 @@ const Dropdown = props => {
         </Dropdownitem>
       </Link>
       <div />
-      <Link to="/myorders">
+      <Link to="/earnings">
         <Dropdownitem>
-          <span className="span_dd">My orders</span>
+          <span className="span_dd">My earnings</span>
         </Dropdownitem>
       </Link>
       {props.isAdmin && (

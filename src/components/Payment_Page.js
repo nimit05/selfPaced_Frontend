@@ -5,12 +5,15 @@ export default class Payment_tab extends React.Component {
 	constructor(props) {
 		super(props);
 
+
 		this.Total_Value = this.Total_Value.bind(this);
 		this.Total = this.Total.bind(this);
 		this.state = {
 			Cart_Product: [],
             coins: null,
 		};
+
+		this.isDisable()
 
 		fetch('/api/user/Cart')
 			.then((res) => res.json())
@@ -58,7 +61,7 @@ export default class Payment_tab extends React.Component {
 	}
 
 	isDisable() {
-		if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
+		if (this.state.coins < this.Total_Value(this.state.Cart_Product) || this.Total_Value(this.state.Cart_Product) == 0) {
 			return true;
 		}
 		return false;
@@ -99,7 +102,7 @@ export default class Payment_tab extends React.Component {
 								else{
 								let data = {
 									coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
-								};
+								}
 								postData2('/api/user/CheckoutFromCart', data).then((data) => {
 									if (!data) {
 										alert('error occured');
@@ -108,7 +111,7 @@ export default class Payment_tab extends React.Component {
 							}
 
                             }}
-							disabled = {this.isDisable}
+							disabled = {this.isDisable()}
 						>
 							Proceed To Checkout
 						</button>
@@ -138,7 +141,7 @@ const Title_div = (props) => {
 async function postData2(url = '', data = {}) {
 	// Default options are marked with *
 	const response = await fetch(url, {
-		method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, *cors, same-origin
 		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
 		credentials: 'same-origin', // include, *same-origin, omit

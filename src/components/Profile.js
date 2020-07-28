@@ -1,11 +1,10 @@
 import React from "react";
 import CateCon_for_profile from "./CateCOn_profile";
-import Base_Header from "../Hooks/Base_header";
-import CateCon from "./CateCon";
+import Earnings from './My_Earnings'
 import propic from "../img/propic.svg";
-import { Line } from "react-chartjs-2";
 import edit from "../img/edit.svg";
 import Product_cont from "./Product_cont";
+import MyOrders from './MyOrders'
 
 export default class Profile extends React.Component {
   handleMode = ans => {
@@ -64,25 +63,24 @@ export default class Profile extends React.Component {
               My Products
             </div>
             <div
-              className={this.state.mode === "trans" ? "pink" : "mode_head"}
-              onClick={() => this.handleMode("trans")}
-            >
-              My Transactions
-            </div>
-            <div
               className={this.state.mode === "earnings" ? "pink" : "mode_head"}
               onClick={() => this.handleMode("earnings")}
             >
-              My Earnings
+              My Orders
+            </div>
+            <div
+              className={this.state.mode === "log_out" ? "pink" : "mode_head"}
+              onClick={() => this.handleMode("log_out")}
+            >
+              Log Out
             </div>
           </div>
         </div>
         <div className="profile_right_cont">
-          {this.state.mode === "trans" && <Transaction />}
 
           {this.state.mode === "details" && <ProfileCard />}
           {this.state.mode === "my_pro" && <Items_Cont />}
-          {this.state.mode === "earnings" && <Graph />}
+          {this.state.mode === "earnings" && <MyOrders />}
         </div>
       </div>
     );
@@ -354,107 +352,7 @@ const Items_Cont = () => {
   );
 };
 
-class Transaction extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      total_trans: []
-    };
-
-    fetch("/api/user/transaction", {
-      method: "GET", // *GET, POST, PUT, DELETE, etc.
-      mode: "cors", // no-cors, *cors, same-origin
-      cache: "no-cache",
-      credentials: "same-origin", // include, *same-origin, omit
-      headers: {
-        "Content-Type": "application/json"
-      },
-      redirect: "follow", // manual, *follow, error
-      referrerPolicy: "no-referrer"
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data) {
-          this.setState(() => {
-            return {
-              total_trans: data.reverse()
-            };
-          });
-        }
-      });
-  }
-
-  render() {
-    return (
-      <div className="transaction">
-        <h1>Transactions({this.state.total_trans.length})</h1>
-        <h3>Latest Transaction</h3>
-        <div className="trans_details">
-          <div className="trans_date">Date</div>
-          <div className="trans_product_head">Product</div>
-          <div className="trans_Value_head">Value</div>
-        </div>
-        {this.state.total_trans.map(trans => {
-          return (
-            <div className="trans_details">
-              <div className="trans_date">2020-06-13</div>
-              <div className="trans_product">{trans.item.title}</div>
-              <div className="trans_Value">
-                {trans.Debited ? (
-                  <div className="trans_minus">-{trans.Value} coins</div>
-                ) : (
-                  <div className="trans_plus"> +{trans.Value}coins</div>
-                )}
-              </div>
-            </div>
-          );
-        })}
-
-        {this.state.total_trans.map(trans => {
-          return (
-            <div className="trans_details_mob">
-              <div className="trans_product_mob">{trans.item.title}</div>
-              <div className="trans_row">
-                <div className="trans_Value_mob">
-                  {trans.Debited ? (
-                    <div className="trans_minus_mob">-{trans.Value}coins</div>
-                  ) : (
-                    <div className="trans_plus"> +{trans.Value}coins</div>
-                  )}
-                </div>
-                <div className="trans_date_mob">2020-06-13</div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
-}
-
-class Graph extends React.Component {
-  render() {
-    let data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
-        {
-          label: "My First dataset",
-          // backgroundColor: ',
-          borderColor: "#34866B",
-          data: [0, 10, 5, 2, 20, 30, 45]
-        }
-      ]
-    };
-    return (
-      <div className="graph_cont">
-        <div className="graph">
-          <Line data={data} options={{ maintainAspectRatio: true }} />
-        </div>
-      </div>
-    );
-  }
-}
 
 async function postData(url = "", data = {}) {
   // Default options are marked with *
