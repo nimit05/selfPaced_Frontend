@@ -30,10 +30,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 15vw;
+    // width: 15vw;
+    width: 50%;
     padding: 0 2rem;
     align-items: left;
     height: 15rem;
+    // border: solid black;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .mode_head{
@@ -207,10 +211,11 @@
 }
 
 .info {
-    width: 79%;
+    width: 50%;
     // border: solid black;
     padding: 2rem 2rem;
-
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -259,12 +264,12 @@
     opacity: 0.5;
 }
 .user_name {
-    text-align: center;
+    text-align: left;
     font-size: 1.1rem;
     margin-top: 0.8vw;
     // border: solid black;
     width: 8rem;
-    //    margin-right: 1vw;
+    text-transform: capitalize;
 }
 .heading_value {
     color: $dark;

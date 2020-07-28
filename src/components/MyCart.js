@@ -1,8 +1,6 @@
 import React from 'react';
-import Header from './Header';
-import bookcover from '../img/bookcover.jpg';
-import Base_Header from '../Hooks/Base_header';
 import cancel from '../img/cancel.svg'
+import Payment_tab from './Payment_Page'
 
 export default class MyCart extends React.Component {
 
@@ -91,6 +89,9 @@ export default class MyCart extends React.Component {
 							
 						 </div>
 					</div>
+					<div className = "mob_cart_pay">
+							<Payment_tab />
+					</div>
 				</div>
 			</div>
 		);
@@ -172,26 +173,31 @@ class Heading extends React.Component {
 					</div>
 					<div className = "check_head">
 						<button onClick={() => {
-							if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
-								alert('Insufficient Balance');
-							}
-							else{
-							let data = {
-								coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
-							};
-							postData2('/api/user/CheckoutFromCart', data).then((data) => {
-								if (!data) {
-									alert('error occured');
-								}
-							});
-						}
+						// 	if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
+						// 		alert('Insufficient Balance');
+						// 	}
+						// 	else{
+						// 	let data = {
+						// 		coins: this.state.coins - this.Total_Value(this.state.Cart_Product)
+						// 	};
+						// 	postData2('/api/user/CheckoutFromCart', data).then((data) => {
+						// 		if (!data) {
+						// 			alert('error occured');
+						// 		}
+						// 	});
+						// }
 
-						}}>Checkout</button>
+						window.location.href = "/payment"
+
+						}}
+						 
+						>Checkout</button>
 					</div>
 				</div>
+				{this.state.Cart_Product.length != 0 && (
 				<div className = "low_head_mob">
 					<div className="cart_product_price_mob price_tot" >{this.props.cartTotal()} coins</div>
-					<div className = "check_head_mob">
+					<div className = {this.isDisable ? "light_mob" : "check_head_mob"}>
 						<button onClick={() => {
 							if (this.state.coins < this.Total_Value(this.state.Cart_Product)) {
 								alert('Insufficient Balance');
@@ -206,10 +212,14 @@ class Heading extends React.Component {
 								}
 							});
 						}
+						// window.location.href = "/payment"	
 
-						}}>Checkout</button>
+						}} 
+						 disabled = {this.isDisable}
+						>Checkout</button>
 				</div>
 				</div>
+				)}
 			</div>
 		);
 	}
@@ -283,16 +293,7 @@ class Product_cart extends React.Component {
 	}
 }
 
-const Title_div = (props) => {
-	return (
-		<div className="title_div">
-			<div className="title_div_name">
-				{props.title}
-				<div className="title_div_price">${props.Value}</div>
-			</div>
-		</div>
-	);
-};
+
 
 async function postData(url = '', data = {}) {
 	// Default options are marked with *

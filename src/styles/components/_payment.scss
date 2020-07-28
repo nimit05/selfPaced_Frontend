@@ -1,0 +1,125 @@
+.payment_tab {
+    width: 25%;
+    min-width: 20rem;    
+    border-radius: 10px;
+    // padding: 0 5rem;
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    // border: solid black;
+}
+
+.payment_tab_heading {
+    font-size: 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.payment_promo {
+    font-size: 0.8rem;
+    width: 90%;
+    height: 1.5vw;
+    border: 1px solid rgb(172, 172, 172);
+    padding: 5px 5%;
+    margin-top: 0.8vw;
+    margin-bottom: 10px;
+}
+.title_div {
+    margin-top: 1vw;
+    font-size: 1.2rem;
+    // font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title_div_name{
+    width: 14rem;
+    // border: solid black;
+}
+
+.title_div_price {
+    color: $secondary;
+    width: 5rem;
+    // border: solid black;
+    text-align: center;
+}
+.title_ab_total_value {
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: center;
+    // border: solid black;
+    width: 5rem;
+
+}
+.title_tab_total{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.user_coins_value {
+    float: right;
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: center;
+    width: 5rem;
+
+}
+.user_coins {
+    margin-top: 1rem;
+}
+.checkout_div {
+    margin-top: 1.5vw;
+}
+.checkout_btn {
+    width: 100%;
+    color: white;
+    // background-color: white;
+    border: solid $secondary;
+    // color: white;
+    background-color: $secondary;
+    margin-top: 1rem;
+    padding: 10px;
+    font-size: 1.4rem;
+}
+
+.checkout_btn_dis {
+    width: 100%;
+    color: white;
+    // background-color: white;
+    border: solid  $l_secondary;
+    // color: white;
+    background-color: $l_secondary;
+    cursor: not-allowed;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.checkout_btn_pay {
+    width: 100%;
+    color: #00b9f1;
+    background-color: $light;
+    border: solid #00b9f1;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+.checkout_btn_pay:hover {
+    background-color: #00b9f1;
+    color: white;
+}
+
+.order_total {
+    float: right;
+    font-size: 1.3rem;
+    color: green;
+}
+
+
+
+@media screen and (max-width: 720px) {
+    .payment_tab {
+    margin-top: 1rem;
+    }
+}
+
+
