@@ -709,4 +709,67 @@
         
         }
     
-}
+        .trans_row{
+            display: flex;
+            flex-direction: column;
+            // justify-content: space-evenly;
+            margin-bottom: 1rem;
+            margin-left: 2rem;
+        }
+    
+        .transaction {
+            width: 100%;
+            height: 10rem;
+            margin-bottom: 3rem;
+            overflow-y: scroll;
+            white-space: nowrap;
+            margin-left: auto;
+            margin-right: auto;
+            // border : solid black;
+            h1 {
+                color: $dark;
+                margin-left: 1rem;
+            }
+        
+            h3 {
+                margin-left: 1rem;
+                color: $dark;
+            }
+        }
+        .trans_details{
+            display: none;
+        }
+        .trans_details_mob{
+            display: flex;
+            flex-direction: row; 
+            justify-content: space-between;
+        }
+        .trans_product_mob{
+            font-size: 1rem;
+            margin-left: 1rem;
+            width: 10rem;
+            font-weight: 550;
+            margin-top: 0rem;
+            // margin-right: 50%;
+        }
+        // .trans_Value_mob{
+        //     margin-left: 2rem;
+        // }
+        .trans_date_mob{
+            // margin-left: 1.5rem;
+            // margin-left: 2rem;
+            font-size: 0.6rem;
+        color: #898887;
+    
+            font-weight: 500;
+        }
+        .trans_minus_mob{
+            color: $secondary;
+        }
+        .trans_details{
+            display: unset;
+        }
+        .details_fix_head{
+            display: none;
+        }
+    }
