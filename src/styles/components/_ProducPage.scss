@@ -1,298 +1,265 @@
 .Main_BI {
-	// padding: 4rem;
-	height: 20rem;
-	box-sizing: border-box;
-	text-align: center;
-	display: block;
-	border: solid 1px rgb(173, 173, 173);
-	// border: solid black;
-	// margin-left: 6rem;
+  // padding: 4rem;
+  height: 20rem;
+  box-sizing: border-box;
+  text-align: center;
+  display: block;
+  border: solid 1px rgb(173, 173, 173);
+  // margin-left: 6rem;
 }
 
 .product_img_pp {
-	height: 100%;
-}
-
-
-	.hr_divider{
-		width: 80rem;
-	}
-
-
-.cart_catecon{
-	padding: 0 20rem;
+  height: 100%;
 }
 
 .Main_CT {
-	width: 30rem;
-	font-size: 2rem;
-	padding: 4rem 0;
-	margin-left: 5rem;
-	// border: solid black;
+  width: 50%;
+  font-size: 2rem;
+  padding: 4rem;
 }
 .author {
-	// color:;
-	font-size: 1rem;
+  // color:;
+  font-size: 1rem;
 }
 .hr {
-	opacity: 0.5;
+  opacity: 0.5;
 }
 .price_pp {
-	font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 .price_val {
-	color: $secondary;
+  color: $secondary;
 }
 .des_cont {
-	font-size: 1rem;
+  font-size: 1rem;
 }
 .des_pp {
-	font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 .buy_btn_pp {
-	height: 2rem;
-	width: 10rem;
-	background-color: $secondary;
-	color: $light;
+  height: 2rem;
+  width: 10rem;
+  background-color: $secondary;
+  color: $light;
 }
 .adc_btn_pp {
-	height: 2rem;
-	width: 10rem;
-	background-color: $secondary;
-	margin-left: 1rem;
-	color: $light;
+  height: 2rem;
+  width: 10rem;
+  background-color: $secondary;
+  margin-left: 1rem;
+  color: $light;
 }
 .main_body_pro_page {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-evenly;
-	margin-top: 100px;
-	margin-bottom: 100px;
-	// border: solid black;
-	// padding: 0 20rem;
-	width: 70vw;
-	min-width: 50rem;
-	margin-left: auto;
-	margin-right: auto;
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .comment_div {
-	width: 50rem;
-	border: solid black;
+  width: 50rem;
+  border: solid black;
 }
 
 .rating {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 .review_pp_heading {
-	margin-left: 2rem;
-	// border: solid black;
-	padding: 0 20rem;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pic_modal {
-	width: 300px;
-	height: 200px;
-	// margin: auto;
-	// border: solid black;
+  width: 300px;
+  height: 200px;
+  // margin: auto;
+  // border: solid black;
 
-	img {
-		height: 180px;
-		cursor: pointer;
-		margin-left: 10px;
-		margin-top: 10px;
-	}
+  img {
+    height: 180px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
 }
 .inp {
-	display: none;
+  display: none;
 }
 .star_cont {
-	margin-left: 1rem;
-	// margin: auto;
+  margin-left: 1rem;
+  // margin: auto;
 }
 .rate_modal {
-	margin-left: 1rem;
+  margin-left: 1rem;
 }
 .modal_title {
-	font-size: 1.5rem;
-	font-weight: 500;
-	margin-left: 10px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-left: 10px;
 }
 
 .review_title_head {
-	input[type="text"] {
-		width: 25rem;
-		height: 25px;
-		margin-left: 1rem;
-	}
+  input[type="text"] {
+    width: 25rem;
+    height: 25px;
+    margin-left: 1rem;
+  }
 }
 .review_body {
-	textarea {
-		width: 30rem;
-		height: 10rem;
-		margin-left: 1rem;
-	}
+  textarea {
+    width: 30rem;
+    height: 10rem;
+    margin-left: 1rem;
+  }
 }
 
 .submit_modal {
-	padding: 8px 20px;
-	background-color: $secondary;
-	color: $light;
-	// margin: auto;	
+  padding: 8px 20px;
+  background-color: $secondary;
+  color: $light;
+  // margin: auto;
 }
 .submit_div {
-	// padding: 30px;
-	// margin: auto;
-	margin-left: 14rem;
-	margin-top: 1.5rem;
+  // padding: 30px;
+  // margin: auto;
+  margin-left: 14rem;
+  margin-top: 1.5rem;
 }
 
 .review_section {
-	// border: solid black;
-	width: 100%;
-	margin: auto;
-	img {
-		height: 30px;
-		margin-right: 10px;
-	}
-}
+  // border: solid black;
+  width: 100%;
+  margin: auto;
 
-.review_view{
- display: flex;
- flex-direction: row;
- align-items: center;
- 
+  img {
+    height: 30px;
+    margin-right: 10px;
+  }
 }
-
 .revsec_con {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 .modal_btn {
-	background-color: $secondary;
-	padding: 5px 15px;
-	color: $light;
+  background-color: $secondary;
+  padding: 5px 15px;
+  color: $light;
 }
 
 .review_username {
-	// border: solid black;
-	margin-top: 5px;
+  // border: solid black;
+  margin-top: 5px;
 }
 .user_det {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 .report {
-	font-size: 0.8rem;
-	margin-top: 1rem;
+  font-size: 0.8rem;
+  margin-top: 1rem;
 }
 .report_product {
-	margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .rev_con {
-	border: 1px solid rgb(185, 185, 185);
-	background-color: white;
-	width: 300px;
-	padding: 20px;
-	border-radius: 10px;
-	margin: 20px;
-}
-
-.review_view{
-	display: flex;
-	flex-direction: row;
-	// flex-wrap: wrap;
+  border: 1px solid rgb(185, 185, 185);
+  background-color: white;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
 }
 
 @media screen and (max-width: 800px) {
-	.Main_BI {
-		// margin-top: 60px;
-		// width: 80vw;
-		padding: 20px 60px;
-		// margin-left: 0rem;
-	}
-	.main_body_pro_page {
-		flex-direction: column;
-		justify-self: flex-start;
-	}
-	.Main_CT {
-		margin-top: 30px;
-		margin-bottom: 50px;
-		font-size: 2rem;
-		padding: 0rem 0px;
-		width: 90%;
-		box-sizing: border-box;
-	}
+  .Main_BI {
+    // margin-top: 60px;
+    // width: 80vw;
+    padding: 20px 60px;
+    // margin-left: 0rem;
+  }
+  .main_body_pro_page {
+    flex-direction: column;
+    justify-self: flex-start;
+  }
+  .Main_CT {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 2rem;
+    padding: 0rem 0px;
+    width: 90%;
+    box-sizing: border-box;
+  }
 
-	.buy_btn_pp {
-		height: 2rem;
-		width: 8rem;
-		background-color: $secondary;
-		color: $light;
-	}
-	.adc_btn_pp {
-		height: 2rem;
-		width: 8rem;
-		background-color: $secondary;
-		margin-left: 1rem;
-		color: $light;
-	}
+  .buy_btn_pp {
+    height: 2rem;
+    width: 8rem;
+    background-color: $secondary;
+    color: $light;
+  }
+  .adc_btn_pp {
+    height: 2rem;
+    width: 8rem;
+    background-color: $secondary;
+    margin-left: 1rem;
+    color: $light;
+  }
 
-	.modal_bookName {
-		font-size: 1.3rem;
-		font-weight: 500;
-		margin-left: 10px;
-	}
+  .modal_bookName {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-left: 10px;
+  }
 
-	.review_title_head {
-		input[type=text] {
-			width: 25rem;
-			height: 25px;
-			margin-left: 1rem;
-		}
-	}
-	.review_body {
-		textarea {
-			width: 17rem;
-			height: 10rem;
-			margin-left: 1rem;
-		}
-	}
+  .review_title_head {
+    input[type="text"] {
+      width: 25rem;
+      height: 25px;
+      margin-left: 1rem;
+    }
+  }
+  .review_body {
+    textarea {
+      width: 17rem;
+      height: 10rem;
+      margin-left: 1rem;
+    }
+  }
 
-	.submit_div {
-		// padding: 30px;
-		// margin: auto;
-		margin-left: 8rem;
-		margin-top: 1.5rem;
-	}
+  .submit_div {
+    // padding: 30px;
+    // margin: auto;
+    margin-left: 8rem;
+    margin-top: 1.5rem;
+  }
 
-	.review_section {
-		// border: solid black;
-		width: 50rem;
-		margin: auto;
-		img {
-			height: 30px;
-			margin-right: 10px;
-		}
-	}
+  .review_section {
+    // border: solid black;
+    width: 50rem;
+    margin: auto;
+    img {
+      height: 30px;
+      margin-right: 10px;
+    }
+  }
 
-	.pic_modal {
-		width: 300px;
-		height: 200px;
-		// margin: auto;
-		// border: solid black;
-	
-		img {
-			height: 150px;
-			cursor: pointer;
-			margin-left: 7px;
-			margin-top: 10px;
-		}
-	}
+  .pic_modal {
+    width: 300px;
+    height: 200px;
+    // margin: auto;
+    // border: solid black;
+
+    img {
+      height: 150px;
+      cursor: pointer;
+      margin-left: 7px;
+      margin-top: 10px;
+    }
+  }
 }
