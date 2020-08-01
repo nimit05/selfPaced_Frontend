@@ -100,7 +100,6 @@
         // height: 40rem;
         .head{
             font-size: 2rem;
-            // color: $secondary;
         }
     }
 
@@ -109,20 +108,28 @@
         padding: 1rem 0rem;
     }
 
+    .graph_bar{
+        display: none;
+    }
+
+}
+
+.trans_earnings{
+    // border: solid black;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .transaction {
-    width: 80%;
-    // min-width: 45rem;
-    height: 20rem;
-    // border: 1px solid rgb(172, 172, 172);
-    border-radius: 20px;
+    width: 100%;
+    height: 10rem;
     margin-bottom: 3rem;
-    // box-shadow: 0px 0px 20px rgba(90, 90, 90, 0.197);
     overflow-y: scroll;
     white-space: nowrap;
     margin-left: auto;
     margin-right: auto;
+    // border : solid black;
     h1 {
         color: $dark;
         margin-left: 1rem;
@@ -134,6 +141,7 @@
     }
 }
 
+
 .trans {
     display: flex;
     flex-direction: column;
@@ -142,13 +150,26 @@
 .trans_heading {
     display: flex;
     flex-direction: row;
-    // justify-content: space-around;
 }
 .trans_details {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: start;
     margin-top: 2rem;
+    width: 93%;
+    // border: solid black;
+
+    h1{
+        color: $secondary;
+    }
+}
+
+.details_fix_head{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    // border: solid black
 }
 
 .trans_det_2 {
@@ -161,16 +182,14 @@
 .trans_date {
     font-size: 1rem;
     font-weight: 700;
-    // margin-right: auto;
-    margin-left: 5%;
+    // border: solid black;
     width: 5rem;
 }
 .trans_transaction {
     font-size: 1rem;
     font-weight: 600;
-    // margin-right: auto;
-    margin-left: 5rem;
-    width: 18rem;
+    // border: solid black;
+    width: 22rem;
 }
 .trans_product {
     font-size: 1rem;
@@ -178,7 +197,7 @@
     color: $dark;
     margin-right: 5rem;
     width: 12rem;
-    margin-left: 15rem;
+    // border: solid black;
 }
 .trans_product_head {
     font-size: 1rem;
@@ -186,14 +205,14 @@
     color: $dark;
     margin-right: 5rem;
     width: 12rem;
-    margin-left: 15rem;
 }
 .trans_Value {
     font-size: 1.1rem;
     font-weight: 530;
-    // margin-left: 10%;
-    // margin-right: 5%;
     color: $secondary;
+    width: 8rem;
+    // border: solid black;
+
 }
 .trans_plus {
     color: green;
@@ -206,7 +225,7 @@
 
 
 .productwise_ear_chart{
-    width: 55%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid $l_grey_text;
@@ -223,13 +242,27 @@
    .img_con{
        img{
            height: 250px;
+        
        }
+   }
+
+   .middler{
+    //    border: solid black;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+       margin-left: auto;
+       margin-right: auto;
+       width: 70%;
    }
 
    .slider{
     //    border: solid black;
         margin-top: auto;
         margin-bottom: auto;
+        cursor: pointer;
+        // padding: 1rem;
    }
    .details_div_ear{
     // border: 1px solid $l_grey_text;
@@ -240,15 +273,440 @@
     padding: 0 2rem;
 
     .name{
-        font-size: 2rem;
+        font-size: 1.7rem;
         margin-bottom: 1rem;
     }
     .type{
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         margin-bottom: 1rem;
         font-weight: 500;
+
+        .val{
+            color: $secondary;
+        }
     }
 
    }
 
+}
+
+@media screen and (max-width : 1400px){
+    .graph_cont{
+        height: 30rem;        
+        canvas {
+            height: 25rem !important;
+            width: 40rem !important;
+        }
+    }
+    .info_ear_card{
+        width: 200px;
+        height: 125px;
+        img{
+            height: 25px;
+            margin-left: 1rem;
+        }
+        .left{
+            padding: 1rem 1rem;
+          
+            .num{
+                font-size: 1.4rem;
+        
+                margin-left: 1rem;
+    
+            }
+            .name{
+                font-size: 1rem;
+            }
+        }
+        .right{
+            img{
+                height: 15px;
+            }
+            padding: 1.5rem 1rem;
+        }
+        .ear_img{
+            height: 35px;
+        }
+    }
+    
+    .head{
+        font-size: 1.6rem;
+    }
+    .productwise_ear_chart{
+        width: 70%;
+        border: 1px solid $l_grey_text;
+        padding: 1rem ;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    
+        img{
+            height: 15px;
+
+        }
+       .img_con{
+                margin-left: auto;
+                 margin-right: auto;
+                width: 50%;
+           img{
+                height: 150px;
+               align-items: center;
+
+           }
+       }
+
+       .middler{
+        //    border: solid black;
+           margin-left: auto;
+           margin-right: auto;
+       }
+    
+       .slider{
+        //    border: solid black;
+            margin-top: auto;
+            margin-bottom: auto;
+       }
+       .details_div_ear{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 10px;
+        // border: solid black;
+    
+        .name{
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .type{
+            font-size: 0.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 500;
+
+            .sub{
+                width: 8rem;
+                // border: solid black;
+            }
+
+            .val{
+                color: $secondary;
+            }
+        }
+        
+    
+       }
+    
+    }
+}
+
+@media screen and (max-width : 1000px){
+    .graph_cont{
+        height: 25rem;        
+        canvas {
+            height: 20rem !important;
+            width: 30rem !important;
+        }
+    }
+    .info_ear_card{
+        width: 180px;
+        height: 100px;
+        img{
+            height: 18px;
+            margin-left: 1rem;
+        }
+        .left{
+            padding: 0.7rem 0.7rem;
+          
+            .num{
+                font-size: 1.1rem;
+        
+                margin-left: 1rem;
+    
+            }
+            .name{
+                font-size: 0.8rem;
+            }
+        }
+        .right{
+            img{
+                height: 11px;
+            }
+            padding: 1rem 1rem;
+        }
+        .ear_img{
+            height: 25px;
+        }
+    }
+    
+    .head{
+    font-size: 1.4rem;
+    }
+
+    .productwise_ear_chart{
+        width: 70%;
+        border: 1px solid $l_grey_text;
+        padding: 1rem ;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    
+        img{
+            height: 15px;
+
+        }
+       .img_con{
+                margin-left: auto;
+                 margin-right: auto;
+                width: 50%;
+           img{
+                height: 150px;
+               align-items: center;
+
+           }
+       }
+
+       .middler{
+        //    border: solid black;
+           margin-left: auto;
+           margin-right: auto;
+       }
+    
+       .slider{
+        //    border: solid black;
+            margin-top: auto;
+            margin-bottom: auto;
+       }
+       .details_div_ear{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 10px;
+        // border: solid black;
+    
+        .name{
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .type{
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 500;
+
+            .sub{
+                width: 8rem;
+                // border: solid black;
+            }
+
+            .val{
+                color: $secondary;
+            }
+        }
+        
+    
+       }
+    
+    }
+    
+}
+@media screen and (max-width : 780px){
+
+
+.earnings_pg{
+    width: 90%;
+    margin-right: unset;
+    // border: solid black;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 4rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+    .graph_cont{
+        height: unset;
+        width: 100%;
+    //    border: 1px solid $l_grey_text;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    
+        canvas {
+            height: 15rem !important;
+            width: 20rem !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        .right_gp{
+            // border: solid black;
+            padding: 1rem 0rem;
+            // height: 40rem;
+            .head{
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+                margin-left: 1rem;
+                // color: $secondary;
+            }
+        }
+    
+        .graph_bar{
+            display: unset;
+            padding: 1rem 0rem;
+            
+        }
+        .graph{
+            display: none;
+        }
+    
+    }
+
+    .info_bars{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 90%;
+        // padding: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        // border: solid black;
+
+    }
+    
+    .info_ear_card{
+        width: 250px;
+        height: 150px;
+        // border: solid black;
+        background-color: #E5F7E1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+        img{
+            height: 35px;
+            margin-left: 1rem;
+        }
+        .left{
+            // border: solid black;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
+          
+       
+            .num{
+                font-size: 1.8rem;
+                font-weight: 600;
+                color: $secondary;
+            margin-left: 1rem;
+    
+            }
+            .name{
+                font-size: 1.2rem;
+                color: $grey_text;
+                width: 100%;
+                margin-left: 0.5rem;
+                // border: solid black;
+            }
+        }
+        .right{
+            img{
+                height: 15px;
+                margin-right: 5px;
+            }
+            span{
+                font-weight: 500;
+                color: $secondary;
+            }
+            padding: 3rem 1rem;
+            // border: solid black;
+        }
+        .ear_img{
+            height: 45px;
+        }
+    }
+    .head{
+        font-size: 1rem;
+        }
+
+        .productwise_ear_chart{
+            width: 70%;
+            border: 1px solid $l_grey_text;
+            padding: 1rem ;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        
+            img{
+                height: 15px;
+    
+            }
+           .img_con{
+                    margin-left: auto;
+                     margin-right: auto;
+                    width: 50%;
+                    // border: solid black;
+               img{
+                    height: 150px;
+                    // border: solid black;
+                    width: 100%;
+                   align-items: center;
+
+               }
+           }
+
+           .middler{
+            //    border: solid black;
+               margin-left: auto;
+               margin-right: auto;
+               display: flex;
+               flex-direction: column;
+               justify-content: space-evenly;
+           }
+        
+           .slider{
+            //    border: solid black;
+                margin-top: auto;
+                margin-bottom: auto;
+           }
+           .details_div_ear{
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 10px;
+            // border: solid black;
+        
+            .name{
+                font-size: 1rem;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+            .type{
+                font-size: 0.8rem;
+                text-align: center;
+                margin-bottom: 1rem;
+                font-weight: 500;
+
+                .sub{
+                    width: 8rem;
+                    // border: solid black;
+                }
+
+                .val{
+                    color: $secondary;
+                }
+            }
+            
+        
+           }
+        
+        }
+    
 }
