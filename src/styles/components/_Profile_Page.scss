@@ -1,151 +1,45 @@
-.profile_page{
-  width: 90%;
-  // border: solid black;
-  margin-top: 100px;
-  margin-left: auto;
-  margin-right: auto;
 
-
-}
-
-.profile_short{
-  width: 100%;
-  // border: solid black;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-}
-
-.short_right{
-  width: 60%;
-  // border: solid black;
-}
-.short_left{
-  width : 40%;
-  // border: solid black;
-
-}
-
-.left_box{
-  background-color: #6aa591;
-  height: 500px;
-  width: 58.6%;
-  // float: left
-  margin-left: auto;
-}
-
-.left_mid{
-  width: 35%;
-  margin-left: auto;
-  height: 50px;
-}
-
-.left_b_box{
-  background-color: #6aa591;
-  height: 600px;
-  width: 35%;
-  // float: left
-  margin-left: auto;
-
- 
-  .line_cont{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: auto;
-  }
-
-}
-
-.white_line{
-  width: 3px;
-  height: 130px;
-  background-color: white;
-  // margin-left: 80%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.foll_line{
-  width: 50%;
-  height: 100%;
-  // border: solid black;
-  float: right;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.follower_div{
-  color: white;
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  // border: solid white;
-  text-align: center;
-
-  .head{
-    font-size: 1.4rem;
-  }
-  .val{
-    font-size: 1.2rem;
-  }
-}
-
-.profile_pic{
-  width: 35%;
-  height: 350px;
-  position: absolute;
-  left: 45%;
-  margin-top: 70px;
-
-  img{
-    width: 100%;
-  }
-
-}
-
-.profile_bio{
-  width: 100%;
-  height: 100%;
-  // border: solid black; 
-  margin-top: 70px;
-  height: 200px;
-
-  .pro_name{
-    width: 90%;
-    font-size: 2.5rem;
-    color: $secondary;
-    // font-weight: 600;
-    padding: 15px;
-    margin: auto;
-    // border: solid black;
-    text-align: center;
-  }
-
-  .bio{
-    width: 90%;
-    font-size: 1.5rem;
-    margin: auto;
-  }
-  
-}
 
 .lower_pro{
-  width: 100%;
+  width: 90%;
+  min-width: 1200px;
 //   border: solid black;
+  margin-top: 100px;
   display: flex;
+  margin-left: auto;
+  margin-right: auto;
   flex-direction: row;
+
 
 }
 
+
 .details_pro_div{
-  position: absolute;
-  width: 50%;
-  right: 20%;
-  margin: 50px 0;
+  width: 90%;
+  min-width: 750px;
+  margin-top: 50px;
+//   background-color: white;
+
+  .details_heading{
+      display: flex;
+      flex-direction: row;
+      height: 35px;
+      background-color: #34866B;
+      color: white;
+  }
+
+  .active_cont{
+    padding: 8px 15px;
+    border-right: 1px solid #c0bbbb;
+    cursor: pointer;
+    background-color: $l_secondary; 
+  }
+
+  .head_cont{
+      padding: 8px 15px;
+      border-right: 1px solid #c0bbbb;
+      cursor: pointer;
+  }
 }
 
 
@@ -156,55 +50,75 @@
 }
 
 .side_pro_bar{
-    width: 18%;
-    height: 450px;
+    width: 28%;
+    min-width: 300px;
+    height: 500px;
     // border: solid black;
-    margin: 3% 2%;
+    margin: 50px 0;
     box-shadow: 0px 0px 20px rgba(90, 90, 90, 0.197);
     background-color: white;
+    margin-right: 50px;
     
-
-    .link_items{
-        width: 100%;
-        height: 400px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-    }
 
     .head{
         width: 80%;
-        padding: 5px;
+        // padding: 5px;
+        height: 50%;
         font-size: 1.5rem;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 5%;
         text-align: center;
         border-bottom: 1px solid $l_grey_text;
         color: $secondary;
+        // border: solid black;
+        img{
+            width: 100%;
+            height: 100%;
+        }
     }
 
-    .links:hover{
-        color: $secondary;
-    }
 
-    .links{
+    .link{
         width: 80%;
-        margin-left: 20%;
-        font-size: 1.3rem;
+        // padding: 5px 0;
+        margin-top: 10px;
+        font-size: 2rem;
         text-align: left;
-        cursor: pointer;
+        margin-left: 10%;
+        // border: solid black;     
+        text-transform: capitalize;
+        text-align: left;   
+        font-weight: 600;
+        color: rgb(75, 70, 70);
+    }
+
+    .bio{
+        width: 80%;
+        margin-left: 10%;
+        font-size: 1.2rem;
+        color: rgb(75, 70, 70);
+        margin-top: 5px;
+    }
+
+
+    .line_bar{
+        width: 100%;
+        height: 3px;
+        background-color: $secondary;
     }
 }
 
 .ProfileCard{
     width: 100%;
-    height: 500px;
-    border-radius: 20px;
+    min-width: 750px;
     margin-bottom: 3rem;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: white;
+    // border: solid black;
 }
 
 .pink{
@@ -264,7 +178,7 @@
     align-items: center;
    margin-left: 3rem;
    margin-bottom: 1rem;
-    width:40vw;
+    width:90%;
     .row_cont{
         width: 16rem;
         min-width: 16rem;
@@ -305,15 +219,6 @@
 
 }
 
-// .items_cont {
-//     border: 1px solid rgb(172, 172, 172);
-//     width: 53vw;
-//     min-width: 20rem;
-//     // height: 28rem;
-//     box-shadow: 0px 0px 20px rgba(90, 90, 90, 0.197);
-//     border-radius: 20px;
-//     margin-right: 3rem;
-// }
 
 .items_colm {
     background-color: #e6e4e2;
@@ -413,13 +318,49 @@
     cursor: pointer;
 }
 
+.Faq{
+    width: 90%;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+
+    .main{
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color : $secondary
+    }
+
+    .question{
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+}
 
 
 @media screen and (max-width: 720px) {
 
  
+    .profile_short{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
 
-
+      .left_box{
+        height: 250px;
+        width: 50%;
+        min-width: 400px;
+        border: solid black;
+        padding: 0 20%;
+        img{
+            width: 100%;
+          //   height: 100%;
+            margin: 2% 0;
+        }
+      }
+      
 .user_name {
 
     margin-top: 10px;
