@@ -398,9 +398,9 @@ class Transaction extends React.Component {
                                 <div className="trans_product">{trans.item.title}</div>
                                 <div className="trans_Value">
                                     {trans.Seller === this.props.username ? (
-                                        <div className="trans_minus">+{trans.Value} coins</div>
+                                        <div className="trans_plus">+{trans.Value} coins</div>
                                     ) : (
-                                        <div className="trans_plus"> -{trans.Value}coins</div>
+                                        <div className="trans_minus"> -{trans.Value}coins</div>
                                     )}
                 </div>
                 
@@ -414,10 +414,10 @@ class Transaction extends React.Component {
                                 <div className="trans_product_mob">{trans.item.title}</div>
                                 <div className="trans_row">
                                     <div className="trans_Value_mob">
-                                        {trans.Debited ? (
-                                            <div className="trans_minus_mob">-{trans.Value}coins</div>
+                                        {trans.Seller === this.props.username ? (
+                                            <div className="trans_plus">+{trans.Value}coins</div>
                                         ) : (
-                                            <div className="trans_plus"> +{trans.Value}coins</div>
+                                            <div className="trans_minus_mob"> -{trans.Value}coins</div>
                                         )}
                                     </div>
                                     <div className="trans_date_mob">2020-06-13</div>

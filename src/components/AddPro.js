@@ -1,23 +1,6 @@
 import React, { Component } from "react";
 import Productbox from "./Productbox";
 
-async function postData(url = "", data) {
-  // Default options are marked with *
-  const response = await fetch(url, {
-    method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "same-origin", // include, *same-origin, omit
-    headers: {
-      "Content-Type": "multipart/form-data"
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    redirect: "follow", // manual, *follow, error
-    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: data // body data type must match "Content-Type" header
-  });
-  return response.json(); // parses JSON response into native JavaScript objects
-}
 
 class AddPro extends Component {
   updateProductPre = () => {
@@ -25,15 +8,14 @@ class AddPro extends Component {
     let stitle = document.getElementById("pro_s_title").value;
     let s_des = document.getElementById("pro_s_des").value;
     let tag = document.getElementById("pro_type").value;
-    let price = document.getElementById("pro_price").value;
+    let branch = document.getElementById('branch_sel').value
 
     let newPro = {
       title: title,
       tag: tag,
-
+      branch : 'Computer',
       stitle: stitle,
       short_des: s_des,
-      price: price
     };
 
     this.setState(() => {
@@ -117,7 +99,6 @@ class AddPro extends Component {
 
         stitle: "short title ",
         short_des: "short description ",
-        price: "0",
         image: ""
       },
       imgSrc: null
@@ -135,7 +116,6 @@ class AddPro extends Component {
               bookimg={this.state.imgSrc}
               stitle={this.state.productdet.stitle}
               short_des={this.state.productdet.short_des}
-              price={this.state.productdet.price}
               refId={"sample"}
             />
             <h2>Live Preview</h2>
@@ -210,8 +190,19 @@ class AddPro extends Component {
                   <input name="short_des" type="text" id="pro_s_des" onChange={this.updateProductPre} />
                 </div>
                 <div className="lable_inp_pair">
-                  <label htmlFor="Type">Price</label>
-                  <input name="price" type="number" id="pro_price" onChange={this.updateProductPre} />
+                  <label htmlFor = "Type">Branch</label>
+                  <select id = "branch_sel" defaultValue= "Computer Science" >
+                    <option value = "Computer Science">Computer Science</option>
+                    <option value = "Electronics">Electronics</option>
+                    <option value = "Electrical Engg.">Electrical Engg.</option>
+                    <option value = "Mechanical">Mechanical Engg.</option>
+                    <option value = "Civil Engg.">Civil Engg.</option>
+                    <option value = "Chemical Engg." >Chemical Engg.</option>
+                    <option value = "Bio Tech">Bio Tech</option>
+                    <option value = "Bio Medical">Bio Medical</option>
+                    <option value = "BSc">BSc</option>
+                    <option value = "MSc">MSc</option>
+                  </select>
                 </div>
               </div>
               {this.state.productdet.tag === "PDF" && (

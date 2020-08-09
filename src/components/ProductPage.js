@@ -40,7 +40,6 @@ export default class ProductPage extends React.Component {
 		this.state = {
 			title: null,
 			s_title: null,
-			Value: null,
 			cover_img: null,
 			description: null,
 			refId: null,
@@ -67,7 +66,6 @@ export default class ProductPage extends React.Component {
 						id: data.id,
 						title: data.title,
 						s_title: data.s_title,
-						Value: data.Value,
 						cover_img: data.cover_img,
 						description: data.Description,
 						refId: data.refrenceId,
@@ -105,7 +103,6 @@ export default class ProductPage extends React.Component {
 					<Content
 						title={this.state.title}
 						s_title={this.state.s_title}
-						Value={this.state.Value}
 						description={this.state.description}
 						buy={this.buy}
 						refId={this.state.refId}
@@ -262,9 +259,6 @@ class Content extends React.Component {
 					</div>
 					<div className="price_pp">
 						Type : <span className="type_value">{this.props.tag}</span>
-					</div>
-					<div className="price_pp">
-						Price :<span className="price_val">{this.props.Value} coins</span>
 					</div>
 					<div className="price_pp">
 						Seller :<span className="type_val">{this.props.Seller}</span>

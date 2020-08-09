@@ -67,9 +67,7 @@ export default class Productbox extends React.Component {
           <h3>{this.props.title}</h3>
           <h6>({this.props.stitle})</h6>
           <p>{this.props.short_des}</p>
-          <h1>
-            {this.props.price} <span>coins</span>
-          </h1>
+      
           <button
             onClick={() => {
               this.addToCart(this.props.refId);

@@ -17,11 +17,13 @@ import User_details from "../components/Admin_Panel_User";
 import Payment_tab from "../components/Payment_Page";
 import CateCon from "../components/CateCon";
 import Earnings from "../components/My_Earnings";
+import Sub_header from '../components/Sub_header'
 
 const Apiroute = () => (
   <BrowserRouter>
     <div>
       <Header />
+      <Sub_header />
       <Switch>
         <Route path="/sell-your-product" component={AddProPage} exact={true} />
         <Route path="/container" component={Productbox} exact={true} />

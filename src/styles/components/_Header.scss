@@ -90,8 +90,13 @@ button:focus {
 }
 
 .user_btn_con {
-  // width: 650px;
-  // padding-right: 30px;
+  // border: solid black;
+  height: 100%;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  
 
   button {
     background-color: transparent;
@@ -169,38 +174,54 @@ button:focus {
   align-items: center;
 }
 
-#coins {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  background-color: white;
-  color: $secondary;
-  padding: 6px 9px;
+.profile{
+  // border: solid black;
+  height: 100%;
+  align-self: center;
+  margin-left: 3vw;
+  cursor: pointer;
 
-  border: solid 1px;
-  border-radius: 15px;
-  img {
-    margin-left: 0px;
-    margin-right: 8px;
-    display: block;
-    height: 15px;
+  img{
+    margin: 10px;
   }
 }
 
-.profile {
-  // border: solid 1px white;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  margin-left: 80px;
-  margin-right: 1vw;
-  cursor: pointer;
+.profile_drop_down {
+  position: absolute;
+  top: 50px;
+  right: -50px;
+  display: none;
+  background-color: #f5f5f5;
+  width: 150px;
+  // text-align: center;
+  border: solid 1px rgb(187, 187, 187);
+  transition: 0.2s;
+  border-top: none;
+  z-index: 100;
+  font-size: 14px;
+  color: $secondary;
+  font-size: 1rem;
 
-  img {
-    margin-left: 15px;
+  li {
+    margin: 10px 0px;
+    cursor: pointer;
   }
+
+  li:hover {
+    transform: scale(1.05);
+  }
+  div {
+    padding: 4px 20px;
+  }
+
+  #pro_drop_lower {
+    border-top: solid 2px #70707080;
+    background-color: #e4e4e4;
+  }
+}
+
+.profile:hover .profile_drop_down{
+  display: block;
 }
 
 // tooltip css

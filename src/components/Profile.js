@@ -5,6 +5,7 @@ import propic from "../img/propic.svg";
 import edit from "../img/edit.svg";
 import Product_cont from "./Product_cont";
 import MyOrders from './MyOrders'
+import Wick from '../img/Wick.jpg'
 
 export default class Profile extends React.Component {
   handleMode = ans => {
@@ -41,47 +42,57 @@ export default class Profile extends React.Component {
   render() {
     return (
       <div className="profile_page">
-        <div className="profile_cont">
-          <div className="info">
-            <div className="user_pro_pic">
-              <img id="pro_pic" src={this.state.pro_pic ? this.state.pro_img : propic} alt=" " />
-            </div>
-            <div className="user_name">{this.state.username}</div>
-          </div>
-
-          <div className="profile_mode">
-            <div
-              className={this.state.mode === "details" ? "pink" : "mode_head"}
-              onClick={() => this.handleMode("details")}
-            >
-              My Profile
-            </div>
-            <div
-              className={this.state.mode === "my_pro" ? "pink" : "mode_head"}
-              onClick={() => this.handleMode("my_pro")}
-            >
-              My Products
-            </div>
-            <div
-              className={this.state.mode === "earnings" ? "pink" : "mode_head"}
-              onClick={() => this.handleMode("earnings")}
-            >
-              My Orders
-            </div>
-            <div
-              className={this.state.mode === "log_out" ? "pink" : "mode_head"}
-              onClick={() => this.handleMode("log_out")}
-            >
-              Log Out
+      <div className = "profile_short">
+        <div className = "short_right">
+            <div className = "left_box">
+              <div className = "profile_pic">
+                <img src = {Wick} alt = " " />
+              </div>
+              <div className = "foll_line">
+                <div className = "white_line"></div>
+                <div className = "follower_div">
+                  <div className = "head">Following</div>
+                  <div className = "val">2249</div>
+                </div>
+                <div className = "follower_div">
+                  <div className = "head">Followers</div>
+                  <div className = "val">2317</div>
+                </div>
+                <div className = "white_line"></div>
+                
+              </div>
             </div>
           </div>
-        </div>
-        <div className="profile_right_cont">
+          <div className = "short_left">
 
-          {this.state.mode === "details" && <ProfileCard />}
-          {this.state.mode === "my_pro" && <Items_Cont />}
-          {this.state.mode === "earnings" && <MyOrders />}
+              <div className = "profile_bio">
+                  <div className = "pro_name">
+                    John Wick
+                  </div>
+                  <div className = "bio">
+                  For a web app,
+                  Develop in Javascript with React a 3-page front-end for an on-boarding process according to a skeleton of code.
+                  Communications with the back-end will use Apollo GraphQL Client v3.
+                  </div>
+              </div>
+           </div>
         </div>
+
+
+        <div className = "left_mid"></div>
+
+      <div className = "lower_pro">
+          <div className = "left_b_box">
+            <div className = "details_pro_div">
+              <ProfileCard />
+            </div>
+            <div className = "line_cont">
+              <div className = "white_line"></div>
+              <div className = "white_line"></div> 
+            </div>  
+          </div>
+        </div>
+        
       </div>
     );
   }

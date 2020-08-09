@@ -4,13 +4,6 @@ import Payment_tab from './Payment_Page'
 
 export default class MyCart extends React.Component {
 
-	cartTotal = () => {
-		let t = 0 
-		this.state.Cart_Product.map(e => {
-			t = parseInt(t) + parseInt(e.Value)
-		})
-		return t;
-	}
 
 	constructor(props) {
 		super(props);
@@ -41,7 +34,6 @@ export default class MyCart extends React.Component {
 					<Heading 
 					count = {this.state.count}
 					cartTotal = {this.cartTotal}
-					coins = {this.state.coins}
 					Cart_Product = {this.state.Cart_Product}
 				 	/> 
 				 </div>
@@ -54,7 +46,6 @@ export default class MyCart extends React.Component {
 										key={product.refrenceId}
 										title={product.title}
 										s_title={product.s_title}
-										Value={product.Value}
 										tag={product.tag}
 										refrenceId={product.refrenceId}
 										bookimg={`/covers/${product.cover_img}`}
@@ -76,7 +67,6 @@ export default class MyCart extends React.Component {
 									Grand Total :
 								</div>
 
-								<div className="cart_product_price">{this.cartTotal()} coins</div>
 						
 
 							<div
@@ -109,38 +99,10 @@ class Heading extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.Total_Value = this.Total_Value.bind(this);
-		this.Total = this.Total.bind(this);
-
-		this.isDisable()
-
 	
 	}
-	Total_Value(data) {
-		let total = 0;
-		for (let i = 0; i < data.length; i++) {
-			total = total + data[i].Value;
-		}
-		return total;
-	}
 
-	Total(coins) {
-		if (this.Total_Value(this.props.Cart_Product) > coins) {
-			return this.Total_Value(this.props.Cart_Product) - coins;
-		}
-		if (coins < 0) {
-			return this.Total_Value(this.props.Cart_Product);
-		}
-		let overall = coins - this.Total_Value(this.props.Cart_Product);
-		return overall;
-	}
 
-	isDisable() {
-		if (this.props.coins < this.Total_Value(this.props.Cart_Product) || this.Total_Value(this.props.Cart_Product) == 0) {
-			return true;
-		}
-		return false;
-	}
 
 	render() {
 		return (
@@ -149,44 +111,8 @@ class Heading extends React.Component {
 					<div>
 						<h1 className="heading_left_cart">Items({this.props.count})</h1>
 					</div>
-					{this.props.Cart_Product.length != 0 && (
-					<div className = "check_head">
-						<button onClick={() => {
-		
-						window.location.href = "/payment"
-
-						}}
-						 
-						>Checkout</button>
-					</div>
-					)}
 				</div>
-				{this.props.Cart_Product.length != 0 && (
-				<div className = "low_head_mob">
-					<div className="cart_product_price_mob price_tot" >{this.props.cartTotal()} coins</div>
-					<div className = {this.isDisable ? "light_mob" : "check_head_mob"}>
-						<button onClick={() => {
-							if (this.state.coins < this.Total_Value(this.props.Cart_Product)) {
-								alert('Insufficient Balance');
-							}
-							else{
-							let data = {
-								coins: this.props.coins - this.Total_Value(this.props.Cart_Product)
-							};
-							postData2('/api/user/CheckoutFromCart', data).then((data) => {
-								if (!data) {
-									alert('error occured');
-								}
-							});
-						}
-						// window.location.href = "/payment"	
-
-						}} 
-						 disabled = {this.isDisable()}
-						>Checkout</button>
-				</div>
-				</div>
-				)}
+				
 			</div>
 		);
 	}
@@ -226,9 +152,7 @@ class Product_cart extends React.Component {
 									Type : <span className="type_value">{this.props.tag}</span>
 								</div>
 								<br />
-								<div className="cart_product_price_mob"><span className = "price_mob">
-									Price : </span>{this.props.Value} coins</div>
-								<br />
+	
 								<div
 									className="btn_cart_div_mob"
 									onClick={() => {
@@ -243,7 +167,6 @@ class Product_cart extends React.Component {
 								Type : <span className="type_value">{this.props.tag}</span>
 							</div>
 							
-							<div className="cart_product_price">{this.props.Value} coins</div>
 					
 
 						<div
@@ -280,21 +203,4 @@ async function postData(url = '', data = {}) {
 	window.location.reload();
 	return response.json(); // parses JSON response into native JavaScript objects
 }
-async function postData2(url = '', data = {}) {
-	// Default options are marked with *
-	const response = await fetch(url, {
-		method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
-		mode: 'cors', // no-cors, *cors, same-origin
-		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-		credentials: 'same-origin', // include, *same-origin, omit
-		headers: {
-			'Content-Type': 'application/json'
-			// 'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		redirect: 'follow', // manual, *follow, error
-		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-		body: JSON.stringify(data) // body data type must match "Content-Type" header
-	});
-	window.location.reload();
-	return response.json(); // parses JSON response into native JavaScript objects
-}
+

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState} from "react";
 // import homePage from './HomePage';
 import mainLOGO from "../img/name-logo.png";
 import cart from "../img/cart.svg";
@@ -6,11 +6,10 @@ import lib from "../img/lib.svg";
 import plus from "../img/plus.svg";
 import propic from "../img/propic.svg";
 import money from "../img/money.svg";
-import OutsideAlerter from "../Hooks/OutsideAlerter";
 import { GoogleLogin } from "react-google-login";
 import magni from "../img/search.svg";
 import { Link } from "react-router-dom";
-import Earnings from './My_Earnings'
+import arrow from '../img/multimedia.svg'
 
 class Header extends React.Component {
   findName = () => {
@@ -150,7 +149,7 @@ class Header extends React.Component {
           </div>
         </div>
 
-        <div className="user_btn_con frse">
+        <div className="user_btn_con">
           {this.state.islogin ? (
             <div className="frse logindet">
               <Link to="/sell-your-product" class="tooltip">
@@ -168,20 +167,23 @@ class Header extends React.Component {
                 <img src={lib} alt=" " />
                 <span class="tooltiptext">My Library</span>
               </Link>
-
-              <div class="tooltip">
-                {" "}
-                <div className="profile">
-                  <Navbar>
-                    <Navitem
-                      icon={<img id="pro_pic" src={this.state.pro_pic ? this.state.pro_pic : propic} alt=" " />}
-                      coins={this.state.coins}
-                    >
-                      <Dropdown isAdmin={this.state.isAdmin} />
-                    </Navitem>
-                  </Navbar>
-                </div>
-              </div>
+              
+              <div className = "tooltip profile">
+                    <img id="pro_pic" src={this.state.pro_pic ? this.state.pro_pic : propic} alt=" " />
+                    <div className="profile_drop_down">
+                    <div>
+                      <Link to="/myprofile">
+                        <li>My Profile</li>
+                      </Link>
+                      <Link to="/earnings">
+                        <li>My Products</li>
+                      </Link>
+                      <li>Contact Us</li>
+                      <li>Sign Out</li>
+                    </div>
+                  </div>                
+              </div>                
+              
             </div>
           ) : (
             <div className="fr">
@@ -212,92 +214,5 @@ class Header extends React.Component {
   }
 }
 
-const Navbar = props => {
-  return (
-    <nav className="navbar">
-      <ul className="navbar-nav">{props.children}</ul>
-    </nav>
-  );
-};
-
-const Navitem = props => {
-  const ref = useRef(null);
-  const [open, setOpen] = useState(false);
-
-  const handleOutsideClick = event => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      setOpen(prevState => !prevState);
-    }
-  };
-
-  document.addEventListener("click", handleOutsideClick, true);
-
-  return (
-    <li
-      className="nav-item"
-      onClick={() => {
-        setOpen(prevState => !prevState);
-      }}
-      id="nav-item"
-    >
-      <span className="name" id="coins">
-        <img src={money} alt="" />
-        {props.coins}
-      </span>
-      <a href="#" className="icon-button" id="helo">
-        {props.icon}
-      </a>
-
-      {open && (
-        <div ref={ref} className="ref">
-          {props.children}
-        </div>
-      )}
-    </li>
-  );
-};
-
-const Dropdown = props => {
-  function Dropdownitem(props) {
-    return <a className="menu-item">{props.children}</a>;
-  }
-
-  return (
-    <div className="dropdown">
-      <Link to="/myprofile">
-        <Dropdownitem>
-          <span className="span_dd">My Profile</span>
-        </Dropdownitem>
-      </Link>
-      <div />
-      <Link to="/earnings">
-        <Dropdownitem>
-          <span className="span_dd">My earnings</span>
-        </Dropdownitem>
-      </Link>
-      {props.isAdmin && (
-        <Dropdownitem>
-          <Link to="/Admin_Panel" className="span_dd">
-            Admin Pannel
-          </Link>
-        </Dropdownitem>
-      )}
-
-      <Dropdownitem>
-        <span
-          onClick={() => {
-            fetch("/api/login/out", {
-              method: "DELETE"
-            });
-            window.location.reload();
-          }}
-          className="span_dd"
-        >
-          Log Out
-        </span>
-      </Dropdownitem>
-    </div>
-  );
-};
 
 export default Header;

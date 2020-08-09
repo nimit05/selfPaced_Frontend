@@ -59,7 +59,6 @@ export default class Product_cont extends React.Component {
 								tag={e.tag}
 								stitle={e.s_title}
 								short_des={e.short_des}
-								price={e.Value}
 								refId={e.refrenceId}
 								isAdded={isadded}
 								bookimg={`covers/${e.cover_img}`}

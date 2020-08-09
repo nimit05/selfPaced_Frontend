@@ -18,8 +18,7 @@ export default class ShopByCate extends Component {
     return (
       <div className="shop_by_cate_con">
         <h1 className="sbc_head">Shop By Category</h1>
-        <img className="arrow_right" src={arrow} alt="" />
-        <img className="arrow_left" src={arrow} alt="" />
+        
         <div className="sbc_body_con">
           <div className="sbc_cate">
             {" "}
@@ -61,36 +60,7 @@ export default class ShopByCate extends Component {
             <img className="sbc_cate_img" src={chem_img} alt="" />
             <h3>Chemical Engineering</h3>
           </div>
-          <div className="sbc_cate">
-            {" "}
-            <img className="sbc_cate_img" src={comp_img} alt="" />
-            <h3>Computer Science Engineering</h3>
-          </div>
-          <div className="sbc_cate">
-            {" "}
-            <img className="sbc_cate_img" src={ee_img} alt="" />
-            <h3>Electrical Engineering</h3>
-          </div>
-          <div className="sbc_cate">
-            {" "}
-            <img className="sbc_cate_img" src={civil_img} alt="" />
-            <h3>Civil Engineering</h3>
-          </div>
-          <div className="sbc_cate">
-            {" "}
-            <img className="sbc_cate_img" src={chem_img} alt="" />
-            <h3>Chemical Engineering</h3>
-          </div>
-          <div className="sbc_cate">
-            {" "}
-            <img className="sbc_cate_img" src={mech_img} alt="" />
-            <h3>Mechanical Engineering</h3>
-          </div>
-          <div className="sbc_cate">
-            {" "}
-            <img className="sbc_cate_img" src={ece_img} alt="" />
-            <h3>Electronics Engineering</h3>
-          </div>
+         
         </div>
       </div>
     );
