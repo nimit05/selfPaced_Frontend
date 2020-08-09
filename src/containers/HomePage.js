@@ -12,12 +12,9 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="HomePage">
-        <MainHeader />
         <ShopByCate />
         <ShowCase titleLeft="BEST SELLER" titleRight="TOP RATED" />
-        <CateCon title={"New Arrivals"} />
-        <ShowCase titleLeft="MOST LIKED" titleRight="TOP FREE" />
-        <Base_Header />
+        <CateCon title={"New Arrivals"} url="latest" />
       </div>
     );
   }

@@ -1,8 +1,8 @@
-.heading_search_con {
+.heading_spec_con {
   margin-top: 100px;
 }
 
-.search_items {
+.spec_items {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -10,7 +10,7 @@
   margin-top: 5rem;
   padding-left: 30px;
 
-  .heading_search {
+  .heading_spec {
     background-color: $blur;
     height: 50px;
     font-family: "Times New Roman", Times, serif;
@@ -19,19 +19,19 @@
     color: $dark;
     font-size: 1.2rem;
   }
-  .heading_left_search {
+  .heading_left_spec {
     //    float: left;
     margin-left: 2vw;
     margin-top: 50px;
   }
 }
-.search_error {
+.spec_error {
   font-size: 1.5rem;
   text-align: center;
   margin: 20vh;
 }
 
-.heading_search {
+.heading_spec {
   // background-color: $blur;
   height: 50px;
   font-family: "Times New Roman", Times, serif;
@@ -46,7 +46,7 @@
 }
 
 @media screen and (max-width: 720px) {
-  .search_items {
+  .spec_items {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import Productbox from "./Productbox";
 
-
 class AddPro extends Component {
   updateProductPre = () => {
     let title = document.getElementById("pro_title").value;
     let stitle = document.getElementById("pro_s_title").value;
     let s_des = document.getElementById("pro_s_des").value;
     let tag = document.getElementById("pro_type").value;
-    let branch = document.getElementById('branch_sel').value
+    let branch = document.getElementById("branch_sel").value;
 
     let newPro = {
       title: title,
       tag: tag,
-      branch : 'Computer',
+      branch: branch,
       stitle: stitle,
-      short_des: s_des,
+      short_des: s_des
     };
 
     this.setState(() => {
@@ -190,33 +189,21 @@ class AddPro extends Component {
                   <input name="short_des" type="text" id="pro_s_des" onChange={this.updateProductPre} />
                 </div>
                 <div className="lable_inp_pair">
-                  <label htmlFor = "Type">Branch</label>
-                  <select id = "branch_sel" defaultValue= "Computer Science" >
-                    <option value = "Computer Science">Computer Science</option>
-                    <option value = "Electronics">Electronics</option>
-                    <option value = "Electrical Engg.">Electrical Engg.</option>
-                    <option value = "Mechanical">Mechanical Engg.</option>
-                    <option value = "Civil Engg.">Civil Engg.</option>
-                    <option value = "Chemical Engg." >Chemical Engg.</option>
-                    <option value = "Bio Tech">Bio Tech</option>
-                    <option value = "Bio Medical">Bio Medical</option>
-                    <option value = "BSc">BSc</option>
-                    <option value = "MSc">MSc</option>
+                  <label htmlFor="Type">Branch</label>
+                  <select id="branch_sel" name="branch" defaultValue="ece">
+                    <option value="cse">Computer Science</option>
+                    <option value="ece">Electronics</option>
+                    <option value="ee">Electrical Engg.</option>
+                    <option value="me">Mechanical Engg.</option>
+                    <option value="civil">Civil Engg.</option>
+                    <option value="ce">Chemical Engg.</option>
+                    <option value="bt">Bio Tech</option>
+                    <option value="bme">Bio Medical</option>
+                    <option value="bsc">BSc</option>
+                    <option value="msc">MSc</option>
                   </select>
                 </div>
               </div>
-              {this.state.productdet.tag === "PDF" && (
-                <div className="row_pair">
-                  <div className="lable_inp_pair">
-                    <label htmlFor="Type">Sample PDF (Starting Page Number)</label>
-                    <input name="sample_start" type="number" id="pro_sample_start" />
-                  </div>
-                  <div className="lable_inp_pair">
-                    <label htmlFor="Type">Number of Pages in Sample PDF</label>
-                    <input name="sample_pages" type="number" id="pro_sample_end" />
-                  </div>
-                </div>
-              )}
 
               <div className="lable_inp_pair">
                 <label htmlFor="Type">Breif Description</label>

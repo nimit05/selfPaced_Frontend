@@ -17,8 +17,8 @@ export default class ShopByCate extends Component {
   render() {
     return (
       <div className="shop_by_cate_con">
-        <h1 className="sbc_head">Shop By Category</h1>
-        
+        <h1 className="sbc_head">Get Notes By Category</h1>
+
         <div className="sbc_body_con">
           <div className="sbc_cate">
             {" "}
@@ -60,7 +60,6 @@ export default class ShopByCate extends Component {
             <img className="sbc_cate_img" src={chem_img} alt="" />
             <h3>Chemical Engineering</h3>
           </div>
-         
         </div>
       </div>
     );

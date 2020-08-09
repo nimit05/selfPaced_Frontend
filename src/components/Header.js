@@ -1,4 +1,4 @@
-import React, { useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 // import homePage from './HomePage';
 import mainLOGO from "../img/name-logo.png";
 import cart from "../img/cart.svg";
@@ -9,7 +9,7 @@ import money from "../img/money.svg";
 import { GoogleLogin } from "react-google-login";
 import magni from "../img/search.svg";
 import { Link } from "react-router-dom";
-import arrow from '../img/multimedia.svg'
+import arrow from "../img/multimedia.svg";
 
 class Header extends React.Component {
   findName = () => {
@@ -167,26 +167,25 @@ class Header extends React.Component {
                 <img src={lib} alt=" " />
                 <span class="tooltiptext">My Library</span>
               </Link>
-              
-              <div className = "tooltip profile">
-                    <img id="pro_pic" src={this.state.pro_pic ? this.state.pro_pic : propic} alt=" " />
-                    <div className="profile_drop_down">
-                    <div>
-                      <Link to="/myprofile">
-                        <li>My Profile</li>
-                      </Link>
-                      <Link to="/earnings">
-                        <li>My Products</li>
-                      </Link>
-                      <li>Contact Us</li>
-                      <li>Sign Out</li>
-                    </div>
-                  </div>                
-              </div>                
-              
+
+              <div className="tooltip profile">
+                <img id="pro_pic" src={this.state.pro_pic ? this.state.pro_pic : propic} alt=" " />
+                <div className="profile_drop_down">
+                  <div>
+                    <Link to="/myprofile">
+                      <li>My Profile</li>
+                    </Link>
+                    <Link to="/earnings">
+                      <li>My Products</li>
+                    </Link>
+                    <li>Contact Us</li>
+                    <li>Sign Out</li>
+                  </div>
+                </div>
+              </div>
             </div>
           ) : (
-            <div className="fr">
+            <div className="frse">
               <button
                 id="reg_btn"
                 onClick={() => {
@@ -213,6 +212,5 @@ class Header extends React.Component {
     );
   }
 }
-
 
 export default Header;

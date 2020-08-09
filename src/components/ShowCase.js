@@ -8,49 +8,76 @@ export default class ShowCase extends Component {
     super(props);
 
     this.state = {
+      rProDet: {
+        title: "Title",
+        tag: "PDF",
+
+        s_title: "short title ",
+        short_des: "short description ",
+        price: "0",
+        cover_img: ""
+      },
       lProDet: {
         title: "Title",
         tag: "PDF",
 
-        stitle: "short title ",
+        s_title: "short title ",
         short_des: "short description ",
         price: "0",
-        image: ""
+        cover_img: ""
       }
     };
+    fetch("/api/products/rated/1/0")
+      .then(d => d.json())
+      .then(data => {
+        if (data.products) {
+          this.setState({ rProDet: data.products[0] });
+        }
+      });
+    fetch("/api/products/mostB/1/0")
+      .then(d => d.json())
+      .then(data => {
+        if (data.products) {
+          this.setState({ lProDet: data.products[0] });
+        }
+      });
   }
 
   render() {
     return (
       <div className="show_case_con">
-        <div className="show_case_left">
-          <img className="bestImg" src={best} alt="" />
-          <h2 className="scl_head">{this.props.titleLeft}</h2>
-          <ProductBox
-            title={this.state.lProDet.title}
-            tag={this.state.lProDet.tag}
-            bookimg={this.state.lProDet.image === "" ? sampleCover : this.state.lProDet.image}
-            stitle={this.state.lProDet.stitle}
-            short_des={this.state.lProDet.short_des}
-            price={this.state.lProDet.price}
-            refId={"sample" + this.props.titleLeft}
-          />
-          <h4 className="sc_see_more"> See More -></h4>
-        </div>
-        <div className="show_case_right">
-          <h2 className="scl_head">{this.props.titleRight}</h2>
+        {this.state.lProDet && (
+          <div className="show_case_left">
+            <img className="bestImg" src={best} alt="" />
+            <h2 className="scl_head">{this.props.titleLeft}</h2>
+            <ProductBox
+              title={this.state.lProDet.title}
+              tag={this.state.lProDet.tag}
+              bookimg={"/covers/" + this.state.lProDet.cover_img}
+              stitle={this.state.lProDet.s_title}
+              short_des={this.state.lProDet.short_des}
+              price={this.state.lProDet.price}
+              refId={"sample" + this.props.titleLeft}
+            />
+            <h4 className="sc_see_more"> See More -></h4>
+          </div>
+        )}
+        {this.state.rProDet && (
+          <div className="show_case_right">
+            <h2 className="scl_head">{this.props.titleRight}</h2>
 
-          <ProductBox
-            title={this.state.lProDet.title}
-            tag={this.state.lProDet.tag}
-            bookimg={this.state.lProDet.image === "" ? sampleCover : this.state.lProDet.image}
-            stitle={this.state.lProDet.stitle}
-            short_des={this.state.lProDet.short_des}
-            price={this.state.lProDet.price}
-            refId={"sample" + this.props.titleRight}
-          />
-          <h4 className="sc_see_more"> See More -></h4>
-        </div>
+            <ProductBox
+              title={this.state.rProDet.title}
+              tag={this.state.rProDet.tag}
+              bookimg={"/covers/" + this.state.rProDet.cover_img}
+              stitle={this.state.rProDet.s_title}
+              short_des={this.state.rProDet.short_des}
+              price={this.state.rProDet.price}
+              refId={"sample" + this.props.titleRight}
+            />
+            <h4 className="sc_see_more"> See More -></h4>
+          </div>
+        )}
       </div>
     );
   }

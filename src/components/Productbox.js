@@ -9,39 +9,11 @@ export default class Productbox extends React.Component {
     document.getElementById(id).style.display = "inline-block";
   };
 
-  addToCart = refId => {
-    if (this.state.addedToCart === false) {
-      let data = { refrenceId: refId };
-      postData("/api/products/AddToCart", data);
-    }
-    this.setState(prev => {
-      return {
-        addedToCart: true
-      };
-    });
-  };
-
   constructor(props) {
     super(props);
-    console.log(this.props.isAdded);
-    this.state = {
-      addedToCart: this.props.isAdded
-    };
   }
 
   render() {
-    let c;
-
-    if (this.state.addedToCart) {
-      c = {
-        backgroundColor: "green"
-      };
-    } else {
-      c = {
-        backgroundColor: "#fa255e"
-      };
-    }
-
     return (
       <div className="productcont" id={this.props.refId}>
         <img className="new_tag" src={newImg} alt="" />
@@ -67,15 +39,6 @@ export default class Productbox extends React.Component {
           <h3>{this.props.title}</h3>
           <h6>({this.props.stitle})</h6>
           <p>{this.props.short_des}</p>
-      
-          <button
-            onClick={() => {
-              this.addToCart(this.props.refId);
-            }}
-            className="add_to_cart_btn"
-          >
-            {this.state.addedToCart ? "Added To Cart" : "Add To Cart"}
-          </button>
         </div>
       </div>
     );

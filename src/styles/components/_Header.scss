@@ -16,11 +16,13 @@
 }
 .gbtn {
   border-radius: 20px !important;
-  height: 35px !important;
+  height: 40px !important;
+  width: 195px;
+
   div {
     border-radius: 20px !important;
     // margin-top: -2px !important;
-    height: 15px !important;
+    height: 18px !important;
   }
 }
 .fr {
@@ -29,14 +31,18 @@
 }
 .search_con {
   // justify-self: flex-end;
-  position: relative;
-  justify-self: flex-end;
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  margin-right: 80px;
 }
 
 .header_left {
   position: absolute;
   top: 0px;
-  left: 1vw;
+  left: 8vw;
   cursor: pointer;
   img {
     object-fit: cover;
@@ -96,7 +102,6 @@ button:focus {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  
 
   button {
     background-color: transparent;
@@ -108,7 +113,7 @@ button:focus {
   }
 
   img {
-    margin-left: 3vw;
+    margin-left: 2.5vw;
     height: 30px;
     cursor: pointer;
   }
@@ -122,6 +127,8 @@ button:focus {
   color: white;
   border-radius: 20px;
   border: solid 2px white;
+  height: 40px;
+
   // box-shadow: 0px 0px 5px rgb(168, 168, 168);
 }
 #reg_btn:active {
@@ -174,14 +181,14 @@ button:focus {
   align-items: center;
 }
 
-.profile{
+.profile {
   // border: solid black;
   height: 100%;
   align-self: center;
-  margin-left: 3vw;
+  margin-left: 2.5vw;
   cursor: pointer;
 
-  img{
+  img {
     margin: 10px;
   }
 }
@@ -220,7 +227,7 @@ button:focus {
   }
 }
 
-.profile:hover .profile_drop_down{
+.profile:hover .profile_drop_down {
   display: block;
 }
 
@@ -338,4 +345,7 @@ button:focus {
       height: 15px !important;
     }
   }
+}
+.logindet {
+  width: 250px;
 }

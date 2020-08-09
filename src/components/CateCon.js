@@ -1,5 +1,6 @@
 import React from "react";
 import Productbox from "./Productbox";
+import { Link } from "react-router-dom";
 
 // props to send to productbox are {1 title 2 tag 3 bookimg 4 stitle 5 short_des 6 price}
 
@@ -8,56 +9,28 @@ export default class CateCon extends React.Component {
     super(props);
 
     this.state = {
-      proArray: [],
-      addedtocartArr: []
+      proArray: []
     };
 
-    postData("/api/user/CartRefId")
-      .then(data => {
-        console.log(data);
-
-        this.setState(() => {
-          return {
-            addedtocartArr: data
-          };
-        });
-        postData("/api/products").then(data => {
-          console.log(data);
-
-          this.setState(() => {
-            return { proArray: data.products };
-          });
-        });
-      })
-      .catch(() => {
-        postData("/api/products").then(data => {
-          console.log(data);
-
-          this.setState(() => {
-            return { proArray: data.products };
-          });
-        });
+    postData(`/api/products/${this.props.url}/10/0`).then(data => {
+      console.log(data);
+      this.setState(() => {
+        return { proArray: data.products };
       });
+    });
   }
   render() {
     return (
       <div className="CateCon">
         <div className="cate_head">
           <h1>{this.props.title}</h1>
-          <h3>See More -></h3>
+          <Link to={`spec/${this.props.title}/${this.props.url}`}>
+            <h3>See More -></h3>
+          </Link>
         </div>
 
         <div className="cate_body">
           {this.state.proArray.map(e => {
-            let a = this.state.addedtocartArr.indexOf(e.refrenceId);
-            console.log(a);
-            let isadded;
-            if (a == -1) {
-              isadded = false;
-            } else {
-              isadded = true;
-            }
-
             return (
               <Productbox
                 title={e.title}
@@ -66,7 +39,6 @@ export default class CateCon extends React.Component {
                 short_des={e.short_des}
                 price={e.Value}
                 refId={e.refrenceId}
-                isAdded={isadded}
                 bookimg={`/covers/${e.cover_img}`}
               />
             );

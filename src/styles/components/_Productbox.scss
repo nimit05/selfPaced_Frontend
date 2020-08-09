@@ -3,7 +3,7 @@
   height: 350px;
   box-shadow: 5px 5px 20px #cccccc;
   border: solid 1px rgb(218, 218, 218);
-  margin: auto 18px;
+  margin: auto 13px;
   // margin-top: ;
   display: none;
   overflow: hidden;
@@ -37,9 +37,19 @@
 
 .product_img {
   // margin-top: -14px;
-  height: calc(70% - 14px);
+  overflow:hidden;
+  height:74%;
+  max-width:75%;
+margin:auto;
+
+
   text-align: center;
   cursor: pointer;
+  img{
+		  height:100%;
+
+  
+  object-fit:cover}
 }
 
 .good {
@@ -83,7 +93,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 28%;
+  height: 15%;
+  margin-top:10px;
+
 
   h3 {
     // font-family: "Balsamiq Sans", cursive;
@@ -115,6 +127,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: "ellipsis";
+    font-size: 14px;
   }
   h1 {
     margin: 5px;
