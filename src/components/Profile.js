@@ -1,14 +1,10 @@
 import React from "react";
-import CateCon_for_profile from "./CateCOn_profile";
-import Earnings from './My_Earnings'
-import propic from "../img/propic.svg";
 import edit from "../img/edit.svg";
-import Product_cont from "./Product_cont";
-import MyOrders from './MyOrders'
 import Wick from '../img/Wick.jpg'
+import Contact from './ContactUs'
 
 export default class Profile extends React.Component {
-  handleMode = ans => {
+  handleMode = (ans) => {
     this.setState(() => {
       return {
         mode: ans
@@ -26,101 +22,70 @@ export default class Profile extends React.Component {
           this.setState(() => {
             return {
               pro_img: data.pro_img,
-              username: data.username
+              username: data.username,
+              bio : data.bio
             };
           });
         }
       });
 
+      
+
     this.state = {
       pro_img: null,
       username: null,
-      mode: "details",
-      sidebar: false
+      mode: "profile",
+      sidebar: false,
+      edit : true
     };
   }
   render() {
     return (
-      <div className="profile_page">
-      <div className = "profile_short">
-        <div className = "short_right">
-            <div className = "left_box">
-              <div className = "profile_pic">
-                <img src = {Wick} alt = " " />
-              </div>
-              <div className = "foll_line">
-                <div className = "white_line"></div>
-                <div className = "follower_div">
-                  <div className = "head">Following</div>
-                  <div className = "val">2249</div>
-                </div>
-                <div className = "follower_div">
-                  <div className = "head">Followers</div>
-                  <div className = "val">2317</div>
-                </div>
-                <div className = "white_line"></div>
-                
-              </div>
-            </div>
-          </div>
-          <div className = "short_left">
-
-              <div className = "profile_bio">
-                  <div className = "pro_name">
-                    John Wick
-                  </div>
-                  <div className = "bio">
-                  For a web app,
-                  Develop in Javascript with React a 3-page front-end for an on-boarding process according to a skeleton of code.
-                  Communications with the back-end will use Apollo GraphQL Client v3.
-                  </div>
-              </div>
-           </div>
-        </div>
-
-
-        <div className = "left_mid"></div>
 
       <div className = "lower_pro">
 
         <div className = "side_pro_bar">
+        <div className = "line_bar"></div>
           <div className = "head">
-            hello Nimit !
+            <img src = {Wick} />
           </div>
-          <div className = "link_items">
-            <div className = "links">
-              My Products
-            </div>
-            <div className = "links">
-              My Branch
-            </div>
-            <div className = "links">
-              My Links
-            </div>
-            <div className = "links">
-               Change Password
-            </div>
-            <div className = "links">
-              Contact Us
-            </div>
-            <div className = "links">
-              Sign Out
-            </div>
+          <div className = "link">
+              Nimit Wadhwa
+          </div>
+          <div className = "bio">
+          Ipsam voluptatem quia voluptas sit aspernatur
+           aut odit aut fugit, sed quia consequuntur mag
+           ni dolores eos qui ratione voluptatem sequi n
           </div>
         </div>
 
-          <div className = "left_b_box">
             <div className = "details_pro_div">
-              <ProfileCard />
+
+              <div className = "details_heading">
+                <div className = {this.state.mode == 'profile' ? 'active_cont' : 'head_cont' }
+                 onClick = {() => this.handleMode('profile')}>
+                  Profile
+                </div>
+                <div className = {this.state.mode == 'products' ? 'active_cont' : 'head_cont' }
+                 onClick = {() => this.handleMode('products')}>
+                  My Products
+                </div>
+                <div className = {this.state.mode == 'contact' ? 'active_cont' : 'head_cont' }
+                onClick = {() => this.handleMode('contact')}>
+                  Contact Us
+                </div>
+              </div>
+
+              {this.state.mode === 'profile' &&(
+                <ProfileCard />
+              )}
+              {this.state.mode === 'contact' &&(
+                <Contact />
+              )}
+       
             </div>
-            <div className = "line_cont">
-              <div className = "white_line"></div>
-              <div className = "white_line"></div> 
-            </div>  
-          </div>
         </div>
         
-      </div>
     );
   }
 }
@@ -175,7 +140,6 @@ class ProfileCard extends React.Component {
   render() {
     return (
       <div className="ProfileCard">
-      <div className = "det_box_pp">
           <div className="details_subhead">
             <div>Personal Details : </div>
             <div
@@ -196,7 +160,6 @@ class ProfileCard extends React.Component {
                     onClick={() => {
                       let data = {
                         name: document.getElementById("user_name").value,
-                        bio: document.getElementById("user_bio").value
                       };
 
                       let a = postData("/api/user", data);
@@ -215,7 +178,7 @@ class ProfileCard extends React.Component {
 
           <div className="details_row">
             <div className="row_cont">
-              <div className="details_lab">Username</div>
+              <div className="details_lab">First Name</div>
 
               {this.state.edit_p ? (
                 <div className="details_value">{this.state.username}</div>
@@ -226,7 +189,17 @@ class ProfileCard extends React.Component {
               )}
             </div>
             <div className="row_cont">
-              <div className="details_lab">Name</div>
+              <div className="details_lab">Last Name</div>
+              {this.state.edit_p ? (
+                <div className="details_value">{this.state.name}</div>
+              ) : (
+                <div className="details_value">
+                  <input type="text" id="user_name" defaultValue={this.state.name} />
+                </div>
+              )}
+            </div>
+            <div className="row_cont">
+              <div className="details_lab">UserName</div>
               {this.state.edit_p ? (
                 <div className="details_value">{this.state.name}</div>
               ) : (
@@ -236,9 +209,7 @@ class ProfileCard extends React.Component {
               )}
             </div>
           </div>
-        </div>
      
-        <div className = "det_box_pp">
           <div className="details_subhead">
             <div>Education Details : </div>
             <div
@@ -287,7 +258,7 @@ class ProfileCard extends React.Component {
               )}
             </div>
             <div className="row_cont">
-              <div className="details_lab">Qualification</div>
+              <div className="details_lab">Course</div>
               {this.state.edit_ed ? (
                 <div className="details_value_email">{this.state.Quali}</div>
               ) : (
@@ -296,10 +267,18 @@ class ProfileCard extends React.Component {
                 </div>
               )}
             </div>
+            <div className="row_cont">
+            <div className="details_lab">Branch</div>
+            {this.state.edit_ed ? (
+              <div className="details_value_email">{this.state.Quali}</div>
+            ) : (
+              <div className="details_value_email">
+                <input type="text" defaultValue={this.state.Quali} id="user_quali" />{" "}
+              </div>
+            )}
           </div>
-        </div>
+          </div>
 
-        <div className  ="det_box_pp">
         <div className="details_subhead">
           <div>Contact Details : </div>
           <div
@@ -338,16 +317,7 @@ class ProfileCard extends React.Component {
           </div>
         </div>
         <div className="details_row">
-          <div className="row_cont">
-            <div className="details_lab">Email</div>
-            {this.state.edit_c ? (
-              <div className="details_value_email">{this.state.email}</div>
-            ) : (
-              <div className="details_value">
-                <input type="text" defaultValue={this.state.email} id="user_email" />
-              </div>
-            )}
-          </div>
+  
           <div className="row_cont">
             <div className="details_lab">Phone No.</div>
             {this.state.edit_c ? (
@@ -358,21 +328,60 @@ class ProfileCard extends React.Component {
               </div>
             )}
           </div>
-        </div>
-        <div className="details_row">
+          
           <div className="row_cont">
-            <div className="details_lab">Address</div>
-            {this.state.edit_c ? (
-              <div className="details_value">{this.state.Address}</div>
-            ) : (
-              <div className="details_value">
-                <input type="text" defaultValue={this.state.Address} id="user_add" />
-              </div>
-            )}
+          <div className="details_lab">Email</div>
+          {this.state.edit_c ? (
+            <div className="details_value_email">{this.state.email}</div>
+          ) : (
+            <div className="details_value">
+              <input type="text" defaultValue={this.state.email} id="user_email" />
+            </div>
+          )}
+        </div>
+        <div className="row_cont">
+        <div className="details_lab">Address</div>
+        {this.state.edit_c ? (
+          <div className="details_value">{this.state.Address}</div>
+        ) : (
+          <div className="details_value">
+            <input type="text" defaultValue={this.state.Address} id="user_add" />
           </div>
-        </div>
-        </div>
+        )}
       </div>
+        </div>
+
+        <div className = "Faq">
+          <div className = "main">FAQs</div>
+
+          <div className = "question">
+            What happens when I update my email address (or mobile number)?
+          </div>
+
+          <div className = "question">
+          Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).
+          </div>
+
+          <div className = "question">
+            What happens when I update my email address (or mobile number)?
+          </div>
+
+          <div className = "question">
+          Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).
+          </div>
+
+          <div className = "question">
+            What happens when I update my email address (or mobile number)?
+          </div>
+
+          <div className = "question">
+          Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).
+          </div>
+        
+  
+        </div>
+ 
+        </div>
     );
   }
 }
