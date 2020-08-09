@@ -82,6 +82,33 @@ export default class Profile extends React.Component {
         <div className = "left_mid"></div>
 
       <div className = "lower_pro">
+
+        <div className = "side_pro_bar">
+          <div className = "head">
+            hello Nimit !
+          </div>
+          <div className = "link_items">
+            <div className = "links">
+              My Products
+            </div>
+            <div className = "links">
+              My Branch
+            </div>
+            <div className = "links">
+              My Links
+            </div>
+            <div className = "links">
+               Change Password
+            </div>
+            <div className = "links">
+              Contact Us
+            </div>
+            <div className = "links">
+              Sign Out
+            </div>
+          </div>
+        </div>
+
           <div className = "left_b_box">
             <div className = "details_pro_div">
               <ProfileCard />
@@ -148,137 +175,131 @@ class ProfileCard extends React.Component {
   render() {
     return (
       <div className="ProfileCard">
-        <div className="details_subhead">
-          <div>Personal Details : </div>
-          <div
-            className="det_edit"
-            onClick={() => {
-              this.setState(prevState => {
-                return {
-                  edit_p: !prevState.edit_p
-                };
-              });
-            }}
-          >
-            <div>
+      <div className = "det_box_pp">
+          <div className="details_subhead">
+            <div>Personal Details : </div>
+            <div
+              className="det_edit"
+              onClick={() => {
+                this.setState(prevState => {
+                  return {
+                    edit_p: !prevState.edit_p
+                  };
+                });
+              }}
+            >
+              <div>
+                {this.state.edit_p ? (
+                  <div>Edit</div>
+                ) : (
+                  <div
+                    onClick={() => {
+                      let data = {
+                        name: document.getElementById("user_name").value,
+                        bio: document.getElementById("user_bio").value
+                      };
+
+                      let a = postData("/api/user", data);
+                      if (a) {
+                        this.updatePro();
+                      }
+                    }}
+                  >
+                    Save
+                  </div>
+                )}
+              </div>
+              <div>{this.state.edit_p && <img src={edit} />}</div>
+            </div>
+          </div>
+
+          <div className="details_row">
+            <div className="row_cont">
+              <div className="details_lab">Username</div>
+
               {this.state.edit_p ? (
-                <div>Edit</div>
+                <div className="details_value">{this.state.username}</div>
               ) : (
-                <div
-                  onClick={() => {
-                    let data = {
-                      name: document.getElementById("user_name").value,
-                      bio: document.getElementById("user_bio").value
-                    };
-
-                    let a = postData("/api/user", data);
-                    if (a) {
-                      this.updatePro();
-                    }
-                  }}
-                >
-                  Save
+                <div className="details_value">
+                  <input type="text" defaultValue={this.state.username} />
                 </div>
               )}
             </div>
-            <div>{this.state.edit_p && <img src={edit} />}</div>
+            <div className="row_cont">
+              <div className="details_lab">Name</div>
+              {this.state.edit_p ? (
+                <div className="details_value">{this.state.name}</div>
+              ) : (
+                <div className="details_value">
+                  <input type="text" id="user_name" defaultValue={this.state.name} />
+                </div>
+              )}
+            </div>
           </div>
         </div>
+     
+        <div className = "det_box_pp">
+          <div className="details_subhead">
+            <div>Education Details : </div>
+            <div
+              className="det_edit"
+              onClick={() => {
+                this.setState(prevState => {
+                  return {
+                    edit_ed: !prevState.edit_ed
+                  };
+                });
+              }}
+            >
+              <div>
+                {this.state.edit_ed ? (
+                  <div>Edit</div>
+                ) : (
+                  <div
+                    onClick={() => {
+                      let data = {
+                        College: document.getElementById("user_college").value,
+                        Qualification: document.getElementById("user_quali").value
+                      };
 
-        <div className="details_row">
-          <div className="row_cont">
-            <div className="details_lab">Username</div>
-
-            {this.state.edit_p ? (
-              <div className="details_value">{this.state.username}</div>
-            ) : (
-              <div className="details_value">
-                <input type="text" defaultValue={this.state.username} />
+                      let a = postData("/api/user", data);
+                      if (a) {
+                        this.updatePro();
+                      }
+                    }}
+                  >
+                    Save
+                  </div>
+                )}
               </div>
-            )}
+              <div>{this.state.edit_ed && <img src={edit} />}</div>
+            </div>
           </div>
-          <div className="row_cont">
-            <div className="details_lab">Name</div>
-            {this.state.edit_p ? (
-              <div className="details_value">{this.state.name}</div>
-            ) : (
-              <div className="details_value">
-                <input type="text" id="user_name" defaultValue={this.state.name} />
-              </div>
-            )}
-          </div>
-        </div>
-        <div className="details_row">
-          <div className="row_cont_bio">
-            <div className="details_lab">Bio</div>
-            {this.state.edit_p ? (
-              <div className="details_value">{this.state.bio}</div>
-            ) : (
-              <div className="details_value">
-                <textarea id="user_bio" defaultValue={this.state.bio} />{" "}
-              </div>
-            )}
-          </div>
-        </div>
-        <div className="details_subhead">
-          <div>Education Details : </div>
-          <div
-            className="det_edit"
-            onClick={() => {
-              this.setState(prevState => {
-                return {
-                  edit_ed: !prevState.edit_ed
-                };
-              });
-            }}
-          >
-            <div>
+          <div className="details_row">
+            <div className="row_cont">
+              <div className="details_lab">College</div>
               {this.state.edit_ed ? (
-                <div>Edit</div>
+                <div className="details_value_email">{this.state.College}</div>
               ) : (
-                <div
-                  onClick={() => {
-                    let data = {
-                      College: document.getElementById("user_college").value,
-                      Qualification: document.getElementById("user_quali").value
-                    };
-
-                    let a = postData("/api/user", data);
-                    if (a) {
-                      this.updatePro();
-                    }
-                  }}
-                >
-                  Save
+                <div className="details_value_email">
+                  <input type="text" defaultValue={this.state.College} id="user_college" />{" "}
                 </div>
               )}
             </div>
-            <div>{this.state.edit_ed && <img src={edit} />}</div>
-          </div>
-        </div>
-        <div className="details_row">
-          <div className="row_cont">
-            <div className="details_lab">College</div>
-            {this.state.edit_ed ? (
-              <div className="details_value_email">{this.state.College}</div>
-            ) : (
-              <div className="details_value_email">
-                <input type="text" defaultValue={this.state.College} id="user_college" />{" "}
-              </div>
-            )}
-          </div>
-          <div className="row_cont">
-            <div className="details_lab">Qualification</div>
-            {this.state.edit_ed ? (
-              <div className="details_value_email">{this.state.Quali}</div>
-            ) : (
-              <div className="details_value_email">
-                <input type="text" defaultValue={this.state.Quali} id="user_quali" />{" "}
-              </div>
-            )}
+            <div className="row_cont">
+              <div className="details_lab">Qualification</div>
+              {this.state.edit_ed ? (
+                <div className="details_value_email">{this.state.Quali}</div>
+              ) : (
+                <div className="details_value_email">
+                  <input type="text" defaultValue={this.state.Quali} id="user_quali" />{" "}
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
+        <div className  ="det_box_pp">
         <div className="details_subhead">
           <div>Contact Details : </div>
           <div
@@ -350,18 +371,12 @@ class ProfileCard extends React.Component {
             )}
           </div>
         </div>
+        </div>
       </div>
     );
   }
 }
-
-const Items_Cont = () => {
-  return (
-    <div className="items_cont">
-      <CateCon_for_profile />
-    </div>
-  );
-};
+ 
 
 
 
@@ -380,6 +395,8 @@ async function postData(url = "", data = {}) {
     referrerPolicy: "no-referrer",
     body: JSON.stringify(data) // body data type must match "Content-Type" header
   });
+
+  window.location.reload()
 
   return response.json(); // parses JSON response into native JavaScript objects
 }
