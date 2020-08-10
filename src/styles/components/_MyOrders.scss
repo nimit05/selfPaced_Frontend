@@ -1,28 +1,67 @@
-.ordered_pro{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
 
+.my_order_div{
+  width: 80%;
+  background-color: white;
+  padding: 10%;
+  
 }
-// .my_order_div{
-//     // margin-top: 100px;
-//     // border: solid black;
-// }
 .order_det{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.3rem;
     color: $dark;
     font-weight: 800;
-}
-.order_date{
-    font-size: 0.9rem;
+    width: 100%;
+    // border: solid black;
+    margin-bottom: 4rem;
+    padding: 20px 0;
+
+    .cover{
+      width: 150px;
+      height: 200px;
+      // border: solid black;
+    img{
+      width: 100%;
+      height: 100%;
+      // border: solid black;
+    }
+  }
+
+    .bookName{
+      // border: solid black;
+      height: 180px;
+      padding: 0 20px;
+      margin-left: 20px;
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+     
+      .btn{
+        button{
+          padding: 6px 10px;
+          background-color: $secondary;
+          color: white;
+          border-radius: 3px;
+        }
+      }
+
+
+    }
+
+    .delete{
+      height: 200px;
+      color: $secondary;
+      cursor: pointer;
+    }
 }
 
-@media  screen and (max-width : 720px){
-  .order_det{
-    margin-bottom: 30px;
-  }
+.bookDet{
+  display: flex;
+  flex-direction: row;
+  // border: solid black;
+
+
 }

@@ -2,6 +2,7 @@ import React from "react";
 import edit from "../img/edit.svg";
 import Wick from '../img/Wick.jpg'
 import Contact from './ContactUs'
+import MyOrders from './MyOrders'
 
 export default class Profile extends React.Component {
   handleMode = (ans) => {
@@ -11,6 +12,14 @@ export default class Profile extends React.Component {
       };
     });
   };
+
+  handleEdit = () => {
+    this.setState((prevState) => {
+      return{
+        edit : !prevState.edit
+      }
+    })
+  }
 
   constructor(props) {
     super(props);
@@ -36,7 +45,8 @@ export default class Profile extends React.Component {
       username: null,
       mode: "profile",
       sidebar: false,
-      edit : true
+      bio : null,
+      edit : false
     };
   }
   render() {
@@ -50,13 +60,27 @@ export default class Profile extends React.Component {
             <img src = {Wick} />
           </div>
           <div className = "link">
-              Nimit Wadhwa
+              {this.state.username}
           </div>
           <div className = "bio">
-          Ipsam voluptatem quia voluptas sit aspernatur
-           aut odit aut fugit, sed quia consequuntur mag
-           ni dolores eos qui ratione voluptatem sequi n
+            {this.state.edit ? (<div>
+                <textarea placeholder = "Write Something that Defines you" id = "bio" 
+                defaultValue = {this.state.bio} maxLength = "100" />
+                <button onClick={() => {
+                  let data = {
+                    bio: document.getElementById("bio").value,
+                  };
+
+                 postData("/api/user", data);
+                  this.handleEdit()
+                }} >Save</button>
+              </div>) : this.state.bio}
           </div>
+          {!this.state.edit && (
+          <div className = "options" onClick = {this.handleEdit}>
+              Edit Bio
+          </div>
+          )}
         </div>
 
             <div className = "details_pro_div">
@@ -74,6 +98,11 @@ export default class Profile extends React.Component {
                 onClick = {() => this.handleMode('contact')}>
                   Contact Us
                 </div>
+                <div className = "sign_out" onClick = {() => {
+                  postData2('/api/login/out')
+                }}>
+                  Sign Out
+                </div>
               </div>
 
               {this.state.mode === 'profile' &&(
@@ -81,6 +110,9 @@ export default class Profile extends React.Component {
               )}
               {this.state.mode === 'contact' &&(
                 <Contact />
+              )}
+              {this.state.mode === 'products' && (
+                <MyOrders />
               )}
        
             </div>
