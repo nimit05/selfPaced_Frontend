@@ -57,7 +57,7 @@ export default class Profile extends React.Component {
         <div className = "side_pro_bar">
         <div className = "line_bar"></div>
           <div className = "head">
-            <img src = {Wick} />
+            <img src = {this.state.pro_img} />
           </div>
           <div className = "link">
               {this.state.username}
@@ -92,14 +92,18 @@ export default class Profile extends React.Component {
                 </div>
                 <div className = {this.state.mode == 'products' ? 'active_cont' : 'head_cont' }
                  onClick = {() => this.handleMode('products')}>
-                  My Products
+                   Products
                 </div>
                 <div className = {this.state.mode == 'contact' ? 'active_cont' : 'head_cont' }
                 onClick = {() => this.handleMode('contact')}>
                   Contact Us
                 </div>
-                <div className = "sign_out" onClick = {() => {
-                  postData2('/api/login/out')
+                <div className = "sign_out"    onClick={() => {
+                  fetch("/api/login/out", {
+                    method: "DELETE"
+                  });
+                  window.location.reload();
+                  window.location.href = '/'
                 }}>
                   Sign Out
                 </div>
