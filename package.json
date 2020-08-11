@@ -11,6 +11,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
+    "browser-image-compression": "^1.0.12",
     "chart.js": "^2.9.3",
     "node-sass": "^4.14.1",
     "normalize-css": "^2.3.1",
@@ -26,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "rm -r -f ../puranibook/build && mv build ../puranibook/",
+    "postbuild": "rm -r -f ../backend_selfpaced/build && mv build ../backend_selfpaced/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

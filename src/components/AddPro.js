@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Productbox from "./Productbox";
+import imageCompression from "browser-image-compression";
 
 class AddPro extends Component {
   updateProductPre = () => {
@@ -26,38 +27,34 @@ class AddPro extends Component {
 
   // code to check uploaded file size (file validation)
 
-  _onChange = () => {
+  _onChange = c => {
     // to check the file size
-    const fi = document.getElementById("pro_img");
-    // Check if any file is selected.
-    if (fi.files.length > 0) {
-      for (let i = 0; i <= fi.files.length - 1; i++) {
-        const fsize = fi.files.item(i).size;
-        const file = Math.round(fsize / 1024);
-        // The size of the file.
-        if (file >= 4096) {
-          alert("File too Big, please select a file less than 4mb");
-          return;
-        } else if (file < 10) {
-          alert("File too small, please select a file greater than 10kb");
-          return;
-        } else {
-          document.getElementById("size").innerHTML = "<b>" + file + "</b> KB";
-        }
-      }
-    }
-    if (fi.files.length > 0) {
-      var file = this.refs.file.files[0];
-      var reader = new FileReader();
-      var url = reader.readAsDataURL(file);
-      // console.log(url);
+    console.log(c);
 
-      reader.onloadend = function (e) {
-        this.setState(() => {
-          return { imgSrc: [reader.result] };
-        });
-      }.bind(this);
+    const fi = c;
+    // Check if any file is selected.
+    const fsize = fi.size;
+    const file = Math.round(fsize / 1024);
+    // The size of the file.
+    if (file >= 4096) {
+      alert("File too Big, please select a file less than 4mb");
+      return;
+    } else if (file < 10) {
+      alert("File too small, please select a file greater than 10kb");
+      return;
+    } else {
+      document.getElementById("size").innerHTML = "<b>" + file + "</b> KB";
     }
+    // var file1 = this.refs.file.files[0];
+    var reader = new FileReader();
+    var url = reader.readAsDataURL(fi);
+    // console.log(url);
+
+    reader.onloadend = function (e) {
+      this.setState(() => {
+        return { imgSrc: [reader.result] };
+      });
+    }.bind(this);
   };
   _onChangeFile = () => {
     const fif = document.getElementById("pro_file");
@@ -77,6 +74,30 @@ class AddPro extends Component {
           document.getElementById("size").innerHTML = "<b>" + file + "</b> KB";
         }
       }
+    }
+  };
+  handleImageUpload = async event => {
+    let imageFile = event.target.files[0];
+    console.log("originalFile instanceof Blob", imageFile instanceof Blob); // true
+    console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
+
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1920,
+      useWebWorker: true
+    };
+    try {
+      const compressedFile = await imageCompression(imageFile, options);
+      console.log("compressedFile instanceof Blob", compressedFile instanceof Blob); // true
+      console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+      let form = document.getElementById("pro_img");
+      console.log(compressedFile);
+
+      console.log(form.files);
+
+      await this._onChange(compressedFile); // write your own logic
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -121,7 +142,7 @@ class AddPro extends Component {
           </div>
           <div className="add_pro_det">
             <h1>Create Your Product</h1>
-            <form action="/api/sell" method="post" encType="multipart/form-data">
+            <form id="form" action="/api/sell" method="post" encType="multipart/form-data">
               <div className="row_pair">
                 <div className="lable_inp_pair">
                   <label htmlFor="Type">Type</label>
@@ -151,10 +172,10 @@ class AddPro extends Component {
                     id="pro_img"
                     ref="file"
                     type="file"
-                    name="cover_img"
+                    name="cover_img2"
                     accept="image/png, image/jpeg"
                     multiple="true"
-                    onChange={this._onChange}
+                    onChange={this.handleImageUpload}
                   />
                   <span id="size" />
                 </div>
