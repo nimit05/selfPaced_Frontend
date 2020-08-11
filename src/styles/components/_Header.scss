@@ -318,16 +318,19 @@ button:focus {
   .main_search_inp {
     width: 0px;
     padding: 0px;
+    display: none;
   }
   .main_search_inp_mob {
     position: absolute;
-    right: 30px;
-    top: -18px;
+    display: block;
+
+    left: -190px;
+    top: -8px;
     width: 80vw;
     border-radius: 0px;
     height: 38px;
     text-align: center;
-    transition: 0.5s;
+    transition: 0.3s;
   }
   .searchRe {
     display: none;

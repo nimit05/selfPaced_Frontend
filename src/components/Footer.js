@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import phone from '../img/phone.svg'
+import Tushar from "../img/tushar.jpg"
+import Nimit from "../img/Nimit.jpeg"
 import mail from '../img/mail.svg'
 import fb from '../img/facebook.svg'
 import insta from '../img/instagram.svg'
@@ -48,7 +50,7 @@ export default class Footer extends React.Component{
                                 </div>
                               </div>
                               <div className = "img_text">
-                                <img src = {phone} />
+                                <img  src = {phone} />
                                 <div>
                                     9315876022
                                 </div>
@@ -65,14 +67,21 @@ export default class Footer extends React.Component{
                     <div className = "foot_col_icons">
                        
                         <div className = "icons_list_footer">
-                              <div className = "icons_footer">
-                                <img src = {fb} alt = " " />
-                              </div>
+                                <div className = "icons_footer">
+										<a href="https://www.linkedin.com/in/nimit-wadhwa-56bb231b1/"> <img  className="devPhoto" src = {Nimit} alt = " " />
+								</a>
+
+                               </div>
                               <div className = "icons_footer">
                                  <img src = {insta} alt = " " />
                                 </div>
                                 <div className = "icons_footer">
                                  <img src = {ld} alt = " " />
+                               </div>
+                                <div className = "icons_footer">
+										<a href="https://www.linkedin.com/in/tushar-bhardwaj-5a820a193/"> <img  className="devPhoto" src = {Tushar} alt = " " />
+								</a>
+
                                </div>
                         </div>
                 </div>

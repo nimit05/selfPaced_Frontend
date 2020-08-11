@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ProductBox from "./Productbox";
 import sampleCover from "../img/bookcover.jpg";
 import best from "../img/best.svg";
+import { Link } from "react-router-dom";
 
 export default class ShowCase extends Component {
   constructor(props) {
@@ -15,11 +16,13 @@ export default class ShowCase extends Component {
         s_title: "short title ",
         short_des: "short description ",
         price: "0",
+        refrenceId: "sma1",
         cover_img: ""
       },
       lProDet: {
         title: "Title",
         tag: "PDF",
+        refrenceId: "sample1",
 
         s_title: "short title ",
         short_des: "short description ",
@@ -57,9 +60,12 @@ export default class ShowCase extends Component {
               stitle={this.state.lProDet.s_title}
               short_des={this.state.lProDet.short_des}
               price={this.state.lProDet.price}
-              refId={"sample" + this.props.titleLeft}
+              refId={this.state.lProDet.refrenceId}
             />
-            <h4 className="sc_see_more"> See More -></h4>
+            <Link to="/spec/Best Seller/mostB/n">
+              {" "}
+              <h4 className="sc_see_more"> See More -></h4>
+            </Link>
           </div>
         )}
         {this.state.rProDet && (
@@ -73,9 +79,13 @@ export default class ShowCase extends Component {
               stitle={this.state.rProDet.s_title}
               short_des={this.state.rProDet.short_des}
               price={this.state.rProDet.price}
-              refId={"sample" + this.props.titleRight}
+              // refId={"sample" + this.props.titleRight}
+              refId={this.state.rProDet.refrenceId}
             />
-            <h4 className="sc_see_more"> See More -></h4>
+            <Link to="/spec/Best Seller/rated/n">
+              {" "}
+              <h4 className="sc_see_more"> See More -></h4>
+            </Link>
           </div>
         )}
       </div>

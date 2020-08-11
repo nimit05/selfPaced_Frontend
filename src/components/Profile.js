@@ -1,25 +1,26 @@
 import React from "react";
 import edit from "../img/edit.svg";
-import Wick from '../img/Wick.jpg'
-import Contact from './ContactUs'
-import MyOrders from './MyOrders'
+import Wick from "../img/Wick.jpg";
+import Contact from "./ContactUs";
+import MyOrders from "./MyOrders";
+import Footer from "./Footer";
+import Sub_Header from "../components/Sub_header";
 
 export default class Profile extends React.Component {
-  handleMode = (ans) => {
+  handleMode = ans => {
     this.setState(() => {
       return {
         mode: ans
       };
     });
   };
-
   handleEdit = () => {
-    this.setState((prevState) => {
-      return{
-        edit : !prevState.edit
-      }
-    })
-  }
+    this.setState(prevState => {
+      return {
+        edit: !prevState.edit
+      };
+    });
+  };
 
   constructor(props) {
     super(props);
@@ -32,96 +33,103 @@ export default class Profile extends React.Component {
             return {
               pro_img: data.pro_img,
               username: data.username,
-              bio : data.bio
+              bio: data.bio
             };
           });
         }
       });
-
-      
 
     this.state = {
       pro_img: null,
       username: null,
       mode: "profile",
       sidebar: false,
-      bio : null,
-      edit : false
+      bio: null,
+      edit: false
     };
   }
   render() {
     return (
-
-      <div className = "lower_pro">
-
-        <div className = "side_pro_bar">
-        <div className = "line_bar"></div>
-          <div className = "head">
-            <img src = {this.state.pro_img} />
+      <div className="lower_pro">
+        <Sub_Header />
+        <div className="side_pro_bar">
+          <div className="line_bar"></div>
+          <div className="head">
+            <img src={this.state.pro_img} />
           </div>
-          <div className = "link">
-              {this.state.username}
-          </div>
-          <div className = "bio">
-            {this.state.edit ? (<div>
-                <textarea placeholder = "Write Something that Defines you" id = "bio" 
-                defaultValue = {this.state.bio} maxLength = "100" />
-                <button onClick={() => {
-                  let data = {
-                    bio: document.getElementById("bio").value,
-                  };
+          <div className="link">{this.state.username}</div>
+          <div className="bio">
+            {this.state.edit ? (
+              <div>
+                <textarea
+                  placeholder="Write Something that Defines you"
+                  id="bio"
+                  defaultValue={this.state.bio}
+                  maxLength="100"
+                />
+                <button
+                  onClick={() => {
+                    let data = {
+                      bio: document.getElementById("bio").value
+                    };
 
-                 postData("/api/user", data);
-                  this.handleEdit()
-                }} >Save</button>
-              </div>) : this.state.bio}
+                    postData("/api/user", data);
+                    this.handleEdit();
+                  }}
+                >
+                  Save
+                </button>
+              </div>
+            ) : (
+              this.state.bio
+            )}
           </div>
           {!this.state.edit && (
-          <div className = "options" onClick = {this.handleEdit}>
+            <div className="options" onClick={this.handleEdit}>
               Edit Bio
-          </div>
+            </div>
           )}
         </div>
 
-            <div className = "details_pro_div">
-
-              <div className = "details_heading">
-                <div className = {this.state.mode == 'profile' ? 'active_cont' : 'head_cont' }
-                 onClick = {() => this.handleMode('profile')}>
-                  Profile
-                </div>
-                <div className = {this.state.mode == 'products' ? 'active_cont' : 'head_cont' }
-                 onClick = {() => this.handleMode('products')}>
-                   Uploads
-                </div>
-                <div className = {this.state.mode == 'contact' ? 'active_cont' : 'head_cont' }
-                onClick = {() => this.handleMode('contact')}>
-                  Contact Us
-                </div>
-                <div className = "sign_out"    onClick={() => {
-                  fetch("/api/login/out", {
-                    method: "DELETE"
-                  });
-                  window.location.reload();
-                  window.location.href = '/'
-                }}>
-                  Sign Out
-                </div>
-              </div>
-
-              {this.state.mode === 'profile' &&(
-                <ProfileCard />
-              )}
-              {this.state.mode === 'contact' &&(
-                <Contact />
-              )}
-              {this.state.mode === 'products' && (
-                <MyOrders />
-              )}
-       
+        <div className="details_pro_div">
+          <div className="details_heading">
+            <div
+              className={this.state.mode == "profile" ? "active_cont" : "head_cont"}
+              onClick={() => this.handleMode("profile")}
+            >
+              Profile
             </div>
+            <div
+              className={this.state.mode == "products" ? "active_cont" : "head_cont"}
+              onClick={() => this.handleMode("products")}
+            >
+              Uploads
+            </div>
+            <div
+              className={this.state.mode == "contact" ? "active_cont" : "head_cont"}
+              onClick={() => this.handleMode("contact")}
+            >
+              Contact Us
+            </div>
+            <div
+              className="sign_out"
+              onClick={() => {
+                fetch("/api/login/out", {
+                  method: "DELETE"
+                });
+                window.location.reload();
+                window.location.href = "/";
+              }}
+            >
+              Sign Out
+            </div>
+          </div>
+
+          {this.state.mode === "profile" && <ProfileCard />}
+          {this.state.mode === "contact" && <Contact />}
+          {this.state.mode === "products" && <MyOrders />}
         </div>
-        
+      </div>
     );
   }
 }
@@ -176,134 +184,134 @@ class ProfileCard extends React.Component {
   render() {
     return (
       <div className="ProfileCard">
-          <div className="details_subhead">
-            <div>Personal Details : </div>
-            <div
-              className="det_edit"
-              onClick={() => {
-                this.setState(prevState => {
-                  return {
-                    edit_p: !prevState.edit_p
-                  };
-                });
-              }}
-            >
-              <div>
-                {this.state.edit_p ? (
-                  <div>Edit</div>
-                ) : (
-                  <div
-                    onClick={() => {
-                      let data = {
-                        name: document.getElementById("user_name").value,
-                      };
+        <div className="details_subhead">
+          <div>Personal Details : </div>
+          <div
+            className="det_edit"
+            onClick={() => {
+              this.setState(prevState => {
+                return {
+                  edit_p: !prevState.edit_p
+                };
+              });
+            }}
+          >
+            <div>
+              {this.state.edit_p ? (
+                <div>Edit</div>
+              ) : (
+                <div
+                  onClick={() => {
+                    let data = {
+                      name: document.getElementById("user_name").value
+                    };
 
-                      let a = postData("/api/user", data);
-                      if (a) {
-                        this.updatePro();
-                      }
-                    }}
-                  >
-                    Save
-                  </div>
-                )}
+                    let a = postData("/api/user", data);
+                    if (a) {
+                      this.updatePro();
+                    }
+                  }}
+                >
+                  Save
+                </div>
+              )}
+            </div>
+            <div>{this.state.edit_p && <img src={edit} />}</div>
+          </div>
+        </div>
+
+        <div className="details_row">
+          <div className="row_cont">
+            <div className="details_lab">First Name</div>
+
+            {this.state.edit_p ? (
+              <div className="details_value">{this.state.username}</div>
+            ) : (
+              <div className="details_value">
+                <input type="text" defaultValue={this.state.username} />
               </div>
-              <div>{this.state.edit_p && <img src={edit} />}</div>
-            </div>
+            )}
           </div>
-
-          <div className="details_row">
-            <div className="row_cont">
-              <div className="details_lab">First Name</div>
-
-              {this.state.edit_p ? (
-                <div className="details_value">{this.state.username}</div>
-              ) : (
-                <div className="details_value">
-                  <input type="text" defaultValue={this.state.username} />
-                </div>
-              )}
-            </div>
-            <div className="row_cont">
-              <div className="details_lab">Last Name</div>
-              {this.state.edit_p ? (
-                <div className="details_value">{this.state.name}</div>
-              ) : (
-                <div className="details_value">
-                  <input type="text" id="user_name" defaultValue={this.state.name} />
-                </div>
-              )}
-            </div>
-            <div className="row_cont">
-              <div className="details_lab">UserName</div>
-              {this.state.edit_p ? (
-                <div className="details_value">{this.state.name}</div>
-              ) : (
-                <div className="details_value">
-                  <input type="text" id="user_name" defaultValue={this.state.name} />
-                </div>
-              )}
-            </div>
-          </div>
-     
-          <div className="details_subhead">
-            <div>Education Details : </div>
-            <div
-              className="det_edit"
-              onClick={() => {
-                this.setState(prevState => {
-                  return {
-                    edit_ed: !prevState.edit_ed
-                  };
-                });
-              }}
-            >
-              <div>
-                {this.state.edit_ed ? (
-                  <div>Edit</div>
-                ) : (
-                  <div
-                    onClick={() => {
-                      let data = {
-                        College: document.getElementById("user_college").value,
-                        Qualification: document.getElementById("user_quali").value
-                      };
-
-                      let a = postData("/api/user", data);
-                      if (a) {
-                        this.updatePro();
-                      }
-                    }}
-                  >
-                    Save
-                  </div>
-                )}
+          <div className="row_cont">
+            <div className="details_lab">Last Name</div>
+            {this.state.edit_p ? (
+              <div className="details_value">{this.state.name}</div>
+            ) : (
+              <div className="details_value">
+                <input type="text" id="user_name" defaultValue={this.state.name} />
               </div>
-              <div>{this.state.edit_ed && <img src={edit} />}</div>
-            </div>
+            )}
           </div>
-          <div className="details_row">
-            <div className="row_cont">
-              <div className="details_lab">College</div>
+          <div className="row_cont">
+            <div className="details_lab">UserName</div>
+            {this.state.edit_p ? (
+              <div className="details_value">{this.state.name}</div>
+            ) : (
+              <div className="details_value">
+                <input type="text" id="user_name" defaultValue={this.state.name} />
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="details_subhead">
+          <div>Education Details : </div>
+          <div
+            className="det_edit"
+            onClick={() => {
+              this.setState(prevState => {
+                return {
+                  edit_ed: !prevState.edit_ed
+                };
+              });
+            }}
+          >
+            <div>
               {this.state.edit_ed ? (
-                <div className="details_value_email">{this.state.College}</div>
+                <div>Edit</div>
               ) : (
-                <div className="details_value_email">
-                  <input type="text" defaultValue={this.state.College} id="user_college" />{" "}
+                <div
+                  onClick={() => {
+                    let data = {
+                      College: document.getElementById("user_college").value,
+                      Qualification: document.getElementById("user_quali").value
+                    };
+
+                    let a = postData("/api/user", data);
+                    if (a) {
+                      this.updatePro();
+                    }
+                  }}
+                >
+                  Save
                 </div>
               )}
             </div>
-            <div className="row_cont">
-              <div className="details_lab">Course</div>
-              {this.state.edit_ed ? (
-                <div className="details_value_email">{this.state.Quali}</div>
-              ) : (
-                <div className="details_value_email">
-                  <input type="text" defaultValue={this.state.Quali} id="user_quali" />{" "}
-                </div>
-              )}
-            </div>
-            <div className="row_cont">
+            <div>{this.state.edit_ed && <img src={edit} />}</div>
+          </div>
+        </div>
+        <div className="details_row">
+          <div className="row_cont">
+            <div className="details_lab">College</div>
+            {this.state.edit_ed ? (
+              <div className="details_value_email">{this.state.College}</div>
+            ) : (
+              <div className="details_value_email">
+                <input type="text" defaultValue={this.state.College} id="user_college" />{" "}
+              </div>
+            )}
+          </div>
+          <div className="row_cont">
+            <div className="details_lab">Course</div>
+            {this.state.edit_ed ? (
+              <div className="details_value_email">{this.state.Quali}</div>
+            ) : (
+              <div className="details_value_email">
+                <input type="text" defaultValue={this.state.Quali} id="user_quali" />{" "}
+              </div>
+            )}
+          </div>
+          <div className="row_cont">
             <div className="details_lab">Branch</div>
             {this.state.edit_ed ? (
               <div className="details_value_email">{this.state.Quali}</div>
@@ -313,7 +321,7 @@ class ProfileCard extends React.Component {
               </div>
             )}
           </div>
-          </div>
+        </div>
 
         <div className="details_subhead">
           <div>Contact Details : </div>
@@ -353,7 +361,6 @@ class ProfileCard extends React.Component {
           </div>
         </div>
         <div className="details_row">
-  
           <div className="row_cont">
             <div className="details_lab">Phone No.</div>
             {this.state.edit_c ? (
@@ -364,66 +371,32 @@ class ProfileCard extends React.Component {
               </div>
             )}
           </div>
-          
+
           <div className="row_cont">
-          <div className="details_lab">Email</div>
-          {this.state.edit_c ? (
-            <div className="details_value_email">{this.state.email}</div>
-          ) : (
-            <div className="details_value">
-              <input type="text" defaultValue={this.state.email} id="user_email" />
-            </div>
-          )}
-        </div>
-        <div className="row_cont">
-        <div className="details_lab">Address</div>
-        {this.state.edit_c ? (
-          <div className="details_value">{this.state.Address}</div>
-        ) : (
-          <div className="details_value">
-            <input type="text" defaultValue={this.state.Address} id="user_add" />
+            <div className="details_lab">Email</div>
+            {this.state.edit_c ? (
+              <div className="details_value_email">{this.state.email}</div>
+            ) : (
+              <div className="details_value">
+                <input type="text" defaultValue={this.state.email} id="user_email" />
+              </div>
+            )}
           </div>
-        )}
+          <div className="row_cont">
+            <div className="details_lab">Address</div>
+            {this.state.edit_c ? (
+              <div className="details_value">{this.state.Address}</div>
+            ) : (
+              <div className="details_value">
+                <input type="text" defaultValue={this.state.Address} id="user_add" />
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-        </div>
-
-        <div className = "Faq">
-          <div className = "main">FAQs</div>
-
-          <div className = "question">
-            What happens when I update my email address (or mobile number)?
-          </div>
-
-          <div className = "question">
-          Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).
-          </div>
-
-          <div className = "question">
-            What happens when I update my email address (or mobile number)?
-          </div>
-
-          <div className = "question">
-          Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).
-          </div>
-
-          <div className = "question">
-            What happens when I update my email address (or mobile number)?
-          </div>
-
-          <div className = "question">
-          Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).
-          </div>
-        
-  
-        </div>
- 
-        </div>
     );
   }
 }
- 
-
-
 
 async function postData(url = "", data = {}) {
   // Default options are marked with *
@@ -441,7 +414,7 @@ async function postData(url = "", data = {}) {
     body: JSON.stringify(data) // body data type must match "Content-Type" header
   });
 
-  window.location.reload()
+  window.location.reload();
 
   return response.json(); // parses JSON response into native JavaScript objects
 }

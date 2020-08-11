@@ -1,7 +1,7 @@
 import React from "react";
 import Productbox from "./Productbox";
 import CateCon from "./CateCon";
-import Base_Header from "../Hooks/Base_header";
+import Sub_Header from "./Sub_header";
 
 export default class Search_items extends React.Component {
   constructor(props) {
@@ -40,6 +40,7 @@ export default class Search_items extends React.Component {
   render() {
     return (
       <div className="heading_search_con">
+        <Sub_Header />
         <div className="heading_search">
           <h1 className="heading_left_search">Search({this.state.products.length})</h1>
         </div>

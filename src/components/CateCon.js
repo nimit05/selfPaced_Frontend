@@ -20,11 +20,14 @@ export default class CateCon extends React.Component {
     });
   }
   render() {
+    if (this.state.proArray.length === 0) {
+      return <></>;
+    }
     return (
       <div className="CateCon">
         <div className="cate_head">
           <h1>{this.props.title}</h1>
-          <Link to={`/spec/${this.props.title}/${this.props.url}`}>
+          <Link to={`/spec/${this.props.title}/${this.props.url}/n`}>
             <h3>See More -></h3>
           </Link>
         </div>

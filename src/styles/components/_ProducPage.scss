@@ -73,12 +73,16 @@
   margin-right: auto;
   font-size: 1.8rem;
   font-weight: 600;
-  button{
+  button {
     margin-top: 20px;
   }
+  .rev_con_con {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
 }
-
-
 
 .inp {
   display: none;
@@ -113,18 +117,18 @@
 }
 
 .submit_modal {
-  button{
-  padding: 8px 20px;
-  background-color: $secondary;
-  color: $light;
+  button {
+    padding: 8px 20px;
+    background-color: $secondary;
+    color: $light;
   }
   margin-left: auto;
   margin-right: auto;
 }
 .submit_div {
- width: 24%;
-//  border: solid black;
- padding: 0 38%;
+  width: 24%;
+  //  border: solid black;
+  padding: 0 38%;
 }
 
 .review_section {
@@ -134,12 +138,12 @@
   font-size: 1rem;
   font-weight: 500;
 
-  .comment{
+  .comment {
     padding: 1rem;
   }
 
-  a{
-    font-size: .8rem;
+  a {
+    font-size: 0.8rem;
   }
 
   img {
@@ -184,15 +188,13 @@
 }
 
 .loadingsvg {
-	height: 16px;
-	animation-name: rotate;
-	animation-duration: 1s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-	margin: 0px;
+  height: 16px;
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  margin: 0px;
 }
-
-
 
 @media screen and (max-width: 800px) {
   .Main_BI {
@@ -228,8 +230,6 @@
     color: $light;
   }
 
-
-
   .review_title_head {
     input[type="text"] {
       width: 25rem;
@@ -238,15 +238,14 @@
     }
   }
 
-
   .submit_div {
     width: 40%;
-   //  border: solid black;
+    //  border: solid black;
     padding: 0 30%;
     margin-top: 10px;
-   }
+  }
 
-   .review_body {
+  .review_body {
     textarea {
       height: 7rem;
     }
@@ -257,12 +256,11 @@
     font-size: 1rem;
   }
 
-  .review_pp_heading{
+  .review_pp_heading {
     font-size: 1.1rem;
     font-weight: 600;
-    button{
+    button {
       margin-top: 15px;
     }
   }
-
 }

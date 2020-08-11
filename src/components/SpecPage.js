@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Productbox from "./Productbox";
 import CateCon from "./CateCon";
+import Sub_Header from "./Sub_header";
 
 export default class SpecPage extends React.Component {
   constructor(props) {
@@ -22,22 +23,10 @@ export default class SpecPage extends React.Component {
         }
       });
   }
-  componentWillUpdate() {
-    fetch(
-      `/api/products/${this.props.match.params.url}${
-        this.props.match.params.url2 !== "n" ? "/" + this.props.match.params.url2 : ""
-      }/20/0`
-    )
-      .then(res => res.json())
-      .then(data => {
-        if (data.products) {
-          this.setState({ products: data.products });
-        }
-      });
-  }
   render() {
     return (
       <div className="heading_spec_con">
+        <Sub_Header />
         <div className="heading_spec">
           <h1 className="heading_left_spec">
             {" "}

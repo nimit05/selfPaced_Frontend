@@ -70,11 +70,19 @@
     }
     .img_text{
         width: 100%;
+		height:20px;
+
         // border: solid black;
         display: flex;
         flex-direction: row;
         align-items: center;
         margin-bottom: 10px;
+		img{
+				height:17px;
+				margin-right:10px;
+
+
+		}
     }
 }
 
@@ -111,9 +119,16 @@
     justify-content: space-evenly;
     // border: solid black;
     // padding: 15px;
-    width : 40%;
+    width : 60%;
     margin-left: auto;
+	margin-top:20px;
+
     margin-right: auto;
+}
+.devPhoto{
+		border-radius:100px;
+		transform:scale(1.2);
+
 }
 
 .foot_col_icons{
@@ -146,17 +161,30 @@
 
 }
 
+.upper_footer{
+		padding-top:20px;
+}
 .footer{
     padding: unset;
     width: 100%;
     height: 200px;
+	padding-bottom:100px;
+
+
+	
+
 }
 
 .links_foot{
     font-size: 1rem;
+	
     img{
         height: 15px;
     }
+	a{
+			margin-top:10px;
+
+	}
 }
 
 .img_text{

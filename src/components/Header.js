@@ -169,20 +169,10 @@ class Header extends React.Component {
               </Link>
 
               <div className="tooltip profile">
-                <img id="pro_pic" src={this.state.pro_pic ? this.state.pro_pic : propic} alt=" " />
-                <div className="profile_drop_down">
-                  <div>
                     <Link to="/myprofile">
-                      <li>My Profile</li>
-                    </Link>
-                    <Link to="/earnings">
-                      <li>My Products</li>
-                    </Link>
-                    <li>Contact Us</li>
-                    <li>Sign Out</li>
-                  </div>
-                </div>
-              </div>
+                <img id="pro_pic" src={this.state.pro_pic ? this.state.pro_pic : propic} alt=" " />
+</Link>
+                   </div>
             </div>
           ) : (
             <div className="frse">
