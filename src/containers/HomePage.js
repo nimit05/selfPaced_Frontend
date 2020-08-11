@@ -15,7 +15,7 @@ class HomePage extends React.Component {
       <div className="HomePage">
         <ShopByCate />
         <ShowCase titleLeft="BEST SELLER" titleRight="TOP RATED" />
-        <CateCon title={"New Arrivals"} url="latest/n" />
+        <CateCon title={"New Arrivals"} url="latest" />
       </div>
     );
   }

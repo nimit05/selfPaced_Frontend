@@ -183,6 +183,15 @@
   margin: 20px;
 }
 
+.loadingsvg {
+	height: 16px;
+	animation-name: rotate;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	margin: 0px;
+}
+
 
 
 @media screen and (max-width: 800px) {
