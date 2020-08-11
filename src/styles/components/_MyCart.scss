@@ -69,6 +69,17 @@
     padding: 1rem 0;
     margin-left: auto;
     margin-right: auto;
+
+    .price_pp{
+        font-size: 1.2rem;
+        // border: solid black;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .price_pp_mob{
+        display: none;
+    }
 }
 
 .btn_cart_div{
@@ -105,6 +116,12 @@
       font-size: 1.4rem;
     //   border: solid black;  
       width: 25rem;
+
+      .add_to_lib{
+          padding: 6px;
+          background-color: $secondary;
+          color: white;
+      }
 
   }
     h3,
@@ -222,6 +239,13 @@
         min-width: none;
         margin-right: auto;
         margin-left: auto;
+
+        .price_pp{
+            display: none;
+        }
+        .price_pp_mob{
+            display: unset;
+        }
     
     }
 
@@ -279,6 +303,21 @@
 
     .btn_cart_div_mob{
         display: unset;
+        display: flex;
+        flex-direction: row;
+        // border: solid black;
+        align-items: center;
+        
+        .add_to_mob{
+            height: 1.5rem;
+            width: 6rem;
+            cursor: pointer;
+            background-color: $secondary;
+            color: white;
+            border-radius: 7px;
+            margin-top: 10px;
+
+        }
     }
 
     .cart_remove_button {
@@ -289,6 +328,7 @@
         color: white;
         border-radius: 7px;
         margin-top: 10px;
+        margin-right: 5px;
     }
 
     .cart_product_price_mob{
@@ -351,6 +391,10 @@
 
     .mob_cart_pay{
         display: unset;
+    }
+
+    .add_to_lib{
+        display: none;
     }
 }
 

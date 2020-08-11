@@ -13,11 +13,8 @@ export default class Contact extends React.Component{
                 </div>            
                 
                 <div className = "form_contact">
-                    <div className = "contact_name">
-                    <input type = "text" name = "full_name" placeholder = "First Name" required />
-                    <input className = "last_name_cu" type = "text" name = "full_name" placeholder = "Last Name" required />
-                    </div>
-    
+                    <input type = "text" name = "full_name" placeholder = " Name" required />
+                    <br />
                     <input type = "email" placeholder = "Email" required />
                     <br />
                     <input type = "text" placeholder = "Phone Number" required />

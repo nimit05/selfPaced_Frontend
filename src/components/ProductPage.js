@@ -266,7 +266,7 @@ class Content extends React.Component {
 					{this.props.inLibrary ? (
 						<div className="buy_pp ">
 							<button className="buy_btn_pp" onClick={this.props.buy}>
-								Buy Now
+								Add to Library
 							</button>
 							<button
 								className="adc_btn_pp "
@@ -276,16 +276,7 @@ class Content extends React.Component {
 							>
 								Add to Cart
 							</button>
-							{this.props.sample_file && (
-								<button
-									className="adc_btn_pp "
-									onClick={() => {
-										window.location.href = `/files/${this.props.sample_file}.pdf`;
-									}}
-								>
-									See Sample
-								</button>
-							)}
+							
 						</div>
 					) : (
 						<div className="buy_pp ">

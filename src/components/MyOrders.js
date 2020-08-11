@@ -2,15 +2,27 @@ import React from 'react';
 import bookcover from '../img/bookcover.jpg';
 import bin from '../img/bin.svg'
 import { FaStar } from 'react-icons/fa';
+import Modal from 'react-modal'
 
 export default class MyOrders extends React.Component {
-	constructor(props) {
-		super(props);
 
-		this.state = {
-			orders: []
-		};
+	handleModal = () => {
+		this.setState((prevState) => {
+			return{
+				open : !prevState.open
+			}
+		})
+	}
 
+	handlerefId = (ans) => {
+		this.setState(() => {
+			return{
+				refId : ans
+			}
+		} )
+	}
+
+	getData = () => {
 		fetch('/api/user/products').then((res) => res.json()).then((data) => {
 			if (data) {
 				this.setState(() => {
@@ -20,6 +32,19 @@ export default class MyOrders extends React.Component {
 				});
 			}
 		});
+	}
+
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			orders: [],
+			open : false,
+			refId : null
+		};
+		this.getData()
+
+	
 	}
 	render() {
 		return (
@@ -70,14 +95,46 @@ export default class MyOrders extends React.Component {
 							</div>	
 							</div>
 						</div>		
-						<div className = "delete">
+						<div className = "delete" onClick = { () => {
+							this.handlerefId(e.refrenceId)
+							this.handleModal()
+						}}>
 							<div>
 								Delete
 							</div>
 						
 						</div>
-					</div>		
+
+					
+					</div>	
+						
 			))}
+
+					<Modal
+					isOpen={this.state.open}
+					className="delete_pop"
+					onRequestClose={this.handleModal}
+					>
+						<div className = "ques">
+								Are you sure you want to delete ?
+						</div>
+						<div className = "buttons">
+							<div>
+								<button onClick = {() => {
+									fetch(`/api/products/delete/${this.state.refId}` )
+									.then((res) => res.json())
+									
+									this.handleModal()
+									this.getData()
+
+								}} >Yes</button>
+							</div>
+							<div>
+								<button onClick = {this.handleModal}>No</button>
+							</div>
+						</div>
+					</Modal>
+
 				</div>
 		)
 	}
