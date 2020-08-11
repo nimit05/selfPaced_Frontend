@@ -1,5 +1,7 @@
 import React from 'react';
 import bookcover from '../img/bookcover.jpg';
+import bin from '../img/bin.svg'
+import { FaStar } from 'react-icons/fa';
 
 export default class MyOrders extends React.Component {
 	constructor(props) {
@@ -9,7 +11,7 @@ export default class MyOrders extends React.Component {
 			orders: []
 		};
 
-		fetch('/api/user/myorders').then((res) => res.json()).then((data) => {
+		fetch('/api/user/products').then((res) => res.json()).then((data) => {
 			if (data) {
 				this.setState(() => {
 					return {
@@ -22,60 +24,63 @@ export default class MyOrders extends React.Component {
 	render() {
 		return (
 			<div className="my_order_div">
-				<div className="ordered_pro">
-					{this.state.orders.map((e) => {
-						return (
-							<div>
-								<Productbox
-									title={e.item.title}
-									tag={e.item.tag}
-									stitle={e.item.s_title}
-									short_des={e.item.short_des}
-									price={e.item.Value}
-									refId={e.item.refrenceId}
-									bookimg={`/covers/${e.item.cover_img}`}
-								/>
-								<div className="order_det">
-									<div>Ordered on</div>
-									<div className="order_date">{e.createdAt}</div>
-								</div>
+			{this.state.orders.map((e) =>(
+					<div className="order_det">
+						<div className = "bookDet">
+							<div className = "cover">
+								<img src = {`/covers/${e.cover_img}`} alt = " " />
 							</div>
-						);
-					})}
+							<div className = "bookName">
+								<div className = "title">
+									{e.title} - {e.s_title}
+								</div>
+								<div className = "branch">
+									{e.branch}
+						 	  </div>
+								<div className="price_pp">
+								Rating : 
+								<span>
+									{[ ...Array(5) ].map((star, i) => {
+										const ratingValue = i + 1;
+		
+										return (
+											<label>
+											<span className = "for_pc">
+												<FaStar
+													color={ratingValue <= e.rating ? '#ffc107' : '#D3D3D3'}
+													size={20}
+												/>
+												</span>
+												<span className = "for_mob">
+												<FaStar
+													color={ratingValue <= e.rating ? '#ffc107' : '#D3D3D3'}
+													size={10}
+												/>
+												</span>
+											</label>
+										);
+									})}
+								</span>
+							</div>
+							<div className = "copies">
+								Copies Sold : {e.copies}
+							</div>
+							<div className = "btn">
+								<button>See in Library</button>
+							</div>	
+							</div>
+						</div>		
+						<div className = "delete">
+							<div>
+								Delete
+							</div>
+						
+						</div>
+					</div>		
+			))}
 				</div>
-			</div>
-		);
+		)
 	}
 }
 
-class Productbox extends React.Component {
-	constructor(props) {
-		super(props);
-	}
 
-	render() {
-		return (
-			<div className="productcont_for_profile">
-				<div className="tag_for_profile">
-					<strong>{this.props.tag}</strong>
-				</div>
-				<div
-					className="product_img"
-					onClick={() => {
-						window.location.href = `/productpage/${this.props.refId}`;
-					}}
-				>
-					<img className="bookcover" src={this.props.bookimg ? this.props.bookimg : bookcover} alt=" " />
-				</div>
-				<div className="product_body_for_profile">
-					<h3>{this.props.title}</h3>
-					<h6>({this.props.stitle})</h6>
-					<p>{this.props.short_des}</p>
-					<h1>
-						{this.props.price} <span>coins</span>
-					</h1>
-				</div>
-			</div>
-		);
-	}
-}
