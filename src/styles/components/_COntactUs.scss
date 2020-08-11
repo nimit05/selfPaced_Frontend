@@ -2,41 +2,44 @@
 
     width: 100%;
     background-color: white;
+}
+
+
+
+.material{
+    // border: solid black;
+    // border: 1px solid #c5c5c5;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
     
-    .material{
-        // border: solid black;
-        // border: 1px solid #c5c5c5;
-        width: 40%;
-        margin-left: auto;
-        margin-right: auto;
-        min-width: 30rem;
-        background: white;
-        
-        opacity: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        font-family: "Lato", sans-serif;
-    }
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-family: "Lato", sans-serif;
 
     textarea{
         height: 8rem;
-        width: 75%;
-        font-size: 1.2rem;
+        width: 80%;
+        font-size: 1rem;
+        // border: solid black; 
     }
-
-	input {
+    
+    input {
         margin-top: 10px;
         width: 75%;
-        
-		// margin-bottom: 10px;
-	}
+        font-size: 1rem;
+        // margin-bottom: 10px;
+    }
 }
+
 .contact_head{
     display: flex;
     flex-direction: row;
     height: 6rem;
-    // border: solid black;s
+    // border: solid black;
     width: 80%;
 }
 .contact_heading{
@@ -48,35 +51,28 @@
     margin-right: auto;
 }
 
-.form_contact{
-   
-    padding: 2rem;
-    input{
-        width: 21.2rem;
-        text-align: unset;
-        font-size: 1.2rem;
-    }
-}
+
 .form_btn{
-   padding: 3rem;
+    width: 20%;
     // border: solid black;
+    padding: 20px 25%;
 }
 .submit_contact{
     padding: 10px 20px;
-    margin-left: 6rem;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     background-color: $secondary;
     color: white;
     border: 1px solid $secondary;
 }
 .contact_name{
-    display: flex;
-    flex-direction: row;
+
     
     input{
-        width: 10rem;
+        width: 75%;
         text-align: unset;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 }
 .last_name_cu{
@@ -88,3 +84,36 @@
     margin-left: 20px;
 }
 
+
+@media screen and (max-width : 720px){
+
+    .material{
+        width: 90%;
+        // border: solid black;
+    }
+
+    .contact_head{
+
+        // border: solid black;
+        width: 90%;
+    }
+    .contact_heading{
+        font-size: 1.5rem;
+        color: $secondary;
+        font-weight: 600;
+        margin-top: 7%;
+
+    }
+
+    .contact_subhead{
+        font-size: 1rem;
+        font-weight: 400;
+        margin-left: unset;
+        // border: solid black;
+    }
+
+    .form_contact{
+        padding: 0 10%;
+    }
+ 
+}

@@ -29,7 +29,6 @@ class AddPro extends Component {
 
   _onChange = c => {
     // to check the file size
-    console.log(c);
 
     const fi = c;
     // Check if any file is selected.
@@ -77,6 +76,9 @@ class AddPro extends Component {
     }
   };
   handleImageUpload = async event => {
+    if (!event.target.files[0]) {
+      return;
+    }
     let imageFile = event.target.files[0];
     console.log("originalFile instanceof Blob", imageFile instanceof Blob); // true
     console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
@@ -91,9 +93,11 @@ class AddPro extends Component {
       console.log("compressedFile instanceof Blob", compressedFile instanceof Blob); // true
       console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
       let form = document.getElementById("pro_img");
-      console.log(compressedFile);
-
-      console.log(form.files);
+      let f = new FormData(document.getElementById("formId"));
+      console.log(f);
+      f.append("file", compressedFile, "name");
+      console.log(f);
+      console.log(f.get("file"));
 
       await this._onChange(compressedFile); // write your own logic
     } catch (error) {
@@ -142,7 +146,7 @@ class AddPro extends Component {
           </div>
           <div className="add_pro_det">
             <h1>Create Your Product</h1>
-            <form id="form" action="/api/sell" method="post" encType="multipart/form-data">
+            <form id="formId" action="/api/sell" method="post" encType="multipart/form-data">
               <div className="row_pair">
                 <div className="lable_inp_pair">
                   <label htmlFor="Type">Type</label>
@@ -240,7 +244,16 @@ class AddPro extends Component {
                   Cancel
                 </button>
 
-                <input id="addpro_addbtn" type="submit" value="Add to Store" />
+                <input
+                  id="addpro_addbtn"
+                  onClick={() => {
+                    let data = new FormData(document.getElementById("formId"));
+                    postData("/api/sell", data).then(d => {
+                      console.log(d);
+                    });
+                  }}
+                  value="Add to Store"
+                />
               </div>
             </form>
           </div>
@@ -251,3 +264,22 @@ class AddPro extends Component {
 }
 
 export default AddPro;
+
+async function postData(url = "", data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: "POST", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json"
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer",
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+
+  return response.json(); // parses JSON response into native JavaScript objects
+}

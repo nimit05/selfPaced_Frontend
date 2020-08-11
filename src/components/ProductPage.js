@@ -120,7 +120,7 @@ export default class ProductPage extends React.Component {
 				</div>
 				<hr className = "hr_divider" />
 				<div className="review_pp_heading">
-					<h1>Reviews About Product</h1>
+					<div>Reviews About Product</div>
 					<button className="modal_btn" onClick={this.alugobi} id="post_btn">
 						Post your review
 					</button>
@@ -135,11 +135,7 @@ export default class ProductPage extends React.Component {
 					contentLabel="Selected Option"
 					onRequestClose={this.alugobi}
 				>
-					<div className="pic_modal">
-						<img src={`/covers/${this.state.cover_img}`} alt=" " />
-						<div className="modal_bookName">
-							{this.state.title} - {this.state.s_title}
-						</div>
+
 						<div>
 							<h2 className="rate_modal">Rate Product</h2>
 							<div className="star_cont">
@@ -165,16 +161,14 @@ export default class ProductPage extends React.Component {
 									);
 								})}
 							</div>
-						</div>
-
 						<div className="review_body">
 							<h2 className="rate_modal">Post Your Review</h2>
-							<textarea type="text" placeholder="Write your review about product" id="body_input" />
+							<textarea type="text" placeholder="Write your review about product" id="body_input" maxLength = "70" />
 						</div>
 
 						<div className="submit_div">
+						  <div className = "submit_modal">
 							<button
-								className="submit_modal"
 								onClick={() => {
 									this.alugobi();
 									let data3 = {
@@ -191,6 +185,7 @@ export default class ProductPage extends React.Component {
 							>
 								Submit
 							</button>
+							</div>
 						</div>
 					</div>
 				</Modal>
@@ -271,7 +266,7 @@ class Content extends React.Component {
 					{this.props.inLibrary ? (
 						<div className="buy_pp ">
 							<button className="buy_btn_pp" onClick={this.props.buy}>
-								Buy Now
+								Add to Library
 							</button>
 							<button
 								className="adc_btn_pp "
@@ -281,16 +276,7 @@ class Content extends React.Component {
 							>
 								Add to Cart
 							</button>
-							{this.props.sample_file && (
-								<button
-									className="adc_btn_pp "
-									onClick={() => {
-										window.location.href = `/files/${this.props.sample_file}.pdf`;
-									}}
-								>
-									See Sample
-								</button>
-							)}
+							
 						</div>
 					) : (
 						<div className="buy_pp ">
@@ -369,7 +355,8 @@ class Reviews extends React.Component {
 			fetch(`/api/review/isAllowed/${this.props.pro_id}`).then((res) => res.json()).then((data) => {
 				if (data == true) {
 					document.getElementById('post_btn').disabled = true;
-					document.getElementById('post_btn').style.background = '#FFB6C1';
+					document.getElementById('post_btn').style.background = '#a2d8bd';
+					document.getElementById('post_btn').style.cursor = "not-allowed"
 					document.getElementById('post_btn').style.cursor = 'unset';
 				}
 			});
@@ -399,6 +386,9 @@ class Reviews extends React.Component {
 											</label>
 										);
 									})}
+								</div>
+								<div className = "comment">
+									{review.comment}
 								</div>
 								<div
 									onClick={() => {

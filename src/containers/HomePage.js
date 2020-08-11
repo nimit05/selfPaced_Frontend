@@ -7,6 +7,7 @@ import ShopByCate from "../components/ShopByCate";
 import ShowCase from "../components/ShowCase";
 import Base_Header from "../Hooks/Base_header";
 import Product_cont from "../components/Product_cont";
+import Footer from '../components/Footer'
 
 class HomePage extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class HomePage extends React.Component {
         <ShopByCate />
         <ShowCase titleLeft="BEST SELLER" titleRight="TOP RATED" />
         <CateCon title={"New Arrivals"} url="latest" />
+       
       </div>
     );
   }

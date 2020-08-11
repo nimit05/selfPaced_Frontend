@@ -92,7 +92,7 @@ export default class Profile extends React.Component {
                 </div>
                 <div className = {this.state.mode == 'products' ? 'active_cont' : 'head_cont' }
                  onClick = {() => this.handleMode('products')}>
-                   Products
+                   Uploads
                 </div>
                 <div className = {this.state.mode == 'contact' ? 'active_cont' : 'head_cont' }
                 onClick = {() => this.handleMode('contact')}>

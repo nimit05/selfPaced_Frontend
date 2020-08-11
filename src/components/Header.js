@@ -157,7 +157,11 @@ class Header extends React.Component {
                 <img src={plus} alt=" " />
                 <span class="tooltiptext">Sell Items</span>
               </Link>
-          
+              <Link to="/myCart" class="tooltip">
+              {" "}
+              <img src={cart} alt=" " />
+              <span class="tooltiptext">Cart</span>
+              </Link>
               <Link to="/My-Library" class="tooltip">
                 {" "}
                 <img src={lib} alt=" " />

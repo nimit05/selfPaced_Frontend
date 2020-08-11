@@ -1,6 +1,8 @@
 import React from 'react';
 import cancel from '../img/cancel.svg'
 import Payment_tab from './Payment_Page'
+import { FaStar } from 'react-icons/fa';
+
 
 export default class MyCart extends React.Component {
 
@@ -49,43 +51,14 @@ export default class MyCart extends React.Component {
 										tag={product.tag}
 										refrenceId={product.refrenceId}
 										bookimg={`/covers/${product.cover_img}`}
-
+										branch = {product.branch}
+										rating = {product.rating}
 									/>
 								);
 							})}
 						</div>
-						{this.state.Cart_Product.length != 0 && (
-							<div className = "grand_total">
-								<div className="details_cart">
-									<div className="img_cart">
-									</div>
-
-								<div className = "book_title_cart">
-								</div>
-								
-								<div className="type_product_cart">
-									Grand Total :
-								</div>
-
 						
-
-							<div
-							className="btn_cart_div"
-							>
-							</div>
-						</div>
-					
-									</div>
-						)}
-						<div> 
-							
-						 </div>
 					</div>
-					{this.state.Cart_Product.length != 0 && (
-					<div className = "mob_cart_pay">
-							<Payment_tab />
-					</div>
-					)}
 				</div>
 			</div>
 		);
@@ -127,6 +100,14 @@ class Product_cart extends React.Component {
 		let data = { refrenceId: refId };
 		postData('/api/products/RemoveFromCart', data);
 	}
+	buy = async (ans) => {
+		let data = {
+			refrenceId: ans
+		};
+		let pro = await postData('/api/products/Buy', data);
+		console.log(pro);
+	
+	};
 	render() {
 		return (
 				<div className="product_cart">
@@ -146,13 +127,32 @@ class Product_cart extends React.Component {
 									window.location.href = `/productpage/${this.props.refrenceId}`;
 								}} >{this.props.title}</span>
 								<h6>{this.props.s_title}</h6>
-								
+								<button className = "add_to_lib" onClick = {() => {
+									this.buy(this.props.refrenceId)
+									this.RemoveFromcart(this.props.refrenceId)
+								}}>Add to Library</button>
 								
 								<div className="type_product_cart_mob">
-									Type : <span className="type_value">{this.props.tag}</span>
+									Branch : <span className="type_value">{this.props.branch}</span>
 								</div>
 								<br />
-	
+								<div className="price_pp_mob">
+								<span>
+									{[ ...Array(5) ].map((star, i) => {
+										const ratingValue = i + 1;
+
+										return (
+											<label>
+												<FaStar
+													color={ratingValue <= this.props.rating ? '#ffc107' : '#D3D3D3'}
+													size={15}
+												/>
+											</label>
+										);
+									})}
+								</span>
+							</div>
+							<br />
 								<div
 									className="btn_cart_div_mob"
 									onClick={() => {
@@ -160,13 +160,33 @@ class Product_cart extends React.Component {
 									}}
 									>
 										<button className = "cart_remove_button" >Remove</button>
+										<button className = "add_to_mob" onClick = {() => {
+											this.buy(this.props.refrenceId)
+											this.RemoveFromcart(this.props.refrenceId)
+										}}>Add to Library</button>
 							</div>
 							</div>
 							
+
 							<div className="type_product_cart">
-								Type : <span className="type_value">{this.props.tag}</span>
+								Branch : <span className="type_value">{this.props.branch}</span>
 							</div>
-							
+							<div className="price_pp">
+								<span>
+									{[ ...Array(5) ].map((star, i) => {
+										const ratingValue = i + 1;
+
+										return (
+											<label>
+												<FaStar
+													color={ratingValue <= this.props.rating ? '#ffc107' : '#D3D3D3'}
+													size={15}
+												/>
+											</label>
+										);
+									})}
+								</span>
+							</div>
 					
 
 						<div
