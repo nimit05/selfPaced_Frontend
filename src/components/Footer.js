@@ -10,7 +10,7 @@ export default class Footer extends React.Component{
     render(){
         return(
             <div className = "footer">
-        
+                    <div className = "upper_footer">
                     <div className = "foot_col">
                         <div className = "bold_header">
                             SelfPaced
@@ -60,6 +60,7 @@ export default class Footer extends React.Component{
                                 </div>
                               </div>
                         </div>
+                    </div>
                     </div>
                     <div className = "foot_col_icons">
                        
