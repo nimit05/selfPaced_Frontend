@@ -27,34 +27,40 @@ class AddPro extends Component {
 
   // code to check uploaded file size (file validation)
 
-  _onChange = c => {
+  _onChange = () => {
     // to check the file size
-
-    const fi = c;
+    const fi = document.getElementById("pro_img");
     // Check if any file is selected.
-    const fsize = fi.size;
-    const file = Math.round(fsize / 1024);
-    // The size of the file.
-    if (file >= 4096) {
-      alert("File too Big, please select a file less than 4mb");
-      return;
-    } else if (file < 10) {
-      alert("File too small, please select a file greater than 10kb");
-      return;
-    } else {
-      document.getElementById("size").innerHTML = "<b>" + file + "</b> KB";
+    if (fi.files.length > 0) {
+      for (let i = 0; i <= fi.files.length - 1; i++) {
+        const fsize = fi.files.item(i).size;
+        const file = Math.round(fsize / 1024);
+        // The size of the file.
+        if (file >= 10096) {
+          alert("File too Big, please select a file less than 10mb");
+          return;
+        } else if (file < 10) {
+          alert("File too small, please select a file greater than 10kb");
+          return;
+        } else {
+          document.getElementById("size").innerHTML = "<b>" + file + "</b> KB";
+        }
+      }
     }
-    // var file1 = this.refs.file.files[0];
-    var reader = new FileReader();
-    var url = reader.readAsDataURL(fi);
-    // console.log(url);
+    if (fi.files.length > 0) {
+      var file = this.refs.file.files[0];
+      var reader = new FileReader();
+      var url = reader.readAsDataURL(file);
+      // console.log(url);
 
-    reader.onloadend = function (e) {
-      this.setState(() => {
-        return { imgSrc: [reader.result] };
-      });
-    }.bind(this);
+      reader.onloadend = function (e) {
+        this.setState(() => {
+          return { imgSrc: [reader.result] };
+        });
+      }.bind(this);
+    }
   };
+
   _onChangeFile = () => {
     const fif = document.getElementById("pro_file");
 
@@ -75,11 +81,12 @@ class AddPro extends Component {
       }
     }
   };
-  handleImageUpload = async event => {
-    if (!event.target.files[0]) {
+  submitFormWithCompression = async () => {
+    if (!document.getElementById("pro_img").files[0]) {
+      alert("Please Upload the cover image");
       return;
     }
-    let imageFile = event.target.files[0];
+    let imageFile = document.getElementById("pro_img").files[0];
     console.log("originalFile instanceof Blob", imageFile instanceof Blob); // true
     console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
 
@@ -92,14 +99,16 @@ class AddPro extends Component {
       const compressedFile = await imageCompression(imageFile, options);
       console.log("compressedFile instanceof Blob", compressedFile instanceof Blob); // true
       console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
-      let form = document.getElementById("pro_img");
-      let f = new FormData(document.getElementById("formId"));
-      console.log(f);
-      f.append("file", compressedFile, "name");
-      console.log(f);
-      console.log(f.get("file"));
-
-      await this._onChange(compressedFile); // write your own logic
+      let f = document.getElementById("formId");
+      let formData = new FormData(f);
+      formData.append("compressedfile", compressedFile);
+      postData("/api/sell", formData).then(res => {
+        if (res) {
+          window.location.href = "/";
+        } else {
+          alert("Internal Error , Please Try Later");
+        }
+      });
     } catch (error) {
       console.log(error);
     }
@@ -128,7 +137,6 @@ class AddPro extends Component {
       imgSrc: null
     };
   }
-
   render() {
     return (
       <div>
@@ -146,7 +154,7 @@ class AddPro extends Component {
           </div>
           <div className="add_pro_det">
             <h1>Create Your Product</h1>
-            <form id="formId" action="/api/sell" method="post" encType="multipart/form-data">
+            <form id="formId" encType="multipart/form-data">
               <div className="row_pair">
                 <div className="lable_inp_pair">
                   <label htmlFor="Type">Type</label>
@@ -179,7 +187,7 @@ class AddPro extends Component {
                     name="cover_img"
                     accept="image/png, image/jpeg"
                     multiple="true"
-                    onChange={this.handleImageUpload}
+                    onChange={this._onChange}
                   />
                   <span id="size" />
                 </div>
@@ -244,16 +252,15 @@ class AddPro extends Component {
                   Cancel
                 </button>
 
-                <input
+                <button
                   id="addpro_addbtn"
-                  onClick={() => {
-                    let data = new FormData(document.getElementById("formId"));
-                    postData("/api/sell", data).then(d => {
-                      console.log(d);
-                    });
+                  onClick={e => {
+                    e.preventDefault();
+                    this.submitFormWithCompression();
                   }}
-                  value="Add to Store"
-                />
+                >
+                  Add to Store
+                </button>
               </div>
             </form>
           </div>
@@ -269,16 +276,7 @@ async function postData(url = "", data = {}) {
   // Default options are marked with *
   const response = await fetch(url, {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "same-origin", // include, *same-origin, omit
-    headers: {
-      "Content-Type": "application/json"
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    redirect: "follow", // manual, *follow, error
-    referrerPolicy: "no-referrer",
-    body: JSON.stringify(data) // body data type must match "Content-Type" header
+    body: data // body data type must match "Content-Type" header
   });
 
   return response.json(); // parses JSON response into native JavaScript objects

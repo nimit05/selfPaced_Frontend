@@ -49,7 +49,7 @@ class Header extends React.Component {
       .then(res => res.json())
       .then(parJson => {
         if (parJson.email) {
-          window.location.href = "/";
+          window.location.reload();
         } else if (parJson.error) {
           alert("error occured");
         }
@@ -158,9 +158,9 @@ class Header extends React.Component {
                 <span class="tooltiptext">Sell Items</span>
               </Link>
               <Link to="/myCart" class="tooltip">
-              {" "}
-              <img src={cart} alt=" " />
-              <span class="tooltiptext">Cart</span>
+                {" "}
+                <img src={cart} alt=" " />
+                <span class="tooltiptext">Cart</span>
               </Link>
               <Link to="/My-Library" class="tooltip">
                 {" "}

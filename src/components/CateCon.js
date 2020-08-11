@@ -24,7 +24,7 @@ export default class CateCon extends React.Component {
       <div className="CateCon">
         <div className="cate_head">
           <h1>{this.props.title}</h1>
-          <Link to={`spec/${this.props.title}/${this.props.url}`}>
+          <Link to={`/spec/${this.props.title}/${this.props.url}`}>
             <h3>See More -></h3>
           </Link>
         </div>

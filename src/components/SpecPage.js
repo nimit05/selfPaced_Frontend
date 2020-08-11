@@ -12,7 +12,7 @@ export default class SpecPage extends React.Component {
   componentDidMount() {
     fetch(
       `/api/products/${this.props.match.params.url}${
-        this.props.match.params.url2 && "/" + this.props.match.params.url2
+        this.props.match.params.url2 !== "n" ? "/" + this.props.match.params.url2 : ""
       }/20/0`
     )
       .then(res => res.json())
@@ -25,7 +25,7 @@ export default class SpecPage extends React.Component {
   componentWillUpdate() {
     fetch(
       `/api/products/${this.props.match.params.url}${
-        this.props.match.params.url2 && "/" + this.props.match.params.url2
+        this.props.match.params.url2 !== "n" ? "/" + this.props.match.params.url2 : ""
       }/20/0`
     )
       .then(res => res.json())
