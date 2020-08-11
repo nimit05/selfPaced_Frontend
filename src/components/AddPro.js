@@ -172,7 +172,7 @@ class AddPro extends Component {
                     id="pro_img"
                     ref="file"
                     type="file"
-                    name="cover_img2"
+                    name="cover_img"
                     accept="image/png, image/jpeg"
                     multiple="true"
                     onChange={this.handleImageUpload}
@@ -210,7 +210,6 @@ class AddPro extends Component {
                   <input name="short_des" type="text" id="pro_s_des" onChange={this.updateProductPre} />
                 </div>
                 <div className="lable_inp_pair">
-<<<<<<< HEAD
                   <label htmlFor="Type">Branch</label>
                   <select id="branch_sel" name="branch" defaultValue="ece">
                     <option value="cse">Computer Science</option>
@@ -223,20 +222,6 @@ class AddPro extends Component {
                     <option value="bme">Bio Medical</option>
                     <option value="bsc">BSc</option>
                     <option value="msc">MSc</option>
-=======
-                  <label>Branch</label>
-                  <select id = "branch_sel" defaultValue= "Computer Science" >
-                    <option value = "Computer Science">Computer Science</option>
-                    <option value = "Electronics">Electronics</option>
-                    <option value = "Electrical Engg.">Electrical Engg.</option>
-                    <option value = "Mechanical">Mechanical Engg.</option>
-                    <option value = "Civil Engg.">Civil Engg.</option>
-                    <option value = "Chemical Engg." >Chemical Engg.</option>
-                    <option value = "Bio Tech">Bio Tech</option>
-                    <option value = "Bio Medical">Bio Medical</option>
-                    <option value = "BSc">BSc</option>
-                    <option value = "MSc">MSc</option>
->>>>>>> dd78eb7b1239ae8a290e7217249dd27853c822c1
                   </select>
                 </div>
               </div>
