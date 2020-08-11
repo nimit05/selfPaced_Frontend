@@ -4,6 +4,7 @@ import bookcover from '../img/bookcover.jpg';
 import CateCon from './CateCon';
 import Modal from 'react-modal';
 import propic from '../img/propic.svg';
+import lod from '../img/loading.svg';
 
 export default class ProductPage extends React.Component {
 	SetRating(ratingValue) {
@@ -21,16 +22,30 @@ export default class ProductPage extends React.Component {
 			};
 		});
 	};
-	buy = async () => {
+	buy = async() => {
+		this.setState(() => {
+			return{
+				loading : true
+			}
+		})
+
 		let data = {
 			refrenceId: this.props.match.params.refId
 		};
 		let pro = await postData('/api/products/Buy', data);
 		console.log(pro);
 		if (pro) {
-			alert('buyed');
+			this.setState(() => {
+				return{
+					loading : false
+				}
+			})
 		}else if (pro == false){
-			alert('insufficient balance')
+			this.setState(() => {
+				return{
+					loading : false
+				}
+			})
 		}
 	};
 
@@ -52,7 +67,8 @@ export default class ProductPage extends React.Component {
 			star_Value: null,
 			sample_file: null,
 			Seller: null,
-			branch : null
+			branch : null,
+			loading : false
 		};
 	}
 
@@ -91,9 +107,22 @@ export default class ProductPage extends React.Component {
 		}
 	}
 
-	addToCart = (refId) => {
+	addToCart = async(refId) => {
+		this.setState(() => {
+			return{
+				loading : true
+			}
+		})
 		let data = { refrenceId: refId };
-		postData('/api/products/AddToCart', data);
+		let req = await postData('/api/products/AddToCart', data);
+		if(req){
+			this.setState(() => {
+				return{
+					loading : false
+				}
+			})
+		}
+		
 	};
 
 	render() {
@@ -116,6 +145,7 @@ export default class ProductPage extends React.Component {
 						cover_img={`/covers/${this.state.cover_img}`}
 						sample_file={this.state.sample_file}
 						branch = {this.state.branch}
+						loading = {this.state.loading}
 					/>
 				</div>
 				<hr className = "hr_divider" />
@@ -211,7 +241,8 @@ class Content extends React.Component {
 
 		this.state = {
 			inLibrary: true,
-			rating: null
+			rating: null,
+	
 		};
 
 		let data = {
@@ -274,7 +305,7 @@ class Content extends React.Component {
 									this.props.addToCart(this.props.refId);
 								}}
 							>
-								Add to Cart
+							{this.props.loading ? <img className="loadingsvg" src={lod} /> : 'Add to Cart'}
 							</button>
 							
 						</div>

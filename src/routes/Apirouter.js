@@ -40,6 +40,7 @@ const Apiroute = () => (
 		    <Route path="/spec/:name/:url/:url2" component={SpecPage} />
         <Route path="/Admin_panel_user/:username" component={User_details} />
       </Switch>
+      <CateCon title={"New Arrivals"} url="latest" />
       <Base_Header />
       <Footer />
     </div>
