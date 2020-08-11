@@ -51,7 +51,8 @@ export default class ProductPage extends React.Component {
 			cover_img: null,
 			star_Value: null,
 			sample_file: null,
-			Seller: null
+			Seller: null,
+			branch : null
 		};
 	}
 
@@ -114,6 +115,7 @@ export default class ProductPage extends React.Component {
 						rating={this.state.rating}
 						cover_img={`/covers/${this.state.cover_img}`}
 						sample_file={this.state.sample_file}
+						branch = {this.state.branch}
 					/>
 				</div>
 				<hr className = "hr_divider" />
@@ -258,7 +260,7 @@ class Content extends React.Component {
 						</span>
 					</div>
 					<div className="price_pp">
-						Type : <span className="type_value">{this.props.tag}</span>
+						Branch : <span className="type_value">{this.props.branch}</span>
 					</div>
 					<div className="price_pp">
 						Seller :<span className="type_val">{this.props.Seller}</span>

@@ -48,6 +48,10 @@
         }
       }
 
+      .for_mob{
+        display: none;
+    }
+
 
     }
 
@@ -62,6 +66,67 @@
   display: flex;
   flex-direction: row;
   // border: solid black;
+
+
+}
+
+@media screen and (max-width : 720px){
+
+
+.my_order_div{
+  width: 88%;
+  background-color: white;
+  padding: 5%;
+  border: solid black;
+  
+}
+.order_det{
+  
+    font-size: 1rem;
+
+    margin-bottom: 3rem;
+    padding: 20px 0;
+
+    .cover{
+      width: 100px;
+      height: 130px;
+      // border: solid black;
+
+  }
+
+    .bookName{
+      // border: solid black;
+      height: 140px;
+      padding: 0 20px;
+      margin-left: 20px;
+      font-size: 1.1rem;
+
+      .for_mob{
+        display: unset;
+      }
+      .for_pc{
+        display: none;
+      }
+
+      .price_pp{
+        font-size: 1rem;
+      }
+     
+      .btn{
+        button{
+          padding: 4px 6px;
+          font-size: .8rem;
+        }
+      }
+
+
+    }
+
+    .delete{
+      height: 150px;
+
+    }
+}
 
 
 }

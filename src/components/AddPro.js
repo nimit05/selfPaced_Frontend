@@ -13,7 +13,7 @@ class AddPro extends Component {
     let newPro = {
       title: title,
       tag: tag,
-      branch : 'Computer',
+      branch : branch,
       stitle: stitle,
       short_des: s_des,
     };
@@ -190,7 +190,7 @@ class AddPro extends Component {
                   <input name="short_des" type="text" id="pro_s_des" onChange={this.updateProductPre} />
                 </div>
                 <div className="lable_inp_pair">
-                  <label htmlFor = "Type">Branch</label>
+                  <label>Branch</label>
                   <select id = "branch_sel" defaultValue= "Computer Science" >
                     <option value = "Computer Science">Computer Science</option>
                     <option value = "Electronics">Electronics</option>

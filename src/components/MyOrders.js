@@ -45,10 +45,18 @@ export default class MyOrders extends React.Component {
 		
 										return (
 											<label>
+											<span className = "for_pc">
 												<FaStar
 													color={ratingValue <= e.rating ? '#ffc107' : '#D3D3D3'}
 													size={20}
 												/>
+												</span>
+												<span className = "for_mob">
+												<FaStar
+													color={ratingValue <= e.rating ? '#ffc107' : '#D3D3D3'}
+													size={10}
+												/>
+												</span>
 											</label>
 										);
 									})}
