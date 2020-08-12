@@ -146,13 +146,15 @@ class ProfileCard extends React.Component {
               email: data.email,
               phone_Number: data.phone_Number,
               Address: data.Address,
-              name: data.name,
+              f_name: data.f_name,
+              l_name : data.l_name,
               coins: data.Coins,
               pro_pic: data.pro_img,
               Earnings: data.Earnings,
               bio: data.bio,
               College: data.College,
-              Quali: data.Qualification
+              Course: data.Course,
+              branch : data.branch
             };
           });
         }
@@ -165,17 +167,19 @@ class ProfileCard extends React.Component {
       email: null,
       phone_Number: null,
       Address: null,
-      name: null,
+      f_name: null,
       coins: null,
       bio: null,
       College: null,
-      Quali: null,
+      Course: null,
       edited: false,
       pro_pic: null,
       Earnings: null,
       edit_ed: true,
       edit_p: true,
-      edit_c: true
+      edit_c: true,
+      l_name : null,
+      branch : null
     };
     this.updatePro();
   }
@@ -202,7 +206,9 @@ class ProfileCard extends React.Component {
                 <div
                   onClick={() => {
                     let data = {
-                      name: document.getElementById("user_name").value
+                      l_name: document.getElementById("l_name").value,
+                      f_name : document.getElementById("f_name").value,
+                      username : document.getElementById('user_name').value
                     };
 
                     let a = postData("/api/user", data);
@@ -224,30 +230,30 @@ class ProfileCard extends React.Component {
             <div className="details_lab">First Name</div>
 
             {this.state.edit_p ? (
-              <div className="details_value">{this.state.username}</div>
+              <div className="details_value">{this.state.f_name}</div>
             ) : (
               <div className="details_value">
-                <input type="text" defaultValue={this.state.username} />
+                <input type="text" defaultValue={this.state.f_name} id= "f_name" />
               </div>
             )}
           </div>
           <div className="row_cont">
             <div className="details_lab">Last Name</div>
             {this.state.edit_p ? (
-              <div className="details_value">{this.state.name}</div>
+              <div className="details_value">{this.state.l_name}</div>
             ) : (
               <div className="details_value">
-                <input type="text" id="user_name" defaultValue={this.state.name} />
+                <input type="text" id="l_name" defaultValue={this.state.l_name} />
               </div>
             )}
           </div>
           <div className="row_cont">
             <div className="details_lab">UserName</div>
             {this.state.edit_p ? (
-              <div className="details_value">{this.state.name}</div>
+              <div className="details_value">{this.state.username}</div>
             ) : (
               <div className="details_value">
-                <input type="text" id="user_name" defaultValue={this.state.name} />
+                <input type="text" id="user_name" defaultValue={this.state.username} />
               </div>
             )}
           </div>
@@ -273,7 +279,8 @@ class ProfileCard extends React.Component {
                   onClick={() => {
                     let data = {
                       College: document.getElementById("user_college").value,
-                      Qualification: document.getElementById("user_quali").value
+                      Course: document.getElementById("user_quali").value,
+                      branch : document.getElementById('user_branch').value
                     };
 
                     let a = postData("/api/user", data);
@@ -303,20 +310,20 @@ class ProfileCard extends React.Component {
           <div className="row_cont">
             <div className="details_lab">Course</div>
             {this.state.edit_ed ? (
-              <div className="details_value_email">{this.state.Quali}</div>
+              <div className="details_value_email">{this.state.Course}</div>
             ) : (
               <div className="details_value_email">
-                <input type="text" defaultValue={this.state.Quali} id="user_quali" />{" "}
+                <input type="text" defaultValue={this.state.Course} id="user_quali" />{" "}
               </div>
             )}
           </div>
           <div className="row_cont">
             <div className="details_lab">Branch</div>
             {this.state.edit_ed ? (
-              <div className="details_value_email">{this.state.Quali}</div>
+              <div className="details_value_email">{this.state.branch}</div>
             ) : (
               <div className="details_value_email">
-                <input type="text" defaultValue={this.state.Quali} id="user_quali" />{" "}
+                <input type="text" defaultValue={this.state.branch} id="user_branch" />{" "}
               </div>
             )}
           </div>

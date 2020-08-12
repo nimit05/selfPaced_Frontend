@@ -26,6 +26,11 @@
 }
 .price_pp {
   font-size: 1.4rem;
+
+  .type_value{
+    font-size: 1.4rem;
+    color: black;
+  }
 }
 .price_val {
   color: $secondary;

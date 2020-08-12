@@ -95,7 +95,8 @@ export default class ProductPage extends React.Component {
               rating: data.rating,
               cover_img: data.cover_img,
               Seller: data.SellerUsername,
-              sample_file: data.sample_pro
+              sample_file: data.sample_pro,
+              branch : data.branch
             };
           });
         }
@@ -242,7 +243,8 @@ class Content extends React.Component {
 
     this.state = {
       inLibrary: true,
-      rating: null
+      rating: null,
+      inCart : false
     };
 
     let data = {
@@ -258,6 +260,19 @@ class Content extends React.Component {
         });
       }
     });
+
+    if(this.props.refId){
+    fetch(`/api/user/IsinCart/${this.props.refId}`).then((res) => res.json())
+    .then((data) => {
+      if(data){
+        this.setState(() => {
+          return{
+          inCart : data
+          }
+        })
+      }
+    })}
+
   }
   render() {
     return (
@@ -296,6 +311,7 @@ class Content extends React.Component {
               <button className="buy_btn_pp" onClick={this.props.buy}>
                 {this.props.loadingLib ? <img className="loadingsvg" src={lod} /> : "Add To Library"}
               </button>
+              {this.state.inCart ? (<button className = "adc_button">Added to Cart</button>) : (
               <button
                 className="adc_btn_pp "
                 onClick={() => {
@@ -304,6 +320,7 @@ class Content extends React.Component {
               >
                 {this.props.loadingCart ? <img className="loadingsvg" src={lod} /> : "Add to Cart"}
               </button>
+              )}
             </div>
           ) : (
             <div className="buy_pp ">

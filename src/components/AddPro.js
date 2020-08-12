@@ -224,16 +224,16 @@ class AddPro extends Component {
                 <div className="lable_inp_pair">
                   <label htmlFor="Type">Branch</label>
                   <select id="branch_sel" name="branch" defaultValue="ece">
-                    <option value="cse">Computer Science</option>
-                    <option value="ece">Electronics</option>
-                    <option value="ee">Electrical Engg.</option>
-                    <option value="me">Mechanical Engg.</option>
-                    <option value="civil">Civil Engg.</option>
-                    <option value="ce">Chemical Engg.</option>
-                    <option value="bt">Bio Tech</option>
-                    <option value="bme">Bio Medical</option>
-                    <option value="bsc">BSc</option>
-                    <option value="msc">MSc</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Electrical Engg.">Electrical Engg.</option>
+                    <option value="Mechanical Engg.">Mechanical Engg.</option>
+                    <option value="Civil Engg.">Civil Engg.</option>
+                    <option value="Chemical Engg.">Chemical Engg.</option>
+                    <option value="Bio Tech">Bio Tech</option>
+                    <option value="Bio Medical">Bio Medical</option>
+                    <option value="BSc">BSc</option>
+                    <option value="MSc">MSc</option>
                   </select>
                 </div>
               </div>
