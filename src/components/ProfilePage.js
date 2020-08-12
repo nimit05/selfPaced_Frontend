@@ -1,12 +1,11 @@
 import React from "react";
 import edit from "../img/edit.svg";
-import Wick from "../img/Wick.jpg";
 import Contact from "./ContactUs";
 import MyOrders from "./MyOrders";
-import Footer from "./Footer";
-import Sub_Header from "../components/Sub_header";
+import Sub_Header from "./Sub_header";
+import propic from '../img/propic.svg'
 
-export default class Profile extends React.Component {
+export default class Profile_Page extends React.Component {
   handleMode = ans => {
     this.setState(() => {
       return {
@@ -45,7 +44,7 @@ export default class Profile extends React.Component {
       mode: "profile",
       sidebar: false,
       bio: null,
-      edit: false
+      edit: true
     };
   }
   render() {
@@ -55,11 +54,13 @@ export default class Profile extends React.Component {
         <div className="side_pro_bar">
           <div className="line_bar"></div>
           <div className="head">
-            <img src={this.state.pro_img} />
+            <img src={this.state.pro_img ? this.state.pro_img : propic } />
           </div>
           <div className="link">{this.state.username}</div>
           <div className="bio">
-            {this.state.edit ? (
+            {this.state.edit && this.state.bio ?  (
+              this.state.bio
+            ) : (
               <div>
                 <textarea
                   placeholder="Write Something that Defines you"
@@ -80,11 +81,9 @@ export default class Profile extends React.Component {
                   Save
                 </button>
               </div>
-            ) : (
-              this.state.bio
-            )}
+            ) }
           </div>
-          {!this.state.edit && (
+          {this.state.edit && this.state.bio && (
             <div className="options" onClick={this.handleEdit}>
               Edit Bio
             </div>

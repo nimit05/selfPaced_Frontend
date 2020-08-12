@@ -5,7 +5,7 @@ import Productbox from "../components/Productbox";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ProductPage from "../components/ProductPage";
 import AddProPage from "../containers/AddProPage";
-import profilePage from "../components/Profile";
+import profilePage from "../containers/Profile";
 import MyCart from "../components/MyCart";
 import Header from "../components/Header";
 import Library from "../containers/Library";

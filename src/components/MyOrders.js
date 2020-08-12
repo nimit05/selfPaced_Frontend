@@ -1,8 +1,8 @@
 import React from 'react';
-import bookcover from '../img/bookcover.jpg';
-import bin from '../img/bin.svg'
 import { FaStar } from 'react-icons/fa';
 import Modal from 'react-modal'
+import copy from '../img/copywriting.svg'
+import { Link } from "react-router-dom";
 
 export default class MyOrders extends React.Component {
 
@@ -49,7 +49,18 @@ export default class MyOrders extends React.Component {
 	render() {
 		return (
 			<div className="my_order_div">
-			{this.state.orders.map((e) =>(
+			{this.state.orders.length == 0 ? (
+				<div className = "empty_pro">
+					<div className = "img">
+						<img src = {copy} alt = " " />
+					</div>
+					<div className = "text">
+						<div>You have'nt upload anything yet</div>
+						<Link to = '/sell-your-product' className = "link">Launch your first one..</Link>
+					</div>
+				</div>
+			) : (
+			this.state.orders.map((e) =>(
 					<div className="order_det">
 						<div className = "bookDet">
 							<div className = "cover">
@@ -63,7 +74,6 @@ export default class MyOrders extends React.Component {
 									{e.branch}
 						 	  </div>
 								<div className="price_pp">
-								Rating : 
 								<span>
 									{[ ...Array(5) ].map((star, i) => {
 										const ratingValue = i + 1;
@@ -108,7 +118,8 @@ export default class MyOrders extends React.Component {
 					
 					</div>	
 						
-			))}
+			))
+			)}
 
 					<Modal
 					isOpen={this.state.open}
@@ -134,6 +145,8 @@ export default class MyOrders extends React.Component {
 							</div>
 						</div>
 					</Modal>
+
+			
 
 				</div>
 		)

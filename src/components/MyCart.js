@@ -3,6 +3,9 @@ import cancel from "../img/cancel.svg";
 import Payment_tab from "./Payment_Page";
 import { FaStar } from "react-icons/fa";
 import Sub_Header from "./Sub_header";
+import cart from '../img/supermarket.svg'
+import { Link } from "react-router-dom";
+
 
 export default class MyCart extends React.Component {
   constructor(props) {
@@ -31,7 +34,18 @@ export default class MyCart extends React.Component {
     return (
       <div className="my_cart">
         <Sub_Header />
-        <div>
+        {this.state.Cart_Product.length === 0 ? (<div className = "empty_cart">
+          <div className = "img"><img src = {cart} /></div>
+          <div className = "text">
+            <div className  ="headin">Your Cart is Empty</div>
+            <div className = "sub">
+              Give your Cart a purpose
+            </div>
+            <Link to = "/" className = "link">Start Exploring</Link>
+          </div>
+          </div>) : (
+            <div>
+          <div>
           <Heading count={this.state.count} cartTotal={this.cartTotal} Cart_Product={this.state.Cart_Product} />
         </div>
         <div>
@@ -54,6 +68,8 @@ export default class MyCart extends React.Component {
             </div>
           </div>
         </div>
+        </div>
+          )}
       </div>
     );
   }

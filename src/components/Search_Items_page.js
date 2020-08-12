@@ -2,6 +2,7 @@ import React from "react";
 import Productbox from "./Productbox";
 import CateCon from "./CateCon";
 import Sub_Header from "./Sub_header";
+import nf from '../img/search_not_found.svg'
 
 export default class Search_items extends React.Component {
   constructor(props) {
@@ -41,11 +42,21 @@ export default class Search_items extends React.Component {
     return (
       <div className="heading_search_con">
         <Sub_Header />
+        {this.state.products.length === 0 ? (<div className = "empty_search" >
+
+            <div className = "img">
+              <img src = {nf} alt = " " />
+            </div>
+            <div className = "text">
+              Sorry! The product you are searching is unavailable
+            </div>
+          </div>
+        ) : (
+          <div>
         <div className="heading_search">
           <h1 className="heading_left_search">Search({this.state.products.length})</h1>
         </div>
         <div>
-          {this.state.products.length ? (
             <div className="search_items">
               {this.state.products.map(e => {
                 let a = this.state.addedtocartArr.indexOf(e.refrenceId);
@@ -70,13 +81,10 @@ export default class Search_items extends React.Component {
                 );
               })}
             </div>
-          ) : (
-            <div className="search_error">
-              <h2>Sorry! NO such product found.😁😁</h2>
-            </div>
-          )}
+         
         </div>
-        <br />
+        </div>
+        )}
       </div>
     );
   }
