@@ -101,7 +101,7 @@ export default class MyOrders extends React.Component {
 								Copies Sold : {e.copies}
 							</div>
 							<div className = "btn">
-								<button>See in Library</button>
+								<button><Link to = "/My-Library">See in Library</Link></button>
 							</div>	
 							</div>
 						</div>		

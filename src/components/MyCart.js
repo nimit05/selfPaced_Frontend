@@ -25,7 +25,7 @@ export default class MyCart extends React.Component {
         }
       });
     this.state = {
-      Cart_Product: [],
+      Cart_Product: [''],
       count: 0
     };
   }

@@ -58,7 +58,7 @@ export default class Footer extends React.Component{
                               <div className = "img_text">
                                 <img src = {mail} />
                                 <div>
-                                    SelfPaced123@gmail.com
+                                    Selfpaced123@gmail.com
                                 </div>
                               </div>
                         </div>

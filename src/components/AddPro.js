@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Productbox from "./Productbox";
 import imageCompression from "browser-image-compression";
+import lod from "../img/loading.svg";
+
 
 class AddPro extends Component {
   updateProductPre = () => {
@@ -20,7 +22,8 @@ class AddPro extends Component {
 
     this.setState(() => {
       return {
-        productdet: newPro
+        productdet: newPro,
+        loading : false
       };
     });
   };
@@ -82,6 +85,12 @@ class AddPro extends Component {
     }
   };
   submitFormWithCompression = async () => {
+
+    this.setState(() => {
+      return{
+        loading : true
+      }
+    })
     if (!document.getElementById("pro_img").files[0]) {
       alert("Please Upload the cover image");
       return;
@@ -104,12 +113,28 @@ class AddPro extends Component {
       formData.append("compressedfile", compressedFile);
       postData("/api/sell", formData).then(res => {
         if (res) {
+          this.setState(() => {
+            return{
+              loading : false
+            }
+          })
           window.location.href = "/";
+         
         } else {
+          this.setState(() => {
+            return{
+              loading : false
+            }
+          })
           alert("Internal Error , Please Try Later");
         }
       });
     } catch (error) {
+      this.setState(() => {
+        return{
+          loading : false
+        }
+      })
       console.log(error);
     }
   };
@@ -259,7 +284,7 @@ class AddPro extends Component {
                     this.submitFormWithCompression();
                   }}
                 >
-                  Add to Store
+                {this.state.loading ? <img src = {lod} className = "loadingsvg" /> : 'Add to Store' }
                 </button>
               </div>
             </form>

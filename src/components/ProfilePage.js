@@ -249,13 +249,7 @@ class ProfileCard extends React.Component {
           </div>
           <div className="row_cont">
             <div className="details_lab">UserName</div>
-            {this.state.edit_p ? (
               <div className="details_value">{this.state.username}</div>
-            ) : (
-              <div className="details_value">
-                <input type="text" id="user_name" defaultValue={this.state.username} />
-              </div>
-            )}
           </div>
         </div>
 

@@ -311,6 +311,14 @@ button:focus {
   }
   .header_left {
     left: 10px;
+    cursor: pointer;
+    img {
+      object-fit: cover;
+      margin-top: 8px;
+      margin-right: 5px;
+      height: 40px;
+      // width: 100px;
+    }
   }
   .header_left_none {
     display: none;

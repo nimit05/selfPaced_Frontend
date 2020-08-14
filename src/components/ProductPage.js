@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaWindowClose } from "react-icons/fa";
 import bookcover from "../img/bookcover.jpg";
 import CateCon from "./CateCon";
 import Modal from "react-modal";
 import propic from "../img/propic.svg";
 import lod from "../img/loading.svg";
+import Footer from './Footer'
 
 export default class ProductPage extends React.Component {
   SetRating(ratingValue) {
@@ -50,6 +51,8 @@ export default class ProductPage extends React.Component {
       });
     }
   };
+
+  
 
   constructor(props) {
     super(props);
@@ -225,6 +228,7 @@ export default class ProductPage extends React.Component {
         <div className="cart_catecon">
           <CateCon title="Best Seller" url="mostB" />
         </div>
+        <Footer />
       </div>
     );
   }
@@ -261,18 +265,19 @@ class Content extends React.Component {
       }
     });
 
-    if(this.props.refId){
-    fetch(`/api/user/IsinCart/${this.props.refId}`).then((res) => res.json())
-    .then((data) => {
-      if(data){
+
+  }
+ async componentDidMount(){
+   let req =  await fetch(`/api/user/IsinCart/${this.props.refId}`)
+    let data = req.json()
+      if(data == true){
         this.setState(() => {
           return{
-          inCart : data
+          inCart : true
           }
         })
       }
-    })}
-
+    
   }
   render() {
     return (
@@ -377,13 +382,29 @@ class Content extends React.Component {
 }
 
 class Reviews extends React.Component {
+
+  IsReported = async(id) => {
+    await fetch(`/api/review/isReported/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      if(data == true){
+        this.setState(() => {
+          return{
+            reported : true
+          }
+        })
+      }
+    })
+  return this.state.reported
+  }
   constructor(props) {
     super(props);
 
     this.state = {
       reviews: [],
       user_pic: null,
-      disable: false
+      disable: false,
+      reported : false
     };
     if (this.props.pro_id) {
       fetch(`/api/review/${this.props.pro_id}`)
@@ -433,19 +454,33 @@ class Reviews extends React.Component {
                   })}
                 </div>
                 <div className="comment">{review.comment}</div>
-                <div
-                  onClick={() => {
-                    let data = {
-                      id: review.id
-                    };
-                    postData("/api/review/report", data).then(data => {
-                      if (!data) {
-                        alert("error occured");
-                      }
-                    });
-                  }}
-                >
-                  <a href="#">Report</a>
+                  <div className = "actions_commenter">
+                    <div
+                      onClick={async() => {
+                        let data = {
+                          id: review.id
+                        };
+                        let req = await postData("/api/review/report", data)
+                        if(req){
+                          this.setState(() => {
+                            return{
+                              reported : true
+                            }
+                          })
+                        }else{
+                          alert('error-occoured')
+                        }
+                      }}
+                    >{ this.state.reported ? <a href="#">Reported</a> :  <a href="#">Report</a> }
+                    
+                    </div>
+                  <div className = "delete_review" onClick = {async() => {
+                    await window.location.reload()
+                    await Delete(`/api/review/${review.id}`)
+                    
+                  }}>
+                    Delete
+                  </div>
                 </div>
                 <br />
                 <br />
@@ -473,5 +508,23 @@ async function postData(url = "", data = {}) {
     referrerPolicy: "no-referrer",
     body: JSON.stringify(data) // body data type must match "Content-Type" header
   });
+  return response.json(); // parses JSON response into native JavaScript objects
+}
+
+async function Delete(url = "", data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json"
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer",
+  });
+  
   return response.json(); // parses JSON response into native JavaScript objects
 }

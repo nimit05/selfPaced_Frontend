@@ -40,7 +40,7 @@ class Library extends React.Component {
         
 
         <div className="proCon">
-          {this.state.products.length === 0 ?
+          {this.state.products.length == 0 ?
             (<div className = "empty_lib">
               <div className = "img">
                 <img src = {school} />

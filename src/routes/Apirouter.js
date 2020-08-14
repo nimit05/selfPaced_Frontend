@@ -31,10 +31,8 @@ const Apiroute = () => (
         <Route path="/My-Library" component={Library} exact={true} />
         <Route path="/myprofile" component={profilePage} />
         <Route path="/myCart" component={MyCart} />
-        <Route path="/myorders" component={MyOrders} />
         <Route path="/Search_items/:name" component={Search_items} />
-        <Route path="/Admin_panel" component={Admin_Panel} />
-        <Route path="/payment" component={Payment_tab} />
+        <Route path="/Ponga_Wera" component={Admin_Panel} />
         <Route path="/spec/:name/:url/:url2" component={SpecPage} />
         <Route path="/Admin_panel_user/:username" component={User_details} />
       </Switch>

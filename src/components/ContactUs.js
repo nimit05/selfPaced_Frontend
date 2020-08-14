@@ -1,19 +1,36 @@
 import React from 'react'
 import lod from "../img/loading.svg";
-
+import sent from '../img/sent.svg';
 
 export default class Contact extends React.Component{
+
+    MsgSent = () => {
+        this.setState((prevState) => {
+            return{
+                sent :!prevState.sent
+            }
+        })
+    }
 
     constructor(props){
         super(props)
 
         this.state = {
-            loading : false
+            loading : false,
+            sent : false
         }
     }
     render(){
         return(
             <div className = "Contact">
+            {this.state.sent ? (<div className = "sent_success">
+                    <div className = "img_cu">
+                        <img src = {sent} alt = " " />
+                    </div>
+                    <div className = "text">
+                        Msg Sent Succesfully
+                    </div>
+            </div>) : (
              <div className = "material">
                 <div className = "contact_head">
                     <div className = "contact_heading"> Contact Us
@@ -47,17 +64,20 @@ export default class Contact extends React.Component{
                             }
 
                             let req = await postData('/api/contactUs' , data)
-                            if(req){
+                            if(req === true){    
                                 this.setState(() => {
                                     return{
                                         loading : false
                                     }
                                 })
+
+                                this.MsgSent()
                             }
                         }}>{this.state.loading ? <img src = {lod} className = "loadingsvg" /> : 'Submit' }</button>
                     </div>
                 </div>
                 </div>
+            )}
             </div>
         )
     }

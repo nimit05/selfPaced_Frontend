@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Productbox from "./Productbox";
 import CateCon from "./CateCon";
 import Sub_Header from "./Sub_header";
+import nf from '../img/search_not_found.svg'
+
 
 export default class SpecPage extends React.Component {
   constructor(props) {
@@ -50,9 +52,15 @@ export default class SpecPage extends React.Component {
               })}
             </div>
           ) : (
-            <div className="spec_error">
-              <h2>Sorry! NO such product found.😁😁</h2>
+            <div className = "empty_search" >
+
+            <div className = "img">
+              <img src = {nf} alt = " " />
             </div>
+            <div className = "text">
+              Sorry! The product you are searching is unavailable
+            </div>
+          </div>
           )}
         </div>
         <br />
