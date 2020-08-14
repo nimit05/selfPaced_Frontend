@@ -32,14 +32,16 @@ export default class Base_Header extends React.Component {
         if (data) {
           this.setState(() => {
             return {
-              islogin: true
+              islogin: true,
+              pro_pic: data.pro_img
             };
           });
         }
       });
 
     this.state = {
-      islogin: false
+      islogin: false,
+      pro_pic: null
     };
   }
 
@@ -63,7 +65,7 @@ export default class Base_Header extends React.Component {
                 <img src={lib} alt=" " />
               </Link>
               <Link to="/myprofile">
-                <img src={picpro} alt=" " />
+                <img className="base_header_pro_pic"  src={this.state.pro_pic ? this.state.pro_pic : picpro} alt=" " />
               </Link>
             </div>
           ) : (

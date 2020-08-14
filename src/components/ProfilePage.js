@@ -3,7 +3,7 @@ import edit from "../img/edit.svg";
 import Contact from "./ContactUs";
 import MyOrders from "./MyOrders";
 import Sub_Header from "./Sub_header";
-import propic from '../img/propic.svg'
+import propic from "../img/propic.svg";
 
 export default class Profile_Page extends React.Component {
   handleMode = ans => {
@@ -54,11 +54,11 @@ export default class Profile_Page extends React.Component {
         <div className="side_pro_bar">
           <div className="line_bar"></div>
           <div className="head">
-            <img src={this.state.pro_img ? this.state.pro_img : propic } />
+            <img src={this.state.pro_img ? this.state.pro_img : propic} />
           </div>
           <div className="link">{this.state.username}</div>
           <div className="bio">
-            {this.state.edit && this.state.bio ?  (
+            {this.state.edit && this.state.bio ? (
               this.state.bio
             ) : (
               <div>
@@ -69,6 +69,7 @@ export default class Profile_Page extends React.Component {
                   maxLength="100"
                 />
                 <button
+                  className="save_btn"
                   onClick={() => {
                     let data = {
                       bio: document.getElementById("bio").value
@@ -81,7 +82,7 @@ export default class Profile_Page extends React.Component {
                   Save
                 </button>
               </div>
-            ) }
+            )}
           </div>
           {this.state.edit && this.state.bio && (
             <div className="options" onClick={this.handleEdit}>
@@ -147,14 +148,14 @@ class ProfileCard extends React.Component {
               phone_Number: data.phone_Number,
               Address: data.Address,
               f_name: data.f_name,
-              l_name : data.l_name,
+              l_name: data.l_name,
               coins: data.Coins,
               pro_pic: data.pro_img,
               Earnings: data.Earnings,
               bio: data.bio,
               College: data.College,
               Course: data.Course,
-              branch : data.branch
+              branch: data.branch
             };
           });
         }
@@ -178,8 +179,8 @@ class ProfileCard extends React.Component {
       edit_ed: true,
       edit_p: true,
       edit_c: true,
-      l_name : null,
-      branch : null
+      l_name: null,
+      branch: null
     };
     this.updatePro();
   }
@@ -207,8 +208,8 @@ class ProfileCard extends React.Component {
                   onClick={() => {
                     let data = {
                       l_name: document.getElementById("l_name").value,
-                      f_name : document.getElementById("f_name").value,
-                      username : document.getElementById('user_name').value
+                      f_name: document.getElementById("f_name").value,
+                      username: document.getElementById("user_name").value
                     };
 
                     let a = postData("/api/user", data);
@@ -233,7 +234,7 @@ class ProfileCard extends React.Component {
               <div className="details_value">{this.state.f_name}</div>
             ) : (
               <div className="details_value">
-                <input type="text" defaultValue={this.state.f_name} id= "f_name" />
+                <input type="text" defaultValue={this.state.f_name} id="f_name" />
               </div>
             )}
           </div>
@@ -249,7 +250,7 @@ class ProfileCard extends React.Component {
           </div>
           <div className="row_cont">
             <div className="details_lab">UserName</div>
-              <div className="details_value">{this.state.username}</div>
+            <div className="details_value">{this.state.username}</div>
           </div>
         </div>
 
@@ -274,7 +275,7 @@ class ProfileCard extends React.Component {
                     let data = {
                       College: document.getElementById("user_college").value,
                       Course: document.getElementById("user_quali").value,
-                      branch : document.getElementById('user_branch').value
+                      branch: document.getElementById("user_branch").value
                     };
 
                     let a = postData("/api/user", data);

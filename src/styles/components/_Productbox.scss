@@ -13,6 +13,7 @@
   background-color: white;
   transition: 0.2s;
   position: relative;
+  border-radius: 20px;
 }
 
 .productcont_for_profile {
@@ -37,19 +38,18 @@
 
 .product_img {
   // margin-top: -14px;
-  overflow:hidden;
-  height:74%;
-  max-width:75%;
-margin:auto;
-
+  overflow: hidden;
+  height: 74%;
+  max-width: 75%;
+  margin: auto;
 
   text-align: center;
   cursor: pointer;
-  img{
-		  height:100%;
+  img {
+    height: 100%;
 
-  
-  object-fit:cover}
+    object-fit: cover;
+  }
 }
 
 .good {
@@ -67,8 +67,6 @@ margin:auto;
   background-color: $secondary;
   text-align: center;
   transform: rotateZ(-45deg);
-  z-index: 10;
-  box-shadow: 1px 1px 10px rgb(204, 204, 204);
 }
 .tag_for_profile {
   position: relative;
@@ -94,8 +92,7 @@ margin:auto;
   flex-direction: column;
   justify-content: space-between;
   height: 15%;
-  margin-top:10px;
-
+  margin-top: 10px;
 
   h3 {
     // font-family: "Balsamiq Sans", cursive;
@@ -216,12 +213,8 @@ margin:auto;
     // transform: scale(0.5);
     height: 230px;
     width: 170px;
-	box-shadow:0px 1px 10px #aaaaaa;
-	border-radius:10px;
-	margin:30px 20px;
-
-
-
+    box-shadow: 0px 1px 10px #aaaaaa;
+    margin: 30px 20px;
   }
   .product_body {
     height: 15%;
@@ -233,6 +226,7 @@ margin:auto;
     }
     h3 {
       font-size: 14px;
+      margin-top: -5px;
     }
     h6 {
       font-size: 9px;
@@ -240,5 +234,23 @@ margin:auto;
   }
   .new_tag {
     height: 29px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .productcont {
+    // transform: scale(0.5);
+    height: 180px;
+    width: 130px;
+    box-shadow: 0px 1px 10px #aaaaaa;
+    border-radius: 10px;
+    margin: 30px 20px;
+  }
+  .new_tag {
+    height: 25px;
+  }
+  .tag {
+    font-size: 7px;
+    height: 8px;
   }
 }
