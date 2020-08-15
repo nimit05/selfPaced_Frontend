@@ -208,7 +208,6 @@ class ProfileCard extends React.Component {
                     let data = {
                       l_name: document.getElementById("l_name").value,
                       f_name : document.getElementById("f_name").value,
-                      username : document.getElementById('user_name').value
                     };
 
                     let a = postData("/api/user", data);
