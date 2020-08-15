@@ -103,7 +103,7 @@ export default class User_details extends React.Component{
                         stitle={e.s_title}
                         short_des={e.short_des}
                         refId={e.refrenceId}
-                        bookimg={`covers/${e.cover_img}`}
+                        bookimg={propic}
                         />
                         <div className = "product_anlys">
                             <div className = "del">{e.deleted && 'deleted'}</div>

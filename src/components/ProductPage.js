@@ -72,7 +72,9 @@ export default class ProductPage extends React.Component {
       Seller: null,
       branch: null,
       loadingCart: false,
-      loadingLib: false
+      loadingLib: false,
+      f_name : null,
+      l_name : null
     };
   }
 
@@ -86,18 +88,20 @@ export default class ProductPage extends React.Component {
         if (data) {
           this.setState(() => {
             return {
-              id: data.id,
-              title: data.title,
-              s_title: data.s_title,
-              cover_img: data.cover_img,
-              description: data.Description,
-              refId: data.refrenceId,
-              tag: data.tag,
-              rating: data.rating,
-              cover_img: data.cover_img,
-              Seller: data.SellerUsername,
-              sample_file: data.sample_pro,
-              branch: data.branch
+              id: data.product.id,
+              title: data.product.title,
+              s_title: data.product.s_title,
+              cover_img: data.product.cover_img,
+              description: data.product.Description,
+              refId: data.product.refrenceId,
+              tag: data.product.tag,
+              rating: data.product.rating,
+              cover_img: data.product.cover_img,
+              Seller: data.product.SellerUsername,
+              sample_file: data.product.sample_pro,
+              branch: data.product.branch,
+              f_name : data.user.f_name,
+              l_name : data.user.l_name
             };
           });
         }
@@ -153,6 +157,8 @@ export default class ProductPage extends React.Component {
             branch={this.state.branch}
             loadingCart={this.state.loadingCart}
             loadingLib={this.state.loadingLib}
+            f_name = {this.state.f_name}
+            l_name = {this.state.l_name}
           />
         </div>
         <hr className="hr_divider" />
@@ -211,7 +217,7 @@ export default class ProductPage extends React.Component {
                     let data3 = {
                       comment: document.getElementById("body_input").value,
                       rating: this.state.star_Value,
-                      productId: this.state.id
+                      productId: this.state.id,
                     };
                     postData("/api/review", data3).then(data => {
                       if (!data) {
@@ -246,13 +252,16 @@ const BookImg = props => {
   );
 };
 class Content extends React.Component {
+
+
+
   constructor(props) {
     super(props);
 
     this.state = {
       inLibrary: true,
       rating: null,
-      inCart: false
+      inCart: false,
     };
 
     let data = {
@@ -268,8 +277,11 @@ class Content extends React.Component {
         });
       }
     });
+
+    
   }
-  async componentDidMount() {
+   componentDidMount = async() => {
+
     let req = await fetch(`/api/user/IsinCart/${this.props.refId}`);
     let data = req.json();
     if (data == true) {
@@ -278,7 +290,9 @@ class Content extends React.Component {
           inCart: true
         };
       });
-    }
+    };
+
+ 
   }
   render() {
     return (
@@ -307,7 +321,7 @@ class Content extends React.Component {
             Branch : <span className="type_value grey">{this.props.branch}</span>
           </div>
           <div className="price_pp">
-            Seller : <span className="type_val grey">{this.props.Seller}</span>
+            Seller : <span className="type_val grey">{this.props.f_name} {' '} {this.props.l_name}</span>
           </div>
         </div>
 
@@ -456,7 +470,7 @@ class Reviews extends React.Component {
               <div className="rev_con">
                 <div className="user_det">
                   <img src={propic} />
-                  <span className="review_username">{review.userId}</span>
+                  <span className="review_username">{review.userName}</span>
                 </div>
                 <div>
                   {[...Array(5)].map((star, i) => {

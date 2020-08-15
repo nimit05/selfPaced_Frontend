@@ -248,7 +248,7 @@ class AddPro extends Component {
                 </div>
                 <div className="lable_inp_pair">
                   <label htmlFor="Type">Branch</label>
-                  <select id="branch_sel" name="branch" defaultValue="ece">
+                  <select id="branch_sel" name="branch" defaultValue="Computer Science">
                     <option value="Computer Science">Computer Science</option>
                     <option value="Electronics">Electronics</option>
                     <option value="Electrical Engg.">Electrical Engg.</option>
