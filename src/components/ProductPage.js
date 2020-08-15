@@ -408,7 +408,8 @@ class Reviews extends React.Component {
       reviews: [],
       user_pic: null,
       disable: false,
-      reported: false
+      reported: false,
+      username : null
     };
     if (this.props.pro_id) {
       fetch(`/api/review/${this.props.pro_id}`)
@@ -434,6 +435,17 @@ class Reviews extends React.Component {
           }
         });
     }
+
+    fetch('/api/user').then((res) => res.json())
+    .then((data) => {
+      if(data){
+        this.setState(() => {
+          return{
+            username : data.username
+          }
+        })
+      }
+    })
   }
   render() {
     return (
@@ -479,6 +491,7 @@ class Reviews extends React.Component {
                   >
                     {this.state.reported ? <a href="#">Reported</a> : <a href="#">Report</a>}
                   </div>
+                  {this.state.username === review.userId && (
                   <div
                     className="delete_review"
                     onClick={async () => {
@@ -488,6 +501,7 @@ class Reviews extends React.Component {
                   >
                     Delete
                   </div>
+                  )}
                 </div>
                 <br />
                 <br />
