@@ -26,10 +26,10 @@
 }
 .price_pp {
   font-size: 1.4rem;
+  margin: 10px 0;
 
-  .type_value{
+  .type_value {
     font-size: 1.4rem;
-    color: black;
   }
 }
 .price_val {
@@ -46,6 +46,7 @@
   width: 10rem;
   background-color: $secondary;
   color: $light;
+  border-radius: 20px;
 }
 .adc_btn_pp {
   height: 2rem;
@@ -53,6 +54,7 @@
   background-color: $secondary;
   margin-left: 1rem;
   color: $light;
+  border-radius: 20px;
 }
 .main_body_pro_page {
   display: flex;
@@ -78,6 +80,8 @@
   margin-right: auto;
   font-size: 1.8rem;
   font-weight: 600;
+  padding: 20px 0px;
+
   button {
     margin-top: 20px;
   }
@@ -201,7 +205,7 @@
   margin: 0px;
 }
 
-.actions_commenter{
+.actions_commenter {
   display: flex;
   flex-direction: row;
   width: 60%;
@@ -210,7 +214,7 @@
   justify-content: space-between;
   font-size: 0.8rem;
 
-  .delete_review{
+  .delete_review {
     cursor: pointer;
   }
 }
@@ -285,10 +289,10 @@
 
   .price_pp {
     font-size: 1rem;
-  
-    .type_value{
+    margin: 10px 0;
+
+    .type_value {
       font-size: 1rem;
-      color: black;
     }
   }
 
@@ -304,4 +308,7 @@
   .report_product {
     margin-right: 0.5rem;
   }
+}
+.grey {
+  color: #505050;
 }

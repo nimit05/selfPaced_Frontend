@@ -28,7 +28,7 @@
 
   h3 {
     color: gray;
-	margin-top:30px;
+    margin-top: 30px;
 
     cursor: pointer;
   }
@@ -45,4 +45,26 @@
 
 .cate_body::-webkit-scrollbar {
   display: none;
+}
+
+@media screen and (max-width: 720px) {
+  .cate_head {
+    margin-bottom: 10px;
+
+    h1 {
+      font-size: 16px;
+      margin: 10px;
+    }
+    h3 {
+      font-size: 12px;
+      margin: 10px;
+    }
+  }
+  .CateCon {
+    margin: 10px;
+    padding-bottom: 10px;
+  }
+  .cate_body {
+    padding-bottom: 10px;
+  }
 }

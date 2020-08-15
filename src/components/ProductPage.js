@@ -5,7 +5,7 @@ import CateCon from "./CateCon";
 import Modal from "react-modal";
 import propic from "../img/propic.svg";
 import lod from "../img/loading.svg";
-import Footer from './Footer'
+import Footer from "./Footer";
 
 export default class ProductPage extends React.Component {
   SetRating(ratingValue) {
@@ -52,8 +52,6 @@ export default class ProductPage extends React.Component {
     }
   };
 
-  
-
   constructor(props) {
     super(props);
 
@@ -99,7 +97,7 @@ export default class ProductPage extends React.Component {
               cover_img: data.cover_img,
               Seller: data.SellerUsername,
               sample_file: data.sample_pro,
-              branch : data.branch
+              branch: data.branch
             };
           });
         }
@@ -168,7 +166,13 @@ export default class ProductPage extends React.Component {
           </div>
         </div>
 
-        <Modal isOpen={this.state.open} className="modal" contentLabel="Selected Option" onRequestClose={this.alugobi}>
+        <Modal
+          style={{ padding: 30 }}
+          isOpen={this.state.open}
+          className="modal"
+          contentLabel="Selected Option"
+          onRequestClose={this.alugobi}
+        >
           <div>
             <h2 className="rate_modal">Rate Product</h2>
             <div className="star_cont">
@@ -248,7 +252,7 @@ class Content extends React.Component {
     this.state = {
       inLibrary: true,
       rating: null,
-      inCart : false
+      inCart: false
     };
 
     let data = {
@@ -264,20 +268,17 @@ class Content extends React.Component {
         });
       }
     });
-
-
   }
- async componentDidMount(){
-   let req =  await fetch(`/api/user/IsinCart/${this.props.refId}`)
-    let data = req.json()
-      if(data == true){
-        this.setState(() => {
-          return{
-          inCart : true
-          }
-        })
-      }
-    
+  async componentDidMount() {
+    let req = await fetch(`/api/user/IsinCart/${this.props.refId}`);
+    let data = req.json();
+    if (data == true) {
+      this.setState(() => {
+        return {
+          inCart: true
+        };
+      });
+    }
   }
   render() {
     return (
@@ -303,10 +304,10 @@ class Content extends React.Component {
             </span>
           </div>
           <div className="price_pp">
-            Branch : <span className="type_value">{this.props.branch}</span>
+            Branch : <span className="type_value grey">{this.props.branch}</span>
           </div>
           <div className="price_pp">
-            Seller :<span className="type_val">{this.props.Seller}</span>
+            Seller : <span className="type_val grey">{this.props.Seller}</span>
           </div>
         </div>
 
@@ -316,15 +317,17 @@ class Content extends React.Component {
               <button className="buy_btn_pp" onClick={this.props.buy}>
                 {this.props.loadingLib ? <img className="loadingsvg" src={lod} /> : "Add To Library"}
               </button>
-              {this.state.inCart ? (<button className = "adc_button">Added to Cart</button>) : (
-              <button
-                className="adc_btn_pp "
-                onClick={() => {
-                  this.props.addToCart(this.props.refId);
-                }}
-              >
-                {this.props.loadingCart ? <img className="loadingsvg" src={lod} /> : "Add to Cart"}
-              </button>
+              {this.state.inCart ? (
+                <button className="adc_button">Added to Cart</button>
+              ) : (
+                <button
+                  className="adc_btn_pp "
+                  onClick={() => {
+                    this.props.addToCart(this.props.refId);
+                  }}
+                >
+                  {this.props.loadingCart ? <img className="loadingsvg" src={lod} /> : "Add to Cart"}
+                </button>
               )}
             </div>
           ) : (
@@ -343,7 +346,7 @@ class Content extends React.Component {
         <br />
         <div className="des_pp">
           About
-          <div className="des_cont">{this.props.description}</div>
+          <div className="des_cont grey">{this.props.description}</div>
         </div>
         <div className="report">
           <span
@@ -355,6 +358,8 @@ class Content extends React.Component {
               postData("/api/products/report", data4).then(data => {
                 if (data == false) {
                   alert("eror occured");
+                } else {
+                  alert("Product Reported");
                 }
               });
             }}
@@ -382,21 +387,20 @@ class Content extends React.Component {
 }
 
 class Reviews extends React.Component {
-
-  IsReported = async(id) => {
+  IsReported = async id => {
     await fetch(`/api/review/isReported/${id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      if(data == true){
-        this.setState(() => {
-          return{
-            reported : true
-          }
-        })
-      }
-    })
-  return this.state.reported
-  }
+      .then(res => res.json())
+      .then(data => {
+        if (data == true) {
+          this.setState(() => {
+            return {
+              reported: true
+            };
+          });
+        }
+      });
+    return this.state.reported;
+  };
   constructor(props) {
     super(props);
 
@@ -404,7 +408,7 @@ class Reviews extends React.Component {
       reviews: [],
       user_pic: null,
       disable: false,
-      reported : false
+      reported: false
     };
     if (this.props.pro_id) {
       fetch(`/api/review/${this.props.pro_id}`)
@@ -454,31 +458,34 @@ class Reviews extends React.Component {
                   })}
                 </div>
                 <div className="comment">{review.comment}</div>
-                  <div className = "actions_commenter">
-                    <div
-                      onClick={async() => {
-                        let data = {
-                          id: review.id
-                        };
-                        let req = await postData("/api/review/report", data)
-                        if(req){
-                          this.setState(() => {
-                            return{
-                              reported : true
-                            }
-                          })
-                        }else{
-                          alert('error-occoured')
-                        }
-                      }}
-                    >{ this.state.reported ? <a href="#">Reported</a> :  <a href="#">Report</a> }
-                    
-                    </div>
-                  <div className = "delete_review" onClick = {async() => {
-                    await window.location.reload()
-                    await Delete(`/api/review/${review.id}`)
-                    
-                  }}>
+                <div className="actions_commenter">
+                  <div
+                    onClick={async () => {
+                      let data = {
+                        id: review.id
+                      };
+                      let req = await postData("/api/review/report", data);
+                      if (req) {
+                        alert("Review Reported");
+                        this.setState(() => {
+                          return {
+                            reported: true
+                          };
+                        });
+                      } else {
+                        alert("error-occoured");
+                      }
+                    }}
+                  >
+                    {this.state.reported ? <a href="#">Reported</a> : <a href="#">Report</a>}
+                  </div>
+                  <div
+                    className="delete_review"
+                    onClick={async () => {
+                      await window.location.reload();
+                      await Delete(`/api/review/${review.id}`);
+                    }}
+                  >
                     Delete
                   </div>
                 </div>
@@ -523,8 +530,8 @@ async function Delete(url = "", data = {}) {
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
     redirect: "follow", // manual, *follow, error
-    referrerPolicy: "no-referrer",
+    referrerPolicy: "no-referrer"
   });
-  
+
   return response.json(); // parses JSON response into native JavaScript objects
 }

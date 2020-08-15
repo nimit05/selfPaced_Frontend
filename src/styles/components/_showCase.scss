@@ -1,5 +1,7 @@
 .show_case_con {
   width: 90%;
+  max-width: 1200px;
+
   display: flex;
   flex-direction: row;
   margin-left: auto;
@@ -18,7 +20,7 @@
   position: relative;
 
   h2 {
-    margin: 40px;
+    margin: 40px auto;
 
     font-size: 40px;
     font-weight: 300;
@@ -30,7 +32,7 @@
   flex-direction: column;
   align-items: center;
   h2 {
-    margin: 40px;
+    margin: 40px auto;
 
     font-size: 40px;
     font-weight: 300;
@@ -54,13 +56,16 @@
   .show_case_right {
     h2 {
       font-size: 15px;
+      margin: 10px auto;
     }
     h4 {
       font-size: 10px;
+      margin: 10px auto;
+
       padding: 7px;
     }
   }
   .bestImg {
-    height: 60px;
+    display: none;
   }
 }

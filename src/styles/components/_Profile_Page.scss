@@ -20,6 +20,7 @@
     height: 35px;
     background-color: #34866b;
     color: white;
+    text-align: center;
   }
 
   .active_cont {
@@ -30,7 +31,6 @@
   }
   .sign_out {
     padding: 8px 15px;
-    border-right: 1px solid #c0bbbb;
     cursor: pointer;
     // background-color: $l_secondary;
   }
@@ -106,11 +106,11 @@
     }
 
     button {
-      padding: 7px;
+      padding: 7px 10px;
       margin-left: 38%;
       background-color: $secondary;
       color: white;
-      border-radius: 3px;
+      border-radius: 100px;
     }
   }
 
@@ -363,7 +363,6 @@
     .active_cont {
       padding: 0;
       width: 20%;
-      margin: auto;
       align-self: center;
       border-right: 1px solid #c0bbbb;
       cursor: pointer;
@@ -478,7 +477,7 @@
     text-transform: capitalize;
   }
 
-  .details_value_email{
+  .details_value_email {
     font-size: 0.9rem;
   }
 }

@@ -45,7 +45,7 @@
   font-size: 1.2rem;
 }
 
-.empty_search{
+.empty_search {
   width: 40%;
   min-width: 30rem;
   display: flex;
@@ -54,17 +54,18 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 200px;
+  margin-bottom: 100px;
   // border: solid black;
 
-  .img{
+  .img {
     width: 30%;
     margin-left: 5%;
-    img{
+    img {
       height: 150px;
     }
   }
 
-  .text{
+  .text {
     font-size: 1.8rem;
     color: $secondary;
   }
@@ -85,23 +86,24 @@
     }
   }
 
-  .empty_search{
+  .empty_search {
     width: 100%;
     min-width: 30rem;
 
-    margin-top: 200px;
+    margin-top: 100px;
+    margin-bottom: 100px;
     // border: solid black;
-  
-    .img{
+
+    .img {
       width: 20%;
 
       margin-left: 5%;
-      img{
+      img {
         height: 80px;
       }
     }
-  
-    .text{
+
+    .text {
       width: 50%;
       font-size: 1rem;
       color: $secondary;

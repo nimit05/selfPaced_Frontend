@@ -332,7 +332,8 @@ button:focus {
     position: absolute;
     display: block;
 
-    left: -190px;
+    left: -45vw;
+
     top: -8px;
     width: 80vw;
     border-radius: 0px;
@@ -359,4 +360,10 @@ button:focus {
 }
 .logindet {
   width: 250px;
+}
+
+@media screen and (max-width: 375) {
+  .main_search_inp_mob {
+    width: 60vw;
+  }
 }

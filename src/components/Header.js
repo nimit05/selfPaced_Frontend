@@ -109,7 +109,7 @@ class Header extends React.Component {
       pro_pic: null,
       allItemsName: [],
       searchNames: [],
-      isAdmin: false,
+      isAdmin: false
     };
   }
 
@@ -169,17 +169,17 @@ class Header extends React.Component {
               </Link>
 
               <div className="tooltip profile">
-                    <Link to="/myprofile">
-                <img id="pro_pic" src={this.state.pro_pic ? this.state.pro_pic : propic} alt=" " />
+                <Link to="/myprofile">
+                  <img id="pro_pic" src={this.state.pro_pic ? this.state.pro_pic : propic} alt=" " />
+                </Link>
+              </div>
+              {this.state.isAdmin && (
+                <div className="tooltip profile">
+                  <Link to="/Ponga_Wera">
+                    <img id="pro_pic" src={propic} alt=" " />
                   </Link>
-                   </div>
-                   {this.state.isAdmin && (
-                   <div className="tooltip profile">
-                    <Link to="/Ponga_Wera">
-                        <img id="pro_pic" src={propic} alt=" " />
-                    </Link>
-                  </div>
-                   )}
+                </div>
+              )}
             </div>
           ) : (
             <div className="frse">
@@ -198,7 +198,7 @@ class Header extends React.Component {
                 className="gbtn"
                 onSuccess={this.responseGoogle}
                 onFailure={() => {
-                	alert('Error in google login ');
+                  alert("Error in google login ");
                 }}
                 cookiePolicy={"single_host_origin"}
               />
