@@ -10,6 +10,7 @@ import { GoogleLogin } from "react-google-login";
 import magni from "../img/search.svg";
 import { Link } from "react-router-dom";
 import arrow from "../img/multimedia.svg";
+const google_client_id = "1059529825547-etkqs3dglggp4fo5icfd2hf0c2j2sumr.apps.googleusercontent.com";
 
 class Header extends React.Component {
   findName = () => {
@@ -192,7 +193,7 @@ class Header extends React.Component {
                 Register/Login
               </button>
               <GoogleLogin
-                clientId="1059529825547-aplj58mp67dhb9j5smat7g5jjf3flgl2.apps.googleusercontent.com"
+                clientId={google_client_id}
                 buttonText="Continue with Google"
                 style={{ backgroundColor: "blue" }}
                 className="gbtn"

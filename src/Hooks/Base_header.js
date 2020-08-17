@@ -6,6 +6,7 @@ import lib from "../img/lib.svg";
 import picpro from "../img/propic.svg";
 import { GoogleLogin } from "react-google-login";
 import { Link } from "react-router-dom";
+const google_client_id = "1059529825547-etkqs3dglggp4fo5icfd2hf0c2j2sumr.apps.googleusercontent.com";
 
 export default class Base_Header extends React.Component {
   responseGoogle = response => {
@@ -65,7 +66,7 @@ export default class Base_Header extends React.Component {
                 <img src={lib} alt=" " />
               </Link>
               <Link to="/myprofile">
-                <img className="base_header_pro_pic"  src={this.state.pro_pic ? this.state.pro_pic : picpro} alt=" " />
+                <img className="base_header_pro_pic" src={this.state.pro_pic ? this.state.pro_pic : picpro} alt=" " />
               </Link>
             </div>
           ) : (
@@ -79,7 +80,7 @@ export default class Base_Header extends React.Component {
                 Register/Login
               </button>
               <GoogleLogin
-                clientId="1059529825547-aplj58mp67dhb9j5smat7g5jjf3flgl2.apps.googleusercontent.com"
+                clientId={google_client_id}
                 buttonText="Continue with Google"
                 style={{ backgroundColor: "blue" }}
                 className="gbtn"
