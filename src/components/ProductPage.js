@@ -86,7 +86,6 @@ export default class ProductPage extends React.Component {
 
   async componentDidMount() {
     const { refId } = this.props.match.params;
-    alert(refId);
 
     fetch(`/api/products/specific/${refId}`)
       .then(res => res.json())
