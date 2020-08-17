@@ -29,8 +29,7 @@ export default class Base_Header extends React.Component {
     fetch("/api/user")
       .then(res => res.json())
       .then(data => {
-        console.log(data);
-        if (data) {
+        if (!data.error) {
           this.setState(() => {
             return {
               islogin: true,
