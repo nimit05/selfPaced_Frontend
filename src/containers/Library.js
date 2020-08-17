@@ -3,7 +3,7 @@ import MyProBox from "../components/MyProBox";
 import Header from "../components/Header";
 // import PDFViewer from 'pdf-viewer-reactjs';
 import Sub_Header from "../components/Sub_header";
-import school from '../img/school.svg'
+import school from "../img/school.svg";
 
 class Library extends React.Component {
   constructor(props) {
@@ -36,21 +36,22 @@ class Library extends React.Component {
 						url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf'
 					}}
         /> */}
-        {this.state.products.length !=0 && (<h1 id="lib_head">Shelf ({this.state.products.length})</h1>)}
-        
+        {this.state.products.length != 0 && <h1 id="lib_head">Shelf ({this.state.products.length})</h1>}
 
         <div className="proCon">
-          {this.state.products.length == 0 ?
-            (<div className = "empty_lib">
-              <div className = "img">
-                <img src = {school} />
+          {this.state.products.length == 0 ? (
+            <div className="empty_lib">
+              <div className="img">
+                <img src={school} />
               </div>
-              <div className = "text">
+              <div className="text">
                 <div>Your Library is Empty</div>
-                <div className = "sub">So go up and start <a href = '/'>browsing</a> </div>
+                <div className="sub">
+                  So go up and start <a href="/">browsing</a>{" "}
+                </div>
               </div>
-              </div>) :(
-        
+            </div>
+          ) : (
             this.state.products.map((e, i) => {
               return (
                 <MyProBox
@@ -64,8 +65,7 @@ class Library extends React.Component {
                 />
               );
             })
-            )}
-            
+          )}
         </div>
       </div>
     );
