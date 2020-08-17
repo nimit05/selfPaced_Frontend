@@ -5,12 +5,10 @@ import cart from "../img/cart.svg";
 import lib from "../img/lib.svg";
 import plus from "../img/plus.svg";
 import propic from "../img/propic.svg";
-import money from "../img/money.svg";
 import { GoogleLogin } from "react-google-login";
 import magni from "../img/search.svg";
 import { Link } from "react-router-dom";
-import arrow from "../img/multimedia.svg";
-const google_client_id = "1059529825547-etkqs3dglggp4fo5icfd2hf0c2j2sumr.apps.googleusercontent.com";
+const google_client_id = "616787203350-2u0gfkgi7uqecdg3r1culo5rc9urs4ah.apps.googleusercontent.com";
 
 class Header extends React.Component {
   findName = () => {
@@ -80,7 +78,7 @@ class Header extends React.Component {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        if (data) {
+        if (!data.error) {
           this.setState(() => {
             return {
               islogin: true,

@@ -34,7 +34,15 @@ export default class ProductPage extends React.Component {
       refrenceId: this.props.match.params.refId
     };
     let pro = await postData("/api/products/Buy", data);
-    console.log(pro);
+    if (pro.error === "auth") {
+      this.setState(() => {
+        return {
+          loadingLib: false
+        };
+      });
+      document.getElementsByClassName("gbtn")[0].click();
+      return;
+    }
     if (pro) {
       this.setState(() => {
         return {
@@ -122,6 +130,16 @@ export default class ProductPage extends React.Component {
     });
     let data = { refrenceId: refId };
     let req = await postData("/api/products/AddToCart", data);
+
+    if (req.error === "auth") {
+      this.setState(() => {
+        return {
+          loadingCart: false
+        };
+      });
+      document.getElementsByClassName("gbtn")[0].click();
+      return;
+    }
     if (req) {
       this.setState(() => {
         return {

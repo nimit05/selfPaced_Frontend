@@ -6,7 +6,7 @@ import lib from "../img/lib.svg";
 import picpro from "../img/propic.svg";
 import { GoogleLogin } from "react-google-login";
 import { Link } from "react-router-dom";
-const google_client_id = "1059529825547-etkqs3dglggp4fo5icfd2hf0c2j2sumr.apps.googleusercontent.com";
+const google_client_id = "616787203350-2u0gfkgi7uqecdg3r1culo5rc9urs4ah.apps.googleusercontent.com";
 
 export default class Base_Header extends React.Component {
   responseGoogle = response => {
