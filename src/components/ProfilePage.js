@@ -32,6 +32,8 @@ export default class Profile_Page extends React.Component {
             return {
               pro_img: data.pro_img,
               username: data.username,
+              f_name : data.f_name,
+              l_name : data.l_name,
               bio: data.bio
             };
           });
@@ -44,7 +46,9 @@ export default class Profile_Page extends React.Component {
       mode: "profile",
       sidebar: false,
       bio: null,
-      edit: true
+      edit: true,
+      f_name : null,
+      l_name : null
     };
   }
   render() {
@@ -56,7 +60,7 @@ export default class Profile_Page extends React.Component {
           <div className="head">
             <img src={this.state.pro_img ? this.state.pro_img : propic} />
           </div>
-          <div className="link">{this.state.username}</div>
+          <div className="link">{this.state.f_name} {' '} {this.state.l_name}</div>
           <div className="bio">
             {this.state.edit && this.state.bio ? (
               this.state.bio
@@ -208,8 +212,7 @@ class ProfileCard extends React.Component {
                   onClick={() => {
                     let data = {
                       l_name: document.getElementById("l_name").value,
-                      f_name: document.getElementById("f_name").value,
-                      username: document.getElementById("user_name").value
+                      f_name : document.getElementById("f_name").value,
                     };
 
                     let a = postData("/api/user", data);

@@ -73,7 +73,8 @@ export default class Footer extends React.Component{
 
                                </div>
                               <div className = "icons_footer">
-                                 <img src = {insta} alt = " " />
+                              <a href="https://www.instagram.com/selfpaced_dcrust/"> <img  className="devPhoto" src = {insta} alt = " " />
+                              </a>
                                 </div>
                                 <div className = "icons_footer">
                                  <img src = {ld} alt = " " />
