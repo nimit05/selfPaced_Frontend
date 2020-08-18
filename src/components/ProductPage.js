@@ -92,7 +92,6 @@ export default class ProductPage extends React.Component {
     fetch(`/api/products/specific/${refId}`)
       .then(res => res.json())
       .then(data => {
-        data = data.product;
         if (data) {
           this.setState(() => {
             return {
