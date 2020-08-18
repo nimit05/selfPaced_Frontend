@@ -17,12 +17,13 @@ import User_details from "../components/Admin_Panel_User";
 import Payment_tab from "../components/Payment_Page";
 import CateCon from "../components/CateCon";
 import SpecPage from "../components/SpecPage";
-      
+import page404 from "../components/page404";
+
 const Apiroute = () => (
   <BrowserRouter>
     <div>
       <Header />
-	  
+
       <Switch>
         <Route path="/sell-your-product" component={AddProPage} exact={true} />
         <Route path="/container" component={Productbox} exact={true} />
@@ -35,6 +36,7 @@ const Apiroute = () => (
         <Route path="/Ponga_Wera" component={Admin_Panel} />
         <Route path="/spec/:name/:url/:url2" component={SpecPage} />
         <Route path="/Admin_panel_user/:username" component={User_details} />
+        <Route component={page404} />
       </Switch>
       <Base_Header />
     </div>
