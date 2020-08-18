@@ -409,6 +409,8 @@ class Content extends React.Component {
               postData("/api/user/report", data).then(data => {
                 if (!data) {
                   alert("eror occured");
+                }else{
+                  alert('Seller Reported')
                 }
               });
             }}
