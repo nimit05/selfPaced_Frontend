@@ -409,8 +409,8 @@ class Content extends React.Component {
               postData("/api/user/report", data).then(data => {
                 if (!data) {
                   alert("eror occured");
-                }else{
-                  alert('Seller Reported')
+                } else {
+                  alert("Seller Reported");
                 }
               });
             }}
@@ -493,7 +493,7 @@ class Reviews extends React.Component {
             return (
               <div className="rev_con">
                 <div className="user_det">
-                  <img src={propic} />
+                  <img src={review.user_img || propic} />
                   <span className="review_username">{review.userName}</span>
                 </div>
                 <div>
