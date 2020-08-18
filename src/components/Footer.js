@@ -9,6 +9,26 @@ import insta from "../img/instagram.svg";
 import ld from "../img/linkedin.svg";
 
 export default class Footer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLogin: false
+    };
+
+    fetch("/api/user")
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (!data.error) {
+          this.setState(() => {
+            return {
+              isLogin: true
+            };
+          });
+        }
+      });
+  }
   render() {
     return (
       <div className="footer">
@@ -24,17 +44,22 @@ export default class Footer extends React.Component {
             <div className="link_bold_footer">Links</div>
             <div className="links_foot">
               <Link to="/">Home</Link>
-              <Link to="/myprofile">Profile</Link>
-              <div
-                onClick={() => {
-                  fetch("/api/login/out", {
-                    method: "DELETE"
-                  });
-                  window.location.href = "/";
-                }}
-              >
-                Sign Out
-              </div>
+              {this.state.isLogin && (
+                <>
+                  {" "}
+                  <Link to="/myprofile">Profile</Link>
+                  <div
+                    onClick={() => {
+                      fetch("/api/login/out", {
+                        method: "DELETE"
+                      });
+                      window.location.href = "/";
+                    }}
+                  >
+                    Sign Out
+                  </div>
+                </>
+              )}
             </div>
           </div>
           <div className="foot_col">

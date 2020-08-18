@@ -7,8 +7,12 @@
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-top: 5rem;
-  padding-left: 30px;
+  margin-top: 2rem;
+  padding: 30px 30px;
+
+  .productcont {
+    margin-top: 60px;
+  }
 
   .heading_search {
     background-color: $blur;
