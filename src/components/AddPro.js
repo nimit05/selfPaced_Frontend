@@ -3,7 +3,6 @@ import Productbox from "./Productbox";
 import imageCompression from "browser-image-compression";
 import lod from "../img/loading.svg";
 
-
 class AddPro extends Component {
   updateProductPre = () => {
     let title = document.getElementById("pro_title").value;
@@ -23,7 +22,7 @@ class AddPro extends Component {
     this.setState(() => {
       return {
         productdet: newPro,
-        loading : false
+        loading: false
       };
     });
   };
@@ -85,12 +84,11 @@ class AddPro extends Component {
     }
   };
   submitFormWithCompression = async () => {
-
     this.setState(() => {
-      return{
-        loading : true
-      }
-    })
+      return {
+        loading: true
+      };
+    });
     if (!document.getElementById("pro_img").files[0]) {
       alert("Please Upload the cover image");
       return;
@@ -114,27 +112,26 @@ class AddPro extends Component {
       postData("/api/sell", formData).then(res => {
         if (res) {
           this.setState(() => {
-            return{
-              loading : false
-            }
-          })
+            return {
+              loading: false
+            };
+          });
           window.location.href = "/";
-         
         } else {
           this.setState(() => {
-            return{
-              loading : false
-            }
-          })
+            return {
+              loading: false
+            };
+          });
           alert("Internal Error , Please Try Later");
         }
       });
     } catch (error) {
       this.setState(() => {
-        return{
-          loading : false
-        }
-      })
+        return {
+          loading: false
+        };
+      });
       console.log(error);
     }
   };
@@ -249,16 +246,16 @@ class AddPro extends Component {
                 <div className="lable_inp_pair">
                   <label htmlFor="Type">Branch</label>
                   <select id="branch_sel" name="branch" defaultValue="Computer Science">
-                    <option value="Computer Science">Computer Science</option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="Electrical Engg.">Electrical Engg.</option>
-                    <option value="Mechanical Engg.">Mechanical Engg.</option>
-                    <option value="Civil Engg.">Civil Engg.</option>
-                    <option value="Chemical Engg.">Chemical Engg.</option>
-                    <option value="Bio Tech">Bio Tech</option>
-                    <option value="Bio Medical">Bio Medical</option>
-                    <option value="BSc">BSc</option>
-                    <option value="MSc">MSc</option>
+                    <option value="cse">Computer Science</option>
+                    <option value="ece">Electronics</option>
+                    <option value="ee">Electrical Engg.</option>
+                    <option value="me">Mechanical Engg.</option>
+                    <option value="civil">Civil Engg.</option>
+                    <option value="ce">Chemical Engg.</option>
+                    <option value="bt">Bio Tech</option>
+                    <option value="bme">Bio Medical</option>
+                    <option value="bsc">BSc</option>
+                    <option value="msc">MSc</option>
                   </select>
                 </div>
               </div>
@@ -284,7 +281,7 @@ class AddPro extends Component {
                     this.submitFormWithCompression();
                   }}
                 >
-                {this.state.loading ? <img src = {lod} className = "loadingsvg" /> : 'Add to Store' }
+                  {this.state.loading ? <img src={lod} className="loadingsvg" /> : "Add to Store"}
                 </button>
               </div>
             </form>

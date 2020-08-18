@@ -340,10 +340,13 @@ function send_reg_data() {
 				phone_Number: $('#phone_Number').val()
 			}
 		};
+document.getElementById("regisBtn").disabled=true;
+
 
 		postData('/api/register', data).then((data) => {
 			if (data.email === $('#email').val()) {
 				email = data.email;
+document.getElementById("regisBtn").disabled=false;
 				make_email();
 			} else if (data.error) {
 				if (data.error.indexOf('username exist') > -1) {
@@ -353,6 +356,7 @@ function send_reg_data() {
 						'border-width': 'thin'
 					});
 					nomistake = false;
+document.getElementById("regisBtn").disabled=false;
 				}
 				if (data.error.indexOf('email exist') > -1) {
 					$('#below_email').append($('<p>')).text('Email id already exist');
@@ -361,6 +365,7 @@ function send_reg_data() {
 						'border-width': 'thin'
 					});
 					nomistake = false;
+document.getElementById("regisBtn").disabled=false;
 				}
 				if (data.error.indexOf('phonenumber exist') > -1) {
 					$('#below_number').append($('<p>')).text('Phone Number Already Exist');
@@ -369,7 +374,13 @@ function send_reg_data() {
 						'border-width': 'thin'
 					});
 					nomistake = false;
+document.getElementById("regisBtn").disabled=false;
 				}
+			}
+			else{
+
+document.getElementById("regisBtn").disabled=false;
+			alert("Sorry Server Error ! Contact Developers")
 			}
 		});
 	}

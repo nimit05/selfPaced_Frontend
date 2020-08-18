@@ -196,8 +196,8 @@ class Header extends React.Component {
                 style={{ backgroundColor: "blue" }}
                 className="gbtn"
                 onSuccess={this.responseGoogle}
-                onFailure={() => {
-                  alert("Error in google login ");
+                onFailure={err => {
+                  console.log("error in Google Login", err);
                 }}
                 cookiePolicy={"single_host_origin"}
               />

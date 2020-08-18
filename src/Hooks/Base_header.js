@@ -84,8 +84,8 @@ export default class Base_Header extends React.Component {
                 style={{ backgroundColor: "blue" }}
                 className="gbtn"
                 onSuccess={this.responseGoogle}
-                onFailure={() => {
-                  alert("Error in google login ");
+                onFailure={err => {
+                  console.log("erro in google login", err);
                 }}
                 cookiePolicy={"single_host_origin"}
               />
