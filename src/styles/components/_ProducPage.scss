@@ -207,6 +207,14 @@
   animation-timing-function: linear;
   margin: 0px;
 }
+@keyframes rotate {
+  from {
+    transform: rotateZ(360deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
 
 .actions_commenter {
   display: flex;

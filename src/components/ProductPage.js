@@ -69,7 +69,7 @@ export default class ProductPage extends React.Component {
       cover_img: null,
       description: null,
       refId: null,
-      inLibrary: true,
+      inLibrary: false,
       id: null,
       tag: null,
       rating: null,
@@ -116,10 +116,11 @@ export default class ProductPage extends React.Component {
 
     let data = await fetch(`/api/products/search_item/${refId}`);
     let res = await data.json();
-    if (res == true) {
+    console.warn(res);
+    if (res === true) {
       this.setState(() => {
         return {
-          inLibrary: false
+          inLibrary: true
         };
       });
     }
@@ -273,7 +274,6 @@ class Content extends React.Component {
     super(props);
 
     this.state = {
-      inLibrary: true,
       rating: null,
       inCart: false
     };
@@ -281,16 +281,6 @@ class Content extends React.Component {
     let data = {
       id: this.props.id
     };
-
-    postData("/api/products/search_item", data).then(data => {
-      if (data) {
-        this.setState(() => {
-          return {
-            inLibrary: false
-          };
-        });
-      }
-    });
   }
   componentDidMount = async () => {
     let req = await fetch(`/api/user/IsinCart/${this.props.refId}`);
@@ -335,6 +325,10 @@ class Content extends React.Component {
                 ? "Electronics"
                 : this.props.branch === "civil"
                 ? "Civil0"
+                : this.props.branch === "ee"
+                ? "Electrical Engg."
+                : this.props.branch === "ce"
+                ? "Chemical Engg."
                 : this.props.branch}
             </span>
           </div>
@@ -347,7 +341,7 @@ class Content extends React.Component {
         </div>
 
         <div>
-          {this.props.inLibrary ? (
+          {!this.props.inLibrary ? (
             <div className="buy_pp ">
               <button className="buy_btn_pp" onClick={this.props.buy}>
                 {this.props.loadingLib ? <img className="loadingsvg" src={lod} /> : "Add To Library"}
