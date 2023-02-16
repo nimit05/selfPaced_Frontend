@@ -4,8 +4,8 @@ This is the frontend of a note sharing website built using React.js. The website
 ### Installation
 To run this project, you will need to have Node.js installed on your system. Once Node.js is installed, follow these steps:
 
-- Clone the repository: git clone https://github.com/yourusername/notes-website.git
-- Change to the project directory: cd notes-website
+- Clone the repository: git clone git@github.com:nimit05/selfPaced_Frontend.git
+- Change to the project directory: cd selfPaced_Frontend
 - Install dependencies: npm install
 - Start the development server: npm start
 - The website should now be running on http://localhost:3000.
